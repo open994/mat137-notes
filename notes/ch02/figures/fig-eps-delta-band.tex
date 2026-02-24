@@ -20,14 +20,14 @@
     % epsilon band
     \draw[dashed, color=defcolor] (axis cs:0.4,\L+\eps) -- (axis cs:1.6,\L+\eps);
     \draw[dashed, color=defcolor] (axis cs:0.4,\L-\eps) -- (axis cs:1.6,\L-\eps);
-    \node[color=defcolor, anchor=west] at (axis cs:1.62,\L+\eps) {$L+\varepsilon$};
-    \node[color=defcolor, anchor=west] at (axis cs:1.62,\L-\eps) {$L-\varepsilon$};
+    \node[color=defcolor, anchor=east] at (axis cs:0.42,\L+\eps) {$L+\varepsilon$};
+    \node[color=defcolor, anchor=east] at (axis cs:0.42,\L-\eps) {$L-\varepsilon$};
 
     % delta window
     \draw[dashed, color=excolor] (axis cs:\a-\del,0.5) -- (axis cs:\a-\del,2.3);
     \draw[dashed, color=excolor] (axis cs:\a+\del,0.5) -- (axis cs:\a+\del,2.3);
-    \node[color=excolor, anchor=north] at (axis cs:\a-\del,0.5) {$a-\delta$};
-    \node[color=excolor, anchor=north] at (axis cs:\a+\del,0.5) {$a+\delta$};
+    \node[color=excolor, anchor=north east] at (axis cs:\a-\del,0.5) {$a{-}\delta$};
+    \node[color=excolor, anchor=north west] at (axis cs:\a+\del,0.5) {$a{+}\delta$};
 
     % mark (a,L)
     \addplot[only marks, mark=*, mark size=1.7pt, color=black] coordinates {(\a,\L)};

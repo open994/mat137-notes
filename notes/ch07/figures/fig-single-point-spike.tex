@@ -1,0 +1,18 @@
+\begin{tikzpicture}[x=4cm,y=2.2cm]
+  % Axes
+  \draw[->] (-1.05,0) -- (1.05,0) node[below] {$x$};
+  \draw[->] (0,-0.05) -- (0,1.15) node[left] {$y$};
+
+  % Ticks
+  \draw (-1,0.02) -- (-1,-0.02) node[below] {$-1$};
+  \draw (1,0.02) -- (1,-0.02) node[below] {$1$};
+  \draw (-0.02,1) -- (0.02,1) node[left] {$1$};
+
+  % Graph: y = 0 for x \ne 0, and f(0)=1
+  \draw[thick] (-1,0) -- (1,0);
+  \draw[thick,fill=white] (0,0) circle[radius=1.6pt];
+  \fill (0,1) circle[radius=1.6pt];
+
+  \node[above right] at (0,1) {$f(0)=1$};
+  \node[below right] at (0,0) {$f(x)=0\ (x\neq 0)$};
+\end{tikzpicture}

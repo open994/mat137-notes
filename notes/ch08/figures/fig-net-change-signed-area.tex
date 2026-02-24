@@ -7,7 +7,7 @@
     ymin=-2.2, ymax=2.4,
     xlabel={$t$}, ylabel={$v(t)$},
     ticks=none,
-    clip=true
+    clip=false
   ]
     % Example rate function with positive and negative parts
     \addplot[thick, color=thmcolor, domain=0:5, samples=300] {1.2*sin(deg(0.9*x))};
@@ -17,8 +17,8 @@
     % Shade negative area
     \addplot[domain=0:5, draw=none, fill=defcolor, fill opacity=0.12] {min(1.2*sin(deg(0.9*x)),0)} \closedcycle;
 
-    \node[color=excolor, anchor=west] at (axis cs:4.1,1.6) {positive area adds};
-    \node[color=defcolor, anchor=west] at (axis cs:4.1,-1.6) {negative area subtracts};
-    \node[anchor=west] at (axis cs:0.2,2.1) {$\int_a^b v(t)\,dt$ = net change};
+    \node[color=excolor, anchor=east, font=\small] at (axis cs:4.9,1.8) {positive area adds};
+    \node[color=defcolor, anchor=east, font=\small] at (axis cs:4.9,-1.8) {negative area subtracts};
+    \node[anchor=west, font=\small] at (axis cs:0.2,2.1) {$\int_a^b v(t)\,dt$ = net change};
   \end{axis}
 \end{tikzpicture}

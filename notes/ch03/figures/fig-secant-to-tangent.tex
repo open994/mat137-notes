@@ -33,8 +33,8 @@
     % Tangent line at a=1: slope 2
     \addplot[thick, color=black, domain=0.2:2.2, samples=2] {\fa + 2*(x-\a)};
 
-    \node[color=defcolor, anchor=west] at (axis cs:2.25,4.2) {secant ($h=0.9$)};
-    \node[color=excolor, anchor=west] at (axis cs:2.25,3.3) {secant ($h=0.3$)};
-    \node[anchor=west] at (axis cs:2.25,2.4) {tangent};
+    \node[color=defcolor, anchor=west, font=\small] at (axis cs:0.15,5.6) {secant ($h=0.9$)};
+    \node[color=excolor, anchor=west, font=\small] at (axis cs:0.15,5.0) {secant ($h=0.3$)};
+    \node[anchor=west, font=\small] at (axis cs:0.15,4.4) {tangent};
   \end{axis}
 \end{tikzpicture}

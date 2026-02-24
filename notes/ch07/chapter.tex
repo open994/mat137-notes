@@ -435,6 +435,15 @@ The middle step uses Property~1 (\cref{thm:7-6}).
 Property~3 is exactly \cref{lem:7-1}, which we assumed when defining the integral in \cref{sec:7.5}.  The three properties together fully justify the picture: all lower sums sit to the left, all upper sums sit to the right, the lower integral lies between them on the left, and the upper integral lies between them on the right.
 \end{remark}
 
+% ── BEGIN VISUAL ──
+\begin{figure}[ht]
+  \centering
+  \resizebox{\textwidth}{!}{\input{ch07/figures/fig-lower-upper-sums-numberline.tex}}
+  \caption{Lower sums and upper sums viewed as numbers on the real line: meeting implies integrability; a gap implies non-integrability.}
+  \label{fig:lower-upper-sums-numberline}
+\end{figure}
+% ── END VISUAL ──
+
 %=============================================================================
 \section{An Integrable Function}
 \label{sec:7.7}
@@ -469,6 +478,15 @@ Hence
 
 Since the lower and upper integrals are both $0$, the function $f$ is integrable on $[-1,1]$ and $\displaystyle\int_{-1}^{1} f(x)\dx = 0$.
 
+% ── BEGIN VISUAL ──
+\begin{figure}[ht]
+  \centering
+  \input{ch07/figures/fig-single-point-spike.tex}
+  \caption{The function $f$ equals $0$ everywhere except at $x=0$, where $f(0)=1$.}
+  \label{fig:single-point-spike}
+\end{figure}
+% ── END VISUAL ──
+
 %=============================================================================
 \section{A Non-Integrable Function}
 \label{sec:7.8}
@@ -484,6 +502,15 @@ Define $g \colon [0,1] \to \R$ by
 \]
 We will show that $g$ is \textbf{not} integrable on $[0,1]$.
 \end{example}
+
+% ── BEGIN VISUAL ──
+\begin{figure}[ht]
+  \centering
+  \input{ch07/figures/fig-dirichlet-function.tex}
+  \caption{Dirichlet function intuition: on every interval, values $0$ and $1$ both occur (densely).}
+  \label{fig:dirichlet-function}
+\end{figure}
+% ── END VISUAL ──
 
 The entire argument rests on one key observation.
 
@@ -514,7 +541,7 @@ Since $0 \ne 1$, the function $g$ is not integrable on $[0,1]$.
 % ── BEGIN VISUAL ──
 \begin{figure}[ht]
   \centering
-  \input{ch07/figures/fig-nonintegrable-dense-oscillation.tex}
+  \resizebox{0.85\textwidth}{!}{\input{ch07/figures/fig-nonintegrable-dense-oscillation.tex}}
   \caption{Dense oscillation intuition: upper sums stay high while lower sums stay low.}
   \label{fig:nonintegrable-dense-oscillation}
 \end{figure}

@@ -17,13 +17,13 @@
 
     % Secant line from (0,0) to (2,4): y=2x
     \addplot[thick, color=defcolor, domain=-0.1:2.2, samples=2] {2*x};
-    \node[color=defcolor, anchor=west] at (axis cs:2.25,4.1) {secant};
+    \node[color=defcolor, anchor=west, font=\small] at (axis cs:0.15,4.2) {secant};
 
     % Tangent at c=1: slope 2
     \def\c{1}
     \def\fc{1}
     \addplot[thick, color=excolor, domain=-0.1:2.2, samples=2] {\fc + 2*(x-\c)};
     \addplot[only marks, mark=*, mark size=2pt, color=black] coordinates {(\c,\fc)};
-    \node[color=excolor, anchor=west] at (axis cs:2.25,2.1) {tangent at $c=1$};
+    \node[color=excolor, anchor=west, font=\small] at (axis cs:0.15,3.6) {tangent at $c=1$};
   \end{axis}
 \end{tikzpicture}
