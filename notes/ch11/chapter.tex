@@ -52,7 +52,7 @@ There are four common ways to define a sequence.
 
   \item \textbf{By a recurrence relation.}  For example, the \emph{Fibonacci sequence} $\{F_{n}\}$ is defined by
   \[
-    F_{0}=1,\quad F_{1}=1,\quad F_{n}=F_{n-1}+F_{n-2}\;\text{for }n\ge 2.
+    F_{1}=1,\quad F_{2}=1,\quad F_{n}=F_{n-1}+F_{n-2}\;\text{for }n\ge 3.
   \]
 \end{enumerate}
 
@@ -356,14 +356,14 @@ The choice $\eps=1$ is arbitrary; any positive number would work.  We choose $1$
 \label{sec:11.6}
 %=============================================================================
 
-\textit{We now prove \cref{thm:11-6} in the case of an increasing sequence that is bounded above.  The proof for a decreasing, bounded-below sequence is entirely analogous.  The key ingredient is the least-upper-bound axiom for $\R$.}
+\textit{We now prove \cref{thm:11-6} in the case of a non-decreasing sequence that is bounded above.  The proof for a non-increasing, bounded-below sequence is entirely analogous.  The key ingredient is the least-upper-bound axiom for $\R$.}
 
 \subsection*{Proof strategy}
 
 \textit{Since we want to prove convergence, the very first step must be to identify the limit.  The limit is not given to us; we must construct it from the hypotheses.  For an increasing, bounded-above sequence, the natural candidate is the supremum of its range.}
 
 \begin{proof}
-Let $\{a_{n}\}$ be an increasing sequence that is bounded above.
+Let $\{a_{n}\}$ be a non-decreasing sequence that is bounded above.
 
 \proofref{Construct the candidate limit using the least upper bound axiom.}
 
@@ -382,7 +382,7 @@ Let $\eps>0$.  Since $L$ is the supremum and $L-\eps<L$, the number $L-\eps$ is 
 
 \proofref{Show $\abs{a_{n}-L}<\eps$ for all $n\ge n_{0}$.}
 
-Fix an arbitrary $n\ge n_{0}$.  Because the sequence is increasing and $n\ge n_{0}$,
+Fix an arbitrary $n\ge n_{0}$.  Because the sequence is non-decreasing and $n\ge n_{0}$,
 \[
   a_{n_{0}}\le a_{n}.
 \]
@@ -504,7 +504,7 @@ By \cref{thm:11-3}, $\lim_{n\to\infty}\frac{\ln n}{n^{p}}=0$.
 
 \subsection*{Claim 2: $n^{p}\ll c^{n}$ for every $p>0$ and $c>1$}
 
-Fix $p>0$ and $c>1$.  Define $f(x)=\frac{x^{p}}{c^{x}}$ for $x\ge 1$.  Since both numerator and denominator tend to $\infty$, we apply L'H\^opital's Rule repeatedly.  After $k=\lceil p\rceil$ applications, the numerator becomes a constant while the denominator still tends to $\infty$, so the limit is $0$.  By \cref{thm:11-3}, $\lim_{n\to\infty}\frac{n^{p}}{c^{n}}=0$.
+Fix $p>0$ and $c>1$.  Define $f(x)=\frac{x^{p}}{c^{x}}$ for $x\ge 1$.  Since both numerator and denominator tend to $\infty$, we apply L'H\^opital's Rule repeatedly.  After $k=\lceil p\rceil$ applications, the numerator has degree at most $0$ in $x$ (it is a constant when $p$ is an integer, or tends to $0$ when $p$ is not an integer) while the denominator still tends to $\infty$, so the limit is $0$.  By \cref{thm:11-3}, $\lim_{n\to\infty}\frac{n^{p}}{c^{n}}=0$.
 
 \subsection*{Claim 3: $c^{n}\ll n!$ for every $c>1$}
 

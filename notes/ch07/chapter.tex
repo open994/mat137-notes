@@ -620,7 +620,7 @@ Since $m_i \le f(x_i^{*}) \le M_i$ on each sub-interval, every Riemann sum satis
 
 \begin{theorem}[Integral as a Limit of Riemann Sums]
 \label{thm:7-11}
-Let $f$ be bounded and integrable on $[a,b]$.  Let $(P_n)$ be a sequence of partitions of $[a,b]$ with $\norm{P_n} \to 0$, and for each $P_n$, choose sample points $x_i^{*}$ on each sub-interval.  Then
+Let $f$ be bounded and integrable on $[a,b]$.  Let $(P_n)$ be a sequence of partitions of $[a,b]$, each having $n$ sub-intervals, with $\norm{P_n} \to 0$, and for each $P_n$, choose sample points $x_i^{*}$ on each sub-interval.  Then
 \[
   \int_{a}^{b} f(x)\dx = \lim_{n \to \infty} \sum_{i=1}^{n} f(x_i^{*})\,\Delta x_i.
 \]
@@ -747,7 +747,7 @@ If $f$ and $g$ are integrable on $[a,b]$ and $f(x) \le g(x)$ for all $x \in [a,b
 \end{theorem}
 
 \begin{remark}
-This also makes sense geometrically: the region under the graph of $f$ is contained in the region under the graph of~$g$, so its area is no larger.
+This also makes sense geometrically: when $f$ and $g$ are non-negative, the region under the graph of $f$ is contained in the region under the graph of~$g$, so its area is no larger.
 \end{remark}
 
 \begin{remark}

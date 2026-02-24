@@ -1,0 +1,3 @@
+# transcripts
+this folder contains some messy scripts for batch downloading transcripts from youtube. the original plan was to use a simple python package, though its support for importing browser cookies is gone. instead opted for using yt-dlp, which has support for javascript spoofing and cookies import, and this refactor was done mostly by claude.
+originally downloaded to a .json file, but since this file is so large and context and details are important, i wrote a script to split the json into distinct files, so we can then assign an agent worker individually per chapter.

@@ -116,7 +116,7 @@ As $b\to\infty$, $\cos b$ oscillates between $-1$ and $1$ without settling down,
 \end{example}
 
 \begin{remark}
-It is tempting to argue by symmetry that the positive and negative regions of $\sin x$ cancel, giving $0$.  This reasoning is flawed.  Each positive arch from $[2k\pi,(2k+1)\pi]$ has area $2$, and each negative arch has area $-2$.  As $b$ grows, the partial integrals oscillate between $0$ and $2$ rather than settling to any single value.  The integral is not $0$ --- it is simply \textbf{not a number}.
+It is tempting to argue by symmetry that the positive and negative regions of $\sin x$ cancel, giving $0$.  This reasoning is flawed.  Each positive arch from $[2k\pi,(2k+1)\pi]$ has area $2$, and each negative arch contributes $-2$ to the integral.  As $b$ grows, the partial integrals oscillate between $0$ and $2$ rather than settling to any single value.  The integral is not $0$ --- it is simply \textbf{not a number}.
 \end{remark}
 
 %=============================================================================
@@ -352,7 +352,7 @@ Let $f$ be continuous and non-negative on $[a,\infty)$.  Then $\int_{a}^{\infty}
 \end{proposition}
 
 \begin{proof}
-Define $F(b)=\int_{a}^{b}f(x)\dx$.  By the Fundamental Theorem of Calculus, $F'(b)=f(b)\ge 0$, so $F$ is increasing.  An increasing function has a limit at infinity that is either finite (when $F$ is bounded above, by the Monotone Convergence Theorem) or $+\infty$ (when $F$ is unbounded above).  These are the only two possibilities.
+Define $F(b)=\int_{a}^{b}f(x)\dx$.  By the Fundamental Theorem of Calculus, $F'(b)=f(b)\ge 0$, so $F$ is non-decreasing.  A non-decreasing function has a limit at infinity that is either finite (by the Monotone Convergence Theorem, applied to the sequence $F(n)$ and extended to all $b$ via monotonicity) or $+\infty$ (when $F$ is unbounded above).  These are the only two possibilities.
 \end{proof}
 
 \begin{remark}

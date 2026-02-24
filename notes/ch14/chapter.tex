@@ -108,7 +108,7 @@ Let $\sum_{n=0}^{\infty}c_{n}(x-a)^{n}$ be a power series centred at~$a$.
 
   \item \textbf{Nature of convergence.}  In the \emph{interior} of this interval, the series is \textbf{absolutely convergent}.  In the \emph{exterior}, it is \textbf{divergent}.  At the endpoints, if any, anything may happen: the series may converge absolutely, converge conditionally, or diverge, independently at each endpoint.
 
-  \item \textbf{Polynomial-like behaviour.}  In the interior of the interval of convergence, a power series can be \textbf{treated like a polynomial}.  That is, power series may be added, multiplied, composed, differentiated, and integrated \textbf{term by term}, in the same way as finite polynomials.  None of these operations changes the radius of convergence.
+  \item \textbf{Polynomial-like behaviour.}  In the interior of the interval of convergence, a power series can be \textbf{treated like a polynomial}.  That is, power series may be added, multiplied, composed, differentiated, and integrated \textbf{term by term}, in the same way as finite polynomials.  In particular, differentiation and integration do not change the radius of convergence.  For sums and products of two power series, the resulting series converges at least on the intersection of the two intervals of convergence.  Composition $f\circ g$ is valid when $g(x)$ lies inside the interval of convergence of~$f$.
 \end{enumerate}
 \end{theorem}
 
@@ -183,6 +183,7 @@ Let $f$ and $g$ be continuous at $a$, and let $n\in\N$.  We say that $g$ is an \
 \[
   \lim_{x\to a}\frac{f(x)-g(x)}{(x-a)^{n}} \;=\; 0.
 \]
+Note that for $n\ge 1$, this condition forces $f(a)=g(a)$ (otherwise the limit would not be finite).
 \end{definition}
 
 \textit{The limit is an indeterminate form $\frac{0}{0}$: the numerator $f(x)-g(x)$ tends to $0$ (because both are continuous at $a$ and approximate each other there), and the denominator $(x-a)^{n}$ tends to $0$.  For this indeterminate form to resolve to $0$, the numerator must approach $0$ faster than the denominator.  That is precisely the content of the definition.}
@@ -231,7 +232,7 @@ We will encounter many results that require different numbers of derivatives.  T
 \]
 \textit{We now investigate, under the assumption that $f$ and $g$ are $C^{n}$, what conditions on the derivatives of $f$ and $g$ are equivalent to $L=0$.}
 
-Suppose first that $f(a)\neq g(a)$.  Then the numerator has a nonzero limit while the denominator tends to $0$, so $L$ is infinite.  Hence we need $f(a)=g(a)$.
+Suppose first that $f(a)\neq g(a)$.  Then the numerator has a nonzero limit while the denominator tends to $0$, so $L$ does not exist as a finite number.  Hence we need $f(a)=g(a)$.
 
 With $f(a)=g(a)$ we have the indeterminate form $\frac{0}{0}$.  Apply L'H\^{o}pital's Rule:
 \[
@@ -757,7 +758,7 @@ Integrate term by term:
   = \sum_{k=0}^{\infty}\frac{(-1)^{k}}{k!}\cdot\frac{3^{2k+1}}{2k+1}
   = \sum_{k=0}^{\infty}\frac{(-1)^{k}\cdot 3^{2k+1}}{k!\,(2k+1)}.
 \]
-This is a convergent series (the factorial in the denominator ensures rapid convergence), and truncating it to a partial sum yields an estimate to any desired accuracy.
+This is a convergent series (the factorial in the denominator ensures that the terms eventually decrease rapidly), and truncating it to a partial sum yields an estimate to any desired accuracy.
 \end{example}
 
 \begin{example}[A simpler series than partial fractions]
