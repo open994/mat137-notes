@@ -1,0 +1,181 @@
+Infinite sums are not commutative.
+This is perhaps one of the most
+surprising results about series,
+and it is at the heart of the difference
+between absolutely convergent and
+conditionally convergent series.
+That is the topic of this video.
+I'm going to start with an example.
+Let's look at this series:
+the alternating harmonic series
+1 - 1/2 + 1/3 - 1/4, and so on...
+This series is convergent, thanks to
+the alternating series test.
+Now I'm going to compare with this
+other one, which is a reordering.
+I am adding the very same terms,
+but I change the order.
+Now I am adding two positive terms,
+then one negative,
+then two positive, then one negative,
+and so on...
+But the terms I am
+adding are the same.
+If these were finite sums,
+they would be equal.
+But they're infinite sums!
+I'm not going to prove it,
+but it is possible to show that
+the first sum adds to ln(2),
+and the second one
+adds to (3/2)⋅ln(2).
+This is a surprise. This definitely
+doesn't happen with finite sums,
+and I wish it didn't
+happen for infinite sums...
+So why is this?
+The theorem says, that whether we can
+reorder the terms of a series or not,
+depends on what type
+of convergent it is.
+If a series is absolutely convergent,
+then what I just showed will not happen,
+Then it can definitely be reordered, and
+this won't change the value of the sum.
+If the original series was convergent,
+after I change the order, it is still
+convergent, with the same sum.
+But if the series
+is conditionally convergent,
+then, well, reordering it
+may well change the value.
+And it is actually worse!
+If a series is conditionally convergent,
+then it is always possible to reorder it
+to make it convergent
+to ANY number we want.
+Choose what you want the
+value of the sum to be,
+and there's a way to order it
+so that that's the value of the sum.
+And there is also a way to reorder it to
+make it divergent in any way we want.
+(Perhaps divergent to ∞,
+or oscillating.)
+In other words, conditionally
+convergent series are bad.
+This theorem is quite shocking.
+It seems very powerful,
+and very surprising,
+and it looks like it's going
+to be difficult to prove.
+But surprisingly, it
+is not that difficult.
+I'm going to try to explain what's bad
+about conditionally convergent series
+first with an example,
+and then we'll see that that works
+for all conditionally convergent series.
+So I'm going to look more
+closely at this example:
+the alternating harmonic series
+1 - 1/2 + 1/3 - 1/4, and so on...
+I'm going to point out that this example
+has three important properties.
+First, if I look at the terms that I am
+adding and subtracting without the signs,
+the limit of those terms is 0.
+This will be true for any
+conditionally convergent series,
+because it must be true
+for any convergent series.
+Second, I'm going to look separately at
+the negative and positive terms.
+If I look just at the negative terms:
+-1/2 - 1/4 - 1/6, and so on,
+then they add up to -∞.
+In this case,
+one way to see that is if I take a common
+factor of -1/2 from these terms,
+they give me the harmonic series
+itself, which I know to be ∞.
+And separately, if I look just at the
+positive terms 1 + 1/3 + 1/5, and so on,
+they add up to ∞.
+One way to justify
+that is by comparing
+the positive terms with the negative
+terms in absolute values;
+and the positive terms are greater than
+the negative terms in absolute value,
+so they also diverge to ∞.
+And these three properties
+turn out to be true for
+any conditionally convergent series.
+Well it turns out that
+whenever I have a series
+where the limit of the
+terms I'm adding is 0,
+the positive terms add to ∞,
+and the negative terms add to -∞,
+then I'm going to be able to reorder it
+to get any value of the sum I want.
+And here is how!
+As an example, I'm going to try to
+reorder the alternating harmonic series,
+so that the sum is 7.
+But there's nothing special about 7.
+It's a number I chose at random.
+The same will work
+with any other number.
+To do this, first,
+I'm going to add positive terms
+(just positive terms,
+ignoring the negatives)
+until a partial sum goes above 7.
+I know this is possible because all
+the positive terms add up to ∞;
+therefore, this would be possible
+to go as far as I need.
+Then, I'm going to add negative terms
+until a partial sum goes below 7.
+Again, that's possible because all the
+negative terms together add up to -∞.
+And then, I go back to Step 1,
+and keep doing that
+(adding positive terms
+until I go beyond 7,
+and adding negative terms
+until I go below 7).
+If I do this, it will definitely give me
+a reordering of the original series.
+Why will this new series
+be converging to 7?
+Now is when I use the third property.
+Notice that the limit of the terms I am
+adding and subtracting is 0,
+so every time I get to a partial sum
+that goes above or below 7,
+they will be staying closer to 7,
+because they will only
+go above or below by 1/n,
+so they will be staying closer
+and closer to 7,
+and thus, the limit of the sequence
+of partial sums is 7, that's it!
+I love this theorem because
+it's shocking and surprising,
+and yet the proof
+is delightfully simple.
+In summary, absolutely convergent series
+are the good type of convergent.
+They behave nicely (they have similar
+properties to finite sums),
+and we can do with them many of the
+things we can do with finite sums.
+But conditionally convergent
+series are treacherous.
+They may be convergent,
+but don't trust them!
+They misbehave, and they don't have the
+properties we would like them to have.

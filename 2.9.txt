@@ -1,0 +1,263 @@
+In this video,
+I will illustrate with an example
+how to prove that a function
+does not have a limit;
+that the limit does not exist
+directly from the formal definition.
+I assume you have already watched
+the videos where I explain the definition
+and the examples
+on how to prove that a function
+DOES have a limit from the definition.
+I will include links
+in the description.
+I could say that
+the example in this video
+is like the previous ones on steroids.
+Okay, let's get started.
+I will work with the function h,
+defined by the equation
+h(x) = cos(π ⋅ x).
+I want to prove
+that lim_(x → ∞) h(x) does not exist.
+To understand this function,
+first let’s look at its graph.
+It oscillates between -1 and 1.
+And for large values of x,
+as x approaches infinity,
+it keeps oscillating.
+Geometrically, I can see
+why it does not have a limit at infinity,
+as it does not approach
+one single number.
+The π in the argument of cosine
+makes calculations easier.
+When x is an EVEN integer,
+I get cosine of 2π, 4π, 6π, and so on,
+which is always 1.
+When x is an ODD integer,
+I get cosine of π, 3π, 5π, and so on,
+which is always -1.
+This will come in handy.
+Okay, then.
+Can we write a rigorous proof?
+If I want to prove
+that the limit does not exist,
+then I need the formal definition
+of “the limit does not exist”.
+Let’s figure it out.
+As a starting point,
+we know what it means
+that lim_(x → ∞) h(x) is a number L;
+it is THIS statement.
+If you are NOT comfortable
+with this definition,
+watch the video where I came up with it. 
+I will link it in the description.
+To say the limit is NOT L,
+I need to negate the previous statement.
+Let’s do that.
+I need to say it is FALSE
+that every ε satisfies something.
+In other words, there exists ONE ε
+that fails the rest of the sentence.
+Now, I need to say it is FALSE
+that there is a real number M
+that satisfies the implication.
+This means that EVERY real number M
+fails the implication.
+And now it gets a bit tricky.
+When I write the implication, I mean
+that EVERY real number x satisfies it.
+There is a hidden quantifier,
+"for all x," in here.
+So to negate the implication,
+I need to say
+that AT LEAST ONE REAL NUMBER x fails it.
+And finally,
+to say the implication is FALSE,
+I need to say that the "IF" part is TRUE
+and the "THEN" part is FALSE.
+That’s it.
+If the last part confused you,
+I suggest you rewatch the video
+where I explain, more slowly,
+how to negate a conditional,
+and why there is sometimes
+a hidden quantifier.
+I will link it in the description.
+But we are not done.
+What I have written is that the limit
+does not equal some number L,
+for example, that the limit is not 5.
+Saying that the limit DOES NOT EXIST
+means that it is not ANY real number.
+In other words, FOR EVERY REAL NUMBER L,
+the limit does not equal L.
+Since I already have a definition
+of “the limit does not equal L”,
+I can append it here...
+and that’s it!
+This final statement,
+now in blue at the bottom,
+is the definition I was looking for.
+Four quantifiers, no less.
+At this moment,
+I suggest you pause the video
+to convince yourself
+that you understand this statement
+and where it came from.
+This is a long, scary-looking statement.
+But I can treat it
+like any other statement I want to prove.
+Before going further,
+I will look at it carefully
+to figure out
+what the structure
+of the proof should be.
+Okay. THIS is what I want to show.
+So my proof MUST begin
+by FIXING an arbitrary real number L.
+THEN, I will need
+to SAY what I take as ε,
+possibly as a function of L.
+THEN,
+I will FIX an arbitrary real number M.
+THEN, I will need
+to SAY what I take as x,
+possibly as a function of L and M.
+And finally, I need
+to verify the two inequalities.
+I went a bit faster,
+because it is not the first time
+that I write the structure
+of a proof like this.
+If it went too fast, you can rewatch
+some easier epsilon-delta proofs,
+linked in the description.
+The difficulty, as usual,
+is to figure out what to take
+as ε and as x.
+Let’s explore it.
+I'm going to look at the WHOLE statement
+against a graph
+to try to understand
+what it means better,
+and to figure out what I pick as ε
+and what I pick as x.
+We begin with "for every L,"
+so L is an arbitrary real number there.
+Now, I need to say what ε is,
+so I'll be picking a value of ε,
+for example, up to here.
+this is L + ε, and this is L - ε.
+And the last condition here
+means that h(x)
+will NOT be in this interval;
+will NOT be between L + ε and L - ε.
+So I'll be picking
+probably a part in here.
+Now, "for EVERY real number M."
+So let's say M is here,
+and I need to show
+that there exists ONE value of x
+which is greater than M,
+and with h(x) outside of that interval.
+So for example,
+I could pick x to be here,
+and it will give me
+h(x) outside of the interval.
+So, these two conditions
+mean that when I pick the point x,
+h(x) doesn't land here.
+So I need to avoid this region.
+As long as I can find a point
+to the right of M
+that avoids this region,
+I am fine.
+The question was,
+what do we pick as ε,
+and what do I pick as x?
+It should be clear
+that to make this happen,
+I'm gonna need to pick ε not too large;
+if I pick a value of ε that is very large
+so that (L + ε, L - ε)
+includes everything between -1 and 1,
+this will be impossible.
+So as long as I pick ε small enough
+so that it doesn't include
+EVERYTHING between -1 and 1,
+I have a hope of making this work.
+So, I am going to pick
+ANY ε which is at most 1,
+because then, either 1 or -1
+-- at least one of them --
+has to be missing
+from the interval (L + ε, L - ε),
+because in order for the OPEN interval
+to include BOTH -1 and 1,
+the diameter would have
+to be STRICTLY greater than 2,
+so ε would have to be
+STRICTLY greater than 1.
+And then, which value of x do I pick?
+I will pick an integer x.
+Then, h(x) will be either 1 or -1,
+depending on whether x is odd or even.
+This will satisfy what I need;
+h(x) WON'T be between L + ε and L - ε.
+I also need to pick x > M.
+But there are certainly
+integers as large as I want.
+So I think that will work.
+And I think that's all I need!
+I think I am ready
+to write a proof now!
+Here is, once again,
+the claim I have to prove.
+And, at last, here is the actual proof.
+First, I FIX an arbitrary real number L.
+Then I PICK ε to be 1/2.
+How do I know to pick THIS ε?
+Because of all the preparation work
+I did earlier!
+I know that I could have chosen ε
+depending on L if needed,
+but it turns out I do not need to.
+Then, I FIX an arbitrary real number M.
+AT LEAST one of the following
+must be true:
+Either 1 or -1
+is not in the open interval
+from L - ε to L + ε,
+thanks to my choice of ε.
+In the first case,
+I will choose any integer x
+that is EVEN and greater than M.
+There certainly is such an integer x.
+If necessary, I could write
+an explicit formula for it,
+probably using the floor function
+or the ceiling function.
+But I do not think
+that it would make the proof
+any more clear or convincing,
+so I will just keep it this way.
+And with this choice, h(x) is 1.
+In the second case,
+I choose any integer x
+that is ODD and greater than M.
+And then, h(x) is -1.
+Either way, x is greater than M,
+and the distance between h(x) and L
+is greater than or equal to ε,
+which is what I wanted to prove.
+We are done. Hooray!
+One final observation:
+Look at the parts of the proof
+that I just coloured in blue.
+The structure of the proof
+is exactly what we agreed earlier
+that it should be.
+This is always a good thing to check.

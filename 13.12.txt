@@ -1,0 +1,105 @@
+This is a short video about
+the comparison tests
+for convergence of
+series (or infinite sums).
+And it is short,
+because everything I want to say about
+comparison tests for series
+can be summarized by
+this one sentence:
+comparison tests for series,
+and comparison tests for improper
+integrals, work exactly the same way.
+In various previous videos,
+I introduced the comparison tests
+for improper integrals, slowly.
+I explained the statement of the
+theorems, the proofs, why they work,
+and some examples of the
+calculations we normally do with them.
+I will add a link in the
+description of this video
+to the videos where I did all
+that for improper integrals.
+Well everything works exactly
+the same way for series,
+so I guess I could end it here.
+But just a quick summary
+of what these theorems say.
+First, the main result these
+theorems are based on is the following:
+if I have a positive series, it may only
+be convergent or divergent to ∞,
+other types of divergence
+are not possible.
+And as a consequence, if I want to prove
+that a positive series is convergent,
+all I have to do is prove
+that it is not ∞.
+This is at the basis of all comparison.
+This is what allows us
+to write comparison tests.
+So, here is the statement
+of the two theorems.
+First: the Basic Comparison Test.
+For this test, I begin with two series
+(the sum of aₙ and the sum of bₙ),
+and I assume that one
+is bounded by the other.
+I assume that the bₙs are ≥ the aₙs,
+which are ≥ 0.
+I'm saying for every natural number,
+but as we know,
+it could be enough if
+this was true eventually,
+(if this was only true
+for large values of n)
+because for the
+purpose of convergence,
+only what happens to the tail
+of the series matters.
+So I assume that bₙ bounds the aₙ.
+And then, if the sum of the aₙs (the
+smaller series) is divergent to ∞,
+then the sum of the bₙs (the bigger
+series), must also be divergent.
+On the other hand,
+if the sum of the bₙs (the bigger series)
+is convergent (is a number),
+then the sum of the aₙs must
+also be convergent (also a number).
+As you see, it's exactly the same
+theorem as for improper integrals.
+Here is the second theorem:
+The Limit-Comparison Test, for series.
+In this case, I begin again with two
+positive series (sum of aₙ, sum of bₙ),
+but instead of trying to
+bound one with the other,
+I compute the limit of
+the quotient of the general terms.
+So I calculate the lim_(n → ∞) aₙ/bₙ,
+and I need to assume this
+limit exists (is a number),
+and that this number is positive.
+In that case,
+the conclusion is that the two series
+must either be both convergent,
+or both divergent, that's it!
+Again, it's the same theorem.
+For the proof, I invite you
+to rewatch the proof
+of the Limit-Comparison Test
+for improper integrals,
+and convince yourself that you
+could take the very same proof,
+replace every integral with a series,
+and it will work exactly the same way.
+As for examples of how to use the two
+theorems, again,
+I invite you to rewatch the examples
+I explained for improper integrals,
+and convince yourself that every example
+would have worked equally well,
+if we had been talking about series,
+rather than improper integrals.

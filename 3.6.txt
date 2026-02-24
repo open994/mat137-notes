@@ -1,0 +1,104 @@
+In this video, I will write a proof for
+the product rule for derivatives.
+The statement is summarized by this
+equation here.
+The derivative of a product
+of two functions
+is the derivative of the first 
+times the second,
+plus the first times the
+derivative of the second.
+The formal statement of the theorem is a
+bit longer.
+I first have to introduce my notation.
+a is a real number, f and g are functions
+defined at and near a,
+h is the product of f and g.
+Then the theorem says: 
+IF f and g are differentiable at a,
+THEN the product is also differentiable
+at a, and we get the equation.
+The IF-THEN part matters.
+If f and g are not differentiable at a,
+then the equation is not true,
+and the derivative of the product may
+still exist and have any value.
+I went a bit fast through this.
+I explained it a bit more slowly in a
+previous video which I will link in the
+description.
+Now it is time to write the proof.
+First, I write the definition of
+derivative.
+There is only one thing I can do next:
+use the definition of h,
+both for h(x) and for h(a).
+Now I need to stop to think.
+I want to relate this expression 
+to the derivatives of f and g.
+If the two appearances of g were the same,
+I could factor them out and I would be
+left with the derivative of f.
+But they are not the same.
+Similarly, if the two appearances of f
+were the same,
+I could factor them out and I would be
+left with the derivative of g.
+But they are not the same either.
+I am going to add and subtract some terms
+so that I can factor things out.
+First, I copy the exact same expression.
+And then I add and subtract the same term.
+This is certainly legal, because I have
+effectively added 0.
+But look how it helps me. 
+In the first two terms, I can factor g(x).
+And after factoring it, 
+I am left with the derivative of f.
+In the last two terms, I can factor f(a).
+And after factoring it, 
+I am left with the derivative of g.
+Let's regroup the terms this way 
+to make it more clear.
+Now I recognize some of these pieces
+individually.
+So I will try to use the limit laws
+and write this limit as sum and product
+of limits of each of the four pieces.
+Wait! For the purpose of the limit,
+the variable is x, not a.
+f(a) is not a function of x.
+It is just a multiplying factor.
+It acts like a constant.
+In order to do this,
+since I am using the limit laws,
+I need all the individual limits to exist,
+but I am going to justify that now.
+The first piece is the derivative
+of f at a.
+But I can only say this because
+we assumed f was differentiable at a.
+Similarly, the last piece is the
+derivative of g at a.
+Again, because we assumed g was
+differentiable at a.
+What about this limit?
+It is tempting to write that it is g(a).
+But can we say that?
+This limit being g(a) is exactly
+the definition of continuity.
+Do we know whether g is continuous at a?
+Yes, we know. We are assuming g is
+differentiable at a,
+differentiability implies continuity,
+therefore g is continuous at a.
+And so I have proven that
+h'(a) = f'(a)g(a) + f(a)g'(a).
+And that completes the proof.
+Two important notes:
+it was essential to assume that
+f and g were differentiable at a.
+Otherwise, I would not have been able to
+use the limit laws in this step.
+And also, I had to explain how I know
+that g is continuous at a.

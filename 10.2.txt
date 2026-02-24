@@ -1,0 +1,251 @@
+In the previous video,
+I explained with one example how to
+compute the volume of certain solids
+by slicing them like a carrot.
+That method is sometimes
+called the washer method.
+In this video,
+I will work with a different example
+that will require a different approach
+(sometimes called
+the cylindrical shell method).
+Do not worry about the names.
+Both methods are about slicing the solid,
+we just slice it in a different way.
+Here's the example.
+I will look at the region
+in the first quadrant,
+between the graph of y = 2x⁴ - x⁵,
+and the x-axis.
+I will rotate that region
+around the y-axis.
+This creates a solid of revolution,
+and I want to compute its volume.
+I invite you now that pause the video,
+draw a picture,
+and try to visualize
+what this solid looks like.
+Once you think you understand
+what it looks like,
+(once you have a clear picture)
+continue watching.
+This is what the graph of
+y = 2x⁴ - x⁵ looks like.
+I want to take the region
+between the graph and the x-axis,
+and I'll rotate it around the y-axis.
+What do I get?
+I get something that looks like this:
+like a little volcano.
+A mountain with a hole in the centre.
+Why?
+Look at the rubber band.
+The rubber band represents this curve,
+and the y-axis sticks out
+from the centre.
+Then take the region under the curve,
+(that's the region under the rubber band)
+and now rotate the rubber band.
+That's why the solid looks like this.
+Now I want to compute its volume.
+First, I'm going to attempt to do the
+same thing I did in the previous video.
+I will slice it like a carrot.
+Here's my knife...
+I'm going to slice it like this.
+If I do that, what will
+each piece look like?
+Something like this.
+That's a cut.
+Here's another way to look at it.
+I can cut a very thin stripe,
+with width dy.
+If instead of rotating the full region,
+I just rotate this stripe
+around the y-axis,
+it will produce something like this.
+Notice that it is not at scale.
+The thickness of this ring is dy. Let
+me give names to the other dimensions.
+I have the inner radius, call it "r", and
+then I have the big radius, call it "R".
+If I look back at the region here,
+I see that this is the big radius
+and this is the small radius.
+Next, I want to figure out what the
+volume of this piece is.
+It's going to be
+an infinitesimal volume,
+because this annulus
+has an infinitesimal height.
+(That's the infinitesimal dimension.)
+What will the volume be?
+It's going to be the surface
+times the height.
+The height is dy.
+What is the surface?
+It is like a big disc
+that is missing a smaller disc,
+so it will be the surface of the big
+disc - the surface of the small disc.
+Excellent! That is the volume of
+one infinitesimally small piece.
+To get the volume of the full volcano,
+I need to add up all of
+the infinitesimally small volumes.
+That sum is actually an integral.
+So the volume will be
+the integral of these pieces.
+(I am just copying the same expression.)
+What are the endpoints?
+Well I'm integrating with respect to y,
+so it will go from 0 to whatever the
+maximum value of the function here is.
+I don't know what that is...
+I'll call it "b".
+I'll figure out what b is later.
+To finish the setup, since I'm
+integrating with respect to y,
+I need to write everything
+in terms of y.
+Well R and r are the values of x here,
+so I need to solve for x
+in the equation y = 2x⁴ - x⁵.
+I expect I'm going to have
+two solutions in this domain,
+the smallest one will be r,
+and the bigger one will be R.
+That's it! I finished the setup.
+I have a plan.
+Unfortunately, I don't think
+this is going to work,
+because I don't know how
+to solve for x here.
+If the function had been different,
+this plan could be great.
+It could work beautifully.
+But as it is,
+I cannot fully implement it.
+So this was a good idea,
+it was worth trying it,
+but ultimately, we cannot
+complete the problem this way.
+I'm going to have to try something else.
+Here is the original region again.
+In the first method,
+I integrated with respect to y.
+I sliced the original
+region horizontally.
+This time, I want to integrate
+with respect to x.
+I am going to slice
+the region vertically.
+Specifically, let me look at a
+very thin stripe with thickness dx.
+I want to see what I get when I rotate
+this thin stripe around the y-axis,
+and my full solid of revolution
+will be the union of those pieces.
+I get something that looks like this.
+Here's another way to look at it.
+This is the volcano.
+In the first method,
+I was taking cuts like this.
+But this time,
+I am taking concentrical cuts,
+and this is one of them.
+This is sometimes called
+a cylindrical shell.
+There is a big difference
+between the two cuts.
+In the first method,
+the tiny (the infinitesimally small)
+dimension is this height,
+but in this second method now,
+the infinitesimally small
+dimension is this thickness.
+Let's find out the other
+dimensions of this piece.
+The height is y, and the radius is
+the distance to the axis,
+which in this case is x.
+Notice that I will be integrating
+with respect to x.
+I will want to write
+everything in terms of x.
+Now, how do I write the
+volume of this piece?
+Precisely, because the thickness
+is infinitesimally small,
+I can just break it,
+and stretch it like this.
+And now this looks like a brick, and it's
+easy to compute the volume of a brick.
+Notice that strictly speaking this is an
+approximation and we make a tiny error.
+But it's an okay approximation,
+precisely because the thickness
+is infinitesimally small.
+If I try this with something else,
+where this dimension were normal,
+then I could be making a big error.
+Okay, as I said, the thickness of this
+is still dx, the height is still y...
+What about this dimension?
+Well it's the length
+of this circumference,
+and the radius is x,
+so that length is 2πx.
+Now I can write the
+volume of the brick.
+It's the product of
+the three dimensions.
+It's an infinitesimal volume because
+one of the dimensions is infinitesimal,
+and as I said, it's the product
+of all of them: 2πx⋅y⋅dx.
+Excellent!
+That's the volume of one piece;
+and my solid is the union of all the
+pieces, so I have to sum them,
+or rather take an integral.
+Since I am using x as
+the variable of integration,
+it's easier,
+it will go from 0 to 2.
+And now I copy the infinitesimal volume:
+it's 2πx,
+times y, but I need to write everything
+in terms of x, so I put 2x⁴ - x⁵,
+times dx.
+Success! I've managed to set
+my volume as an integral.
+Everything is written in terms of x only,
+and x is the variable of integration.
+We can complete
+the calculation from here.
+These two methods to compute the volume
+of a solid of revolution...
+...have official names.
+The first one,
+when we cut the initial region
+PERPENDICULAR to the axis of revolution,
+is sometimes called the "washer method."
+And the second one,
+when we cut the initial region PARALLEL
+to the axis of revolution,
+is sometimes called
+the "cylindrical shell method."
+But I don't care about the names.
+I even think that the methods
+are basically the same:
+cut the solid into infinitesimally
+small pieces. That's it.
+We just happen to cut in different ways.
+Nevertheless, whatever you call them,
+if you want to practice the SECOND
+method specifically, here is an exercise.
+The volume of this solid of revolution
+is particularly well-suited
+for the second method,
+but not for the first one.

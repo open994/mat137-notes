@@ -1,0 +1,306 @@
+In the previous videos,
+I explained that
+analytic functions
+are functions that can be
+written as power series.
+In this video,
+I will summarize everything
+you need to know
+about analytic functions,
+and the tool we use to prove
+a function is analytic:
+the remainder theorems.
+Fair warning:
+this video is fully packed
+with theorems,
+some quite technical
+which I won't prove.
+They will make the rest
+of this playlist easier
+and we will get lots of nice and
+useful applications of Taylor series.
+So, they are worth it.
+So far, I have been casually
+saying that a function is analytic
+when it equals its Taylor series.
+But, that is not precise enough.
+I need to specify
+WHICH Taylor series,
+and I need to specify
+on which domain.
+So, to begin, let's write
+a more precise definition.
+I start with a C^infinity function f,
+on an open interval I.
+I require C^infinity so that
+we can at least write
+its Taylor series.
+Now, let's fix a point a
+in the domain,
+and let us call S_a the
+Taylor series of f
+centred at a.
+I will say that f is analytic at a when...
+...I want to say when f(x) = S_a(x),
+but for which values of x?
+For all values of x in some
+open interval centred at a.
+In other words, this means
+that the function
+and the Taylor series of the
+function centred at a
+are equal NEAR a.
+That was the definition
+of "analytic at a".
+If instead I say that
+"f is analytic"
+and I do not specify a point,
+it means that f is analytic
+at all points in its domain.
+That's it.
+That is the precise definition
+of analytic,
+which we often
+carelessly summarize as:
+"the function equals its Taylor series."
+Here are some results
+about analytic functions,
+which I am not going to prove.
+First, polynomials
+are analytic.
+They are finite power series.
+Second, sums, products, 
+quotients
+(as long we we don't
+divide by zero)
+and compositions of analytic
+functions are all analytic.
+Moreover, the derivatives
+and antiderivatives
+of analytic functions
+are also analytic.
+In short:
+All common operations
+with analytic functions
+produce analytic functions.
+But, there is more.
+An analytic function is
+written as a power series.
+We know that in the interior
+of the interval of convergence,
+a power series can be manipulated
+like a polynomial.
+So, all the operations above
+can be performed with Taylor series
+the same way we would perform
+them with polynomials.
+And finally, we know that the
+Taylor series of a function
+at a point is unique.
+Thanks to all these properties, 
+my goal now is very humble.
+I just need to prove
+that the exponential and the
+sin function are analytic.
+That's all.
+Why only these two functions?
+Because all other
+elementary functions
+can be written in terms
+of these two functions,
+polynomials, and the
+operations I listed.
+Moreover, once I know
+these two are analytic,
+getting the Taylor series of
+new functions will be easy
+by manipulating the
+Taylor series I know.
+I will illustrate how to do this
+with examples
+in a video linked in the description.
+Okay then.
+How do I prove that a
+function IS analytic?
+Let's review the notation
+and make a plan.
+Let f be a function defined
+on an open interval I,
+and let a be a point on I.
+If the function is C^n,
+then we can write the n-th
+Taylor polynomial.
+As you know, it is given
+by this sum.
+We can always write the function
+as the n-th Taylor polynomial
+plus the n-th remainder.
+The remainder is just the difference:
+the error we make
+when we approximate a function
+by the polynomial.
+If the function is C^infinity,
+then we can write
+the Taylor series.
+As you know, it is given by
+this infinite sum.
+We also know that the Taylor
+series is the limit
+of the n-th Taylor polynomials
+as n approaches infinity.
+This is because the
+Taylor polynomials
+are the partial sums corresponding
+to the Taylor series.
+Finally, the function is
+anaytic when, in addition,
+the function equals
+the Taylor series.
+In other words, analytic means
+that the error made when using
+the Taylor series
+as an approximation is 0.
+Now, the Taylor series is the limit
+of the Taylor polynomials.
+Therefore the error made when
+using the Taylor series
+as an approximation is
+the limit of the remainder
+of the Taylor polynomials.
+In other words, being analytic
+is equivalent to saying
+that the limit of the n-th
+remainders,
+as n approaches infinity,
+must be zero.
+This is what we need to prove
+in order to show that
+a function is analytic.
+You may be thinking:
+"haven't we already established this?"
+"Don't we already know that the
+limit of the remainders is zero?"
+Let's be careful.
+There are two important limits
+involved in the remainders.
+What we know, from the very
+definition of Taylor polynomials,
+is that if I fix n, the order
+of the Taylor polynomial,
+and then I make x approach a,
+then the error approaches zero,
+and it approaches zero FAST.
+That is what we knew.
+But in order to prove that
+a function is analytic,
+I need to look at a different limit.
+I need to fix x, and then
+I need to take the limit
+as n approaches infinity
+of the remainder,
+and I need that limit to be zero.
+Okay then.
+To prove the limit of
+the remainders is zero,
+it will help to estimate
+the remainders.
+There is a perfect tool
+for this purpose:
+the remainder theorems.
+I say "theorems" in plural because
+they are a family of theorems.
+They are all very similar.
+A typical remainder theorem
+has this form.
+IF [some hypotheses are true],
+THEN we get [some formula
+for the remainder].
+There are at least three common
+versions of the remainder theorem:
+Lagrange's form, Cauchy's form,
+and the Integral form.
+They each give a different
+looking formula,
+but for our purposes, they
+are interchangeable.
+They all allow us to
+estimate the remainders,
+and to prove that functions
+are analytic.
+I won't write a proof for any of them,
+but I will mention
+that all their proofs use the
+Mean Value Theorem,
+or perhaps Rolle's Theorem.
+This should not be a surprise.
+Every important theorem in calculus
+relies on the Mean Value Theorem.
+As an example, here is the
+precise statement
+of Lagrange's Remainder Theorem.
+Once again, this is just one
+of the versions.
+This is not more or less
+important than the others.
+Let I be an open interval.
+Let a be a point in I.
+Let n be a natural number,
+and let f be a C^{n+1} function.
+Notice that we only
+need f to be C^n
+in order to write the n-th
+Taylor polynomial.
+But we need C^{n+1} in order to get
+this formula for the n-th remainder.
+Here's the formula for the n-th
+Taylor polynomial that you know,
+and the n-th remainder is defined
+as the difference
+between the function and
+the polynomial.
+Then, under these assumptions,
+we get this new equation.
+It is very close to being the n+1st
+term in the Taylor series,
+but instead of evaluating at a,
+we evaluate at xi.
+What is this new variable xi?
+I have to introduce it,
+otherwise the statement
+is meaningless.
+The theorem says that
+there exists a number xi
+between a and x such that
+this equation is true.
+In a way, this is reminiscent
+of the Mean Value Theorem.
+The Mean Value Theorem says that
+under certain hypotheses,
+there exists a number c
+that satisfies an equation.
+This theorem says that
+under certain hypotheses,
+there exists a number xi that
+satisfies another equation!
+Okay...how is this theorem useful?
+First, we can use this theorem
+to prove that a function is analytic.
+That was the motivation
+we had throughout the video.
+I will illustrate this with an
+example in a later video.
+Second, we can also use this theorem
+to estimate the value of a
+complicated function
+with a Taylor polynomial.
+An estimation is only useful
+when we can bound the error.
+This theorem allows me
+to do exactly that.
+I will also illustrate this with
+an example in a later video.
+Both videos are linked
+in the description.
+This is everything you need to know
+about analytic functions and
+the remainder theorems.

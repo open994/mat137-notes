@@ -1,0 +1,190 @@
+In this video, I will explain the theory
+behind the INVERSE of a function.
+For examples, watch the next video.
+If you study which functions
+have inverses,
+the answer may depend on
+which course you are taking:
+calculus or linear algebra for example.
+I want to explain
+the apparent contradiction.
+First, I will explain the more rigorous
+way to define the INVERSE of a function,
+and second, the conventions
+that we normally use in calculus.
+I assume you have already
+watched the previous video,
+where I defined functions in general.
+Otherwise, some of the notation
+I use won’t make sense.
+The idea behind the
+INVERSE of a function is simple:
+SWAP inputs and outputs.
+For example, here is a function.
+If I REVERSE all the arrows,
+(this requires SWAPPING
+the domain and the codomain)
+I get the INVERSE function.
+So this picture, summarizes the concept
+of INVERSE function.
+Let’s write down a definition.
+Let f be a function from A to B.
+Remember, this notation means that
+f is the name of the function,
+A is the domain,
+and B is the codomain.
+Then, its INVERSE is ANOTHER function;
+we call this new function
+"f INVERSE." (f⁻¹)
+We use the same letter,
+with a -1 exponent.
+And the INVERSE SWAPS
+the domain and the codomain,
+with respect to the ORIGINAL function.
+The rule for f⁻¹ is defined by
+this identity:
+x = f⁻¹(y) EXACTLY WHEN y = f(x).
+That means literally SWAPPING
+inputs and outputs.
+But of course I have to say
+when this is true:
+this must be true FOR ALL x in A,
+and FOR ALL y in B.
+That’s it... well, assuming that this
+is a function.
+Two things may go wrong:
+first, consider this function
+as an example.
+If I try to construct its inverse,
+it is NOT a function, because
+"6" DOES NOT get mapped to anything.
+So, what is wrong with
+the ORIGINAL function?
+There is an element in the codomain,
+that is NOT in the range.
+That's a problem.
+Let’s give a name to the GOOD functions,
+The ones that do NOT have this problem.
+We say that a function
+is SURJECTIVE, or ONTO,
+(these two words are synonymous)
+when the range is the FULL codomain.
+We are going to need AT LEAST this
+property in order to have an inverse,
+but by itself, it is not enough.
+What else may go wrong?
+Consider this other function:
+if I try to take its inverse,
+it is NOT a function either.
+This time, the problem is
+the element "5".
+It gets mapped to
+TWO things by the inverse!
+So, what is wrong with
+the ORIGINAL function?
+There are two DIFFERENT inputs,
+that get mapped to the SAME output.
+That's also a problem.
+Let’s give a name to the GOOD functions,
+the ones that do NOT have this problem.
+I have already defined “SURJECTIVE”;
+now I will define a second concept.
+I say that a function f
+is INJECTIVE or ONE-TO-ONE,
+(these two words are also synonymous)
+when DIFFERENT inputs, MUST map
+to DIFFERENT outputs.
+More formally, FOR EVERY
+two elements x₁ and x₂ in the domain,
+IF they are different, THEN
+f(x₁) and f(x₂) MUST ALSO be different.
+It is also common to re-write this
+in a different, but EQUIVALENT way:
+instead of saying that DIFFERENT inputs
+MUST produce DIFFERENT outputs;
+we can require that THE SAME output
+MUST ONLY come from THE SAME input.
+I have identified the two problems
+I may encounter...
+...when trying to construct the inverse
+of a function, and we get a nice theorem.
+A function has an INVERSE, IF AND ONLY IF
+it is BOTH INJECTIVE and SURJECTIVE.
+This is the end of the theory
+if we want to be rigorous.
+In most math courses,
+for example in linear algebra,
+this is how
+you will study inverse functions;
+however, in calculus we take a shortcut.
+We add an extra convention,
+and we entirely bypass
+the first of the two problems.
+Here is how.
+Let’s look back at the first bad function:
+the problem here was the element "6".
+6 is in the codomain,
+but NOT in the range.
+But 6 is kind of... not doing anything.
+Why don’t we simply remove it?
+Then the function WILL have an inverse.
+Of course, if I do this,
+I am MODIFYING the function.
+Strictly speaking, the original function;
+is NOT the same function if I remove "6".
+But let’s pretend it is!
+What I am doing is SHRINKING the codomain
+in order to fit the range.
+Or even better,
+forget about the codomain entirely,
+and work ONLY with the range instead.
+In calculus, we ALMOST ALWAYS do this
+without even saying it explicitly.
+And that’s why most
+calculus textbooks
+ALMOST NEVER use the words
+“codomain,” or “surjective".
+Just remember that in other areas of
+math, you will have to be more careful.
+So, when we talk about an INVERSE
+function in calculus, what do we mean?
+We still need to begin with
+a ONE-TO-ONE, or INJECTIVE, function.
+We are omitting
+the SURJECTIVITY condition,
+but the function
+STILL needs to be INJECTIVE.
+Otherwise, there is NO inverse function.
+Let’s call its domain A, and its range C.
+(the RANGE, NOT the codomain)
+Then the inverse is another function,
+(I denote it with the same letter
+with a -1 exponent (f⁻¹))
+that SWAPS the domain and RANGE
+with the ORIGINAL function,
+and which is defined by the statement:
+x = f⁻¹(y) EXACTLY WHEN y = f(x).
+I need to say WHEN:
+FOR ALL x in A, and FOR ALL y in C.
+This statement, which is the core of the
+definition of inverse function,
+can be written in other ways.
+I am thinking that f goes from A to C,
+and f⁻¹ goes from C to A,
+exactly UNDOING what f does.
+So, if I COMPOSE them,
+it should be like DOING NOTHING.
+Indeed,
+if I start with an element "x", in A,
+I apply f to it,
+AND THEN I apply f⁻¹ to it,
+I should get back to "x".
+And the SAME IS TRUE if
+I compose them in the OTHER ORDER.
+These two conditions at the bottom, are
+EQUIVALENT to the condition at the top,
+and are an EQUIVALENT way to write
+the definition of inverse function.
+Alright, so far this has all been
+very theoretical. We need some examples!
+I will present them in the next video.

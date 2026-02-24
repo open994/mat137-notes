@@ -1,0 +1,149 @@
+In this video,
+I will explain with an example
+how to prove that a function has a limit,
+directly from the definition of limit.
+For the first example, I have chosen
+a particularly simple function
+so that I can focus
+on the structure of the proof.
+This is the problem:
+I want to prove
+that lim_(x → 3) (2x + 1) = 7,
+and I want to do it
+directly from the definition of limit.
+So let's begin
+by recalling that definition of limit.
+I need to show that for EVERY positive ε,
+there exists a positive δ
+such that IF the distance between
+x and 3 is between 0 and δ,
+THEN the distance between 2x + 1 and 7
+is smaller than ε.
+Since this is what I WANT to show,
+before I do anything,
+let me look at it piece by piece
+to figure out
+what the proof should look like;
+what the structure of the proof is.
+First, I need to prove
+that for every positive ε, ____.
+So I will begin the proof
+by fixing an arbitrary value 
+of ε positive.
+Arbitrary, because I need this proof
+to work for ALL values of ε,
+so I don't get to choose ε;
+I cannot put any constraints on it.
+Second, I need to show
+that there exists a δ
+with a certain property.
+The easiest way to do this
+is to say what I am TAKING as δ.
+And since I FIRST FIXED ε,
+I can now take δ DEPENDING on ε.
+The order matters a lot:
+first fix ε,
+second take δ as a function of ε.
+If I am NOT careful with this,
+it won't be clear what is arbitrary
+and what I am choosing
+as a function of what,
+and I may end up writing
+some pseudo proof
+that is not actually a proof.
+And then, I need to prove an implication.
+So I will ASSUME the IF part;
+I FIX a generic real number
+and ASSUME the distance between x and 3
+is between 0 and δ.
+And after doing some math,
+hopefully I can conclude
+that the distance between 2x + 1 and 7
+is smaller than ε.
+And that should be
+the structure of the proof.
+There are extra things to write,
+particularly between step 3 and 4.
+The most difficult point
+is to figure out what δ is.
+So let's do some rough work
+to try to come up with it.
+For now, I'm going to look
+ONLY at the implication.
+I want to end off the proof
+by concluding something
+about |(2x + 1) - 7|.
+I begin with a bit of algebra.
+THAT'S the same as |2x - 6|,
+and if I take 2 as a common factor,
+that's 2 ⋅ |x - 3|.
+In the middle of my proof,
+I'm going to be ASSUMING
+that |x - 3| is less than δ,
+so 2 times it (|x - 3|)
+will be less than 2δ.
+And now, look at what happens:
+I want to prove
+that the left-hand side is less than ε,
+and I have HERE
+that it is less than 2δ.
+So if I take 2δ to be ε,
+or δ to be ε/2, it will work.
+And this is okay,
+because I am ALLOWED to CHOOSE δ
+as a function of ε.
+So choosing δ as ε/2 is legal.
+Notice that this
+is NOT the ONLY value of δ that works.
+I could also pick ANYTHING SMALLER
+as long as it's positive,
+and it would ALSO work.
+And in many other proofs,
+it's going to be important to keep track
+of things like this, and to use them.
+But in this proof, it's not necessary.
+So I'm just going to keep δ as ε/2
+for simplicity.
+Everything I have done so far
+wasn't a proof.
+I haven't EVEN STARTED the proof yet.
+What I was doing
+was the rough work I needed
+to FIGURE OUT how the proof goes.
+But now that I've done that, I'm ready;
+let's write the ACTUAL proof in order.
+As we said,
+first I fix an arbitrary value of ε;
+let ε be greater than 0.
+And then, I'm going to take δ to be ε/2.
+How do I know this?
+Because of the ROUGH WORK 
+that I did before.
+Then, I fix a generic value
+of x -- a real number --
+and I ASSUME
+that the distance between x and 3
+is between 0 and δ.
+And then, |(2x + 1) - 7|
+-- I copy the algebra from before --
+is going to be equal to 2 ⋅ |x - 3|.
+By my assumption,
+this is smaller than 2δ.
+And by my choice of δ, this is ε.
+And look at that! I have proven
+that the distance between 2x + 1 and 7
+is smaller than ε, as needed.
+That's it; that completes the proof.
+In the next video,
+I will present a second example
+of a proof of the same type,
+but for a much more complicated function.
+The structure of the proof
+will be exactly the same,
+but the math we need
+to do between the steps
+will be more complex.
+And specifically,
+finding the right value of δ
+as a function of ε
+will take much more work.

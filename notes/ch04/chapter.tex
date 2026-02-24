@@ -1,0 +1,651 @@
+\chapter{Transcendental Functions}
+
+%=============================================================================
+\section{Functions and Their Components}
+\label{sec:4.1}
+%=============================================================================
+
+\textit{There are a few concepts related to the notion of function that can get confusing.  Strictly speaking, they all have very precise definitions, but in some contexts we relax those definitions, abuse notation, and use the terms to mean something slightly different.  Sometimes students may learn the same theorem in two apparently contradictory ways, depending on whether it appears in a calculus class or in a linear algebra class.  There is no contradiction once we understand the conventions.}
+
+\begin{definition}[Function]
+\label{def:4-1}
+A \emph{function} consists of three pieces:
+\begin{enumerate}[label=(\roman*)]
+  \item A set of inputs called the \emph{domain}.
+  \item A set of potential outputs called the \emph{codomain}.
+  \item A \emph{rule} that matches each input in the domain to exactly one output in the codomain.
+\end{enumerate}
+If the function is named $f$, the domain is $A$, and the codomain is $B$, we write $f\colon A \to B$.  For each $x \in A$, the symbol $f(x)$ denotes the corresponding element of $B$.
+\end{definition}
+
+\begin{remark}[Warning]
+The \textbf{name} of the function is $f$, \textbf{not} $f(x)$.  The expression $f(x)$ is an element in the codomain, not the function itself.
+\end{remark}
+
+\begin{definition}[Range]
+\label{def:4-2}
+Let $f\colon A \to B$ be a function.  The \emph{range} (or \emph{image}) of $f$ is the set of \textbf{actual} outputs:
+\[
+  \operatorname{Range}(f) = \{f(x) : x \in A\}.
+\]
+The range is always a subset of the codomain, but need not equal it.
+\end{definition}
+
+\begin{remark}
+The codomain is chosen beforehand; the range is determined after the rule is defined.  To specify a function, one needs only the domain, the codomain, and the rule.  The range can be computed from this information.
+\end{remark}
+
+\textit{In calculus, we adopt conventions that simplify the way we talk about functions.}
+
+\begin{remark}[Calculus Convention for Domain and Codomain]
+In single-variable calculus, it is common to define a function by giving only the rule (usually an equation).  By default, we assume:
+\begin{enumerate}[label=(\roman*)]
+  \item The domain is the \textbf{largest subset} of $\R$ on which the rule makes sense.
+  \item The codomain is $\R$.
+\end{enumerate}
+For example, the function defined by $g(x) = \frac{1}{x^{2}}$ implicitly has domain $\R \setminus \{0\}$ and codomain $\R$.
+\end{remark}
+
+\begin{remark}[Warning]
+This convention saves time because we only work with one specific type of function, but in other areas of mathematics---such as abstract algebra---domains and codomains may not even be sets of numbers, and one must specify them carefully.
+\end{remark}
+
+\begin{remark}
+Two functions with the same domain, the same rule, and the same range, but \textbf{different codomains}, are strictly speaking different functions.  In calculus, we often treat the codomain as irrelevant and identify such functions.  In other areas of mathematics, this distinction can be important.
+\end{remark}
+
+\begin{remark}
+The names introduced here---domain, codomain, range---are the most commonly used names in mathematics.  However, in some areas of computer science, the word ``range'' is used to mean codomain, and ``image'' is used for what we call range.  When working with others, make sure you agree on notation.
+\end{remark}
+
+%=============================================================================
+\section{Inverse Functions}
+\label{sec:4.2}
+%=============================================================================
+
+\textit{The idea behind the inverse of a function is simple: swap inputs and outputs.  If we reverse all the arrows in the diagram of a function, we obtain its inverse---provided the result is again a function.}
+
+\begin{definition}[Inverse Function --- Rigorous Version]
+\label{def:4-3}
+Let $f\colon A \to B$ be a function.  The \emph{inverse} of $f$ is a function $f^{-1}\colon B \to A$ defined by
+\[
+  x = f^{-1}(y) \quad \Longleftrightarrow \quad y = f(x),
+  \qquad \text{for all } x \in A \text{ and all } y \in B.
+\]
+\end{definition}
+
+\textit{Two things can go wrong when we try to construct an inverse.  First, an element of the codomain might not be in the range, leaving it with no preimage.  Second, two different inputs might produce the same output, forcing the inverse to be ``multi-valued.''  We give names to functions that avoid each of these failures.}
+
+\begin{definition}[Surjective]
+\label{def:4-4}
+A function $f\colon A \to B$ is \emph{surjective} (or \emph{onto}) when the range equals the full codomain:
+\[
+  \text{for every } y \in B, \text{ there exists } x \in A \text{ such that } f(x) = y.
+\]
+\end{definition}
+
+\begin{definition}[Injective]
+\label{def:4-5}
+A function $f\colon A \to B$ is \emph{injective} (or \emph{one-to-one}) when different inputs produce different outputs:
+\[
+  \text{for all } x_1, x_2 \in A, \quad x_1 \neq x_2 \;\Longrightarrow\; f(x_1) \neq f(x_2).
+\]
+Equivalently, $f(x_1) = f(x_2) \;\Longrightarrow\; x_1 = x_2$.
+\end{definition}
+
+\begin{theorem}[Existence of Inverses]
+\label{thm:4-1}
+A function $f\colon A \to B$ has an inverse if and only if $f$ is both injective and surjective.
+\end{theorem}
+
+\textit{This is the rigorous story.  In calculus, however, we take a shortcut, entirely bypassing the surjectivity problem.}
+
+\begin{remark}[Calculus Convention for Inverses]
+In calculus, we almost always shrink the codomain to match the range without saying so explicitly.  This is why most calculus textbooks almost never use the words ``codomain'' or ``surjective.''  Under this convention, a function has an inverse if and only if it is \textbf{injective}.
+\end{remark}
+
+\begin{definition}[Inverse Function --- Calculus Version]
+\label{def:4-6}
+Let $f$ be a one-to-one function with domain $A$ and range $C$.  The \emph{inverse function} $f^{-1}$ has domain $C$ and range $A$, and is defined by
+\[
+  x = f^{-1}(y) \quad \Longleftrightarrow \quad y = f(x),
+  \qquad \text{for all } x \in A \text{ and all } y \in C.
+\]
+Equivalently, $f$ and $f^{-1}$ satisfy the composition identities
+\[
+  f^{-1}\!\bigl(f(x)\bigr) = x \quad \text{for all } x \in A,
+  \qquad
+  f\!\bigl(f^{-1}(y)\bigr) = y \quad \text{for all } y \in C.
+\]
+\end{definition}
+
+%=============================================================================
+\section{Inverse Function Examples}
+\label{sec:4.3}
+%=============================================================================
+
+\textit{Let us study several examples of pairs of inverse functions.  These illustrate the general theory, and the last example previews the subtlety that arises with inverse trigonometric functions.}
+
+\begin{example}[Linear Function]
+\label{ex:4-1}
+Let $f(x) = 2x + 1$.  The domain and range are both $\R$, so an inverse exists.  From the definition,
+\[
+  y = 2x + 1 \quad \Longrightarrow \quad x = \frac{y - 1}{2},
+\]
+so $f^{-1}(y) = \dfrac{y - 1}{2}$.  One can verify the composition identities directly:
+\begin{align*}
+  f^{-1}\!\bigl(f(x)\bigr) &= \frac{(2x + 1) - 1}{2} = x, \\
+  f\!\bigl(f^{-1}(y)\bigr) &= 2 \cdot \frac{y - 1}{2} + 1 = y.
+\end{align*}
+\end{example}
+
+\begin{example}[Exponentials and Logarithms]
+\label{ex:4-2}
+The exponential function $e^{x}$ and the natural logarithm $\ln(x)$ are inverses of each other.  Their defining relation is
+\[
+  y = e^{x} \quad \Longleftrightarrow \quad x = \ln(y), \qquad y > 0.
+\]
+The domain of $e^{x}$ is $\R$ and its range is $(0,\infty)$; the domain of $\ln$ is $(0,\infty)$ and its range is $\R$.
+
+This statement can be used to \textbf{define} one function from the other.  In high school, one typically takes the exponential as given and defines $\ln$ through the relation above.  In analysis, it is common to start with $\ln$ (constructed as an integral) and define $e^{x}$ as its inverse.
+
+The graphs of $e^{x}$ and $\ln(x)$ are reflections of each other across the line $y = x$.  This is a general property: switching from a function to its inverse swaps the roles of $x$ and $y$, which is geometrically a reflection across the diagonal.
+
+The composition identities are
+\[
+  \ln(e^{x}) = x \quad \text{for all } x \in \R,
+  \qquad
+  e^{\ln(y)} = y \quad \text{for all } y > 0.
+\]
+\end{example}
+
+\begin{example}[Restricting the Domain of $x^{2}$]
+\label{ex:4-3}
+Consider $f(x) = x^{2}$.  This function is \textbf{not} one-to-one: $f(3) = f(-3) = 9$.  Therefore $f$ does not have an inverse.
+
+However, we can \emph{restrict} $f$ to the smaller domain $[0, \infty)$.  The restriction is one-to-one and its range is $[0, \infty)$, so it has an inverse.  That inverse is the square root:
+\[
+  g(x) = \sqrt{x}.
+\]
+Note that $g$ is \textbf{not} the inverse of the original $f$; it is the inverse of the \emph{restriction} of $f$ to $[0, \infty)$.
+
+This is reflected in the composition identities.  We have $\sqrt{x^{2}} = x$ only when $x \geq 0$; in general, $\sqrt{x^{2}} = \abs{x}$.
+\end{example}
+
+\begin{remark}
+If we have a function that is not one-to-one, we can restrict it to a smaller domain and construct an inverse of the restriction.  The definition of the inverse and the properties it satisfies must then be modified accordingly.  This idea becomes essential when defining inverse trigonometric functions.
+\end{remark}
+
+% ── BEGIN VISUAL ──
+\begin{figure}[ht]
+  \centering
+  \input{ch04/figures/fig-inverse-reflection.tex}
+  \caption{A function and its inverse reflect across $y=x$.}
+  \label{fig:inverse-reflection}
+\end{figure}
+% ── END VISUAL ──
+
+%=============================================================================
+\section{Derivatives of Inverse Functions}
+\label{sec:4.4}
+%=============================================================================
+
+\textit{If a function is differentiable and has an inverse, must the inverse also be differentiable?  The answer is: not necessarily, unless we add an extra condition.}
+
+\textit{Consider a differentiable, one-to-one function $f$ whose graph has a horizontal tangent at some point $P$.  Reflecting the graph across the diagonal $y = x$ to obtain the graph of $f^{-1}$ turns that horizontal tangent into a vertical tangent at the corresponding point $Q$.  A vertical tangent has infinite slope, so $f^{-1}$ is not differentiable there.  This is the only obstruction.}
+
+\begin{theorem}[Differentiability of the Inverse]
+\label{thm:4-2}
+Let $f$ be a function defined on an interval $I$.  If $f$ has an inverse, $f$ is differentiable, and $f'$ is never zero on $I$, then $f^{-1}$ is also differentiable.
+\end{theorem}
+
+\begin{remark}[Warning]
+This result should not be confused with the \textbf{Inverse Function Theorem} from multivariable calculus, which is a much more powerful and more complicated statement.  The theorem above is a simpler, single-variable result.
+\end{remark}
+
+\textit{Once we know both $f$ and $f^{-1}$ are differentiable, we can find the derivative of $f^{-1}$ by differentiating the identity $f\!\bigl(f^{-1}(y)\bigr) = y$.}
+
+\begin{theorem}[Derivative of the Inverse]
+\label{thm:4-3}
+Under the hypotheses of \cref{thm:4-2}, for $y$ in the domain of $f^{-1}$,
+\[
+  \bigl(f^{-1}\bigr)'(y) = \frac{1}{f'\!\bigl(f^{-1}(y)\bigr)}.
+\]
+Equivalently, setting $x = f^{-1}(y)$ (so that $y = f(x)$),
+\[
+  \bigl(f^{-1}\bigr)'(y) = \frac{1}{f'(x)}.
+\]
+\end{theorem}
+
+\begin{proof}
+We know that $f\!\bigl(f^{-1}(y)\bigr) = y$ for all $y$ in the domain of $f^{-1}$.  Differentiating both sides with respect to $y$ and applying the chain rule on the left gives
+\[
+  f'\!\bigl(f^{-1}(y)\bigr) \cdot \bigl(f^{-1}\bigr)'(y) = 1.
+\]
+\proofref{Chain rule applied to $f \circ f^{-1}$.}
+Setting $x = f^{-1}(y)$, this becomes $f'(x) \cdot \bigl(f^{-1}\bigr)'(y) = 1$, and solving yields
+\[
+  \bigl(f^{-1}\bigr)'(y) = \frac{1}{f'(x)}.
+\]
+Note that $f$ and $f^{-1}$ are evaluated at \textbf{different} points: $f'$ is evaluated at $x$, while $\bigl(f^{-1}\bigr)'$ is evaluated at $y = f(x)$.
+\end{proof}
+
+%=============================================================================
+\section{Derivative of the Exponential}
+\label{sec:4.5}
+%=============================================================================
+
+\textit{We now try to compute the derivative of an exponential function from the limit definition, and in the process discover a defining property of the number $e$.}
+
+There are many exponential functions, one for each positive base $a$.  If $a > 1$, then $a^{x}$ is increasing; if $0 < a < 1$, then $a^{x}$ is decreasing.  In either case, the domain is $\R$ and the range is $(0,\infty)$.
+
+\begin{proposition}[Derivative of $a^{x}$ --- Heuristic]
+\label{thm:4-4}
+Fix a positive number $a$ and define $f(x) = a^{x}$.  Then
+\[
+  f'(x) = \lim_{h \to 0} \frac{a^{x+h} - a^{x}}{h}
+         = a^{x} \cdot \lim_{h \to 0} \frac{a^{h} - 1}{h}.
+\]
+The limit $L_{a} = \lim_{h \to 0} \frac{a^{h} - 1}{h}$ depends only on $a$, not on $x$.  Therefore the derivative of $a^{x}$ is a \textbf{constant multiple} of itself:
+\[
+  \frac{d}{dx}\bigl[a^{x}\bigr] = L_{a} \cdot a^{x}.
+\]
+\end{proposition}
+
+\begin{definition}[The Number $e$]
+\label{def:4-7}
+We define $e$ to be the unique positive real number for which $L_{e} = 1$, i.e.,
+\[
+  \lim_{h \to 0} \frac{e^{h} - 1}{h} = 1.
+\]
+Equivalently, $e$ is the unique base for which the exponential is its own derivative:
+\[
+  \frac{d}{dx}\bigl[e^{x}\bigr] = e^{x}.
+\]
+\end{definition}
+
+\begin{remark}[Warning]
+This derivation, while illuminating, assumes several things that require justification: that the limit $L_{a}$ exists for every positive $a$, that there exists a value of $a$ for which $L_{a} = 1$, and indeed that $a^{x}$ is well-defined for arbitrary real $x$.  These issues are addressed in \cref{sec:4.6}.  Nevertheless, the derivation is helpful for understanding where the number $e$ comes from and why exponentials have the derivative they do.
+\end{remark}
+
+%=============================================================================
+\section{Defining Exponentials Rigorously}
+\label{sec:4.6}
+%=============================================================================
+
+\textit{It may surprise you to learn that defining exponentials rigorously is much harder than what you were told in high school.  For most practical purposes this is not something to worry about too much, but it is interesting to know that it is a genuinely difficult problem.}
+
+Recall the high-school definition of logarithms: $\log_{a}(x) = y$ means $a^{y} = x$.  This defines the logarithm as the \emph{inverse} of the exponential, so it is only valid if exponentials are already well-defined.
+
+\textit{Let us review how powers are defined, starting with rational exponents.}
+
+\begin{remark}[Defining Powers with Rational Exponents]
+Let $a > 0$.  Powers with rational exponents are built in stages:
+\begin{enumerate}[label=(\roman*)]
+  \item \textbf{Positive integer exponents.} $a^{n}$ ($n \in \Z^{+}$) is defined as iterated multiplication.
+  \item \textbf{Reciprocal exponents.} $a^{1/n}$ is defined as $\sqrt[n]{a}$, the unique positive number whose $n$-th power is $a$.
+  \item \textbf{General positive rationals.} $a^{n/m}$ is defined as $\bigl(a^{n}\bigr)^{1/m}$, using steps (i) and (ii).
+  \item \textbf{Zero exponent.} $a^{0} = 1$.
+  \item \textbf{Negative exponents.} $a^{-c} = \dfrac{1}{a^{c}}$ for $c > 0$.
+\end{enumerate}
+This defines $a^{c}$ for every rational $c$.  There are no difficulties so far.
+\end{remark}
+
+\begin{remark}[Honest Acknowledgement of Difficulty]
+How do we define $a^{c}$ when $c$ is irrational?  For example, what is $2^{\pi}$?  We cannot use iterated multiplication, roots, or quotients to define it.  There is no easy way around this: one must enter ``serious analysis territory'' to even say what $2^{\pi}$ means.
+\end{remark}
+
+\textit{One natural idea is to approximate $\pi$ by rational numbers---$3$, $3.1$, $3.14$, $3.141$, \ldots---compute $2^{c}$ for each, and define $2^{\pi}$ as the limit of the resulting sequence.  This is probably what early mathematicians were implicitly assuming.  But it is surprisingly hard to prove that (a) the limit exists, and (b) it does not depend on the choice of rational approximation.}
+
+The key identity
+\[
+  a^{c} = e^{c \ln(a)}
+\]
+reduces exponentials with arbitrary base to exponentials with base $e$.  It therefore suffices to define $e^{x}$ (or equivalently $\ln(x)$) rigorously.
+
+\begin{remark}[Three Approaches to Defining $e^{x}$]
+In analysis, there are at least three common approaches:
+\begin{enumerate}[label=(\roman*)]
+  \item \textbf{Differential equations.} Define $e^{x}$ as the unique solution to the initial value problem $y' = y$, $y(0) = 1$.  The Picard--Lindel\"of theorem guarantees existence and uniqueness.  This is natural but expensive: the theorem itself is sophisticated.
+  \item \textbf{Power series.} Define $e^{x} = \sum_{n=0}^{\infty} \frac{x^{n}}{n!}$.  This generalises beautifully to complex numbers, but proving the algebraic properties of the exponential from this definition requires the full theory of power series.
+  \item \textbf{Integral definition of $\ln$.} Define $\ln(x) = \int_{1}^{x} \frac{1}{t} \dt$ for $x > 0$, and then define $e^{x}$ as the inverse of $\ln$.  This requires only the Fundamental Theorem of Calculus, making it by far the most accessible approach.
+\end{enumerate}
+\end{remark}
+
+\begin{remark}
+A full rigorous construction proving all the details is the province of an analysis course.  The goal here is simply to understand \textit{why} defining exponentials is not trivial; every calculus student should appreciate this.
+\end{remark}
+
+%=============================================================================
+\section{Derivative of the Logarithm}
+\label{sec:4.7}
+%=============================================================================
+
+\textit{We know that the derivative of $e^{x}$ is itself.  How can this help us find the derivative of $\ln(x)$?  Since $e^{x}$ and $\ln(x)$ are inverses, the identity $e^{\ln(x)} = x$ provides a relation between the two functions.  Differentiating both sides will yield a relation between their derivatives.}
+
+\begin{theorem}[Derivative of $\ln$]
+\label{thm:4-5}
+For all $x > 0$,
+\[
+  \frac{d}{dx}\bigl[\ln(x)\bigr] = \frac{1}{x}.
+\]
+\end{theorem}
+
+\begin{proof}
+Start from $e^{\ln(x)} = x$.  Differentiate both sides with respect to $x$.  On the left, the chain rule gives
+\[
+  e^{\ln(x)} \cdot \frac{d}{dx}\bigl[\ln(x)\bigr] = 1.
+\]
+\proofref{Chain rule applied to $e^{\ln(x)}$.}
+Since $e^{\ln(x)} = x$, this becomes
+\[
+  x \cdot \frac{d}{dx}\bigl[\ln(x)\bigr] = 1.
+\]
+Solving gives $\dfrac{d}{dx}\bigl[\ln(x)\bigr] = \dfrac{1}{x}$.
+\end{proof}
+
+\begin{remark}
+This same trick---differentiating a composition identity---can be used to find the derivative of \textbf{any} function, provided we know the derivative of its inverse.
+\end{remark}
+
+% ── BEGIN VISUAL ──
+\begin{figure}[ht]
+  \centering
+  \input{ch04/figures/fig-exp-log.tex}
+  \caption{The graphs of $e^x$ and $\ln x$.}
+  \label{fig:exp-log}
+\end{figure}
+% ── END VISUAL ──
+
+%=============================================================================
+\section{Derivatives of General Exponentials}
+\label{sec:4.8}
+%=============================================================================
+
+\textit{We know the derivative of $e^{x}$, but what about $a^{x}$ for an arbitrary positive base $a$?  A common strategy in mathematics: reduce the general problem to a special case we have already solved.}
+
+\begin{theorem}[Derivative of $a^{x}$]
+\label{thm:4-6}
+For every $a > 0$,
+\[
+  \frac{d}{dx}\bigl[a^{x}\bigr] = a^{x} \ln(a).
+\]
+\end{theorem}
+
+\begin{proof}
+Any positive number $a$ can be written as $a = e^{\ln(a)}$.  Therefore
+\[
+  a^{x} = \bigl(e^{\ln(a)}\bigr)^{x} = e^{x \ln(a)}.
+\]
+\proofref{Rewrite $a^{x}$ using $a = e^{\ln(a)}$.}
+The derivative of $e^{x \ln(a)}$ with respect to $x$ is, by the chain rule,
+\[
+  e^{x \ln(a)} \cdot \ln(a) = a^{x} \ln(a).
+\]
+\end{proof}
+
+\begin{remark}
+When $a = e$, we get $\ln(e) = 1$, and the formula reduces to $\frac{d}{dx}[e^{x}] = e^{x}$, recovering the known identity.
+\end{remark}
+
+\begin{remark}[Pause and Try]
+You already know that $\frac{d}{dx}[\ln(x)] = \frac{1}{x}$.  What is the derivative of $\log_{a}(x)$ for an arbitrary positive base $a \neq 1$?  As a hint, use the change-of-base identity $\log_{a}(x) = \frac{\ln(x)}{\ln(a)}$.
+\end{remark}
+
+%=============================================================================
+\section{Logarithmic Differentiation}
+\label{sec:4.9}
+%=============================================================================
+
+\textit{We use logarithmic differentiation to compute the derivative of a function that is raised to the power of another function---a situation in which neither the power rule nor the exponential rule directly applies.}
+
+\begin{example}[A Function Raised to a Function]
+\label{ex:4-4}
+Let $f(x) = \bigl(\cos(x)\bigr)^{\sin(x)}$.  This expression is \textbf{not} simply a power (like $x^{3}$), because the base depends on $x$.  Nor is it simply an exponential (like $2^{x}$), because the exponent also depends on $x$.
+
+\textit{Neither the power rule nor the exponential derivative rule applies on its own.  We need a different strategy.}
+
+\textbf{Method 1: Rewrite as an exponential with base $e$.} Using the identity $u^{v} = e^{v \ln u}$,
+\[
+  f(x) = e^{\sin(x) \cdot \ln(\cos(x))}.
+\]
+Differentiating using the chain rule,
+\begin{align*}
+  f'(x)
+  &= e^{\sin(x) \cdot \ln(\cos(x))} \cdot \frac{d}{dx}\bigl[\sin(x) \cdot \ln(\cos(x))\bigr] \\
+  &= \bigl(\cos(x)\bigr)^{\sin(x)} \cdot \left[\cos(x) \cdot \ln(\cos(x)) + \sin(x) \cdot \frac{-\sin(x)}{\cos(x)}\right].
+\end{align*}
+
+\textbf{Method 2: Logarithmic differentiation.}  Take logarithms of both sides:
+\[
+  \ln\!\bigl(f(x)\bigr) = \sin(x) \cdot \ln\!\bigl(\cos(x)\bigr).
+\]
+The exponent has disappeared.  Differentiate both sides using implicit differentiation on the left and the product rule on the right:
+\[
+  \frac{f'(x)}{f(x)} = \cos(x) \cdot \ln(\cos(x)) + \sin(x) \cdot \frac{-\sin(x)}{\cos(x)}.
+\]
+Solving for $f'(x)$ recovers the same answer as Method~1.
+\end{example}
+
+\begin{remark}
+The two methods are the \textbf{same method in disguise}.  Method~2 (logarithmic differentiation) is often more convenient because taking logarithms turns products into sums, quotients into differences, and powers into products, simplifying the expression before differentiation.
+\end{remark}
+
+%=============================================================================
+\section{Power Rule for Real Exponents}
+\label{sec:4.10}
+%=============================================================================
+
+\textit{In an earlier chapter we proved the power rule for positive integer exponents.  We now prove it for \textbf{any} real exponent, using logarithms.}
+
+\begin{theorem}[Power Rule --- General Version]
+\label{thm:4-7}
+For any $c \in \R$ and for all $x > 0$,
+\[
+  \frac{d}{dx}\bigl[x^{c}\bigr] = c\, x^{c-1}.
+\]
+\end{theorem}
+
+\begin{remark}
+It may feel like overkill to use logarithms to prove the power rule---are powers not more ``basic'' than logarithms?  For \emph{rational} exponents, alternative proofs exist that avoid logarithms entirely.  But for \emph{real} exponents, the identity $x^{c} = e^{c \ln(x)}$ is not merely a useful trick; it is \textbf{the definition} of a power with a real exponent.
+\end{remark}
+
+\begin{proof}
+For $x > 0$, write $x^{c} = e^{c \ln(x)}$.  By the chain rule,
+\begin{align*}
+  \frac{d}{dx}\bigl[x^{c}\bigr]
+  &= \frac{d}{dx}\bigl[e^{c \ln(x)}\bigr] \\
+  &= e^{c \ln(x)} \cdot \frac{c}{x} \\
+  &= x^{c} \cdot \frac{c}{x} \\
+  &= c\, x^{c-1}.
+\end{align*}
+\proofref{Uses $\frac{d}{dx}[e^{u}] = e^{u} \cdot u'$ and $\frac{d}{dx}[\ln x] = \frac{1}{x}$.}
+\end{proof}
+
+\begin{remark}
+This proof works for \textbf{all} exponents at once---natural, rational, real, and even complex.  The price is that we must first develop the theory of logarithms and establish the derivative formulas for $e^{x}$ and $\ln(x)$.  The proof only \textit{looks} short because the hard work was done beforehand.
+\end{remark}
+
+%=============================================================================
+\section{Logarithm Notation}
+\label{sec:4.11}
+%=============================================================================
+
+\textit{There is a notational controversy surrounding logarithms.  All mathematicians agree that the natural logarithm---logarithm in base $e$---is the most important, but we cannot agree on what to call it.}
+
+If one fixes a favourite base $b$, then exponentials and logarithms in any other base can be expressed in terms of base $b$.  So why not choose the \emph{best} base and use it exclusively?
+
+Mathematicians realised early that the base $e$ is special:
+\begin{itemize}
+  \item Exponentials with base $e$ arise naturally as limits.
+  \item The functions $e^{x}$ and $\ln(x)$ have \textbf{simpler derivatives} than exponentials or logarithms in any other base.
+  \item $e^{x}$ and $\ln(x)$ have elegant power-series expansions.
+\end{itemize}
+Natural logarithm is natural, and it is the only logarithm one should ever use.
+
+\begin{remark}
+Historically, the decimal system made logarithms in base $10$ (the ``common logarithm'') the most useful for hand computation using log tables and slide rules.  The notation $\log(x)$ without a base came to mean $\log_{10}(x)$.  Today, nobody computes by hand, and modern mathematicians argue that $\log$ should be reserved for the natural logarithm.  Engineers and many calculus textbooks continue to use $\ln$.
+
+In summary: whenever you see $\ln(x)$ or $\log(x)$ without a specified base, both \emph{probably} mean logarithm in base $e$.  When reading a book or working with others, check which convention is in use.
+\end{remark}
+
+%=============================================================================
+\section{The Arcsine Function}
+\label{sec:4.12}
+%=============================================================================
+
+\textit{Some books and most calculators call this function ``sine inverse.''  We prefer the name ``arcsine'' because arcsine is \textbf{not} the inverse function of sine---the situation is more subtle.}
+
+The function $\sin\colon \R \to [-1,1]$ is \textbf{not} one-to-one: for example, $\sin(0) = \sin(\pi) = 0$.  Therefore sine does not have an inverse function.
+
+\begin{definition}[Arcsine]
+\label{def:4-8}
+The function \emph{arcsine} is defined as the inverse of the \textbf{restriction} of sine to the interval $\bigl[-\frac{\pi}{2},\, \frac{\pi}{2}\bigr]$.  Equivalently,
+\[
+  x = \arcsin(y) \quad \Longleftrightarrow \quad y = \sin(x),
+  \qquad \text{for all } x \in \left[-\frac{\pi}{2},\, \frac{\pi}{2}\right] \text{ and all } y \in [-1,1].
+\]
+The domain of $\arcsin$ is $[-1,1]$ and its range is $\bigl[-\frac{\pi}{2},\, \frac{\pi}{2}\bigr]$.
+\end{definition}
+
+\begin{remark}
+The choice of the interval $\bigl[-\frac{\pi}{2},\, \frac{\pi}{2}\bigr]$ is a convention.  We could have restricted sine to any interval on which it is one-to-one and preserves the full range $[-1,1]$.  The symmetric interval around $0$ is the standard choice, but it is arbitrary.
+\end{remark}
+
+% ── BEGIN VISUAL ──
+\begin{figure}[ht]
+  \centering
+  \input{ch04/figures/fig-arcsin-restriction.tex}
+  \caption{The restricted sine and its inverse $\arcsin$.}
+  \label{fig:arcsin-restriction}
+\end{figure}
+% ── END VISUAL ──
+
+Since $\arcsin$ and the restriction of $\sin$ are inverses, the composition identities hold on the correct domains:
+\[
+  \arcsin\!\bigl(\sin(x)\bigr) = x \quad \text{for all } x \in \left[-\frac{\pi}{2},\, \frac{\pi}{2}\right],
+  \qquad
+  \sin\!\bigl(\arcsin(y)\bigr) = y \quad \text{for all } y \in [-1,1].
+\]
+
+\begin{remark}[Warning]
+These identities are \textbf{not} true outside the specified domains.  For instance, $\sin(\arcsin(2))$ is undefined, and $\arcsin(\sin(2)) \neq 2$.
+\end{remark}
+
+\begin{example}
+\label{ex:4-5}
+What is $\arcsin\!\left(\frac{1}{2}\right)$?  Call the answer $t$.  Then $\sin(t) = \frac{1}{2}$ and $t \in \bigl[-\frac{\pi}{2},\, \frac{\pi}{2}\bigr]$.  The only such angle is $t = \frac{\pi}{6}$.
+\end{example}
+
+\begin{example}
+\label{ex:4-6}
+What is $\arcsin\!\bigl(\sin(2)\bigr)$?  Since $2 \notin \bigl[-\frac{\pi}{2},\, \frac{\pi}{2}\bigr]$, we cannot simply say the answer is $2$.
+
+Let $t = \arcsin(\sin(2))$.  By definition, $\sin(t) = \sin(2)$ and $t \in \bigl[-\frac{\pi}{2},\, \frac{\pi}{2}\bigr]$.  This is a trigonometry problem.  From the symmetry of the sine graph, the distance from $\frac{\pi}{2}$ to $t$ equals the distance from $2$ to $\frac{\pi}{2}$:
+\[
+  \frac{\pi}{2} - t = 2 - \frac{\pi}{2} \quad \Longrightarrow \quad t = \pi - 2.
+\]
+Therefore $\arcsin(\sin(2)) = \pi - 2$.
+\end{example}
+
+\begin{remark}[Pause and Try]
+What is $\arcsin(\sin(6))$?  Hint: the answer is neither $6$ nor $\pi - 6$.
+\end{remark}
+
+%=============================================================================
+\section{Derivative of Arcsine}
+\label{sec:4.13}
+%=============================================================================
+
+\textit{We use the same strategy as for $\ln$: differentiate a composition identity relating $\sin$ and $\arcsin$, then solve for the unknown derivative.}
+
+\begin{theorem}[Derivative of $\arcsin$]
+\label{thm:4-8}
+For all $x \in (-1,1)$,
+\[
+  \frac{d}{dx}\bigl[\arcsin(x)\bigr] = \frac{1}{\sqrt{1 - x^{2}}}.
+\]
+\end{theorem}
+
+\begin{proof}
+Start from $\sin\!\bigl(\arcsin(x)\bigr) = x$.  Differentiating both sides with respect to $x$ and applying the chain rule on the left gives
+\[
+  \cos\!\bigl(\arcsin(x)\bigr) \cdot \frac{d}{dx}\bigl[\arcsin(x)\bigr] = 1.
+\]
+\proofref{Chain rule applied to $\sin \circ \arcsin$.}
+Solving yields $\frac{d}{dx}[\arcsin(x)] = \frac{1}{\cos(\arcsin(x))}$.
+
+It remains to simplify $\cos(\arcsin(x))$.  Let $\theta = \arcsin(x)$, so $\sin(\theta) = x$.  Using the identity $\cos^{2}(\theta) = 1 - \sin^{2}(\theta)$,
+\[
+  \cos(\theta) = \pm\sqrt{1 - x^{2}}.
+\]
+Since $\theta \in \bigl[-\frac{\pi}{2},\, \frac{\pi}{2}\bigr]$ by definition of $\arcsin$, we have $\cos(\theta) \geq 0$, so we choose the positive sign.  Therefore
+\[
+  \frac{d}{dx}\bigl[\arcsin(x)\bigr] = \frac{1}{\sqrt{1 - x^{2}}}.
+\]
+\proofref{The sign is determined by the restriction interval $[-\pi/2, \pi/2]$.}
+\end{proof}
+
+\begin{remark}
+The positive sign arises specifically because $\arcsin$ was defined using the restriction of $\sin$ to $\bigl[-\frac{\pi}{2},\, \frac{\pi}{2}\bigr]$, where $\cos$ is non-negative.  A different restriction could yield a different sign.
+\end{remark}
+
+%=============================================================================
+\section{Arctangent and Arccosine}
+\label{sec:4.14}
+%=============================================================================
+
+\textit{Having defined $\arcsin$ and computed its derivative, we now do the same for $\arctan$ and $\arccos$.  The ideas are identical, so we proceed more quickly.}
+
+\begin{definition}[Arctangent]
+\label{def:4-9}
+The function $\tan$ is not one-to-one on its natural domain.  We restrict it to $\bigl(-\frac{\pi}{2},\, \frac{\pi}{2}\bigr)$ (an \textbf{open} interval, since $\tan$ is undefined at the endpoints).  The \emph{arctangent} function is the inverse of this restriction:
+\[
+  x = \arctan(y) \quad \Longleftrightarrow \quad y = \tan(x),
+  \qquad \text{for all } x \in \left(-\frac{\pi}{2},\, \frac{\pi}{2}\right) \text{ and all } y \in \R.
+\]
+The domain of $\arctan$ is $\R$ and its range is $\bigl(-\frac{\pi}{2},\, \frac{\pi}{2}\bigr)$.
+\end{definition}
+
+\begin{remark}
+Notice that the restriction interval for $\arctan$ is \emph{open}, in contrast to the \emph{closed} interval $\bigl[-\frac{\pi}{2},\, \frac{\pi}{2}\bigr]$ used for $\arcsin$.  Since the range of $\tan$ on $\bigl(-\frac{\pi}{2},\, \frac{\pi}{2}\bigr)$ is all of $\R$, the domain of $\arctan$ is $\R$.
+\end{remark}
+
+\begin{definition}[Arccosine]
+\label{def:4-10}
+The function $\cos$ is not one-to-one on $\R$.  We restrict it to $[0,\pi]$, and define the \emph{arccosine} function as the inverse of this restriction:
+\[
+  x = \arccos(y) \quad \Longleftrightarrow \quad y = \cos(x),
+  \qquad \text{for all } x \in [0,\pi] \text{ and all } y \in [-1,1].
+\]
+The domain of $\arccos$ is $[-1,1]$ and its range is $[0,\pi]$.
+\end{definition}
+
+\begin{remark}
+For $\arccos$, we cannot choose a domain for $\cos$ that is symmetric about $0$---that would not produce a one-to-one function.  The interval $[0,\pi]$ is the standard choice.
+\end{remark}
+
+\begin{remark}[Pause and Try]
+Can you sketch the graphs of $\arctan$ and $\arccos$?  For each, reflect the graph of the restricted trigonometric function across the line $y = x$.
+\end{remark}
+
+\begin{theorem}[Derivatives of Inverse Trigonometric Functions]
+\label{thm:4-9}
+\begin{enumerate}[label=(\roman*)]
+  \item $\dfrac{d}{dx}\bigl[\arcsin(x)\bigr] = \dfrac{1}{\sqrt{1 - x^{2}}}$, \qquad for $x \in (-1,1)$.
+  \item $\dfrac{d}{dx}\bigl[\arccos(x)\bigr] = \dfrac{-1}{\sqrt{1 - x^{2}}}$, \qquad for $x \in (-1,1)$.
+  \item $\dfrac{d}{dx}\bigl[\arctan(x)\bigr] = \dfrac{1}{1 + x^{2}}$, \qquad for all $x \in \R$.
+\end{enumerate}
+\end{theorem}
+
+\begin{remark}
+The derivative of $\arccos$ is the same as that of $\arcsin$ but with an additional \textbf{minus sign}.  The particular signs arise from the specific restrictions chosen; different restrictions could produce different results.
+\end{remark}
+
+\begin{remark}
+It is worth memorising the derivatives of $\arcsin$ and $\arctan$ in particular.  They appear frequently in integration, where one recognises integrands of the form $\frac{1}{\sqrt{1-x^{2}}}$ or $\frac{1}{1+x^{2}}$ as derivatives of inverse trigonometric functions.
+\end{remark}
+
+\begin{remark}
+One could similarly define arcsecant, arccosecant, and arccotangent, but in practice these three functions are rarely used.  For most purposes, $\arcsin$, $\arccos$, and $\arctan$ suffice.
+\end{remark}

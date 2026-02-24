@@ -1,0 +1,107 @@
+When we write mathematical proofs,
+we often need to use
+the definitions of the concepts
+that appear in the statement.
+In this video,
+I will illustrate
+how to prove that an example
+does NOT satisfy a definition.
+I want to prove that a function g,
+defined by the equation g(x) = cos(x),
+is NOT increasing
+on the interval [0, π],
+and I want to do it
+directly from the definition.
+Like in the previous video,
+this proof is short
+and perhaps not that important,
+but I have a
+bigger point to make:
+I don't need to have learned
+how to do a proof of this type 
+in advance.
+I don't need to memorize any method
+as long as I know my definitions.
+I know the definition
+of "increasing,"
+and I can simply use it
+to get the definition
+of "not increasing."
+To say 
+that g isn't increasing on an interval I
+is to NEGATE 
+that g is increasing on the interval I.
+So I will write first the definition
+of "g is increasing on I":
+For every x_1 and x_2 in I,
+IF x_1 is less than x_2,
+THEN g(x_1) is less than g(x_2).
+And then I need
+to negate this.
+So I want to write
+that it is FALSE
+that EVERY pair x_1 and x_2
+satisfies the implication.
+That is the same thing as saying
+that there exists
+ONE single pair x_1 and x_2
+that does NOT satisfy the implication.
+And finally,
+to say an implication is false
+is the same as saying
+the "IF" part is TRUE
+and the "THEN" part is FALSE.
+If this feels a bit foreign,
+I invite you to rewatch
+the video where I explain
+how to negate a conditional.
+It is very short,
+and I will link it
+in the description.
+And that's it; I have the definition
+of "g isn't increasing on an interval."
+If you have a little bit of practice,
+perhaps you could have written
+the negation right away in one go.
+That would be fine!
+If you need to break it into steps,
+that's also fine!
+Either way, now I know what I need to do:
+I need to prove THIS statement.
+This proof is going to be shorter
+than the previous one.
+Let's sketch a graph
+of the function.
+Let's write down the proof.
+I need to prove there exists
+a PAIR of elements
+that satisfy these two inequalities.
+The simplest way to do that
+is to say WHAT the values
+of x_1 and x_2 are,
+and then verify the two inequalities.
+And there are a lot
+of choices I could take;
+pretty much any pair
+you choose here will work.
+I'm going to choose 0 and π/2,
+which is here and here,
+and then I only need to verify
+that 0 is less than π/2 -- Check!
+and that g(0) is 1,
+which is greater than
+or equal to 0,
+which is g(π/2) -- Check!
+And that completes the proof!
+And of course,
+if I just wanted to prove
+that the cosine
+function is NOT increasing,
+there are other things I could have done;
+it wasn't necessary to do this.
+But that wasn't the point;
+the lesson learned
+is that I can do the same thing
+not only for "increasing,"
+but for any other
+mathematical concept.

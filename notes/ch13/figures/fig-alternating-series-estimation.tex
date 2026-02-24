@@ -1,0 +1,21 @@
+\begin{tikzpicture}
+  \begin{axis}[
+    width=11cm,
+    height=6.2cm,
+    axis lines=middle,
+    xmin=0, xmax=10.5,
+    ymin=0.55, ymax=0.95,
+    xlabel={$n$}, ylabel={$s_n$},
+    ticks=none,
+    clip=false
+  ]
+    % Alternating harmonic partial sums for sum (-1)^{k+1}/k (approaches ln 2 ~ 0.693)
+    \addplot[only marks, mark=*, mark size=2pt, color=thmcolor]
+      coordinates {(1,1.0) (2,0.5) (3,0.8333) (4,0.5833) (5,0.7833) (6,0.6167) (7,0.7595) (8,0.6345) (9,0.7456) (10,0.6456)};
+
+    \addplot[dashed, color=defcolor, domain=0:10.5, samples=2] {0.6931};
+    \node[color=defcolor, anchor=west] at (axis cs:10.6,0.6931) {$\ln 2$};
+    \node[anchor=west] at (axis cs:2.2,0.92) {partial sums alternate around the limit};
+    \node[anchor=west] at (axis cs:2.2,0.88) {$|R_n|\le |a_{n+1}|$ (decreasing terms)};
+  \end{axis}
+\end{tikzpicture}

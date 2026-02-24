@@ -1,0 +1,133 @@
+In the previous video,
+I defined the supremum
+and the infimum of a set.
+It's linked in the description.
+In this video, I will define
+the supremum and infimum
+of a function, instead.
+It is actually an easy concept
+if we already know what the
+supremum of a set is.
+When we talk about the
+supremum of a function,
+we simply mean the
+supremum of its range.
+That's it.
+I could pretty much end
+the video here,
+but let's elaborate a bit.
+To calculate the supremum
+of a function f,
+on a domain I,
+(This is sometimes implied.)
+(If we do not specify the domain,
+we mean "on the full domain.")
+first we need to
+construct the range.
+Here is the range, described
+in set-builder notation, in red.
+It is the set of
+elements of the form
+f(x) where x is in I.
+This is a set.
+Then, I simply take the
+supremum of this set.
+That's it.
+There is an alternative
+piece of notation
+to describe the
+same number.
+Sometimes people will
+write this as
+"sup of f(x)", and as
+a sub-index of sup,
+x is in I.
+This expression, boxed
+here in blue,
+is just new notation to mean
+exactly as the line above.
+For example,
+consider the function f
+defined by this graph.
+I want to compute the
+supremum of f
+on the interval [-2, 2].
+I need to restrict the function
+to the domain [-2, 2].
+So, I keep only the
+piece of the function
+represented by this
+part of the graph.
+And the range is [-1, 1].
+Therefore, what I need to
+compute is the supremum
+of the interval [-1, 1],
+which is 1.
+That's all.
+Now, this is how I define
+the supremum of a function,
+but I can define many other
+concepts in a similar manner.
+I can define an upper bound
+of a function,
+or the maximum of a function,
+or the infimum of a function,
+or other concepts.
+Whenever I say "of a function,"
+I always mean
+"of the range
+of the function."
+Let's look at
+another example.
+Consider the function g,
+defined by this graph.
+g is bounded above
+on the interval [0, 2].
+The supremum of g on
+the interval [0, 2] is 1.
+But it has no maximum.
+On the other hand,
+if we look at lower bounds
+instead of upper bounds,
+we can see that g
+is also bounded below,
+and that it has an infimum, -1,
+which is also a minimum.
+To conclude the video, I want to
+mention two important theorems.
+First, there is an immediate
+consequence of the
+Least Upper Bound Principle,
+which we already know.
+The Least Upper Bound Principle
+is about sets,
+but we can extend it
+to functions.
+The theorem says that
+IF a function is bounded above
+on a domain that is non-empty,
+THEN it has a supremum.
+The second theorem is an
+old friend we know very well:
+the Extreme Value Theorem.
+I remind you of what the
+Extreme Value Theorem says:
+If I have a function defined on a
+closed and bounded interval [a, b],
+IF the function is continuous,
+THEN it has a maximum
+and a minimum.
+Notice that the two
+theorems are related.
+They both offer a
+sufficient condition
+that guarantees that a
+function will have
+a supremum,
+in the first case,
+or a maximum,
+in the second case.
+That is why I like to look
+at these theorems side-by-side,
+and why I mentioned them
+in the context of this video.

@@ -1,0 +1,29 @@
+\begin{tikzpicture}
+  \begin{axis}[
+    width=11cm,
+    height=6.8cm,
+    axis lines=middle,
+    xmin=0, xmax=3.4,
+    ymin=-0.2, ymax=3.2,
+    xlabel={$t$}, ylabel={$f(t)$},
+    ticks=none,
+    clip=true
+  ]
+    % Example integrand f(t)=1+0.5t
+    \addplot[thick, color=thmcolor, domain=0:3.3, samples=50] {1 + 0.5*x};
+
+    \def\a{0.6}
+    \def\x{2.3}
+
+    % Shade area from a to x
+    \addplot[domain=\a:\x, draw=none, fill=excolor, fill opacity=0.18] {1+0.5*x} \closedcycle;
+
+    % Mark a and x
+    \draw[dashed, color=defcolor] (axis cs:\a,0) -- (axis cs:\a,3.2);
+    \draw[dashed, color=defcolor] (axis cs:\x,0) -- (axis cs:\x,3.2);
+    \node[color=defcolor, anchor=north] at (axis cs:\a,0) {$a$};
+    \node[color=defcolor, anchor=north] at (axis cs:\x,0) {$x$};
+
+    \node[anchor=west] at (axis cs:2.5,1.25) {$A(x)=\int_a^x f(t)\,dt$};
+  \end{axis}
+\end{tikzpicture}

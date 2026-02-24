@@ -1,0 +1,43 @@
+\begin{tikzpicture}
+  \begin{axis}[
+    width=11cm,
+    height=6.8cm,
+    axis lines=middle,
+    xmin=-0.1, xmax=2.2,
+    ymin=-0.2, ymax=3.6,
+    xlabel={$x$}, ylabel={$y$},
+    ticks=none,
+    clip=true
+  ]
+    % Increasing function f(x)=x+1 on [0,2]
+    \addplot[thick, color=thmcolor, domain=0:2, samples=50] {x+1};
+
+    % Partition into 4 pieces (unrolled for pgfplots compatibility)
+    % Interval [0, 0.5]: lower height = 1, upper height = 1.5
+    \path[fill=excolor, fill opacity=0.12] (axis cs:0,0) rectangle (axis cs:0.5,1);
+    \path[fill=defcolor, fill opacity=0.12] (axis cs:0,0) rectangle (axis cs:0.5,1.5);
+    \draw[thick, color=excolor] (axis cs:0,0) rectangle (axis cs:0.5,1);
+    \draw[thick, color=defcolor] (axis cs:0,0) rectangle (axis cs:0.5,1.5);
+
+    % Interval [0.5, 1]: lower height = 1.5, upper height = 2
+    \path[fill=excolor, fill opacity=0.12] (axis cs:0.5,0) rectangle (axis cs:1,1.5);
+    \path[fill=defcolor, fill opacity=0.12] (axis cs:0.5,0) rectangle (axis cs:1,2);
+    \draw[thick, color=excolor] (axis cs:0.5,0) rectangle (axis cs:1,1.5);
+    \draw[thick, color=defcolor] (axis cs:0.5,0) rectangle (axis cs:1,2);
+
+    % Interval [1, 1.5]: lower height = 2, upper height = 2.5
+    \path[fill=excolor, fill opacity=0.12] (axis cs:1,0) rectangle (axis cs:1.5,2);
+    \path[fill=defcolor, fill opacity=0.12] (axis cs:1,0) rectangle (axis cs:1.5,2.5);
+    \draw[thick, color=excolor] (axis cs:1,0) rectangle (axis cs:1.5,2);
+    \draw[thick, color=defcolor] (axis cs:1,0) rectangle (axis cs:1.5,2.5);
+
+    % Interval [1.5, 2]: lower height = 2.5, upper height = 3
+    \path[fill=excolor, fill opacity=0.12] (axis cs:1.5,0) rectangle (axis cs:2,2.5);
+    \path[fill=defcolor, fill opacity=0.12] (axis cs:1.5,0) rectangle (axis cs:2,3);
+    \draw[thick, color=excolor] (axis cs:1.5,0) rectangle (axis cs:2,2.5);
+    \draw[thick, color=defcolor] (axis cs:1.5,0) rectangle (axis cs:2,3);
+
+    \node[color=excolor, anchor=west] at (axis cs:1.55,1.15) {lower sum (left endpoints)};
+    \node[color=defcolor, anchor=west] at (axis cs:1.55,2.85) {upper sum (right endpoints)};
+  \end{axis}
+\end{tikzpicture}

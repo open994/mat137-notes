@@ -1,0 +1,749 @@
+\chapter{Logic, Definitions, Notation, and Proofs}
+
+%=============================================================================
+\section{Sets and Set Notation}
+\label{sec:1.1}
+%=============================================================================
+
+\textit{Before we do any calculus, we need a common language.  We begin with the most basic objects in mathematics---sets---and the notation we use to talk about them.}
+
+\begin{definition}[Set]
+\label{def:1-1}
+A \emph{set} is a collection of objects.  The objects that belong to a set are called its \emph{elements}.
+\end{definition}
+
+\begin{remark}
+A logician would rightly object that the definition above is not rigorous enough for the purposes of logic and foundations.  For our purposes, however, it is good enough, and we keep it simple.
+\end{remark}
+
+A set is described by listing or characterising its elements inside curly braces.  For example,
+\[
+  A = \{\, x \in \Z : x \text{ is even}\,\}, \qquad
+  B = \{4,\, 5,\, 6\}.
+\]
+The set $A$ has infinitely many elements; the set $B$ has exactly three.
+
+\begin{definition}[Element, Subset]
+\label{def:1-2}
+Let $S$ and $T$ be sets.
+\begin{enumerate}[label=(\roman*)]
+  \item We write $x \in S$ to mean that $x$ is an element of $S$, and $x \notin S$ to mean that it is not.
+  \item We write $S \subseteq T$ to mean that every element of $S$ is also an element of $T$; in this case $S$ is called a \emph{subset} of $T$.
+  \item We write $S \subsetneq T$ to mean that $S \subseteq T$ and $S \neq T$ (a \emph{proper subset}).
+\end{enumerate}
+\end{definition}
+
+\begin{remark}[Warning]
+The notation for ``subset'' is not universal.  Some books use $\subset$ to mean $\subseteq$ (subset, possibly equal), while other books use $\subset$ to mean $\subsetneq$ (proper subset).  Check the conventions in whatever text you are reading.  In these notes we use $\subseteq$ and $\subsetneq$ exclusively, so there is no ambiguity.
+\end{remark}
+
+\begin{definition}[Union, Intersection, Empty Set]
+\label{def:1-3}
+Let $S$ and $T$ be sets.
+\begin{enumerate}[label=(\roman*)]
+  \item The \emph{union} $S \cup T$ is the set of elements belonging to $S$, to $T$, or to both.
+  \item The \emph{intersection} $S \cap T$ is the set of elements belonging to \textbf{both} $S$ and $T$.
+  \item The \emph{empty set} $\varnothing$ is the set with no elements: $\varnothing = \{\,\}$.
+\end{enumerate}
+\end{definition}
+
+\begin{example}
+\label{ex:1-1}
+Let $C = \{2,\,4\}$ and $D = \{4,\,5\}$.  Then
+\[
+  C \cup D = \{2,\,4,\,5\}, \qquad C \cap D = \{4\}.
+\]
+\end{example}
+
+% ── BEGIN VISUAL ──
+\begin{figure}[ht]
+  \centering
+  \input{ch01/figures/fig-venn-union-intersection.tex}
+  \caption{Union and intersection.}
+  \label{fig:venn-union-intersection}
+\end{figure}
+% ── END VISUAL ──
+
+\textit{Four sets of numbers appear so frequently that they have standard names and symbols.  Each is a subset of the next.}
+
+\begin{definition}[Standard Number Sets]
+\label{def:1-4}
+\begin{enumerate}[label=(\roman*)]
+  \item $\N = \{0,\,1,\,2,\,3,\,\dots\}$ \quad (the \emph{natural numbers}).
+  \item $\Z = \{\dots,\,-2,\,-1,\,0,\,1,\,2,\,\dots\}$ \quad (the \emph{integers}).
+  \item $\Q = \left\{\,\dfrac{p}{q} : p,\,q \in \Z,\; q \neq 0\,\right\}$ \quad (the \emph{rational numbers}).
+  \item $\R$ denotes the \emph{real numbers}: informally, any number with a decimal expansion.
+\end{enumerate}
+We have $\N \subseteq \Z \subseteq \Q \subseteq \R$.
+\end{definition}
+
+\begin{remark}
+Some books start $\N$ at $1$ instead of $0$.  Do not argue about which convention is ``right''; what matters is that you know which convention is in force whenever you do mathematics or read a book.
+\end{remark}
+
+\begin{remark}
+There is a more formal and rigorous way to define $\R$, but that construction is surprisingly deep and complicated; it is normally the topic of an analysis course.
+\end{remark}
+
+%=============================================================================
+\section{Set-Builder Notation and Intervals}
+\label{sec:1.2}
+%=============================================================================
+
+\textit{We now introduce a powerful notation that lets us describe sets precisely, even when an explicit list of elements is impossible.}
+
+\begin{definition}[Set-Builder Notation]
+\label{def:1-5}
+A set may be described by writing
+\[
+  \{\, x \in S : P(x) \,\} \qquad\text{or equivalently}\qquad \{\, x \in S \mid P(x) \,\},
+\]
+which is read ``the set of elements $x$ in $S$ \textbf{such that} $P(x)$\@.''  On the left of the colon (or bar) we state \textbf{where} we draw our elements from; on the right we state any \textbf{extra constraints}.
+\end{definition}
+
+\begin{remark}[Warning]
+Use the colon or vertical bar to mean ``such that'' \textbf{only} inside set-builder notation.  Do not use it in other contexts.
+\end{remark}
+
+\begin{example}
+\label{ex:1-2}
+Let $A = \{\, x \in \Z : x^{2} < 6 \,\}$.  Since the only integers whose squares are less than $6$ are $-2,\,-1,\,0,\,1,\,2$, we have $A = \{-2,\,-1,\,0,\,1,\,2\}$.
+\end{example}
+
+\begin{example}
+\label{ex:1-3}
+A second common usage: the left side gives the \textbf{form} of the elements, and the right side explains the notation.  With $A$ as above,
+\[
+  B = \{\, 2x : x \in A \,\} = \{-4,\,-2,\,0,\,2,\,4\}.
+\]
+Here $B$ consists of all elements of the form $2x$ where $x \in A$.
+\end{example}
+
+\textit{A particularly important family of sets built with set-builder notation are the intervals.}
+
+\begin{definition}[Intervals]
+\label{def:1-6}
+Let $a,\,b \in \R$ with $a \le b$.
+\begin{align*}
+  [a,\,b] &= \{\, x \in \R : a \le x \le b \,\}  &&\text{(closed interval)},\\
+  (a,\,b) &= \{\, x \in \R : a < x < b \,\}       &&\text{(open interval)},\\
+  [a,\,b) &= \{\, x \in \R : a \le x < b \,\},     &&\\
+  (a,\,b] &= \{\, x \in \R : a < x \le b \,\}.     &&
+\end{align*}
+We also define unbounded intervals:
+\begin{align*}
+  [a,\,\infty) &= \{\, x \in \R : x \ge a \,\}, &\qquad
+  (a,\,\infty) &= \{\, x \in \R : x > a \,\},\\
+  (-\infty,\,b] &= \{\, x \in \R : x \le b \,\}, &\qquad
+  (-\infty,\,b) &= \{\, x \in \R : x < b \,\}.
+\end{align*}
+\end{definition}
+
+\begin{remark}
+The symbol $\infty$ is \textbf{not} a number; it is never included as an endpoint.  The notation $(a,\infty)$ simply means ``the set of all real numbers greater than $a$, with no upper bound.''
+\end{remark}
+
+% ── BEGIN VISUAL ──
+\begin{figure}[ht]
+  \centering
+  \input{ch01/figures/fig-interval-open-closed.tex}
+  \caption{Open/closed endpoints on a number line.}
+  \label{fig:interval-open-closed}
+\end{figure}
+% ── END VISUAL ──
+
+%=============================================================================
+\section{Mathematical Quantifiers}
+\label{sec:1.3}
+%=============================================================================
+
+\textit{Many mathematical statements assert that something holds for \textbf{all} objects, or that \textbf{there exists} an object with a certain property.  The two quantifier symbols make these assertions precise.}
+
+\begin{definition}[Quantifiers]
+\label{def:1-7}
+\begin{enumerate}[label=(\roman*)]
+  \item The symbol $\forall$ is read ``\emph{for all}'' or ``\emph{for every}.''
+  \item The symbol $\exists$ is read ``\emph{there exists}'' or ``\emph{there is}.''
+\end{enumerate}
+\end{definition}
+
+\begin{remark}
+In mathematics, ``there exists'' \textbf{always} means ``there exists \textbf{at least one}.''  It does not mean ``there exists exactly one.''  For instance, saying that an equation ``has a solution'' means it has at least one solution.  If you want to say exactly one, you must say so explicitly.
+\end{remark}
+
+\begin{example}
+\label{ex:1-4}
+Consider the following statements.
+\begin{enumerate}[label=(\alph*)]
+  \item $\forall\, x \in \R,\; x^{2} \ge 0$.  \quad This is \textbf{true}; every real number has a non-negative square.
+  \item $\forall\, x \in \Z,\; x > \pi$.  \quad This is \textbf{false}; for example, $x = 1$ is an integer with $1 < \pi$.
+\end{enumerate}
+\end{example}
+
+\begin{example}
+\label{ex:1-5}
+Consider the following statements.
+\begin{enumerate}[label=(\alph*)]
+  \item $\exists\, x \in \R$ such that $x^{2} = 5$.  \quad This is \textbf{true}; take $x = \sqrt{5}$ (or $x = -\sqrt{5}$).
+  \item $\exists\, x \in \R$ such that $x^{2} = -1$.  \quad This is \textbf{false}; no real number has a negative square.
+\end{enumerate}
+\end{example}
+
+\begin{remark}
+The connector ``such that'' adds no mathematical content; it simply makes the sentence grammatically correct.  Logicians often replace it with a comma, but writing it out makes statements easier to read.
+\end{remark}
+
+\begin{remark}[Warning]
+Writing ``$x^{2} = 5$'' by itself, with no quantifier and no prior agreement about $x$, is \textbf{meaningless}: it is neither true nor false.  Such a fragment is sometimes called a \emph{predicate} rather than a \emph{statement}.  Every variable in a statement must be either quantified or previously fixed.  If you are ever tempted to begin a definition, theorem, or proof with an equation or inequality involving an unquantified variable---do not do it.
+\end{remark}
+
+%=============================================================================
+\section{Order of Multiple Quantifiers}
+\label{sec:1.4}
+%=============================================================================
+
+\textit{When a statement involves more than one quantifier, the order in which they appear changes the meaning drastically.  We illustrate with a pair of statements that differ only in the order of their quantifiers, yet one is true and the other is false.}
+
+\begin{example}
+\label{ex:1-6}
+Compare:
+\begin{enumerate}[label=(\alph*)]
+  \item $\forall\, x \in \Z,\;\exists\, y \in \Z$ such that $x < y$.
+  \item $\exists\, y \in \Z$ such that $\forall\, x \in \Z,\; x < y$.
+\end{enumerate}
+\end{example}
+
+\begin{remark}[Pause and Try]
+Before reading on, decide which statement is true and which is false, and why.
+\end{remark}
+
+\textit{In statement~(b) we claim there is a \textbf{single} integer $y$ that is greater than \textbf{every} integer $x$.  The same $y$ must work for all $x$.  This is clearly false: there is no largest integer.}
+
+\textit{In statement~(a) we claim that \textbf{for every} integer $x$, we can find \textbf{some} integer $y$ with $x < y$.  Crucially, we are allowed to use a \textbf{different} $y$ for each $x$.  Given any $x$, simply take $y = x + 1$.  So statement~(a) is true.}
+
+\begin{theorem}
+\label{thm:1-1}
+For every integer $x$, there exists an integer $y$ such that $x < y$.
+\end{theorem}
+
+\begin{remark}
+The moral is that the order of quantifiers tells us \textbf{what depends on what}.  In~(a), $y$ is allowed to depend on $x$; in~(b), $y$ must be chosen independently of $x$.  As statements grow to involve many quantifiers, keeping track of dependencies becomes essential.
+\end{remark}
+
+% ── BEGIN VISUAL ──
+\begin{figure}[ht]
+  \centering
+  \input{ch01/figures/fig-quantifier-dependence.tex}
+  \caption{Quantifier order encodes dependence.}
+  \label{fig:quantifier-dependence}
+\end{figure}
+% ── END VISUAL ──
+
+%=============================================================================
+\section{Simple Proofs with Quantifiers}
+\label{sec:1.5}
+%=============================================================================
+
+\textit{We now write proofs of some deliberately simple statements so that we can see the building blocks clearly, before assembling them into more complex proofs later.}
+
+\begin{theorem}
+\label{thm:1-2}
+Let $A = \{2,\,3,\,4\}$.  Then for every $x \in A$, we have $x > 0$.
+\end{theorem}
+
+\begin{proof}
+We check each element of $A$ individually: $2 > 0$, $3 > 0$, and $4 > 0$.
+\end{proof}
+\proofref{Exhaustive check of a finite set.}
+
+\textit{What if the claim is false?  To disprove a ``for all'' statement, we prove its \textbf{negation}: a ``there exists'' statement.}
+
+\begin{definition}[Negation]
+\label{def:1-8}
+The \emph{negation} of a statement $P$ is a statement that is true exactly when $P$ is false.
+\end{definition}
+
+The negation of ``$\forall\, x \in S,\; P(x)$'' is ``$\exists\, x \in S$ such that $\lnot P(x)$\@.''
+
+\begin{theorem}
+\label{thm:1-3}
+It is false that every integer is positive.  Equivalently, there exists an integer $x$ with $x \le 0$.
+\end{theorem}
+
+\begin{proof}
+Take $x = -6$.  Then $x \in \Z$ and $x \le 0$.
+\end{proof}
+\proofref{Exhibit one counterexample for an existential.}
+
+\textit{Next, a statement with \textbf{two} quantifiers, where the proof cannot proceed by exhaustive checking because there are infinitely many cases.}
+
+\begin{theorem}
+\label{thm:1-4}
+For every integer $x$, there exists an integer $y$ such that $x < y$.
+\end{theorem}
+
+\begin{proof}
+Let $x$ be an integer (fixing an arbitrary value).  Take $y = x + 1$.  Then $y$ is an integer, and $x < x + 1 = y$.
+\end{proof}
+\proofref{Fix the universally quantified variable; choose the existential one.}
+
+\begin{remark}
+The word ``let'' in a proof means we are \textbf{fixing} an \textbf{arbitrary} value of the variable.  ``Arbitrary'' because the proof must work for every integer; ``fix'' because subsequent lines may refer to $x$ and it must carry a definite meaning.  In the statement of the theorem, $x$ is a quantified variable with no intrinsic value.  In the proof, once we write ``let $x$ be an integer,'' it becomes fixed and we may operate with it.
+\end{remark}
+
+\begin{remark}
+The structure here---fix the ``for all'' variable, then choose the ``there exists'' variable, then verify---is a template we will reuse in much more complex proofs, including proofs involving the definition of limit.
+\end{remark}
+
+%=============================================================================
+\section{Quantifiers and the Empty Set}
+\label{sec:1.6}
+%=============================================================================
+
+\textit{A common point of confusion arises when quantifiers are applied to the empty set.  There is a trap here.}
+
+\begin{example}
+\label{ex:1-7}
+Consider the two statements:
+\begin{enumerate}[label=(\alph*)]
+  \item $\forall\, x \in \varnothing,\; x > 0$.
+  \item $\exists\, x \in \varnothing$ such that $x > 0$.
+\end{enumerate}
+One is true and the other is false.
+\end{example}
+
+\begin{remark}[Pause and Try]
+Before reading on, decide which is true and which is false.
+\end{remark}
+
+\textit{Statement~(a) is \textbf{true}.}  To prove a ``for all'' statement, we must check that \textbf{all} elements of the set satisfy the condition.  The empty set has zero elements, so there are zero elements to check; the verification is vacuously complete.  Conversely, to disprove it we would need to find one element that fails, but the empty set contains no elements at all, so we cannot.
+
+\textit{Statement~(b) is \textbf{false}.}  To prove a ``there exists'' statement, we must exhibit at least one element with the desired property, and no element of $\varnothing$ exists.
+
+\begin{theorem}[Vacuous Truth]
+\label{thm:1-5}
+For any property $P$, the statement ``$\forall\, x \in \varnothing,\; P(x)$'' is true, and the statement ``$\exists\, x \in \varnothing$ such that $P(x)$'' is false.
+\end{theorem}
+
+\begin{remark}
+The specific condition ($x > 0$ in the example) is irrelevant.  The argument depends only on the set being empty.
+\end{remark}
+
+%=============================================================================
+\section{Conditional Statements and Implication}
+\label{sec:1.7}
+%=============================================================================
+
+\textit{Conditional statements---sentences of the form ``if \ldots, then \ldots''---appear constantly in mathematics.  We now pin down their precise meaning, which is narrower than everyday English usage.}
+
+\begin{definition}[Conditional / Implication]
+\label{def:1-9}
+A \emph{conditional statement} has the form
+\[
+  \text{If } P, \text{ then } Q, \qquad\text{equivalently written}\qquad P \implies Q.
+\]
+The symbol $\implies$ is read ``\emph{implies}.''  The statement means: whenever $P$ is true, $Q$ must be true as well.  \textbf{When $P$ is false, we make no claim about $Q$ at all.}
+\end{definition}
+
+\begin{example}
+\label{ex:1-8}
+``If $x > 10$, then $x > 6$'' is true for all real numbers $x$.  Consider three cases:
+\begin{enumerate}[label=(\roman*)]
+  \item $x = 12$: $P$ is true, $Q$ is true.  Compatible.
+  \item $x = 8$: $P$ is false, $Q$ is true.  Compatible (we don't care when $P$ is false).
+  \item $x = 3$: $P$ is false, $Q$ is false.  Also compatible.
+\end{enumerate}
+\end{example}
+
+\begin{example}
+\label{ex:1-9}
+Let $A \subseteq \R$ and suppose we know that $x \in A \implies x > 0$.
+
+\begin{enumerate}[label=(\alph*)]
+  \item If $x \notin A$: no conclusion (the hypothesis is false).
+  \item If $x > 0$: no conclusion (knowing $Q$ is true does not tell us about $P$).
+  \item If $x \le 0$: we \textbf{can} conclude $x \notin A$.  If $x$ were in $A$, it would have to be positive, contradicting $x \le 0$.
+\end{enumerate}
+\end{example}
+
+\begin{theorem}[Contrapositive]
+\label{thm:1-6}
+The implication $P \implies Q$ is logically equivalent to its \emph{contrapositive} $\lnot Q \implies \lnot P$.
+\end{theorem}
+
+\begin{remark}[Warning]
+$P \implies Q$ does \textbf{not} imply $\lnot P \implies \lnot Q$.  That would be the \emph{inverse}, which is a different statement.
+\end{remark}
+
+\begin{definition}[Biconditional / If and Only If]
+\label{def:1-10}
+We write
+\[
+  P \iff Q
+\]
+and read it ``$P$ \emph{if and only if} $Q$'' (often abbreviated \emph{iff}).  It means that \textbf{both} $P \implies Q$ and $Q \implies P$ hold.  Equivalently, $P$ and $Q$ are always both true or both false; we say $P$ and $Q$ are \emph{equivalent}.
+\end{definition}
+
+\begin{example}
+\label{ex:1-10}
+Let $n \in \Z$.
+\begin{enumerate}[label=(\alph*)]
+  \item ``$n$ is even'' does \textbf{not} imply ``$n$ is a multiple of $4$'' (take $n = 6$).  However, ``$n$ is a multiple of $4$'' $\implies$ ``$n$ is even.''
+  \item ``$n$ is even'' $\iff$ ``$n + 1$ is odd.''  Both implications hold.
+\end{enumerate}
+\end{example}
+
+\begin{remark}[Warning]
+In casual English, ``if'' sometimes means ``if and only if.''  In mathematics, the two are \textbf{strictly distinguished}.  Always check whether a statement asserts one implication or both.
+\end{remark}
+
+\begin{example}
+\label{ex:1-11}
+Is the following statement true or false?
+\[
+  \text{``If } 0 > 1, \text{ then } 478{,}871 \text{ is prime.''}
+\]
+The hypothesis $0 > 1$ is false.  Since the ``if'' part is false, the entire implication is \textbf{true}, regardless of whether $478{,}871$ is prime.
+\end{example}
+
+\begin{remark}
+This may feel counterintuitive, but it follows directly from the definition: an implication makes a promise only when the hypothesis is true.  When the hypothesis is false, the promise is vacuously kept.
+\end{remark}
+
+%=============================================================================
+\section{Negation of Conditional Statements}
+\label{sec:1.8}
+%=============================================================================
+
+\textit{A common and important fact: the negation of a conditional statement is \textbf{never} another conditional statement.  Understanding this is critical for writing correct proofs.}
+
+Let $A \subseteq \R$.  Consider the conditional:
+\[
+  x \in A \implies x > 0.
+\]
+What does this really say?  It asserts that \textbf{every} real number $x$ falls into one of three cases:
+\begin{enumerate}[label=(\roman*)]
+  \item $x \notin A$ and $x > 0$,
+  \item $x \notin A$ and $x \le 0$,
+  \item $x \in A$ and $x > 0$.
+\end{enumerate}
+There is a \textbf{hidden quantifier}: the statement means $\forall\, x \in \R$, if $x \in A$ then $x > 0$.
+
+\begin{theorem}[Negation of a Conditional]
+\label{thm:1-7}
+The negation of
+\[
+  \forall\, x,\; (P(x) \implies Q(x))
+\]
+is
+\[
+  \exists\, x \text{ such that } P(x) \text{ and } \lnot Q(x).
+\]
+\end{theorem}
+
+In other words, the only way the conditional can fail is if there is some $x$ for which the ``if'' part is \textbf{true} and the ``then'' part is \textbf{false}.
+
+\begin{remark}[Warning]
+The negation of an ``if\ldots then'' is \textbf{never} another ``if\ldots then.''  Also, many conditional statements contain a \textbf{hidden, implicit} universal quantifier.  When you write the negation, you \textbf{must} write that quantifier out explicitly.
+\end{remark}
+
+%=============================================================================
+\section{Structure of a Correct Proof}
+\label{sec:1.9}
+%=============================================================================
+
+\textit{We now look at a common \textbf{bad} proof, identify precisely what goes wrong, and then write a correct proof of the same result.  This illustrates several principles that every proof must satisfy.}
+
+\begin{theorem}[AM--GM Inequality for Two Variables]
+\label{thm:1-8}
+If $x,\,y \ge 0$, then
+\[
+  \sqrt{xy} \le \frac{x + y}{2}.
+\]
+\end{theorem}
+
+\textit{A common incorrect attempt proceeds as follows: start by writing the desired inequality, square both sides, rearrange, and arrive at $(x - y)^{2} \ge 0$.  Since a square is non-negative, conclude that the original inequality is true.}
+
+\begin{remark}[Warning]
+This ``proof'' is wrong for several reasons.
+\begin{enumerate}[label=(\arabic*)]
+  \item It \textbf{assumes what it wants to prove}.  The argument only shows: if the inequality holds, then $(x - y)^{2} \ge 0$.  That tells us nothing about whether the inequality itself is true.
+  \item The statement of the ``theorem'' was just a bare inequality with no quantifiers.  A theorem must say \textbf{when} or \textbf{for which} values something is true.
+  \item The inequality is \textbf{not} always true: when $x = y = -1$, the left side is $\sqrt{1} = 1$ and the right side is $-1$, so $1 \le -1$ is false.  A correct proof must notice the need for $x, y \ge 0$.
+  \item The proof contains no words, only algebra.  In general, a proof must \textbf{explain} what is being done.
+\end{enumerate}
+\end{remark}
+
+\begin{proof}[Proof of \cref{thm:1-8}]
+Let $x,\,y \ge 0$.  Since every square is non-negative,
+\[
+  (x - y)^{2} \ge 0.
+\]
+Expanding and rearranging:
+\begin{align*}
+  x^{2} - 2xy + y^{2} &\ge 0, \\
+  x^{2} + 2xy + y^{2} &\ge 4xy, \\
+  (x + y)^{2} &\ge 4xy.
+\end{align*}
+Both sides are non-negative (since $x, y \ge 0$), so we may take square roots of both sides:
+\[
+  \abs{x + y} \ge 2\sqrt{xy}.
+\]
+Since $x + y \ge 0$, we have $\abs{x + y} = x + y$, and therefore
+\[
+  \sqrt{xy} \le \frac{x + y}{2}.  \qedhere
+\]
+\end{proof}
+\proofref{Start from what you \textbf{know} is true; end at what you want to prove.}
+
+\begin{remark}
+You may wonder: how did we \textit{come up with} starting from $(x - y)^{2} \ge 0$?  The answer is \textbf{rough work}.  We first take the desired inequality and manipulate it (not as a proof, but as exploration) to discover what known fact it rests on.  Once we find that foundation, we write the actual proof \textbf{forward}: beginning from the known fact and ending at the desired conclusion.  The rough work is not part of the proof; it is the process of \textit{finding} the proof.
+\end{remark}
+
+\begin{remark}
+A correct proof has the following structure:
+\begin{enumerate}[label=(\arabic*)]
+  \item The theorem states clearly \textbf{what} is being proved and \textbf{when} it holds.
+  \item The proof begins with things that are \textbf{known} to be true.
+  \item Each step follows logically from the previous ones.
+  \item Whenever necessary, explanations accompany the algebra.
+  \item The proof ends by concluding the desired result.
+\end{enumerate}
+\end{remark}
+
+%=============================================================================
+\section{Writing Rigorous Definitions}
+\label{sec:1.10}
+%=============================================================================
+
+\textit{We all have some geometric intuition for what it means for a function to be ``increasing''---a function that ``always goes up.''  But ``always goes up'' is not a mathematical definition.  We now illustrate, step by step, how to turn an intuitive idea into a precise, rigorous definition.}
+
+\begin{remark}[Warning]
+Some students believe that the definition of ``increasing'' is ``positive derivative.''  That is \textbf{wrong}.  A function can be increasing even at a point where it has a corner and no derivative at all.  We need a definition that captures every function we intuitively regard as increasing, including such examples.
+\end{remark}
+
+\textit{To formalise ``always goes up,'' compare two input values $x_{1}$ and $x_{2}$.  If $x_{1} < x_{2}$, we want $f(x_{1}) < f(x_{2})$.  But this pair of inequalities by itself is not a definition; we need to specify the function, the domain, and a quantifier.}
+
+\begin{definition}[Increasing Function]
+\label{def:1-11}
+Let $I$ be an interval and let $f$ be a function defined on $I$.  We say $f$ is \emph{increasing on $I$} if
+\[
+  \forall\, x_{1},\, x_{2} \in I, \quad x_{1} < x_{2} \implies f(x_{1}) < f(x_{2}).
+\]
+\end{definition}
+
+\begin{remark}
+Every piece of this definition is necessary:
+\begin{enumerate}[label=(\arabic*)]
+  \item We define ``increasing \textbf{on} $I$\!,'' not just ``increasing,'' because a function can be increasing on one interval and not on another.
+  \item The universal quantifier $\forall$ is required; without it, we would not know whether the condition applies to all pairs or just some.
+  \item The conditional $\implies$ is required.  Writing ``$x_{1} < x_{2}$ and $f(x_{1}) < f(x_{2})$'' (with ``and'' instead of ``implies'') would demand that \textit{every} pair satisfies $x_{1} < x_{2}$, which is never true.
+\end{enumerate}
+Without any one of these pieces, the definition would mean something different, or nothing at all.
+\end{remark}
+
+%=============================================================================
+\section{Verifying a Definition Directly}
+\label{sec:1.11}
+%=============================================================================
+
+\textit{Once we have a definition, the definition itself tells us what a proof should look like.  We do not need to memorise a separate proof template: the structure of the proof is contained in the structure of the definition.}
+
+\begin{theorem}
+\label{thm:1-9}
+The function $f(x) = 3x + 7$ is increasing on $\R$.
+\end{theorem}
+
+\textit{By \cref{def:1-11}, what we want to show (WTS) is:}
+\[
+  \forall\, x_{1},\, x_{2} \in \R, \quad x_{1} < x_{2} \implies f(x_{1}) < f(x_{2}).
+\]
+
+\begin{proof}
+Let $x_{1},\, x_{2} \in \R$ and assume $x_{1} < x_{2}$.  Multiplying both sides by $3$ (positive, so the inequality is preserved):
+\[
+  3x_{1} < 3x_{2}.
+\]
+Adding $7$ to both sides:
+\[
+  3x_{1} + 7 < 3x_{2} + 7,
+\]
+that is, $f(x_{1}) < f(x_{2})$.
+\end{proof}
+\proofref{Fix the universal variables; assume the hypothesis of the conditional; conclude.}
+
+\begin{remark}
+We did not need to memorise a method for proving that a function is increasing.  The definition of ``increasing'' dictated the proof structure: fix arbitrary $x_{1}, x_{2}$; assume $x_{1} < x_{2}$; derive $f(x_{1}) < f(x_{2})$.  The same principle applies to \textbf{every} mathematical definition.
+\end{remark}
+
+%=============================================================================
+\section{Disproving via Definition Negation}
+\label{sec:1.12}
+%=============================================================================
+
+\textit{We now prove that an example does \textbf{not} satisfy a definition, again using nothing more than the definition itself---specifically, its negation.}
+
+\begin{theorem}
+\label{thm:1-10}
+The function $g(x) = \cos x$ is not increasing on $[0,\,\pi]$.
+\end{theorem}
+
+\textit{To say $g$ is \textbf{not} increasing on $[0,\,\pi]$ is to negate the definition of increasing: there must exist a pair $x_{1},\, x_{2} \in [0,\,\pi]$ with $x_{1} < x_{2}$ and $g(x_{1}) \ge g(x_{2})$.}
+
+\begin{proof}
+Take $x_{1} = 0$ and $x_{2} = \frac{\pi}{2}$.  Then $x_{1} < x_{2}$, but
+\[
+  g(x_{1}) = \cos 0 = 1 \ge 0 = \cos\frac{\pi}{2} = g(x_{2}).
+\]
+Hence $g$ is not increasing on $[0,\,\pi]$.
+\end{proof}
+\proofref{Exhibit one pair violating the conditional.}
+
+\begin{remark}
+The lesson applies to any concept: to show that something does \textbf{not} satisfy a definition, negate the definition and prove the negation.  No special technique is needed beyond understanding the definition.
+\end{remark}
+
+%=============================================================================
+\section{Proofs Involving Hypotheses}
+\label{sec:1.13}
+%=============================================================================
+
+\textit{Most theorems take the form ``if \ldots, then \ldots'': there is a \textbf{hypothesis} that we may assume, and a \textbf{conclusion} that we must prove.  We illustrate with a slightly more complex proof that uses the definition of increasing together with hypotheses.}
+
+\begin{theorem}
+\label{thm:1-11}
+Let $f$ and $g$ be functions defined on an interval $I$, and let $h = f + g$.  If $f$ and $g$ are both increasing on $I$, then $h$ is increasing on $I$.
+\end{theorem}
+
+\begin{remark}
+The statement before the ``if'' is the \emph{set-up}: it introduces the notation.  The ``if'' part is the \emph{hypothesis}: something we are allowed to \textbf{assume} during the proof.  The ``then'' part is the \emph{conclusion}: what we must \textbf{prove}.  Treat them very differently.
+\end{remark}
+
+\begin{proof}
+We want to show that $h$ is increasing on $I$, i.e.\
+\[
+  \forall\, x_{1},\, x_{2} \in I, \quad x_{1} < x_{2} \implies h(x_{1}) < h(x_{2}).
+\]
+Let $x_{1},\, x_{2} \in I$ with $x_{1} < x_{2}$.  Since $f$ is increasing on $I$,
+\[
+  f(x_{1}) < f(x_{2}).
+\]
+Since $g$ is increasing on $I$,
+\[
+  g(x_{1}) < g(x_{2}).
+\]
+Adding these two inequalities:
+\[
+  f(x_{1}) + g(x_{1}) < f(x_{2}) + g(x_{2}),
+\]
+that is, $h(x_{1}) < h(x_{2})$.
+\end{proof}
+\proofref{Use both hypotheses; add the resulting inequalities.}
+
+\begin{remark}
+Notice how $f$ and $g$ were treated differently from $h$.  For $f$ and $g$, we \textbf{assumed} they were increasing (hypothesis) and \textbf{used} that fact.  For $h$, we \textbf{proved} it was increasing (conclusion).  This is the fundamental distinction between hypothesis and conclusion in a proof.
+\end{remark}
+
+%=============================================================================
+\section{Proof by Induction}
+\label{sec:1.14}
+%=============================================================================
+
+\textit{Proof by induction is a technique especially suited to theorems that depend on a natural number $n$ and that cannot be checked one value at a time (because there are infinitely many values), yet for which a direct proof for all $n$ at once is not apparent.}
+
+\begin{theorem}
+\label{thm:1-12}
+For every natural number $n \ge 4$,
+\[
+  n! > 2^{n}.
+\]
+\end{theorem}
+
+\textit{We denote the statement ``$n! > 2^{n}$'' by $S_{n}$.}
+
+\begin{definition}[Proof by Induction]
+\label{def:1-12}
+A \emph{proof by induction} of a statement $S_{n}$ for all $n \ge n_{0}$ consists of two steps:
+\begin{enumerate}[label=(\roman*)]
+  \item \textbf{Base case.}  Prove $S_{n_{0}}$.
+  \item \textbf{Induction step.}  Prove that for every $n \ge n_{0}$, $S_{n} \implies S_{n+1}$.
+\end{enumerate}
+Together, these show that $S_{n}$ holds for every $n \ge n_{0}$.
+\end{definition}
+
+\begin{remark}
+In the induction step, we are \textbf{not} proving $S_{n}$ and we are \textbf{not} proving $S_{n+1}$.  We are proving an \textbf{implication}: \textit{if} $S_{n}$ is true, \textit{then} $S_{n+1}$ must be true as well.  By itself, the induction step does not tell us whether any $S_{n}$ is true.  Combined with the base case, however, the chain of implications propagates truth from $n_{0}$ onward: $S_{n_{0}} \implies S_{n_{0}+1} \implies S_{n_{0}+2} \implies \cdots$.
+\end{remark}
+
+\begin{proof}[Proof of \cref{thm:1-12}]
+We proceed by induction on $n$.
+
+\textbf{Base case} ($n = 4$).  We have $4! = 24$ and $2^{4} = 16$, so $4! > 2^{4}$.
+
+\textbf{Induction step.}  Let $n \ge 4$ and assume $n! > 2^{n}$ (induction hypothesis).  We want to show $(n+1)! > 2^{n+1}$.
+
+Since $(n+1)! = (n+1) \cdot n!$ and $2^{n+1} = 2 \cdot 2^{n}$, we compute:
+\begin{align*}
+  (n+1) \cdot n! &> (n+1) \cdot 2^{n} &&\text{(by the induction hypothesis)} \\
+                 &\ge 5 \cdot 2^{n}     &&\text{(since } n \ge 4 \text{ implies } n+1 \ge 5\text{)} \\
+                 &> 2 \cdot 2^{n}        &&\text{(since } 5 > 2\text{)} \\
+                 &= 2^{n+1}.
+\end{align*}
+Hence $(n+1)! > 2^{n+1}$, completing the induction step.
+\end{proof}
+\proofref{Induction hypothesis used in the first inequality.}
+
+\begin{remark}[Warning]
+A common misunderstanding: the induction step is \textbf{not} ``prove $S_{n+1}$.''  It is ``prove that $S_{n} \implies S_{n+1}$.''  We prove the statement itself only for the base case.  Everything else is an implication.
+\end{remark}
+
+%=============================================================================
+\section{Direct and Inductive Proofs}
+\label{sec:1.15}
+%=============================================================================
+
+\textit{To illustrate that a theorem may have more than one proof, and that different proof strategies are sometimes available, we prove the same identity by two completely different methods.}
+
+\begin{theorem}
+\label{thm:1-13}
+For every positive integer $n$,
+\[
+  1 + 2 + 3 + \cdots + n = \frac{n(n+1)}{2}.
+\]
+\end{theorem}
+
+Let $S_{n} = 1 + 2 + \cdots + n$.
+
+\begin{proof}[First proof (direct)]
+Write the sum in two ways:
+\begin{align*}
+  S_{n} &= 1 + 2 + 3 + \cdots + n, \\
+  S_{n} &= n + (n-1) + (n-2) + \cdots + 1.
+\end{align*}
+Adding term by term, each pair sums to $n + 1$ and there are $n$ pairs:
+\[
+  2S_{n} = n(n+1).
+\]
+Therefore $S_{n} = \dfrac{n(n+1)}{2}$.
+\end{proof}
+\proofref{No induction; a direct algebraic trick handles all $n$ at once.}
+
+\begin{proof}[Second proof (by induction)]
+We proceed by induction on $n$.
+
+\textbf{Base case} ($n = 1$).  $S_{1} = 1$ and $\dfrac{1 \cdot 2}{2} = 1$.  \checkmark
+
+\textbf{Induction step.}  Let $n$ be a positive integer and assume $S_{n} = \dfrac{n(n+1)}{2}$ (induction hypothesis).  Then
+\begin{align*}
+  S_{n+1} &= S_{n} + (n+1) \\
+           &= \frac{n(n+1)}{2} + (n+1) &&\text{(by the induction hypothesis)} \\
+           &= \frac{n(n+1) + 2(n+1)}{2} \\
+           &= \frac{(n+1)(n+2)}{2},
+\end{align*}
+which is the formula with $n$ replaced by $n+1$.
+\end{proof}
+\proofref{Induction hypothesis used to rewrite $S_{n}$.}
+
+\begin{remark}
+Both proofs are equally valid.  The first is a direct proof: a single algebraic trick works for all $n$ simultaneously, with no assumptions.  The second is an inductive proof: we prove the identity for $n = 1$, then show that truth at $n$ implies truth at $n + 1$.  Which proof is ``better'' is a matter of taste.
+\end{remark}

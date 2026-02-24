@@ -1,0 +1,120 @@
+% preamble.tex — single source of truth for all style
+% Do not place \documentclass here; it belongs only in main.tex.
+
+% ── PACKAGES ──────────────────────────────────────────────────────────────────
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{thmtools}
+\usepackage{hyperref}
+\usepackage{cleveref}
+\usepackage{enumitem}
+\usepackage{geometry}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{xcolor}
+\usepackage{marginnote}
+\usepackage{mparhack}
+
+% ── TIKZ / PGFPLOTS (for chapter visualizations) ─────────────────────────────
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,calc,positioning,patterns,angles,quotes}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+
+% ── PAGE GEOMETRY ─────────────────────────────────────────────────────────────
+\geometry{
+  top=1in,
+  bottom=1in,
+  inner=1in,
+  outer=2in,
+  marginparwidth=1.5in,
+  marginparsep=0.25in
+}
+
+% ── COLORS ────────────────────────────────────────────────────────────────────
+\definecolor{thmcolor}{RGB}{0, 70, 127}
+\definecolor{defcolor}{RGB}{140, 0, 0}
+\definecolor{excolor}{RGB}{30, 100, 30}
+\definecolor{refgray}{RGB}{100, 100, 100}
+
+% ── THEOREM ENVIRONMENT STYLES ───────────────────────────────────────────────
+\declaretheoremstyle[
+  headfont=\bfseries\color{thmcolor},
+  notefont=\bfseries,
+  notebraces={(}{)},
+  bodyfont=\itshape,
+  headpunct={.},
+  postheadspace=0.5em
+]{thmstyle}
+
+\declaretheoremstyle[
+  headfont=\bfseries\color{defcolor},
+  notefont=\bfseries,
+  notebraces={(}{)},
+  bodyfont=\normalfont,
+  headpunct={.},
+  postheadspace=0.5em
+]{defstyle}
+
+\declaretheoremstyle[
+  headfont=\itshape\color{excolor},
+  notefont=\itshape,
+  notebraces={(}{)},
+  bodyfont=\normalfont,
+  headpunct={.},
+  postheadspace=0.5em
+]{examplestyle}
+
+\declaretheoremstyle[
+  headfont=\itshape,
+  bodyfont=\normalfont,
+  headpunct={.},
+  postheadspace=0.5em
+]{remarkstyle}
+
+% ── THEOREM ENVIRONMENT DECLARATIONS ─────────────────────────────────────────
+\declaretheorem[style=thmstyle,    numberwithin=chapter, name=Theorem]{theorem}
+\declaretheorem[style=thmstyle,    sibling=theorem,      name=Lemma]{lemma}
+\declaretheorem[style=thmstyle,    sibling=theorem,      name=Corollary]{corollary}
+\declaretheorem[style=thmstyle,    sibling=theorem,      name=Proposition]{proposition}
+\declaretheorem[style=defstyle,    numberwithin=chapter, name=Definition]{definition}
+\declaretheorem[style=examplestyle,numberwithin=chapter, name=Example]{example}
+\declaretheorem[style=remarkstyle, numbered=no,          name=Remark]{remark}
+\declaretheorem[style=remarkstyle, numbered=no,          name=Note]{note}
+
+% ── PROOF ENVIRONMENT ────────────────────────────────────────────────────────
+\renewcommand{\qedsymbol}{$\blacksquare$}
+
+% ── MARGIN PROOF CITATION COMMAND ────────────────────────────────────────────
+\newcommand{\proofref}[1]{%
+  \marginnote{\raggedright\footnotesize\color{refgray}\textit{#1}}%
+}
+
+% ── CLEVEREF NAMES ───────────────────────────────────────────────────────────
+\crefname{theorem}{Theorem}{Theorems}
+\crefname{lemma}{Lemma}{Lemmas}
+\crefname{corollary}{Corollary}{Corollaries}
+\crefname{proposition}{Proposition}{Propositions}
+\crefname{definition}{Definition}{Definitions}
+\crefname{example}{Example}{Examples}
+\crefname{section}{Section}{Sections}
+\crefname{chapter}{Chapter}{Chapters}
+\crefname{appendix}{Appendix}{Appendices}
+
+% ── STANDARD MATH MACROS ─────────────────────────────────────────────────────
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dx}{\,dx}
+\newcommand{\dt}{\,dt}
+\newcommand{\du}{\,du}
+\newcommand{\dv}{\,dv}
+\newcommand{\abs}[1]{\left\lvert #1 \right\rvert}
+\newcommand{\norm}[1]{\left\lVert #1 \right\rVert}
+\newcommand{\eval}[2]{\left. #1 \right\rvert_{#2}}
+\newcommand{\lowint}{\underline{\int}}
+\newcommand{\upint}{\overline{\int}}

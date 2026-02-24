@@ -1,0 +1,96 @@
+When we write a mathematical proof,
+we often need
+to use the definitions of the concepts
+that appear in the statement.
+In this video,
+I will illustrate how we can prove
+that an example satisfies a definition.
+I want to prove
+that the function defined by the equation
+f(x) = 3x + 7
+is increasing on the real numbers,
+and I want to do it
+directly from the definition.
+This proof is going
+to be short and simple,
+and honestly not that exciting.
+But I'm using it to make a point.
+I don't need to have learned,
+in advance, how to prove
+that a function is increasing.
+I don't need to have memorized
+any template or a structure.
+If I know the definition of increasing,
+that tells me
+what the proof should look like.
+That tells me the structure,
+and that's all I need.
+And the same is going to be true
+for any other mathematical concept.
+I will begin by recalling
+the definition of increasing.
+It says that for every real numbers
+x_1 and x_2,
+IF x_1 is less than x_2,
+THEN f(x_1) is less than f(x_2).
+THIS is what I want to prove.
+I don't know if this is true YET,
+so I'm going to make sure
+to make that CLEAR by writing
+that this is what I WANT to show,
+which is often abbreviated WTS.
+How will this proof go?
+I need to prove that for every pair
+of real numbers x_1 and x_2,
+this implication is true.
+Since I need to prove it for EVERY pair
+of real numbers x_1 and x_2,
+I begin by FIXING arbitrary values
+of x_1 and x_2.
+When I write this,
+"let x_1, x_2 be reals,"
+it means I am fixing them,
+and they're generic;
+I don't control them.
+So my proof works
+for EVERY pair of values.
+And then, I need to verify
+this implication.
+In order to prove an implication,
+I need to assume the "if" part,
+and hopefully conclude the "then" part.
+And what comes here in the middle
+may be short, may be long;
+may depend on the case.
+In this case,  it's going 
+to be just a little bit of algebra,
+and that's it.
+This is the structure of the proof.
+So, how do I go from x_1 is less than x_2
+to f(x_1) is less than f(x_2)?
+Well in this case,
+since this is a form of f(x),
+all I have to do
+is multiply; times 3, and add 7.
+So if I begin with this inequality,
+and multiply BOTH sides; times 3,
+I get 3(x_1) is less than 3(x_2).
+And if I add 7 to both sides,
+I get 3(x_1) + 7 is less than 3(x_2) + 7.
+And I am done,
+because the left-hand side is f(x_1),
+and the right-hand side is f(x_2).
+That's it; 
+I don't need to do anything else.
+The important lesson I want to take
+away from this, however,
+is that I DIDN'T NEED to MEMORIZE
+that this is the structure
+of a proof that something is increasing;
+if I know what the definition
+of "increasing" is,
+then the structure is
+entirely contained in there.
+And THE SAME is TRUE
+for ANY other definition 
+of ANY mathematical concept.

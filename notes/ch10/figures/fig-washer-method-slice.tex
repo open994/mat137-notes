@@ -1,0 +1,31 @@
+\begin{tikzpicture}
+  \begin{axis}[
+    width=11cm,
+    height=6.8cm,
+    axis lines=middle,
+    xmin=-0.2, xmax=4.4,
+    ymin=-0.4, ymax=3.0,
+    xlabel={$x$}, ylabel={$y$},
+    ticks=none,
+    clip=true
+  ]
+    % Region between y=2 and y=2-x/2 on [0,4], rotated about x-axis
+    \addplot[thick, color=thmcolor, domain=0:4, samples=2] {2};
+    \addplot[thick, color=thmcolor, domain=0:4, samples=2] {2 - 0.5*x};
+
+    % Fill the region
+    \addplot[draw=none, fill=excolor, fill opacity=0.12, domain=0:4] {2} \closedcycle;
+    \addplot[draw=none, fill=white, domain=0:4] {2 - 0.5*x} \closedcycle;
+
+    % Representative slice at x=2
+    \def\xS{2}
+    \pgfmathsetmacro{\rOut}{2}
+    \pgfmathsetmacro{\rIn}{2 - 0.5*\xS}
+    \draw[thick, color=defcolor] (axis cs:\xS,0) -- (axis cs:\xS,\rOut);
+    \draw[thick, color=defcolor] (axis cs:\xS,0) -- (axis cs:\xS,\rIn);
+    \node[color=defcolor, anchor=west] at (axis cs:2.15,1.7) {$R$};
+    \node[color=defcolor, anchor=west] at (axis cs:2.15,0.7) {$r$};
+
+    \node[anchor=west] at (axis cs:2.55,2.6) {rotate $\Rightarrow$ washer ($\pi(R^2-r^2)$)};
+  \end{axis}
+\end{tikzpicture}

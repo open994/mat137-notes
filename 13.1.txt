@@ -1,0 +1,198 @@
+This video is a first introduction
+to series. A series is an infinite sum.
+In this video,
+I'm going to be careless,
+and I'm going to assume that infinite
+sums are well-defined, behave well,
+and that I can manipulate them the same
+way I manipulate finite sums.
+In doing so, I'm going to
+get various contradictions.
+The moral will be that we have to define
+infinite sums carefully and rigorously
+before we can do anything with them;
+and that we cannot take for granted
+that they will have the properties
+we would like them to have.
+For my first example,
+I'm going to look at this sum.
+x is a fixed real number, and I have
+the sum from n = 0 to ∞, of xⁿ;
+and I'm going to call
+the value of this sum "S".
+So what does this sum mean?
+First, when n = 0, I get 1.
+When n = 1, I get x and I add it.
+When n = 2, I get x², and so on...
+When I write "going to ∞", it means
+I'm adding infinitely many terms.
+(The sum keeps on going forever.)
+The trick I'm going to use to
+compute this sum,
+is to take the whole expression,
+and multiply it times x.
+And here's what happens when I do that.
+1⋅x = x, x⋅x = x²,
+x²⋅x = x³, and so on...
+And now looking at both lines,
+the tails of the sums are the same.
+All of the terms I'm getting
+in the second line,
+are exactly the terms I'm getting
+the first line except for the 1;
+so if I subtract both lines, all of the
+terms will cancel except for the 1.
+I'm going to do exactly that!
+I'm going to take S in the first line,
+- x⋅S in the second line;
+and I'm going to get 1,
+and all the other terms cancel.
+Next, I can take a
+common factor of 1 - x here,
+and send it to
+the other side dividing,
+and I end up concluding
+that S = 1/(1 - x).
+But be careful,
+I cannot divide by 0,
+so for this to be true,
+I need to assume that x is not 1.
+So I got a value for this infinite sum
+that works for any value of x except 1?
+Well... let's test that.
+For example, I can take this
+same sum and evaluate it when x = 2.
+Let's see what happens.
+When x = 2, on the one hand,
+I have an expression for the sum,
+so the sum is going to be 1/(1 - 2),
+and that's simply -1.
+But on the other hand, when x = 2,
+what I am adding is 1 + 2 + 2²,
+which is 4, + 8 + 16, and so on...
+and this looks wrong.
+This is wrong.
+There's no way this sum is a
+finite number, this would be ∞.
+But in particular, I'm certain that this
+sum cannot be a negative number
+(cannot be -1),
+so this is wrong.
+The error comes from assuming that every
+infinite sum is going to make sense,
+(it's going to have
+the value of a number)
+and that I can manipulate those sums
+the same way I manipulate finite sums.
+The properties I've used here
+are properties of finite sums,
+but I don't know if they
+are true for infinite sums.
+I don't even know what
+an infinite sum means yet...
+As a second example,
+I'm going to look at this series:
+the sum from n = 0 to ∞, of (-1)ⁿ;
+and I'm going to call the
+value of this series "T".
+Let's write down the
+first few terms for it.
+I start at n = 0, (-1)⁰ = 1,
++ (-1)¹ = -1, + (-1)² = 1,
+and then - 1 + 1 - 1,
+and it keeps on going forever...
+There is one tempting way
+to group these terms,
+and I can put this 1 together with -1,
++ group the 1 with a -1,
+and group 1 with -1,
+because they're gonna cancel nicely.
+So it looks like this is 0 + 0 + 0,
+and yeah, this full sum is going to be 0,
+because all the positives
+cancel with all the negatives.
+However, there is another alternative way
+to group the terms. I could also do this.
+I can write 1 + (-1 + 1)
++ (-1 + 1) + (-1 + 1)...
+It's just the same terms
+and I group them differently.
+(put parentheses on different terms)
+So the first 1 is left alone, and
+then I have (-1 + 1), which is 0,
++ (-1 + 1), which is 0, and so on...
+If I do it this way, instead of 0,
+I end up getting 1;
+so it appears that I have proven that
+this sum is equal to 0 on the one hand,
+and it's also equal to 1,
+so 0 = 1...
+That is obviously wrong.
+What I did here is not okay.
+Once again,
+the error comes from assuming that any
+expression for an infinite sum...
+...is going to make sense,
+and in particular,
+that I can manipulate it the same way
+I manipulate finite sums.
+What I did here with parentheses
+is using associativity,
+which is certainly true for finite sums.
+But perhaps it isn't for infinite sums?
+How do we work with infinite sums...
+...and avoid the problems
+I have run into in this video?
+The first thing we need to do is
+figure out what it means...
+...to add up infinitely many numbers.
+We know what it means to add up
+2 numbers, or 3, or 10, or 100,
+but not what it means
+to add up infinitely many numbers;
+so the first thing
+we need is a definition.
+We need to define what
+an infinite sum is,
+(A series is just another term
+for an infinite sum.)
+so that once we have a definition, if
+we are ever in doubt, we can go to it.
+And once we have the definition,
+we will realize that some infinite sums
+and series = a number, and others do not.
+We're going to call a series CONVERGENT
+when it = a number.
+(When it represents a number.)
+But there are many infinite sums (many
+series) that do not represent a number,
+and it's best to
+just leave them alone.
+If we try to force it,
+(if we pretend they are a number)
+then we get contradictions
+like I did in this video.
+And finally,
+once we know that certain infinite sums
+are well defined and represent a number,
+we still have to figure out which
+properties of finite sums
+carry over to infinite sums.
+For example, finite sums are
+commutative and associative,
+but perhaps infinite sums are not.
+But if we have a definition,
+we can use it to try to prove whether
+these properties carry over or not.
+And then, with the definition,
+and with properties that we
+have proven (the theorems),
+we can now do work
+with infinite sums,
+and we will never run
+into contradictions again.
+That's our plan!
+We need to begin by providing
+a definition of infinite sums,
+and I will do that
+in the next video.

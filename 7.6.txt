@@ -1,0 +1,240 @@
+The goal of this video
+is to list and justify
+three important properties
+of lower and upper sums.
+First, a quick reminder
+of the definitions.
+I will be talking about
+a bounded function f
+defined on a closed
+interval [a, b].
+I won't be repeating
+these all the time.
+Here is the graph
+of the function.
+I take a partition P
+of the interval.
+The P-lower sum of f
+is the sum of the areas
+of the rectangles below the
+graph of f, pictured in red.
+And the P-upper sum of f
+is the sum of the areas
+of the rectangles
+above the graph of f,
+pictured in green.
+Notice that a lower or upper
+sum depends on three things:
+the function, the interval,
+and the partition.
+More precisely, here
+is the actual definition.
+I assume this is all known.
+If it isn't, or if it
+went too fast,
+I invite you to rewatch the video
+with the definition of integral,
+linked in the description,
+where I explained all of this
+much more slowly.
+The purpose of this video
+is to present
+three important properties
+of lower and upper sums,
+including one property I left
+pending in the previous video.
+These three properties
+will make some calculations
+and some proofs easier.
+Let's start with an easy one.
+For any one partition,
+the lower sum is smaller than
+or equal to the upper sum.
+This seems clear geometrically.
+If I am fixing a single partition,
+then the area of
+the lower rectangles
+is less than or equal to the
+area of the upper rectangles.
+Why?
+Focus on a single sub-interval.
+The lower rectangle is literally
+contained in the upper rectangle.
+The height of the lower
+rectangle is the infimum
+of the function on
+that sub-interval.
+The height of the upper
+rectangle is the supremum
+of the function on
+that sub-interval.
+The infimum is always less than
+or equal to the supremum,
+and therefore the sum
+of the areas
+of the lower rectangles is
+less than or equal to
+the sum of the areas
+of the upper rectangles,
+which is what I wanted to show.
+Nothing mysterious here.
+Let's try something
+more interesting.
+Can we compare lower
+and upper sums
+for DIFFERENT partitions?
+And, what makes one partition
+"better" than another partition?
+There is a sense in which
+some partitions
+are better than others,
+because their lower
+and upper sums
+will be better estimates
+for the integral.
+Naïvely, it looks like a partition
+that has more points
+will be better,
+But it not merely about
+the number of points.
+Here is a new definition.
+Given two partitions P and Q,
+I am going to say Q
+is "finer than" P
+when P is a subset of Q.
+For example:
+This partition Q is finer
+than this partition P.
+It means that Q has all the
+points in P, plus a few more.
+It does not mean merely
+that Q has more points than P.
+How does this help?
+Let's see what happens
+when I add
+a single extra point
+to a partition.
+Begin with this partition P,
+with five points and
+four sub-intervals.
+I am shading the area
+of the lower rectangles
+for the lower sum.
+Now, let's add one single
+extra point, which I will call t.
+This extra point breaks one
+sub-interval into two,
+and creates one extra slice.
+What happens to the area
+of the lower rectangle?
+It increases a bit.
+This will always happen
+when I add one extra point.
+The lower sum will
+increase, or stay the same.
+If I add a few points,
+one at a time,
+the same things happens as well.
+We have found the second
+important property.
+Let P and Q be two
+partitions of [a, b].
+IF Q is finer than P,
+THEN Q produces a
+better lower sum than P.
+A better lower sum is
+a larger lower sum.
+Also, Q produces a
+better upper sum than P.
+A better upper sum is
+a smaller upper sum.
+I have only explained why this
+is the case for lower sums,
+but I trust you can repeat
+the same reasoning
+for the upper sums.
+This is helpful when one
+partition is finer than the other.
+But what if I have
+two partitions
+and neither of them is
+finer than the other?
+Can I still compare their
+lower and upper sums?
+In general, without knowing
+anything else,
+I cannot compare the
+two lower sums,
+and I cannot compare the
+two upper sums,
+but I can always say
+that EVERY lower sum is
+less than or equal
+to EVERY upper sum.
+This is going to be
+the third property.
+If I take any two
+partitions P and Q,
+without knowing anything else,
+I can guarantee that
+the P-lower sum
+is less than or equal
+to the Q-upper sum.
+In other words,
+every lower sum
+is less than or equal
+to every upper sum.
+If you try to prove
+this algebraically,
+by setting two arbitrary partitions...
+...it looks messy.
+I wouldn't know
+how to start.
+But there is a clever trick
+to make this
+into a very simple proof.
+Here it is.
+I know how to compare
+lower and upper sums
+between two partitions when
+one is finer than the other.
+So let's define a third partition
+that is finer than both.
+Let us call R the
+union of P and Q.
+R is a new partition.
+R is finer than P, and
+R is finer than Q.
+Then, look at what happens:
+The P-lower sum is less than
+or equal to the R-lower sum,
+thanks to Property 2,
+which is less than or equal
+to the R-upper sum,
+thanks to Property 1,
+which is less than or equal
+to the Q-upper sum,
+thanks to Property 2.
+That completes the proof.
+There we have it.
+These are the three
+important properties
+of lower and
+upper sums.
+They come in handy
+in various situations.
+In particular, I had
+assumed Property 3
+when I defined integral,
+in order to conclude that
+the lower integral of a function
+is always less than or equal
+to its upper integral.
+A good way to summarize
+and to remember
+the three properties
+is with this picture,
+which I had already used
+in the previous video.
+By now, the picture
+is fully justified.

@@ -1,0 +1,154 @@
+In this video, I will work out some
+examples of how to use L'Hôpital's Rule
+to compute limits.
+In the previous video, I already explained
+the statement of the theorem carefully.
+I will link it in the description.
+Now, it is time to do some actual computations.
+These are the three limits
+I will compute.
+I invite you to pause the video,
+and give them a go.
+Then, continue watching.
+First, I want to compute the limit
+as x approaches infinity
+of x over ln(x).
+This is a quotient. I look at the
+top and bottom separately.
+The limit of the numerator
+is infinity,
+and the limit of the denominator
+is also infinity.
+As x approaches infinity,
+ln(x) approaches infinity.
+So, I have an indeterminate form,
+of type infinity over infinity.
+This is precisely the kind of situation
+where L'Hôpital may be handy.
+So I am going to use L'Hôpital, and
+I am going to put an asterisk here
+to remind myself that
+I am using L'Hôpital.
+Let's see what happens.
+If I use L'Hôpital's Rule,
+I need to compute two limits.
+In the numerator I'm going to take
+the derivative of x, which is 1.
+In the denominator, I'm going to take
+the derivative of ln(x), which is 1/x.
+Now, strictly speaking, I cannot yet say
+these two things are equal.
+Every time I use L'Hôpital, I am saying:
+"I'll finish the calculation,
+and if this comes out to be
+a number, or infinity, or minus infinity,
+THEN the original limit is equal."
+That's why it's good to remind myself
+that I am doing this.
+But, in this case, it is short.
+After I do this,
+I can rewrite this messy
+function as x,
+and as x approaches infinity,
+this limit is simply infinity.
+So, yep! I got infinity. Therefore the
+original limit is equal to infinity as well,
+and I am done.
+For my second example, I want to
+compute this limit as x approaches zero.
+This is a nice quotient.
+I look at the top and bottom first.
+In the numerator, as x approaches zero,
+I have one minus one, which is zero.
+In the denominator, I have zero
+minus zero, which is also zero.
+So, I have an indeterminate form,
+of type zero over zero.
+Perfect. That's the one
+I can use L'Hôpital's on.
+Or at least,
+I can try!
+I am reminding myself that
+I am using L'Hôpital's Rule.
+So, I get the limit
+as x approaches zero of...
+In the numerator, I take the
+derivative of the numerator.
+The derivative of cos is -sin.
+And the derivative of -cos(2x)
+is plus sin(2x) times 2.
+In the denominator, I take the
+derivative of the denominator.
+I have to use the product rule
+on xe^x.
+Its derivative is one times e^x,
+plus xe^x.
+And the derivative of -x is -1.
+Let's see what we got now.
+I have a quotient again.
+The limit of the numerator is
+negative zero plus zero, so still zero.
+The limit of the denominator is
+one plus zero minus one...
+That's still zero.
+So, I still have zero divided by zero,
+an indeterminate form.
+I don't know if this is helping.
+But, why not try to use
+L'Hôpital's Rule once more?
+Now, I have the limit
+as x approaches zero of...
+On the top, the derivative of the top.
+The derivative of -sinx is -cosx,
+and the derivative of 2sin(2x)
+is positive 4cos(2x).
+On the bottom, the derivative
+of e^x is e^x [error in video],
+and for the derivative of xe^x,
+I use the product rule again.
+So 1 times e^x, plus xe^x.
+And the derivative of -1 is 0.
+What do we have now?
+In the numerator, the limit is
+negative 1 plus 4.
+That's 3.
+In the denominator, the limit
+is 1 plus 1 plus 0. That's 2.
+Great! We got it!
+So the final limit is 3/2,
+which is a number,
+therefore this use of L'Hôpital was legal,
+and the second limit is also 3/2,
+which is a number.
+Therefore this use of
+L'Hôpital's Rule was legal,
+and the original limit is also 3/2.
+We are done.
+This is my third example.
+the limit as x approaches 1
+of x^3 – 2x + 1
+over x^2 + 3x + 2.
+Let's check first to see
+if I have an indeterminate form.
+As x approaches 1,
+the numerator is continuous,
+and has limit
+1 – 2 + 1, which is 0.
+The denominator
+is also continuous,
+and has limit
+1 + 3 + 2, which is 6.
+I don't have an indeterminate form!
+I can simply plug it in.
+This is a nice, continuous function.
+I am not dividing by zero.
+So the answer is zero, and I am done.
+There is nothing else to do.
+This is an example in which I don't
+need L'Hôpital's Rule.
+More importantly, I am not ALLOWED
+to use L'Hôpital's Rule,
+because I do not have an
+indeterminate form.
+If you try to use L'Hôpital's Rule in
+this case, you will get a wrong answer.

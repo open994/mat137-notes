@@ -1,0 +1,480 @@
+\chapter{The Fundamental Theorem of Calculus}
+
+%=============================================================================
+\section{Antiderivatives and Indefinite Integrals}
+\label{sec:8.1}
+%=============================================================================
+
+\textit{There are two different things that we call integrals.  We use very similar notation, but they mean something very different.}
+
+The first is the \emph{definite integral}, $\displaystyle\int_{a}^{b} f(x)\dx$, which we have already defined.  It is a \textbf{number}, and geometrically it represents area.
+
+The second is the \emph{indefinite integral}, written
+\[
+  \int f(x)\dx,
+\]
+without limits of integration.  This is something new.
+
+\begin{definition}[Antiderivative]
+\label{def:8-1}
+Let $f$ be a function defined on an interval $I$.  A function $F$ is an \emph{antiderivative} of $f$ on $I$ if $F'(x) = f(x)$ for every $x \in I$.
+\end{definition}
+
+\begin{remark}
+We say ``\textit{an} antiderivative'' because in general there will be more than one.  Every function can only have one derivative, if it has one, but it can have many antiderivatives.
+\end{remark}
+
+\begin{definition}[Indefinite Integral]
+\label{def:8-2}
+The \emph{indefinite integral} $\displaystyle\int f(x)\dx$ denotes the collection of \textbf{all} antiderivatives of $f$.
+\end{definition}
+
+\textit{So these two objects are quite different.  The definite integral is a number; the indefinite integral is a collection of functions.  The definite integral means area; the indefinite integral means antiderivative.  A priori, these two things have nothing to do with each other.  But we use very similar notation, and that is because they \textbf{are} related --- by the Fundamental Theorem of Calculus, which will come in a few sections.  For now, they are two separate things.}
+
+\begin{example}
+\label{ex:8-1}
+Compute $\displaystyle\int x^{2}\dx$.
+
+\textbf{Solution.}  We seek all antiderivatives of $x^{2}$.  We can guess: the function $\dfrac{1}{3}x^{3}$ works, since
+\[
+  \frac{d}{dx}\!\left(\frac{1}{3}x^{3}\right) = \frac{1}{3}\cdot 3x^{2} = x^{2}.
+\]
+Adding any constant $C$ also works, because $\dfrac{d}{dx}(C) = 0$.  Moreover, these are \textit{all} of the antiderivatives: by a consequence of the Mean Value Theorem, if two functions have the same derivative on an interval then they differ by a constant.  Therefore
+\[
+  \int x^{2}\dx = \frac{1}{3}x^{3} + C.
+\]
+\end{example}
+
+\begin{remark}
+Without the Mean Value Theorem result that two functions sharing the same derivative must differ by a constant, we could only say that we found \textit{some} antiderivatives, not \textit{all} of them.
+\end{remark}
+
+\subsection*{Guess and check}
+
+\textit{There are many so-called integration techniques --- substitution, integration by parts, and so on --- which are methods for computing antiderivatives.  But by far the most important integration technique is \textbf{guess and check}.}
+
+The method is exactly what it sounds like: make a guess for what the antiderivative should look like, take its derivative to check, and modify as necessary.
+
+\begin{example}
+\label{ex:8-2}
+Compute $\displaystyle\int (2x+7)^{11}\dx$.
+
+\textbf{Solution.}  We want a function whose derivative is $(2x+7)^{11}$.  The power rule suggests trying $(2x+7)^{12}$.  Differentiating by the chain rule:
+\[
+  \frac{d}{dx}\!\left[(2x+7)^{12}\right] = 12(2x+7)^{11}\cdot 2 = 24(2x+7)^{11}.
+\]
+This is our target, but with an extra factor of $24$.  Dividing by $24$ fixes this:
+\[
+  \frac{d}{dx}\!\left[\frac{1}{24}(2x+7)^{12}\right] = \frac{1}{24}\cdot 24(2x+7)^{11} = (2x+7)^{11}.
+\]
+Therefore
+\[
+  \int (2x+7)^{11}\dx = \frac{1}{24}(2x+7)^{12} + C.
+\]
+\end{example}
+
+\begin{remark}
+This method, even though it seems rudimentary, is very powerful.  All the integration techniques one learns later --- substitution, integration by parts, and so on --- are just sophisticated forms of guessing and checking that make the guessing part easier.
+\end{remark}
+
+\begin{remark}[Pause and Try]
+At this point, many textbooks present a table of elementary antiderivatives.  But you do not need those formulas: if you know the differentiation rules and are comfortable with guess and check, you can solve all standard antiderivative problems without memorising anything new.  Moreover, since you can check your answers by differentiating, you will know whether they are right.
+\end{remark}
+
+%=============================================================================
+\section{Functions Defined by Integrals}
+\label{sec:8.2}
+%=============================================================================
+
+\textit{We already know two notions of integral: the definite integral (a number) and the indefinite integral (a collection of antiderivatives).  We now introduce a way to use integrals to define new functions.}
+
+\begin{definition}[Function Defined by an Integral]
+\label{def:8-3}
+Let $I$ be an interval, let $a \in I$ be a fixed point, and let $f$ be an integrable function on~$I$.  We define a new function $F$ by
+\[
+  F(x) = \int_{a}^{x} f(t)\dt.
+\]
+For each value of $x \in I$, the expression $\displaystyle\int_{a}^{x} f(t)\dt$ is a definite integral and hence a number; we call that number $F(x)$.
+\end{definition}
+
+\textit{Strictly speaking, this is not a new concept: it is just a definite integral where the upper endpoint of the interval becomes the variable of a new function.  However, the first time one sees this, it can be confusing how it relates to and differs from an ordinary definite integral, and in particular why we use the notation that we use.  Let us break this down carefully.}
+
+\begin{example}
+\label{ex:8-3}
+Consider a function $f$ whose graph is drawn in the $ty$-plane.  Fix $a = 1$ and define
+\[
+  F(x) = \int_{1}^{x} f(t)\dt.
+\]
+Then:
+\begin{itemize}
+  \item $F(2) = \displaystyle\int_{1}^{2} f(t)\dt$ is the area under $f$ from $t=1$ to $t=2$.
+  \item $F(3) = \displaystyle\int_{1}^{3} f(t)\dt$ is the area under $f$ from $t=1$ to $t=3$.
+  \item $F(4) = \displaystyle\int_{1}^{4} f(t)\dt$ is the area under $f$ from $t=1$ to $t=4$.
+\end{itemize}
+In each case the left endpoint is fixed at $1$, but the right endpoint varies.  For each choice of $x$, we obtain a number $F(x)$.  This is a valid way to define a function.
+\end{example}
+
+% ── BEGIN VISUAL ──
+\begin{figure}[ht]
+  \centering
+  \input{ch08/figures/fig-accumulation-function.tex}
+  \caption{Accumulated area from $a$ to $x$ under $f$.}
+  \label{fig:accumulation-function}
+\end{figure}
+% ── END VISUAL ──
+
+\begin{remark}[Warning]
+Notice that we do \textbf{not} use $x$ as the variable of integration; we use $t$ (or any other letter).  The reason is that $x$ already has a role: it is the endpoint of the interval, and hence the variable of the new function $F$.
+
+Recall that for a definite integral with fixed endpoints, the integration variable is a dummy variable:
+\[
+  \int_{a}^{b} f(x)\dx = \int_{a}^{b} f(t)\dt = \int_{a}^{b} f(s)\,ds,
+\]
+and we may use any letter we like, \textbf{except} $a$ or $b$, since they already have a meaning.
+
+The same principle applies here.  In the expression $F(x) = \displaystyle\int_{a}^{x} f(t)\dt$, the integration variable may be $t$, $s$, $u$, or any letter \textbf{except} $a$ or $x$.  In particular, \textbf{never} write
+\[
+  F(x) = \int_{a}^{x} f(x)\dx.
+\]
+This is ambiguous and technically wrong, because $x$ would have two different meanings in the same expression: the endpoint and the variable of integration.
+\end{remark}
+
+\textit{Now that we understand how to use integrals to define new functions, what can we say about them?  There is a theorem --- the Fundamental Theorem of Calculus --- that ties together the notions of definite integral, indefinite integral, and functions defined as integrals.  It has two parts.}
+
+\begin{itemize}
+  \item \textbf{Part One} answers: what important property does a function defined as an integral always have?
+  \item \textbf{Part Two} answers: how can we quickly compute definite integrals?
+\end{itemize}
+
+%=============================================================================
+\section{FTC Part One: Statement}
+\label{sec:8.3}
+%=============================================================================
+
+\textit{The Fundamental Theorem of Calculus establishes connections between definite integrals and antiderivatives --- two concepts that are defined separately and in principle are different, but are related through this theorem.  We now state the first part.}
+
+\begin{theorem}[Fundamental Theorem of Calculus, Part One]
+\label{thm:8-1}
+Let $I$ be an interval, let $a \in I$, and let $f$ be a function with domain~$I$.  Define
+\[
+  F(x) = \int_{a}^{x} f(t)\dt.
+\]
+If $f$ is continuous on $I$, then $F$ is differentiable on $I$ and
+\[
+  F'(x) = f(x) \quad \text{for every } x \in I.
+\]
+In other words, $F$ is an antiderivative of $f$.
+\end{theorem}
+
+\begin{remark}
+Note that continuity of $f$ already guarantees integrability, so the integral defining $F$ makes sense and $F$ is well-defined.
+\end{remark}
+
+\textit{We can summarise this theorem in words: a function defined as an integral is an antiderivative.  This is the connection between the notion of antiderivative and the notion of integral, which were defined separately.}
+
+The theorem is often recorded as the single equation
+\[
+  \frac{d}{dx}\int_{a}^{x} f(t)\dt = f(x).
+\]
+Both sides are functions of $x$, not of $t$.  The variable $t$ is merely the variable of integration; it disappears.
+
+\begin{remark}[Warning]
+If you attempt to change an $x$ into a $t$, or vice versa, on one side of this equation, the result will not only be wrong --- it will be \textbf{meaningless}.
+\end{remark}
+
+\begin{remark}[Pause and Try]
+In the following examples, pause after reading each question and try to solve it before reading the solution.  You do not need any extra tools; everything you need is contained in \cref{thm:8-1}.  Any answer watched (or read) without first attempting the problem is a learning opportunity wasted.
+\end{remark}
+
+\begin{example}
+\label{ex:8-4}
+Define $F(x) = \displaystyle\int_{1}^{x} e^{-t^{2}}\dt$.  Find $F'(2)$.
+
+\textbf{Solution.}  By \cref{thm:8-1}, $F'(x) = e^{-x^{2}}$.  Therefore $F'(2) = e^{-4}$.
+\end{example}
+
+\begin{example}
+\label{ex:8-5}
+Construct a function $g$ such that
+\[
+  g'(x) = \frac{1}{1 + x^{2} + x^{10}} \quad \text{and} \quad g(2) = 5.
+\]
+
+\textbf{Solution.}  By \cref{thm:8-1}, an antiderivative of the given function is obtained by writing an integral.  We choose the lower limit $a = 2$ so that we can control the value at $2$:
+\[
+  g(x) = \int_{2}^{x} \frac{1}{1 + t^{2} + t^{10}}\dt + 5.
+\]
+Then $g'(x) = \dfrac{1}{1 + x^{2} + x^{10}}$ by the theorem, and $g(2) = 0 + 5 = 5$.
+\end{example}
+
+\begin{example}
+\label{ex:8-6}
+Define $G(x) = \displaystyle\int_{-4}^{x^{2}} \frac{1}{1+t^{2}}\dt$.  Find $G'(x)$.
+
+\textbf{Solution.}  Let $F(x) = \displaystyle\int_{-4}^{x} \frac{1}{1+t^{2}}\dt$.  By \cref{thm:8-1}, $F'(x) = \dfrac{1}{1+x^{2}}$.  Observe that $G(x) = F(x^{2})$, so by the chain rule,
+\[
+  G'(x) = F'(x^{2})\cdot 2x = \frac{2x}{1 + x^{4}}.
+\]
+\end{example}
+
+\begin{example}
+\label{ex:8-7}
+Define $H(x) = \displaystyle\int_{x^{3}+1}^{x^{2}+2x} e^{-t^{2}}\dt$.  Find $H'(x)$.
+
+\textbf{Solution.}  We split the integral at a convenient point, say $0$:
+\[
+  H(x) = \int_{0}^{x^{2}+2x} e^{-t^{2}}\dt - \int_{0}^{x^{3}+1} e^{-t^{2}}\dt.
+\]
+(We reversed the limits on the second integral, introducing a minus sign.)  Define
+\[
+  F(u) = \int_{0}^{u} e^{-t^{2}}\dt, \quad \text{so that} \quad F'(u) = e^{-u^{2}}.
+\]
+Then $H(x) = F\!\left(x^{2}+2x\right) - F\!\left(x^{3}+1\right)$.  By the chain rule,
+\begin{align*}
+  H'(x) &= F'\!\left(x^{2}+2x\right)\cdot(2x+2) - F'\!\left(x^{3}+1\right)\cdot 3x^{2} \\
+         &= (2x+2)\,e^{-(x^{2}+2x)^{2}} - 3x^{2}\,e^{-(x^{3}+1)^{2}}.
+\end{align*}
+\end{example}
+
+%=============================================================================
+\section{FTC Part One: Proof}
+\label{sec:8.4}
+%=============================================================================
+
+\textit{The proof of \cref{thm:8-1} is perhaps a bit long, but it is not too abstract.}
+
+\begin{proof}
+Fix $x \in I$.  We wish to show that $F'(x) = f(x)$.
+
+\textbf{Step 1: Rewrite the difference quotient.}  By the definition of derivative,
+\[
+  F'(x) = \lim_{h \to 0} \frac{F(x+h) - F(x)}{h}.
+\]
+Substituting the definition of $F$,
+\[
+  \frac{F(x+h) - F(x)}{h}
+  = \frac{1}{h}\left[\int_{a}^{x+h} f(t)\dt - \int_{a}^{x} f(t)\dt\right]
+  = \frac{1}{h}\int_{x}^{x+h} f(t)\dt,
+\]
+where the last step uses the additive property of integrals.  Therefore it suffices to show
+\[
+  \lim_{h \to 0} \frac{1}{h}\int_{x}^{x+h} f(t)\dt = f(x). \tag{$\ast$}
+\]
+
+\proofref{We used the definition of derivative and the additive property of integrals.}
+
+\textbf{Step 2: Geometric intuition.}  For small $h > 0$, the integral $\displaystyle\int_{x}^{x+h} f(t)\dt$ represents a thin vertical strip of area under the graph of $f$.  This strip is approximately a rectangle of width $h$ and height $f(x)$, so its area is roughly $f(x)\cdot h$.  Dividing by $h$ gives approximately $f(x)$, and this approximation improves as $h \to 0$.
+
+\textbf{Step 3: Rigorous bounding (for $h > 0$).}  Define
+\[
+  M_{h} = \sup_{t \in [x,\,x+h]} f(t), \qquad m_{h} = \inf_{t \in [x,\,x+h]} f(t).
+\]
+Then
+\[
+  m_{h}\cdot h \;\le\; \int_{x}^{x+h} f(t)\dt \;\le\; M_{h}\cdot h,
+\]
+and dividing by $h > 0$,
+\[
+  m_{h} \;\le\; \frac{1}{h}\int_{x}^{x+h} f(t)\dt \;\le\; M_{h}. \tag{$\ast\ast$}
+\]
+
+\proofref{The integral is bounded between the infimum and supremum times the length of the interval.}
+
+\textbf{Step 4: Apply the Squeeze Theorem.}  Since $f$ is continuous on $I$, the Extreme Value Theorem guarantees that $f$ attains its maximum and minimum on $[x, x+h]$.  Thus there exists $c_{h} \in [x, x+h]$ with $M_{h} = f(c_{h})$, and similarly $d_{h} \in [x, x+h]$ with $m_{h} = f(d_{h})$.
+
+As $h \to 0^{+}$, the point $c_{h}$ is squeezed between $x$ and $x+h$, so $c_{h} \to x$.  Since $f$ is continuous, $f(c_{h}) \to f(x)$, i.e.\ $M_{h} \to f(x)$.  By the same argument, $m_{h} \to f(x)$.
+
+By the Squeeze Theorem applied to $(\ast\ast)$,
+\[
+  \lim_{h \to 0^{+}} \frac{1}{h}\int_{x}^{x+h} f(t)\dt = f(x).
+\]
+
+\proofref{Continuity of $f$ is essential: without it, $f(c_h) \to f(x)$ may fail.}
+
+\textbf{Step 5: The case $h < 0$.}  The argument for $h \to 0^{-}$ is entirely analogous (one reverses the interval and accounts for the sign).  Combining both one-sided limits, we obtain $(\ast)$, and therefore $F'(x) = f(x)$.
+\end{proof}
+
+%=============================================================================
+\section{FTC Part Two: Statement}
+\label{sec:8.5}
+%=============================================================================
+
+\textit{The first part of the Fundamental Theorem tells us what we can say about any function defined as an integral: it is an antiderivative.  The second part tells us how to quickly compute a definite integral: through antiderivatives.}
+
+\begin{theorem}[Fundamental Theorem of Calculus, Part Two]
+\label{thm:8-2}
+Let $a < b$ be real numbers and let $f$ be continuous on $[a,b]$.  If $G$ is \textbf{any} antiderivative of $f$ on $[a,b]$, then
+\[
+  \int_{a}^{b} f(x)\dx = G(b) - G(a).
+\]
+\end{theorem}
+
+\begin{remark}
+This theorem does not tell us \textit{how} to find an antiderivative --- for some functions that is easy, for others it is hard.  But \textbf{if} we can find one, it lets us evaluate the definite integral very quickly, certainly much faster than computing it from the formal definition in terms of upper and lower sums.
+\end{remark}
+
+% ── BEGIN VISUAL ──
+\begin{figure}[ht]
+  \centering
+  \input{ch08/figures/fig-net-change-signed-area.tex}
+  \caption{Net change as signed area under a rate function.}
+  \label{fig:net-change-signed-area}
+\end{figure}
+% ── END VISUAL ──
+
+\begin{definition}[Evaluation Notation]
+\label{def:8-4}
+We write
+\[
+  \left. G(x) \right\rvert_{x=a}^{x=b} \quad \text{or simply} \quad \left. G(x) \right\rvert_{a}^{b}
+\]
+to mean $G(b) - G(a)$.
+\end{definition}
+
+\begin{example}
+\label{ex:8-8}
+Compute $\displaystyle\int_{1}^{2} x^{2}\dx$.
+
+\textbf{Solution.}  We need an antiderivative of $x^{2}$.  By inspection, $G(x) = \dfrac{x^{3}}{3}$ works, since $G'(x) = x^{2}$.  By \cref{thm:8-2},
+\[
+  \int_{1}^{2} x^{2}\dx = \left.\frac{x^{3}}{3}\right\rvert_{1}^{2} = \frac{2^{3}}{3} - \frac{1^{3}}{3} = \frac{8}{3} - \frac{1}{3} = \frac{7}{3}.
+\]
+This is certainly much faster than computing the integral from the definition or from Riemann sums.
+\end{example}
+
+\begin{remark}[Pause and Try]
+Here are four integrals whose antiderivatives can be found by guess and check.  Evaluate each using \cref{thm:8-2}:
+\begin{enumerate}[label=(\roman*)]
+  \item $\displaystyle\int_{0}^{1} 3x^{2}\dx$,
+  \item $\displaystyle\int_{0}^{\pi} \sin x\dx$,
+  \item $\displaystyle\int_{1}^{e} \dfrac{1}{x}\dx$,
+  \item $\displaystyle\int_{0}^{1} e^{x}\dx$.
+\end{enumerate}
+\end{remark}
+
+%=============================================================================
+\section{FTC Part Two: Proof}
+\label{sec:8.6}
+%=============================================================================
+
+\textit{The proof of the second part uses the first part, and is considerably shorter.}
+
+\begin{proof}
+Define
+\[
+  F(x) = \int_{a}^{x} f(t)\dt.
+\]
+We wish to show that $F(b) = G(b) - G(a)$.
+
+\proofref{$F$ is introduced as an auxiliary function; it is not part of the hypothesis.}
+
+\textbf{Step 1: $F$ and $G$ are both antiderivatives.}  Since $f$ is continuous, \cref{thm:8-1} (FTC Part One) gives $F'(x) = f(x)$.  By hypothesis, $G'(x) = f(x)$.  Therefore $F$ and $G$ are two functions with the same derivative on $[a,b]$.
+
+\textbf{Step 2: $F$ and $G$ differ by a constant.}  By the consequence of the Mean Value Theorem (if two functions have the same derivative on an interval, they differ by a constant), there exists a constant $C$ such that
+\[
+  F(x) = G(x) + C \quad \text{for all } x \in [a,b].
+\]
+
+\proofref{Mean Value Theorem consequence: same derivative implies constant difference.}
+
+\textbf{Step 3: Determine $C$.}  Evaluate at $x = a$:
+\[
+  F(a) = \int_{a}^{a} f(t)\dt = 0,
+\]
+so $0 = G(a) + C$, which gives $C = -G(a)$.
+
+\textbf{Step 4: Conclude.}  For every $x \in [a,b]$, $F(x) = G(x) - G(a)$.  Setting $x = b$,
+\[
+  F(b) = G(b) - G(a).
+\]
+But $F(b) = \displaystyle\int_{a}^{b} f(t)\dt$, which is the definite integral we wished to evaluate.  Therefore
+\[
+  \int_{a}^{b} f(x)\dx = G(b) - G(a). \qedhere
+\]
+\end{proof}
+
+%=============================================================================
+\section{Summary and Comparison}
+\label{sec:8.7}
+%=============================================================================
+
+\textit{Through this chapter and the preceding one, we have introduced various notions related to integrals.  They use similar notation but mean different things, and sometimes we may confuse them.  This section compares them side by side.}
+
+We have learned three concepts:
+
+\begin{enumerate}
+  \item The \textbf{definite integral} $\displaystyle\int_{a}^{b} f(x)\dx$ --- a \textbf{number}.
+  \item The \textbf{indefinite integral} $\displaystyle\int f(x)\dx$ --- a \textbf{collection of functions} (the set of all antiderivatives).
+  \item A \textbf{function defined by an integral}, $F(x) = \displaystyle\int_{a}^{x} f(t)\dt$ --- a \textbf{single function}.
+\end{enumerate}
+
+% ── BEGIN VISUAL ──
+\begin{figure}[ht]
+  \centering
+  \input{ch08/figures/fig-ftc-commutative-diagram.tex}
+  \caption{How FTC links accumulation and rates of change.}
+  \label{fig:ftc-commutative-diagram}
+\end{figure}
+% ── END VISUAL ──
+
+\subsection*{The definite integral}
+
+The definite integral $\displaystyle\int_{a}^{b} f(x)\dx$ has both a formal definition and a geometric interpretation.
+
+The \textit{formal definition} is the one we have already studied: compute the upper integral (the infimum of all upper sums) and the lower integral (the supremum of all lower sums); if these two quantities agree, their common value is called the integral.
+
+The \textit{geometric interpretation} is simpler: if $f \ge 0$, the definite integral equals the area under the graph of $f$ above the $x$-axis, from $x = a$ to $x = b$.
+
+In practice, we want to \textbf{avoid} computing integrals from the formal definition.  The \cref{thm:8-2} (FTC Part Two) saves us: find any antiderivative $G$ of $f$, and then
+\[
+  \int_{a}^{b} f(x)\dx = G(b) - G(a).
+\]
+
+\begin{example}
+\label{ex:8-9}
+$\displaystyle\int_{1}^{2} x^{2}\dx = \left.\frac{x^{3}}{3}\right\rvert_{1}^{2} = \frac{8}{3} - \frac{1}{3} = \frac{7}{3}$.
+\end{example}
+
+\subsection*{The indefinite integral}
+
+The indefinite integral $\displaystyle\int f(x)\dx$ is the collection of all antiderivatives of $f$.  How do we compute it?  By a consequence of the Mean Value Theorem: find one antiderivative $G$, and then
+\[
+  \int f(x)\dx = G(x) + C,
+\]
+where $C$ is an arbitrary constant (on an interval).
+
+\begin{example}
+\label{ex:8-10}
+$\displaystyle\int x^{2}\dx = \frac{x^{3}}{3} + C$.
+\end{example}
+
+\subsection*{A function defined by an integral}
+
+Given an integrable function $f$ on an interval $I$ and a point $a \in I$, the expression
+\[
+  F(x) = \int_{a}^{x} f(t)\dt
+\]
+defines a new function.  By \cref{thm:8-1} (FTC Part One), if $f$ is continuous, then $F$ is an antiderivative of $f$:
+\[
+  F'(x) = f(x).
+\]
+This gives us a way to \textbf{construct} an antiderivative, even when no simpler closed-form expression exists.
+
+\begin{example}
+\label{ex:8-11}
+Define $F(x) = \displaystyle\int_{3}^{x} e^{-t^{2}}\dt$.  Then $F'(x) = e^{-x^{2}}$ and $F(3) = 0$.  These two properties completely determine $F$, and there is no simpler way to write it.
+\end{example}
+
+\subsection*{When does the choice of variable matter?}
+
+\begin{itemize}
+  \item \textbf{Definite integral:} The result is a number.  The integration variable is a dummy variable and can be called anything:
+  \[
+    \int_{a}^{b} f(x)\dx = \int_{a}^{b} f(t)\dt.
+  \]
+  \item \textbf{Indefinite integral:} The result is a collection of functions \textit{of the named variable}.  If we change all $x$'s to $t$'s, we get a collection of functions of $t$, which is not the same expression:
+  \[
+    \int f(x)\dx \ne \int f(t)\dt \quad \text{(different variable names)}.
+  \]
+  \item \textbf{Function defined by an integral:} The integration variable is again a dummy variable and may be called anything \textbf{except} $x$ (or $a$), since those already have designated roles.  Never write $\displaystyle\int_{a}^{x} f(x)\dx$; it is ambiguous.
+\end{itemize}

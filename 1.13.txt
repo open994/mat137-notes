@@ -1,0 +1,139 @@
+In the past videos,
+I have shown how to prove
+that something satisfies,
+or does not satisfy a definition.
+In this video, I will write 
+a proof of a theorem a bit more complex
+than merely checking a definition.
+I want to prove
+that the sum of increasing functions 
+is increasing.
+To do this, I am definitely going to need
+to use the definition of "increasing."
+There will be no way around it this time.
+Before I do anything, I'm going to try
+to rewrite this as a formal theorem;
+it's going to make proving it easier.
+I'm going to be talking
+about two functions and their sum.
+So let's give them names.   That will help.
+I'm going to say, "let f and g
+be functions on an interval I,
+"and I'm going to call their sum h."
+And the theorem says
+that the sum of increasing functions
+is increasing.
+In other words,
+IF f and g are increasing on I,
+THEN h is ALSO increasing on I.
+That is what I want to prove,
+written as a formal theorem.
+Not every theorem
+is explicitly written like this.
+However, the majority of theorems,
+even though often only in disguise,
+are like this; 
+they're an if-then statement;
+there is some hypothesis 
+and a conclusion.
+The part that came before the if-then
+is what I'm going to call simply
+"the set-up";
+all I did there
+was introduce the notation,
+because that makes
+stating the theorem easier.
+The "IF" part is the hypothesis,
+and the "THEN" part is the conclusion.
+The conclusion is what I WANT to prove.
+Whereas the hypothesis? 
+I don't need to PROVE it.
+On the contrary,
+the hypothesis is something
+I may ASSUME is true during my proof.
+So, I am going to try
+to prove that h is increasing on I,
+and in the process,
+every time I need it,
+I will simply assume
+that f and g are increasing on I.
+In order to prove
+that h is increasing on I,
+I will begin by reminding myself
+of the definition:
+For every x_1, x_2 in I,
+IF x_2 is less than x_2,
+THEN h(x_1) is less than h(x_2).
+And I've done something bad:
+This IS what I want to prove,
+but I didn't SAY that EXPLICITLY.
+My reader doesn't know that;
+my reader CAN'T read my mind.
+So my reader is going to believe
+that I am CLAIMING this to be true,
+that I am starting from my conclusion,
+which is not allowed.
+So how about I SAY explicitly
+that this is what I WANT to show?
+I've used the abbreviation WTS;
+you don't have to use it.
+If you prefer, simply write
+"my objective is,"
+or "I am trying to prove that,"
+or ANYTHING to indicate clearly
+that this is what you're trying to prove,
+NOT that you're claiming
+that is true.
+Now, let's move on to it.
+I need to prove something
+for EVERY pair of elements x_1 and x_2,
+so we know we write
+"let x_1 and x_2 be in I."
+This means that I am FIXING them,
+and that they are generic;
+I didn't chose them.
+I don't know what they are exactly.
+And now, I want to prove an implication.
+I do that by ASSUMING
+x_1 is less than x_2;
+I assume the "if" part,
+and then I want to SHOW the "then" part,
+so let's write that explicitly:
+"I want to show
+that h(x_1) is less than h(x_2)."
+What to do next?
+I don't know the explicit form of h;
+I don't know what h looks like.
+All I know is that h is f + g.
+But I ALSO know
+that f and g are both increasing.
+So let's use that.
+Since I know that f is increasing on I
+and x_1 is less than x_2,
+I can conclude
+that f(x_1) is less than f(x_2).
+Similarly, since I know
+that g is increasing on I
+and x_1 is less than x_2,
+I can conclude
+that g(x_1) is less than g(x_2).
+Now, I have two inequalities 
+with f and g,
+I want something about h, 
+and h is f + g.
+So I can simply ADD both inequalities,
+and I get that f(x_1) + g(x_1)
+is less than f(x_2) + g(x_2).
+But now look what we have!
+f(x_1) + g(x_1) is h(x_1),
+and f(x_2) + g(x_2) is h(x_2).
+And I have proven exactly what I needed,
+so this completes the proof!
+Notice how I treated VERY differently
+f and g on one hand, and h on the other.
+For h, I PROVED that it was increasing;
+but for f and g, I ASSUMED
+and I used throughout my proof
+that they were increasing.
+That's the difference
+between a hypothesis and the conclusion.

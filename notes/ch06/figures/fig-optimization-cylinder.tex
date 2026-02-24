@@ -1,0 +1,25 @@
+\begin{tikzpicture}[>=Latex]
+  % Simple cylinder sketch using ellipses
+  \def\rx{2.2}
+  \def\ry{0.6}
+  \def\h{3.0}
+
+  % Top ellipse
+  \draw[thick, color=thmcolor] (0,\h) ellipse [x radius=\rx, y radius=\ry];
+
+  % Side lines
+  \draw[thick, color=thmcolor] (-\rx,\h) -- (-\rx,0);
+  \draw[thick, color=thmcolor] (\rx,\h) -- (\rx,0);
+
+  % Bottom ellipse (front solid, back dashed)
+  \draw[thick, color=thmcolor] (-\rx,0) arc[start angle=180, end angle=360, x radius=\rx, y radius=\ry];
+  \draw[thick, dashed, color=thmcolor] (\rx,0) arc[start angle=0, end angle=180, x radius=\rx, y radius=\ry];
+
+  % Radius indicator on top
+  \draw[->, thick, color=defcolor] (0,\h) -- node[above] {$r$} (\rx,\h);
+
+  % Height indicator
+  \draw[<->, thick, color=defcolor] (\rx+0.8,0) -- node[right] {$h$} (\rx+0.8,\h);
+
+  \node[anchor=west] at (-1.1,\h+0.9) {cylinder};
+\end{tikzpicture}

@@ -1,0 +1,155 @@
+In this video, I will
+introduce geometric series.
+A geometric series is
+one of this form:
+sum from n = 0 to ∞, of xⁿ,
+where x is a constant (a real number).
+So it is not just one series,
+it's a family of them.
+For every real number x,
+I get a different series.
+In a previous video,
+(and I will add a
+link in the description)
+I attempted to calculate the value of
+this series being very careless;
+and in doing so, I made mistakes
+and I got contradictions.
+Now I'm inviting you to try
+to do the same thing,
+but carefully, starting from
+the definition of series.
+And if you do it carefully
+from the definition of series,
+you will see that
+for some values of x,
+this series is convergent,
+and it represents a number,
+and for other values of x,
+it is divergent,
+and it does not
+represent a number,
+and that will get rid
+of all the contradictions.
+Then, we also want to know, for the
+values for which it is converging,
+what is the value of the sum?
+When you're ready, continue
+watching for the answer.
+I'm fixing a real number x, and I'm
+looking at this series (or infinite sum),
+and as we know, an infinite sum is
+defined as a limit of partial sums Sₖ,
+where I'm defining Sₖ as the same sum
+but stopping when the index is k.
+Now the advantage of looking
+at the partial sum,
+is that now this is a finite sum,
+and I have many more tools
+to deal with finite sums.
+I know I can manipulate it, and
+that's exactly what I'm going to do.
+Let me expand the terms
+for this finite sum.
+Sₖ = ...
+when n = 0, it's 1,
+when n = 1, I get x, and then
+I get x²... all the way to xᵏ,
+and the trick is going to be
+to multiply this sum times x.
+And let's see what
+happens when I do that.
+1⋅x is x, x⋅x is x², x³, so on,
+and the last term is xᵏ⁺¹.
+Now I compare both lines, and I notice
+that most of the terms look very similar.
+In fact, all the terms here,
+except the first one,
+are the same as all the terms here,
+except the last one;
+(The last term before xᵏ⁺¹ is xᵏ.)
+so if I subtract those two lines,
+those terms will cancel out,
+and that's exactly what I'm doing
+to get a nice expression for Sₖ.
+Sₖ - x⋅Sₖ is going to be
+the first term here (1),
+(all these terms cancel)
+- the last term here (xᵏ⁺¹).
+And now from here, I can solve for Sₖ,
+which is what I wanted.
+By taking Sₖ common factor, and
+multiplying by (1 - x),
+finally I get that
+Sₖ = (1 - xᵏ⁺¹)/(1 - x).
+This is only true if x is not 1.
+(I cannot divide by 0.)
+Now I don't have to worry
+about the case x = 1,
+because when x = 1,
+look at the original series:
+I get the sum of
+1 + 1 + 1 + 1 infinitely many times,
+I know that's going to be ∞
+(that's going be divergent),
+so I don't care about that one.
+And for all other cases, I now have an
+expression for the k-th partial sum.
+That completes the first step, so now
+we're ready for the second step,
+which is taking the
+limit of this expression.
+Now this sum from n = 0 to ∞,
+will be the limit of partial sums,
+and we have a formula
+for the partial sums.
+For the purpose of this limit, the
+variable is k, x is simply a constant,
+so this limit, using the limit laws,
+can be rewritten like this.
+(Assuming this limit exists, of course.)
+And now, this limit actually exists
+for some values of x,
+and it doesn't
+for other values of x.
+More precisely,
+the easiest case is when x is a
+number between 1 and -1 (non-inclusive).
+When x is a number between 1 and -1
+(non-inclusive), this power has limit 0,
+and so, the full series adds up
+to 1/(1 - x), and it is convergent.
+For example, when x = 0.5,
+and you take a very large power
+of it, that approaches 0.
+But that's only true when
+x is between 1 and -1!
+What happens otherwise?
+Well, if x > 1, then this limit
+will be ∞. (For example, when x = 2.)
+Or in other words,
+the limit doesn't exist.
+When x < -1, this limit will
+also not exist.
+For example, when x = -2, this sequence
+would be -2, 4, -8, 16, and so on...
+It oscillates,
+and it doesn't exist.
+When x = -1, I get the sequence -1, 1,
+-1, 1, -1, 1: it also doesn't exist.
+And finally, we have already
+removed the case x = 1.
+So in all other cases, when x > 1,
+or < -1, or 1 or -1,
+this series is divergent,
+because the limit doesn't exist.
+What it means is in those cases the
+series does not represent a number.
+This is the well-known formula
+for a geometric series,
+but it's important to remember it only
+makes sense when x is between 1 and -1.
+In all other cases,
+do not treat this as a number,
+because the series is not convergent.
+And that, is the final answer.

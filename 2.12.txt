@@ -1,0 +1,161 @@
+In this video,
+I will introduce the squeeze theorem.
+I will explain what the theorem says
+and how to use it.
+But before I do that,
+I want to use an exercise as motivation.
+This exercise looks simple,
+but is deceiving; it is a trap!
+I want to compute
+lim_(x → 0) (x^2 ⋅ sin(1/x)).
+There is a quick, tempting way
+to answer this, and it is as follows:
+this function is the product
+of two functions,
+so the limit will be the product:
+the limit of x^2
+times the limit of sin(1/x).
+And the first limit, x^2, is 0.
+And 0 times anything is 0,
+so the answer is 0.
+That's it.
+This argument 
+is completely WRONG.
+This is an incorrect solution. 
+And here is why:
+implicitly, in this calculation,
+I have used the limit law for products.
+Remember, the limit law for products says
+that IF the limit of f is L
+and the limit of g is M,
+THEN the limit of the product is L ⋅ M.
+But in order to use this theorem,
+I need to ASSUME
+that the two initial limits exist
+-- and "exist" means
+"are real numbers."
+And I cannot do that here.
+Because in this example,
+sin(1/x) does NOT have a limit at 0.
+When x approaches 0,
+the function oscillates wildly
+between -1 and 1.
+Therefore, I cannot use
+the limit law for products
+and the argument
+is completely wrong.
+In case you are not convinced,
+here are a few other examples where
+if I use the same argument,
+I will get an answer
+that is clearly false.
+All of these limits
+are as x approaches 0.
+First: the limit of x is 0.
+3/x does NOT have a limit.
+But their product has a limit,
+and that limit is 3.
+On the other hand, second example:
+the limit of x is 0,
+3/(x^2) does NOT have a limit,
+but their product, well,
+ALSO does not have a limit.
+So, in the original problem:
+the limit of x^2 is 0,
+sin(1/x) does NOT have a limit,
+so their product...
+I simply cannot conclude anything;
+with the information I have,
+I don't know what the answer is yet.
+I need to do something else.
+Luckily, there is something I can do.
+The part that is giving me trouble
+is sin(1/x).
+And, even though
+it doesn't have a limit at 0,
+it is still a little bit under control,
+because sine of anything
+is ALWAYS between -1 and 1.
+So when I multiply it by x^2,
+the function I care about
+is always between -x^2 and x^2.
+And this is useful!
+Let's look at the graph.
+Here, I have sketched the graph
+of the two parabolas:
+y = x^2, and y = -x^2.
+And the function I care about
+is between them.
+So its graph will be squeezed
+or sandwiched between them,
+like this picture shows.
+And this picture suggests that therefore,
+no matter how much it oscillates
+-- and it DOES oscillate --
+the limit at 0 WILL exist and be 0.
+This is what the squeeze theorem says.
+Here is a more general picture
+of the same phenomenon.
+If I have two functions, f and h,
+and they both have the same limit L at a,
+and then I have a THIRD function
+that is sandwiched or SQUEEZED
+IN BETWEEN THEM,
+then no matter how it behaves,
+it must also have the same limit
+at that point.
+Let's write this out as a theorem.
+IF I have three functions in order
+h is smaller than g is smaller than f,
+AND IF I ASSUME that the small function
+AND the large function,
+they both have the SAME limit,
+THEN I can conclude
+that the function in the middle
+also has the same limit.
+To be precise,
+the string of inequalities
+DOESN'T need to be true
+for ALL values of x.
+I only need it to be true
+when x is close to a but not a.
+I don't care what happens AT a.
+And to make sure
+this is a well written theorem,
+in the statement I need to begin
+by introducing my variables.
+So before I say this if-then,
+I say that a and L are real numbers,
+and I require f, g, and h
+to be functions defined near a,
+except possibly at a.
+And that's it!
+This is the statement
+of the squeeze theorem.
+And the picture you should always
+carry in your mind to accompany it
+that really well summarizes
+what's going on
+is this one.
+Now, let's use this shiny new theorem
+to solve the original problem.
+Remember: I wanted to compute
+lim_(x → 0) (x^2 ⋅ sin(1/x)).
+Well, with the squeeze theorem,
+it's actually pretty fast.
+All I need to do is notice
+that whenever x is not 0,
+this function is sandwiched
+between -x^2 and x^2.
+AND those two new functions
+have limits 0 and 0.
+Therefore, by the squeeze theorem,
+the original function ALSO has limit 0.
+That's it.
+So the answer was 0 all along,
+but the initial argument was wrong.
+This, on the other hand,
+is a correct argument.
+There is only one thing left to do:
+prove the squeeze theorem.
+I will do that in the next video.

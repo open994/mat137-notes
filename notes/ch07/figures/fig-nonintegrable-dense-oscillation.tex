@@ -1,0 +1,17 @@
+\begin{tikzpicture}[x=10cm,y=3.2cm]
+  % Conceptual picture: dense oscillation between 0 and 1 on [0,1]
+  \draw[->] (-0.02,0) -- (1.05,0) node[right] {$x$};
+  \draw[->] (0,-0.05) -- (0,1.1) node[above] {$y$};
+
+  % Lines y=0 and y=1
+  \draw[dashed, color=defcolor] (0,1) -- (1,1);
+  \node[color=defcolor, anchor=west] at (1.02,1) {$1$};
+  \node[anchor=west] at (1.02,0) {$0$};
+
+  % Many thin spikes suggesting values hit both near 0 and near 1 densely
+  \foreach \t in {0.03,0.06,0.08,0.11,0.14,0.18,0.21,0.23,0.27,0.31,0.34,0.37,0.41,0.44,0.47,0.51,0.55,0.58,0.61,0.65,0.68,0.72,0.75,0.78,0.82,0.86,0.89,0.93,0.96} {
+    \draw[line width=0.35pt, color=thmcolor, opacity=0.75] (\t,0) -- (\t,1);
+  }
+
+  \node[align=left, anchor=west] at (0.02,1.08) {dense oscillation intuition:\\upper sums stay near 1, lower sums stay near 0};
+\end{tikzpicture}

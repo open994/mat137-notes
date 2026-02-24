@@ -1,0 +1,286 @@
+In this video, I will write a proof
+for the limit law for SUMS of functions.
+In the previous video,
+I already explained
+the statement of all the limit laws,
+and why we care about them.
+I will add a link in the description.
+Here is the theorem I want to prove:
+IF the limit of a function f is L
+and the limit of a function g is M
+at the same point a,
+THEN their sum, f + g, also has a limit,
+and the limit is L + M.
+For this to be
+a precisely written statement,
+I need to introduce all my variables.
+So before I said this, I should have said
+that a, L, and M are real numbers,
+and f and g are functions.
+And so that I can talk
+about their limits as x approaches a,
+I would require
+that f and g be functions
+defined at least
+on an interval centred at a,
+except maybe at a.
+And now,
+this is a precisely written statement.
+For convenience, throughout the proof,
+I'm going to refer to the sum of f and g
+as h.
+This is only so that I can write "h(x)"
+instead of "f(x) + g(x)" when I need it.
+I'm going to begin by focusing
+on the conclusion; on the "THEN" part.
+The "THEN" part is what I WANT to prove,
+so I probably will have to use
+the DEFINITION
+of this part of what I want to prove.
+So let's recall the definition of limit.
+This is what I want to show:
+I want to show that for every ε positive,
+there exists a δ positive
+such that IF the distance between x and a
+is between 0 and δ,
+THEN the distance between h(x) and L + M
+is less than ε.
+And since this is what I want to prove,
+I know what the structure of my proof
+should look like;
+it should correspond to this statement.
+So I will begin my proof
+by FIXING an arbitrary value
+of ε positive,
+and then, possibly with some effort,
+I will have to say what I TAKE as δ,
+then I will FIX a real number x
+and assume the IF part
+-- that the distance between x and a
+is between 0 and δ --
+and after doing some math,
+hopefully I will conclude
+that the distance between h(x) and L + M
+is less than ε.
+I went quickly through this,
+because this should be familiar;
+it is exactly the same structure
+as other easier (ε, δ)-proofs
+that I have written in the past.
+And in those cases, I went slower.
+So if this is not familiar for you,
+I suggest you pause
+and watch those videos first.
+I will put a link in the description.
+Before going any further,
+I want to address a point
+that I know is confusing
+for some students.
+In this proof,
+I will be using the definition of limit.
+For h, on the one hand,
+and for f and g, on the other hand.
+But the way I use it is very different.
+And here is why:
+we WANT to SHOW
+that the limit of h is L + M.
+But we are ASSUMING; we already know
+that the limit of f is L.
+So, for h, our objective;
+what we want to show,
+think about the definition of limit:
+for every ε, there exists a δ, etc.
+In my proof, I will need
+to FIX an arbitrary value of ε;
+I can't choose it.
+And then I will need to show
+how I FIND a value of δ
+that works for it.
+By contrast, I DON'T need
+to PROVE anything about f.
+I am ASSUMING I know the limit exists,
+so think about the definition:
+for every ε, there exists a δ..,
+If I want to,
+I can CHOOSE ANY value of ε.
+and since I know
+that the statement in the
+definition is true,
+that means it is guaranteed
+that there exists a value of δ
+that works for it.
+So, very different.
+For h, I don't choose ε
+and I have to say how I produce δ.
+For f, I can CHOOSE any value of ε I want
+and the δ will be GIVEN to me.
+If this is clear,
+it's going to make the rest of the video
+much easier to understand.
+But I'm not ready to write a proof
+just yet;
+I still have to do some rough work
+to figure out what I'm taking as δ.
+So let's focus on that.
+I want to end up concluding
+that the distance between h(x) and L + M
+is less than ε.
+First, a little bit of algebra:
+I can write h(x)
+in terms of f(x) and g(x),
+and I can group the terms on the right
+as [f(x) - L] + [g(x) - M].
+And then say
+that the absolute value of the sum
+is less than or equal
+to the sum of the absolute values.
+This is just a triangular inequality.
+I will keep this inequality
+because I am going to need it.
+And here's how it helps me:
+I want to conclude
+that the term on the left
+is less than ε.
+One way to do that
+is to make each one
+of the two terms on the right
+less than ε/2.
+Can I make the distance
+between f(x) and L
+less than ε/2?
+Yes, I can.
+Because I KNOW; I am ASSUMING
+that the limit of f(x) is L.
+Once again, this is one of my hypotheses;
+I am assuming it, and I get to use it.
+So what I'm going to do is:
+whatever the value of ε is,
+ε is a positive number.
+I'm going to take
+that value divided by 2
+-- that's also a positive number,
+and I'm going to use this
+as my choice of ε, so to speak, in f.
+In other words,
+I'm going to plug this in
+in the definition
+of "the limit of f(x) is L,"
+and I KNOW it's guaranteed
+that there exists a δ positive
+such that IF the distance between x and a
+between 0 and δ,
+THEN the distance between f(x) and L
+is less than ε/2!
+Great!
+But careful;
+this is NOT the value of δ I need.
+And here is why:
+I'm going to do this for f,
+and THEN I'm going to do this for g.
+And every time I do it,
+I know that it is a number δ
+but it doesn't have to be
+the same in both cases.
+So I'm going to call δ_1
+the number I obtain for f,
+and δ_2 the number I obtain for g.
+So if I do all this, I can conclude
+that there exists a positive number δ_1
+that makes the distance
+between f(x) and L
+be smaller than ε/2.
+And similarly, a positive number δ_2
+that makes the distance
+between g(x) and M
+less than ε/2.
+And then, what do I take as δ?
+Well, let's take the SMALLEST
+of δ_1 and δ_2.
+The smallest
+between two positive numbers?
+This is still positive.
+And then,
+if the distance between x and a
+is less than δ,
+then it must also be less than δ_1
+and less the δ_2,
+so I get both conclusions.
+And I think that's it!
+I think I have a good plan!
+Of course, I'm not done;
+I still need to write a proof.
+Technically, I haven't even started.
+But at least I have a plan now!
+Remember: when I write the proof,
+I should be careful
+that it follows the right structure
+and that every step follows logically
+from the previous ones.
+Or in other words:
+when I write the proof,
+I will verify that it ACTUALLY works
+and that I haven't simply confused myself
+with some circular reasoning
+while doing the rough work.
+Let's do it!
+FIRST, I FIX
+an arbitrary positive value of ε.
+THEN, I use this number divided by 2
+in the definition
+of "the limit of f(x) is L."
+And I CONCLUDE
+that there exists a number, δ_1,
+such that IF the distance between x and a
+is between 0 and δ_1,
+THEN the distance between f(x) and L
+is less than ε/2.
+I do exactly the same thing
+in the definition
+of "the limit of g(x) is M,"
+and I get a second value that I call δ_2
+that works for g.
+And now that I have δ_1 and δ_2,
+I'm going to say that I will take δ
+to be the minimum of both of them.
+This is ALSO a positive number.
+Next, if I fix a real number x
+and I assume the distance between x and a
+is between 0 and δ,
+then I can also conclude
+that it's between 0 and δ_1
+and between 0 and δ_2.
+The first point guarantees
+that the distance between f(x) and L
+is less than ε/2,
+and the second point guarantees
+that the distance between g(x) and M
+is less than ε/2.
+And now, I do some algebra.
+The distance between h(x) and L + M is...
+I write h(x) in terms of f(x) and g(x),
+and I use a triangular inequality...
+and I get the sum of two terms,
+each one being less than ε/2;
+ε/2 + ε/2 = ε.
+So I have CONCLUDED
+that the distance between h(x) and L + M
+is less than ε, as needed.
+And this completes the proof.
+Before I finish, two more comments:
+first, look at the parts of the proof
+that I have written in red.
+The structure of the proof
+is exactly what I said at the beginning
+that it should be.
+And second, notice that all the variables
+must be introduced carefully
+in the right order;
+before I fix ε,
+it would not make sense to say
+that I am choosing ε/2
+in the definition of the limit of f.
+I need to fix ε first,
+then say I'm using ε/2,
+THEN that will produce δ_1 and δ_2,
+and ONLY then
+can I say what I am taking as δ.

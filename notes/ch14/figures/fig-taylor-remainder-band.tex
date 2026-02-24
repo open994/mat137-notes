@@ -1,0 +1,26 @@
+\begin{tikzpicture}
+  \begin{axis}[
+    width=11cm,
+    height=6.8cm,
+    axis lines=middle,
+    xmin=-2.2, xmax=2.2,
+    ymin=-0.2, ymax=8.2,
+    xlabel={$x$}, ylabel={$y$},
+    ticks=none,
+    clip=true
+  ]
+    % e^x and a Taylor polynomial (degree 2)
+    \addplot[thick, color=thmcolor, domain=-2.2:2.2, samples=400] {exp(x)};
+    \addplot[thick, color=defcolor, domain=-2.2:2.2, samples=250] {1 + x + x^2/2};
+
+    % A qualitative error band that widens away from 0
+    \addplot[draw=none, fill=excolor, fill opacity=0.10, domain=-2.2:2.2, samples=300]
+      { (1 + x + x^2/2) + 0.15 + 0.18*x^2 } \closedcycle;
+    \addplot[draw=none, fill=white, domain=-2.2:2.2, samples=300]
+      { (1 + x + x^2/2) - (0.15 + 0.18*x^2) } \closedcycle;
+
+    \node[color=thmcolor, anchor=west] at (axis cs:1.0,6.6) {$e^x$};
+    \node[color=defcolor, anchor=west] at (axis cs:1.0,5.8) {Taylor poly};
+    \node[anchor=west] at (axis cs:-2.1,7.6) {error typically grows away from the center};
+  \end{axis}
+\end{tikzpicture}

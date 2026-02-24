@@ -1,0 +1,47 @@
+In this video, I will illustrate with an
+example how to compute the derivative of
+a function directly from the definition.
+Here is the exercise.
+f is defined by f(x) = 4x - x².
+I want to compute f'(1), and
+I want to do it from the definition of
+derivative as a limit.
+As a reminder, here is the definition.
+You can use any of these two formulas.
+They are entirely equivalent.
+Any of the two will work.
+This is a quick exercise. I invite you to
+pause the video, try to solve it, and
+then continue watching.
+First, I write the definition
+of derivative as a limit.
+I chose the version as h approaches 0.
+I could have chosen the other one.
+I have an explicit form for f.
+I can substitute it in the function,
+then expand some of the terms in the numerator,
+then group similar terms and simplify a bit,
+and now I can divide the numerator by h.
+How convenient!
+After all the simplifications,
+I am left with a continuous function.
+To compute the limit,
+I simply evaluate at h = 0.
+And so the answer is 2.
+This wasn't too bad. However, if the
+function is not as simple as a polynomial,
+these may get messy. And besides,
+it will be tedious if I have to go through
+these every time I compute a derivative.
+Is there a better way?
+Yes there is. The differentiation rules.
+They are a set of rules that makes it much faster to compute derivatives.
+We still need to prove them from the definition,
+but after we prove them once,
+we can use them as much as we want,
+and then we do not have to come back
+to the definition every time.
+In the next video, I want to explain how
+to interpret derivative as rate of change,
+but after that, I will introduce the
+differentiation rules.

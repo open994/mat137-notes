@@ -1,0 +1,126 @@
+In this video,
+I will show an example of how to use the
+Substitution Rule for DEFINITE integrals.
+In the previous two videos,
+I have already explained the theory
+behind the Substitution Rule,
+(which is just the chain rule backwards)
+and I worked out some examples.
+Specifically, these four examples.
+(I'll put a link in the description)
+But all of these are examples of
+INDEFINITE integrals.
+(or simply antiderivatives
+if you prefer)
+In this video,
+I will use the Substitution Rule to
+compute a DEFINITE integral. This one.
+There are two approaches for this.
+One method is to first
+find an antiderivative.
+In this case,
+we would do a substitution,
+then integrate,
+then undo the substitution.
+And once we have
+an antiderivative,
+evaluate it at x = 2
+- evaluate it at x = 1.
+Nothing surprising. This is entirely
+fine and it produces the right result.
+However, there is an alternative method
+which is a little bit faster.
+We can use the substitute rule
+DIRECTLY in the definite integral.
+To do this we need to use the
+substitution everywhere:
+the function, the differential,
+but ALSO THE ENDPOINTS.
+The advantage of this second method
+is that it saves a bit of time.
+We do not need to substitute,
+integrate, then undo the substitution.
+We can skip the
+“undo the substitution” part.
+Let’s write down the details.
+I want to compute
+∫₁²(x⋅(x² + 1)¹⁰⁰)dx
+This integral is asking us for the
+substitution u = x² + 1.
+Why? Because the derivative is basically
+x (up to a multiplying constant),
+which we already have here.
+Let’s do it! I use the
+substitution: u = x² + 1.
+If I do that, I also need
+to change the differential.
+du will be the derivative of x² + 1,
+(which is 2x) times dx.
+Let’s prep the integral:
+I need to separate 2x
+for the differential,
+and I have multiplied by 2,
+so I also divide by 2.
+Perfect! I have the piece that
+I need for the differential now.
+So the integral becomes
+(1/2)⋅∫(u¹⁰⁰)du.
+However, I also need to change
+the ends of integration!
+1 and 2 are values of x.
+When I perform a substitution,
+I need to substitute EVERYTHING;
+so I need to change 1 and 2
+into the corresponding values for u.
+When x = 1, u = 1² + 1, which is 2.
+And when x = 2, u = 2² + 1, which is 5.
+So my new integral goes from 2 to 5.
+Now that that is done, I can find an
+antiderivative for this function.
+It will be (1/2)⋅u¹⁰¹/101,
+and I need to evaluate it at u = 5,
+- evaluate it at u = 2.
+So I get (5¹⁰¹ - 2¹⁰¹)/202,
+and that is the final answer.
+That’s it. As I said, I didn't need to
+undo the substitution at the end.
+Once I fully complete the substitution,
+I can finish the calculation from there
+entirely in terms of u,
+without worrying about x again.
+To finish the video, let’s write this up
+in the form of a nice little theorem.
+I am going to call it the “change of
+variable for definite integrals”
+(or if you prefer, the "Substitution
+Rule for definite integrals",
+or the "backwards chain rule
+for definite integrals").
+Here is the Substitution Rule
+for INDEFINITE integrals...
+...that we had already justified.
+When it is a definite integral instead,
+we also need to make sure
+to change the ends of integration.
+To make this into a theorem,
+I should introduce my variables
+and add some hypotheses.
+a and b are real numbers, with a < b,
+and f and g are functions.
+g needs to be differentiable,
+and the derivative must be
+continuous on the interval [a,b].
+As for f, it only needs
+to be continuous. But where?
+If we're going to compose f with g,
+I need the range of g over [a,b] to be
+contained in the domain of f.
+This is just a technical
+way to say that...
+...I can write f(g(x))
+for any x between a and b.
+And that’s it!
+The proof follows immediately...
+...from the substitution rule
+for indefinite integrals,
+plus the Fundamental Theorem of Calculus.

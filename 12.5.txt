@@ -1,0 +1,178 @@
+This video is my fifth example
+of an improper integral.
+It is the integral from 0 to 1 of lnx
+with respect to x.
+This is very different
+from all the previous examples.
+It is improper, but not because
+the domain goes to infinity.
+The problem is different,
+and it is at zero.
+If you have watched the previous videos,
+I invite you now to pause this one,
+try to understand what the problem
+with this integral at 0 is,
+figure out how it should be defined
+and computed,
+and after that,
+keep watching.
+This is the graph
+of the function logarithm,
+and the problem in this integral is at 0.
+I'm trying to integrate between 0 and 1,
+which means I want to compute
+all this area.
+This is going to be negative,
+but then it is unbounded here.
+And that's because ln0
+is not even defined.
+And if I look at the function close to 0,
+then it is unbounded
+because there is a vertical asymptote.
+The first thing to notice is that
+I don't even know how this is defined
+and what it means.
+I only know how to define an integral
+for a function that is bounded.
+If it's unbounded,
+it may not even make sense.
+It's going to be very similar to how we
+define
+an improper integral of the other kind,
+when it was the domain
+that was unbounded.
+If I cut the integral at any point here,
+(I'm going to call it c,
+and that's a positive number less than 1)
+then I can certainly compute this area.
+This is well defined, the integral
+from c to 1 of logarithm,
+because the function ln is continuous
+on the interval from c to 1,
+including the endpoints,
+so we know it's integrable.
+So for every value of c,
+this is going to be a number.
+And then what we can do
+is take this value of c
+and make it smaller and smaller,
+approaching 0.
+In other words, I can take the limit
+as c approaches 0,
+on the right, in this case,
+of this quantity.
+And this is how I'm going to define
+what this integral means.
+So first compute the integral,
+up to c, and then take the limit.
+We can do that.
+Now I need to find an antiderivative
+for lnx.
+This is not an elementary one.
+It's not obvious.
+The best way to do it
+is using integration by parts.
+I'm not going to do the details,
+but I invite you to pause this and
+do the integration by parts,
+and after doing that
+you will get an antiderivative,
+which will probably be xlnx - x.
+Then we need to evaluate at 1,
+minus evaluate at c. Let's do that.
+Some of these parts are easy.
+ln1 is 0, and the limit of this is 0,
+but this part here, well, I'm not even
+sure yet wether this has a limit.
+So I'm going to pause this calculation;
+I'm going to take this limit out
+and try to compute it.
+And after that,
+I will come back and finish the problem.
+This is a product.
+The limit of c is 0,
+but as c approaches 0 on the right,
+the limit of lnc is minus infinity.
+So this is an indeterminate form.
+We cannot say 0 times anything is 0,
+because it's 0 times infinity.
+The most common way to solve this
+is to transform it into a quotient
+so we can use L'Hôpital's rule.
+And I do that by sending
+one of the factors to the denominator.
+And now it is still an indeterminate form
+of the type minus infinity at the top
+divided by infinity at the bottom,
+so it is legal to use
+L'Hôpital's rule here.
+So I'm going to do that,
+and this limit will be equal 
+(both are differentiable)
+to the limit
+as c approaches 0 on the right,
+the derivative of ln(c) is 1/c,
+the derivative of 1/c is -1/c².
+Assuming this limit exists,
+it's equal to the original one.
+This simplifies
+and the limit happens to be 0.
+Okay, so the limit was 0 after all,
+but I had to go through all this
+to figure out that it was 0.
+So now I can go back
+to the previous question and finish it.
+The limit of this part is 0, and so
+the limit of the full function is -1,
+which is the final answer.
+We knew it had to be negative
+because this is area under the axis,
+and the value of this whole area
+going to the unbounded part is 1.
+And this is the value we assign
+to this improper integral.
+But we can use the same idea
+to make sense of any other integral
+of a function like this one,
+which is continuous on an interval
+that is missing one of the endpoints
+where the function
+has a vertical asymptote.
+Let's do that.
+This type of improper integral is
+sometimes called type 2 in some books,
+although I don't really care
+about the name.
+Here is the general definition.
+I have real numbers a < b
+and a function that is 
+continuous on the interval
+from a (not included)
+to b (included).
+The interesting case will be when the
+function has a vertical asymptote at a
+and therefore it's unbounded.
+I want to calculate the integral of f
+from a to b,
+which may or may not be well-defined.
+And what we do is first we integrate from
+an intermediate point c to b
+(c is between a and b),
+and then we take the limit of that
+integral as c approaches a on the right.
+Notice that for any such c,
+the function is continuous from c to b,
+including both endpoints,
+so it is bounded and integrable.
+So that integral always makes sense.
+The limit may or may not make sense.
+So we say that this is the improper
+integral assuming the limit exists.
+And like before, we say the integral is
+convergent when the limit exists,
+and divergent otherwise.
+There is of course a symmetric case
+of an improper integral
+where the problem
+is the other end of integration,
+and it's defined in a similar manner.

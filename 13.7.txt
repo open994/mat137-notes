@@ -1,0 +1,128 @@
+When studying infinite sums or series, we
+often talk about the TAIL of the series.
+In this video, I want to explain what
+this term means, and why it is useful.
+The motivating question is this one.
+Let's compare these two series:
+the sum of aₙ, as n goes from 0 to ∞,
+and as n goes from 1 to ∞.
+What's the relation between them?
+Well in this case, the answer is
+going to be the obvious one.
+This works exactly as
+we expect it would work.
+The second series is the
+same as the first one,
+except the first one
+has one extra term.
+So what the theorem says,
+is that the first series is convergent
+(represents a number),
+IF AND ONLY IF the second series is
+convergent (it represents a number).
+Moreover, in that case,
+the value of the first sum = the value
+of the second sum + the extra term.
+Nothing surprising here.
+This is exactly as we would expect it.
+I'm not going to write
+the details of the proof.
+If you want to write a
+formal proof for this,
+it works the same as pretty
+much all proofs about series.
+First, write the series (the infinite
+sum) as a limit of finite sums,
+second, use the fact that we know the
+property to be true for finite sums,
+and third, pass to the limit.
+It works nicely.
+Nothing surprising.
+But I want to introduce
+a piece of notation.
+Because this theorem is true,
+we can write things like this:
+we can say the sum of aₙ, as n goes to ∞,
+is convergent or is divergent,
+and we don't even specify
+where it starts.
+The reason this notation is okay is
+because it's well-defined.
+If the series starting at 0 is convergent,
+then starting at 1 it's convergent,
+and the same way starting at 2,
+or at 7, or at any other number.
+I wrote the theorem only for 0 and 1,
+but it will be true for
+any two starting points.
+So we can use this notation to indicate
+this series is convergent,
+(it represents a number)
+and we don't bother
+saying where it starts.
+If we want to know the actual value of
+the sum, then it matters where we start.
+That will change it.
+But if we only want to know whether
+the series is convergent,
+(whether it represents a number)
+it doesn't matter where we start.
+How do we capitalize on this?
+There are many theorems we're
+going to learn about series
+(about convergence of series), and
+many of them have this general form.
+(This is sort of a template.)
+Some condition implies that
+the series is convergent,
+and the condition often
+has a form like this:
+if for all natural numbers n,
+some property...
+(I am writing in red here.
+(This is generic.))
+If for all natural numbers n,
+some property is true,
+then the series must be convergent.
+There are many versions of this
+theorem with different properties.
+Well, because of
+what I just explained
+about the series being convergent
+no matter where we start,
+if we have proven a theorem like this,
+then we immediately have
+a more general theorem,
+and instead of saying for all
+natural numbers n,
+I can obtain the same conclusion
+if the red property is only true
+for all LARGE VALUES of n.
+The precise definition of
+"for all large values of n"
+is "for all values
+of n starting at one".
+Or more formally,
+if there exists a natural number n₀, such
+that the property in red is true for n₀,
+and for all natural numbers afterwards.
+This is just a formal way to
+say "for all large values of n".
+In summary, whenever we get a
+theorem like the first one,
+which will probably be simpler to
+write and state and prove,
+we immediately (for free) get a second
+theorem, like the second one here,
+which is more general,
+(and is going to be more applicable
+and more helpful in examples)
+and we don't have
+to prove it explicitly!
+This will come in handy,
+and this is why we like to talk
+about the TAIL of a series.
+When it comes to the
+convergence of a series,
+the only thing that matters is what
+happens for large values of n.

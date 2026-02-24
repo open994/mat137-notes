@@ -1,0 +1,674 @@
+\chapter{Integration Methods}
+
+%=============================================================================
+\section{The Substitution Rule}
+\label{sec:9.1}
+%=============================================================================
+
+\textit{The Substitution Rule is a method to compute antiderivatives.  It is just an easy-to-use algorithm to make things a bit simpler and a bit more systematic than guess-and-check.  Before presenting the general rule, let us investigate where the Substitution Rule comes from and why it works.}
+
+\subsection*{Motivation by example}
+
+We begin with a pair of simple antiderivatives.
+
+\begin{example}
+\label{ex:9-1}
+\begin{enumerate}[label=(\alph*)]
+  \item $\displaystyle\int x^{4}\dx = \frac{1}{5}x^{5} + C$.  This is immediate: the derivative of $\frac{1}{5}x^{5}$ is $x^{4}$.
+
+  \item What about $\displaystyle\int (\ln x)^{4}\dx$?  One might guess $\frac{1}{5}(\ln x)^{5}$, but check:
+  \[
+    \frac{d}{dx}\!\left[\frac{1}{5}(\ln x)^{5}\right] = \frac{1}{5}\cdot 5(\ln x)^{4}\cdot \frac{1}{x} = \frac{(\ln x)^{4}}{x}.
+  \]
+  The chain rule introduces an extra factor of $\frac{1}{x}$.  So $\frac{1}{5}(\ln x)^{5}$ is \textbf{not} an antiderivative of $(\ln x)^{4}$, but it \textit{is} an antiderivative of $\frac{(\ln x)^{4}}{x}$.
+\end{enumerate}
+\end{example}
+
+\textit{This observation generalises.  If we know that an antiderivative of $f$ is $F$, then what is an antiderivative of $f(g(x))$?  We do not know in general, but an antiderivative of $f(g(x))\cdot g'(x)$ is $F(g(x))$.  The chain rule is the reason.}
+
+\subsection*{The theorem}
+
+\begin{theorem}[Substitution Rule / Backwards Chain Rule]
+\label{thm:9-1}
+Let $F$ and $g$ be differentiable functions such that $F' = f$.  Then
+\[
+  \int f(g(x))\cdot g'(x)\dx = F(g(x)) + C.
+\]
+\end{theorem}
+
+\begin{proof}
+By the chain rule,
+\[
+  \frac{d}{dx}\bigl[F(g(x))\bigr] = F'(g(x))\cdot g'(x) = f(g(x))\cdot g'(x).
+\]
+\proofref{Chain rule applied to $F \circ g$.}
+Therefore $F(g(x))$ is an antiderivative of $f(g(x))\cdot g'(x)$.
+\end{proof}
+
+\begin{remark}
+Despite its traditional name, the Substitution Rule should really be called the \textit{backwards chain rule}: we take the chain rule, which is a rule about derivatives, and reverse it to get a rule about antiderivatives.
+\end{remark}
+
+\subsection*{The substitution notation}
+
+\textit{In practice, we try to use \cref{thm:9-1} in an efficient and algorithmic way that simplifies computations.  The key idea is to introduce new notation.}
+
+Suppose we want to compute $\displaystyle\int f(g(x))\cdot g'(x)\dx$.  We set
+\[
+  u = g(x), \qquad du = g'(x)\dx.
+\]
+Then the integral becomes $\displaystyle\int f(u)\du$, which may be easier to evaluate.  After finding an antiderivative $F(u) + C$, we \textbf{undo the substitution} by replacing $u$ with $g(x)$.
+
+\begin{remark}
+The expression $du = g'(x)\dx$ is, for now, \textbf{just notation}.  There is a way to give precise meaning to the differential using so-called \textit{differential forms}, but that is beyond the scope of this course.  The justification for the notation is that it produces the correct result.
+\end{remark}
+
+\begin{example}
+\label{ex:9-2}
+Compute $\displaystyle\int \frac{(\ln x)^{4}}{x}\dx$.
+
+\textbf{Solution.}  The integrand is written in terms of $\ln x$, and the derivative $\frac{1}{x}$ already appears.  Set $u = \ln x$, so $du = \frac{1}{x}\dx$.  Then
+\[
+  \int \frac{(\ln x)^{4}}{x}\dx = \int u^{4}\du = \frac{1}{5}u^{5} + C = \frac{1}{5}(\ln x)^{5} + C.
+\]
+\end{example}
+
+\textit{In general, every time the integrand is written in terms of a function $g(x)$ and the derivative $g'(x)$ already appears in the integrand, the substitution $u = g(x)$ is a good idea.  After substituting, we hope to find an easier integral that we can complete.}
+
+%=============================================================================
+\section{Substitution Examples}
+\label{sec:9.2}
+%=============================================================================
+
+\textit{We now work through several computational examples of the Substitution Rule, in roughly increasing order of difficulty.}
+
+\begin{remark}[Pause and Try]
+Before reading each solution, pause and attempt the computation yourself.
+\end{remark}
+
+\begin{example}
+\label{ex:9-3}
+Compute $\displaystyle\int x^{2}\sin(x^{3}+7)\dx$.
+
+\textbf{Solution.}  The argument of $\sin$ is $x^{3}+7$, and its derivative $3x^{2}$ is essentially present in the integrand (up to a constant).  Set $u = x^{3}+7$, so $du = 3x^{2}\dx$.  Then
+\[
+  \int x^{2}\sin(x^{3}+7)\dx = \frac{1}{3}\int \sin(u)\du = -\frac{1}{3}\cos(u) + C = -\frac{1}{3}\cos(x^{3}+7) + C.
+\]
+\end{example}
+
+\begin{example}
+\label{ex:9-4}
+Compute $\displaystyle\int \tan(x)\dx$.
+
+\textbf{Solution.}  Write $\tan x = \dfrac{\sin x}{\cos x}$.  The numerator $\sin x$ is the derivative of $\cos x$ (up to a sign).  Set $u = \cos x$, so $du = -\sin x\dx$.  Then
+\[
+  \int \tan(x)\dx = \int \frac{\sin x}{\cos x}\dx = -\int \frac{du}{u} = -\ln\abs{u} + C = -\ln\abs{\cos x} + C.
+\]
+\end{example}
+
+\begin{example}
+\label{ex:9-5}
+Compute $\displaystyle\int x^{3}\sqrt{x^{2}+1}\dx$.
+
+\textbf{Solution.}  The square root makes this difficult.  Try $u = x^{2}+1$, so $du = 2x\dx$.  Separate $x^{3} = x^{2}\cdot x$, and note that $x^{2} = u - 1$.  Then
+\[
+  \int x^{3}\sqrt{x^{2}+1}\dx = \frac{1}{2}\int (u-1)\sqrt{u}\du = \frac{1}{2}\int \bigl(u^{3/2} - u^{1/2}\bigr)\du.
+\]
+Integrating term by term:
+\[
+  \frac{1}{2}\!\left(\frac{u^{5/2}}{5/2} - \frac{u^{3/2}}{3/2}\right) + C = \frac{1}{5}(x^{2}+1)^{5/2} - \frac{1}{3}(x^{2}+1)^{3/2} + C.
+\]
+\end{example}
+
+\begin{remark}
+Among these examples, the last one best illustrates the full power of the Substitution Rule.  The first two could arguably be done by guess-and-check, but in the third example the substitution transforms a complex integrand into a simple polynomial --- something that would be very difficult to guess directly.
+\end{remark}
+
+%=============================================================================
+\section{Substitution for Definite Integrals}
+\label{sec:9.3}
+%=============================================================================
+
+\textit{We have used the Substitution Rule for indefinite integrals.  When computing a definite integral, there are two approaches: we can first find an antiderivative (substituting, integrating, undoing the substitution), or we can apply the substitution directly to the definite integral --- including the endpoints.  The second method is slightly faster because we never need to undo the substitution.}
+
+\begin{example}
+\label{ex:9-6}
+Compute $\displaystyle\int_{1}^{2} x\,(x^{2}+1)^{100}\dx$.
+
+\textbf{Solution.}  Set $u = x^{2}+1$, so $du = 2x\dx$.  We also change the endpoints:
+\[
+  x = 1 \implies u = 2, \qquad x = 2 \implies u = 5.
+\]
+Then
+\[
+  \int_{1}^{2} x\,(x^{2}+1)^{100}\dx = \frac{1}{2}\int_{2}^{5} u^{100}\du = \frac{1}{2}\cdot\frac{u^{101}}{101}\bigg|_{2}^{5} = \frac{5^{101} - 2^{101}}{202}.
+\]
+\end{example}
+
+\begin{remark}[Warning]
+When performing a substitution in a definite integral, you must change \textbf{everything}: the integrand, the differential, \textbf{and} the endpoints.  The values $1$ and $2$ are values of $x$; after substitution, the endpoints must be the corresponding values of $u$.
+\end{remark}
+
+\begin{theorem}[Substitution Rule for Definite Integrals]
+\label{thm:9-2}
+Let $a, b \in \R$ with $a < b$.  Let $g$ be a function that is differentiable on $[a,b]$ with $g'$ continuous on $[a,b]$, and let $f$ be continuous on the range of $g$ restricted to $[a,b]$.  Then
+\[
+  \int_{a}^{b} f(g(x))\cdot g'(x)\dx = \int_{g(a)}^{g(b)} f(u)\du.
+\]
+\end{theorem}
+
+\begin{proof}
+Let $F$ be an antiderivative of $f$.  By \cref{thm:9-1}, $F(g(x))$ is an antiderivative of $f(g(x))\cdot g'(x)$.  By the Fundamental Theorem of Calculus,
+\[
+  \int_{a}^{b} f(g(x))\cdot g'(x)\dx = F(g(b)) - F(g(a)) = \int_{g(a)}^{g(b)} f(u)\du.
+\]
+\proofref{Uses \cref{thm:9-1} and the FTC.}
+\end{proof}
+
+% ── BEGIN VISUAL ──
+\begin{figure}[ht]
+  \centering
+  \input{ch09/figures/fig-substitution-interval-map.tex}
+  \caption{Substitution as an interval mapping.}
+  \label{fig:substitution-interval-map}
+\end{figure}
+% ── END VISUAL ──
+
+%=============================================================================
+\section{Integration by Parts}
+\label{sec:9.4}
+%=============================================================================
+
+\textit{Integration by parts is a method to help compute antiderivatives.  It is an easy-to-use algorithm to make things a bit simpler and a bit more systematic than pure guess-and-check.  Before presenting examples, let us explain where the formula comes from and why it works.}
+
+\subsection*{Motivation by example}
+
+\begin{example}
+\label{ex:9-7}
+Compute $\displaystyle\int x\,e^{x}\dx$ by guess-and-check.
+
+\textbf{Solution.}  We are looking for a function whose derivative is $x\,e^{x}$.  A first guess: try $x\,e^{x}$ itself.  By the product rule:
+\[
+  \frac{d}{dx}\!\left[x\,e^{x}\right] = 1\cdot e^{x} + x\,e^{x} = e^{x} + x\,e^{x}.
+\]
+The desired function $x\,e^{x}$ appears, but with an extra $e^{x}$.  If we can find a second function whose derivative is exactly $e^{x}$, we subtract and obtain:
+\[
+  \frac{d}{dx}\!\left[x\,e^{x} - e^{x}\right] = (e^{x} + x\,e^{x}) - e^{x} = x\,e^{x}.
+\]
+Therefore $\displaystyle\int x\,e^{x}\dx = x\,e^{x} - e^{x} + C$.
+\end{example}
+
+\textit{The process we just used --- applying the product rule, identifying an extra term, and subtracting a correction --- is precisely the idea behind integration by parts.  The formula below does the same thing in a more systematic way.}
+
+\subsection*{The formula}
+
+\begin{theorem}[Integration by Parts / Backwards Product Rule]
+\label{thm:9-3}
+Let $f$ and $g$ be differentiable functions.  Then
+\[
+  \int f(x)\,g'(x)\dx = f(x)\,g(x) - \int f'(x)\,g(x)\dx.
+\]
+\end{theorem}
+
+\begin{proof}
+The product rule gives
+\[
+  \frac{d}{dx}\bigl[f(x)\,g(x)\bigr] = f'(x)\,g(x) + f(x)\,g'(x).
+\]
+\proofref{Product rule reversed.}
+Taking antiderivatives of both sides and rearranging:
+\[
+  \int f(x)\,g'(x)\dx = f(x)\,g(x) - \int f'(x)\,g(x)\dx. \qedhere
+\]
+\end{proof}
+
+\begin{remark}
+Despite its traditional name, integration by parts should really be called the \textit{backwards product rule}: we take the product rule (a differentiation rule) and reverse it to obtain a rule about antiderivatives.
+\end{remark}
+
+% ── BEGIN VISUAL ──
+\begin{figure}[ht]
+  \centering
+  \input{ch09/figures/fig-by-parts-rectangle.tex}
+  \caption{A geometric intuition behind the product rule and integration by parts.}
+  \label{fig:by-parts-rectangle}
+\end{figure}
+% ── END VISUAL ──
+
+\subsection*{The $u$\,--\,$v$ notation}
+
+Setting $u = f(x)$, $dv = g'(x)\dx$, so that $du = f'(x)\dx$ and $v = g(x)$, the formula becomes
+\[
+  \int u\dv = u\,v - \int v\du.
+\]
+
+\begin{remark}
+As with the substitution notation, the expressions $du = f'(x)\dx$ and $dv = g'(x)\dx$ are \textbf{just notation} in this course.  The formula $\int u\dv = u\,v - \int v\du$ is compact, easy to remember, and easy to use.
+\end{remark}
+
+\begin{example}
+\label{ex:9-8}
+Compute $\displaystyle\int x\,e^{x}\dx$ using integration by parts.
+
+\textbf{Solution.}  We write the integral as $\int u\dv$ and choose $u = x$, $dv = e^{x}\dx$.  Then $du = dx$, $v = e^{x}$.  Applying the formula:
+\[
+  \int x\,e^{x}\dx = x\,e^{x} - \int e^{x}\dx = x\,e^{x} - e^{x} + C.
+\]
+\end{example}
+
+\textit{This is the same result as before, but obtained more quickly and systematically.  When choosing $u$ and $dv$, the goal is to make the transformed integral $\int v\du$ easier than the original.  The function whose derivative is simpler should be $u$; the function whose antiderivative is manageable should be $dv$.}
+
+%=============================================================================
+\section{Integration by Parts Examples}
+\label{sec:9.5}
+%=============================================================================
+
+\textit{We now work through several examples of integration by parts, in roughly increasing order of difficulty.}
+
+\begin{remark}[Pause and Try]
+Before reading each solution, pause and attempt the computation yourself.
+\end{remark}
+
+\begin{example}
+\label{ex:9-9}
+Compute $\displaystyle\int x\cos(x)\dx$.
+
+\textbf{Solution.}  For $\cos x$, both the derivative and the antiderivative are essentially the same (up to sign), so it does not matter.  For $x$, however, the derivative ($1$) is simpler than the antiderivative ($\frac{1}{2}x^{2}$).  So choose $u = x$, $dv = \cos(x)\dx$.  Then $du = dx$, $v = \sin x$.
+\[
+  \int x\cos(x)\dx = x\sin x - \int \sin(x)\dx = x\sin x + \cos x + C.
+\]
+\end{example}
+
+\begin{example}
+\label{ex:9-10}
+Compute $\displaystyle\int x^{2}\,e^{-x}\dx$.
+
+\textbf{Solution.}  The derivative of $x^{2}$ is $2x$ (simpler), so take $u = x^{2}$, $dv = e^{-x}\dx$.  Then $du = 2x\dx$, $v = -e^{-x}$.
+\[
+  \int x^{2}\,e^{-x}\dx = -x^{2}\,e^{-x} + \int 2x\,e^{-x}\dx.
+\]
+The new integral is simpler, but not yet finished.  Apply integration by parts a second time: $u = 2x$, $dv = e^{-x}\dx$, $du = 2\dx$, $v = -e^{-x}$.
+\begin{align*}
+  \int x^{2}\,e^{-x}\dx &= -x^{2}\,e^{-x} + \left[-2x\,e^{-x} + \int 2\,e^{-x}\dx\right] \\
+  &= -x^{2}\,e^{-x} - 2x\,e^{-x} - 2\,e^{-x} + C.
+\end{align*}
+\end{example}
+
+\begin{remark}
+Each application of integration by parts reduced the power of $x$ by one while keeping the exponential.  When the integrand is $x^{n}\,e^{\alpha x}$, repeated integration by parts (applied $n$ times) will reduce the problem to an integral with no polynomial factor.
+\end{remark}
+
+\begin{example}
+\label{ex:9-11}
+Compute $\displaystyle\int \arctan(x)\dx$.
+
+\textbf{Solution.}  This does not look like a product, but we can write it as $1 \cdot \arctan(x)$.  The derivative of $\arctan(x)$ is $\dfrac{1}{1+x^{2}}$, which is simpler --- so our priority is to \textit{differentiate away} the $\arctan$.  Choose $u = \arctan(x)$, $dv = dx$.  Then $du = \dfrac{1}{1+x^{2}}\dx$, $v = x$.
+\[
+  \int \arctan(x)\dx = x\arctan(x) - \int \frac{x}{1+x^{2}}\dx.
+\]
+The $\arctan$ is gone.  For the remaining integral, note that the numerator $x$ is (up to a constant) the derivative of the denominator $1 + x^{2}$.  Set $t = 1 + x^{2}$, $dt = 2x\dx$:
+\[
+  \int \frac{x}{1+x^{2}}\dx = \frac{1}{2}\int \frac{dt}{t} = \frac{1}{2}\ln\abs{t} + C = \frac{1}{2}\ln(1+x^{2}) + C.
+\]
+Therefore
+\[
+  \int \arctan(x)\dx = x\arctan(x) - \frac{1}{2}\ln(1+x^{2}) + C.
+\]
+\end{example}
+
+\begin{remark}
+The absolute value is unnecessary in $\ln(1+x^{2})$ because $1+x^{2} > 0$ for all $x$.
+\end{remark}
+
+%=============================================================================
+\section{Cyclic Integration by Parts}
+\label{sec:9.6}
+%=============================================================================
+
+\textit{This section presents a somewhat peculiar use of integration by parts, in which the method appears to fail but actually succeeds through an algebraic trick.}
+
+\begin{remark}[Pause and Try]
+Before reading the solution below, try to compute $\displaystyle\int e^{x}\sin(x)\dx$ by integration by parts.  Decide whether it helps or not, and only then continue reading.
+\end{remark}
+
+\begin{example}
+\label{ex:9-12}
+Compute $\displaystyle\int e^{x}\sin(x)\dx$.
+
+\textbf{Solution.}  Both $e^{x}$ and $\sin x$ are essentially unchanged by differentiation --- $e^{x}$ stays the same, and $\sin x$ becomes $\pm\cos x$.  So \textit{whatever we choose}, the transformed integral is not any easier.  Let us try anyway.
+
+\textbf{First application.}  Take $u = e^{x}$, $dv = \sin(x)\dx$.  Then $du = e^{x}\dx$, $v = -\cos x$.
+\[
+  \int e^{x}\sin(x)\dx = -e^{x}\cos x + \int e^{x}\cos(x)\dx.
+\]
+As expected, the new integral is no simpler.  Nevertheless, apply integration by parts a second time, keeping the same convention ($u$ = exponential, $dv$ = trig):  $u = e^{x}$, $dv = \cos(x)\dx$, $du = e^{x}\dx$, $v = \sin x$.
+\[
+  \int e^{x}\sin(x)\dx = -e^{x}\cos x + e^{x}\sin x - \int e^{x}\sin(x)\dx.
+\]
+
+\textbf{The trick.}  The original integral has reappeared on the right!  Let $I = \displaystyle\int e^{x}\sin(x)\dx$.  Then
+\[
+  I = -e^{x}\cos x + e^{x}\sin x - I.
+\]
+Solving for $I$:
+\[
+  2I = e^{x}(\sin x - \cos x), \qquad I = \frac{1}{2}\,e^{x}(\sin x - \cos x) + C.
+\]
+\end{example}
+
+\begin{remark}[Warning]
+When using integration by parts twice in this cyclic fashion, you must keep the same convention for which factor is $u$ and which is $dv$ in both applications.  If you swap them the second time, you will undo the first integration by parts and obtain the useless tautology $\displaystyle\int e^{x}\sin(x)\dx = \int e^{x}\sin(x)\dx$.
+\end{remark}
+
+\begin{remark}
+The integration constant $C$ deserves a comment.  The symbol $I$ represents a \textit{family} of antiderivatives (a function plus an arbitrary constant).  Both sides of the equation $I = (\text{something}) - I$ carry an arbitrary additive constant, but those constants need not agree.  When we solve for $I$ and write the final answer, we include $+C$ to reflect this.
+\end{remark}
+
+%=============================================================================
+\section{Trigonometric Integrals: Odd Powers}
+\label{sec:9.7}
+%=============================================================================
+
+\textit{We now consider methods for integrating products of trigonometric functions.  Rather than presenting a collection of formulas to memorise, we will develop the methods from scratch so that they can be re-derived on the spot whenever needed.}
+
+\textit{The goal is to compute integrals of the form}
+\[
+  \int \sin^{n}x\,\cos^{m}x\dx,
+\]
+\textit{where $n$ and $m$ are non-negative integers.  The strategy depends on the parity of the exponents.  In this section we handle the case when at least one exponent is odd.}
+
+\begin{example}
+\label{ex:9-13}
+Compute $\displaystyle\int \sin^{5}x\,\cos^{2}x\dx$.
+
+\textbf{Solution.}  There are two substitutions one might try: $u = \sin x$ or $u = \cos x$.
+
+\textbf{Attempt 1:} $u = \sin x$, $du = \cos x\dx$.  Separate one $\cos x$ for the differential.  The remaining $\cos x$ must be converted to sines:
+\[
+  \cos x = \pm\sqrt{1 - \sin^{2}x} = \pm\sqrt{1 - u^{2}}.
+\]
+This introduces a square root --- the integral becomes \textit{harder}, not easier.
+
+\textbf{Attempt 2:} $u = \cos x$, $du = -\sin x\dx$.  Separate one $\sin x$ for the differential; the remaining $\sin^{4}x = (\sin^{2}x)^{2} = (1-\cos^{2}x)^{2}$ converts cleanly:
+\[
+  \int \sin^{5}x\,\cos^{2}x\dx = -\int (1-u^{2})^{2}\,u^{2}\du.
+\]
+No square roots.  The integrand is a polynomial in $u$, which we can expand and integrate term by term.
+\end{example}
+
+\textit{The lesson is clear.  When substituting $u = \cos x$, we need one $\sin x$ for the differential; the remaining $\sin^{n-1}x$ must be an even power so that we can use $\sin^{2}x = 1 - \cos^{2}x$ without square roots.  That requires $n$ to be odd.  Similarly, $u = \sin x$ works when $m$ is odd.}
+
+\begin{proposition}[Substitution Strategy for $\sin^{n}x\,\cos^{m}x$]
+\label{thm:9-4}
+Consider $\displaystyle\int \sin^{n}x\,\cos^{m}x\dx$.
+\begin{itemize}
+  \item If $n$ is odd, use $u = \cos x$.  Separate one $\sin x$ for $du$; convert the remaining (even) powers of $\sin$ using $\sin^{2}x = 1 - \cos^{2}x$.
+  \item If $m$ is odd, use $u = \sin x$.  Separate one $\cos x$ for $du$; convert the remaining (even) powers of $\cos$ using $\cos^{2}x = 1 - \sin^{2}x$.
+\end{itemize}
+In either case the integral reduces to a polynomial in $u$.
+\end{proposition}
+
+\begin{remark}
+If \textbf{both} $n$ and $m$ are even, neither substitution avoids square roots, and a different method is needed.  That is the topic of \cref{sec:9.8}.
+\end{remark}
+
+\textit{These same ideas extend to products of powers of secant and tangent.  Since $\sec^{2}x = 1 + \tan^{2}x$ and the derivatives $\frac{d}{dx}[\tan x] = \sec^{2}x$ and $\frac{d}{dx}[\sec x] = \sec x\tan x$ involve the same functions, one may try either $u = \tan x$ or $u = \sec x$.}
+
+\begin{remark}[Pause and Try]
+Consider the three integrals $\displaystyle\int \sec^{4}x\,\tan^{3}x\dx$, $\displaystyle\int \sec^{3}x\,\tan^{4}x\dx$, and $\displaystyle\int \sec^{2}x\,\tan^{5}x\dx$.  Using the identity $\sec^{2}x = 1 + \tan^{2}x$ and the derivatives above, determine which substitution ($u = \sec x$ or $u = \tan x$) is helpful for each integral.
+\end{remark}
+
+%=============================================================================
+\section{Trigonometric Integrals: Even Powers}
+\label{sec:9.8}
+%=============================================================================
+
+\textit{When both exponents in $\displaystyle\int \sin^{n}x\,\cos^{m}x\dx$ are even, the substitutions from \cref{sec:9.7} do not help.  We need a different approach.}
+
+\begin{remark}
+\textit{Is this an important problem?}  Historically, these integrals appeared often in science and technology.  Today we have computer algebra systems, and nobody integrates by hand for practical purposes.  However, there is still value: we should look at these calculations as \textbf{exercises in problem solving} --- how to break a complex problem into cases and put together various algorithms.  That is where their value comes from, rather than from the specific integrals themselves.
+\end{remark}
+
+\subsection*{Method 1: Half-angle identities}
+
+The key identities are:
+\[
+  \sin^{2}x = \frac{1 - \cos 2x}{2}, \qquad \cos^{2}x = \frac{1 + \cos 2x}{2}.
+\]
+These replace squares of $\sin$ and $\cos$ with expressions involving $\cos 2x$, which is easy to integrate.
+
+\begin{example}
+\label{ex:9-14}
+Compute $\displaystyle\int \sin^{2}x\dx$.
+
+\textbf{Solution.}  Using the half-angle identity:
+\[
+  \int \sin^{2}x\dx = \frac{1}{2}\int dx - \frac{1}{2}\int \cos(2x)\dx = \frac{x}{2} - \frac{\sin 2x}{4} + C.
+\]
+\end{example}
+
+\textit{The same method works for higher even powers.  For example, $\sin^{4}x\,\cos^{2}x = (\sin^{2}x)^{2}\,\cos^{2}x$ can be rewritten using the half-angle formulas; after expanding, each resulting term will either be easy to integrate directly, have an odd exponent (handled by \cref{sec:9.7}), or have a lower even exponent (to which the half-angle formulas are applied again).}
+
+\begin{remark}[Pause and Try]
+Compute $\displaystyle\int \sin^{4}x\dx$ using this method.
+\end{remark}
+
+\subsection*{Method 2: Integration by parts}
+
+\begin{example}
+\label{ex:9-15}
+Compute $\displaystyle\int \sin^{2}x\dx$ using integration by parts.
+
+\textbf{Solution.}  Write $\sin^{2}x = \sin x \cdot \sin x$.  Choose $u = \sin x$, $dv = \sin x\dx$.  Then $du = \cos x\dx$, $v = -\cos x$.
+\[
+  \int \sin^{2}x\dx = -\sin x\cos x + \int \cos^{2}x\dx.
+\]
+Now use $\sin^{2}x + \cos^{2}x = 1$, so $\displaystyle\int \cos^{2}x\dx = \int dx - \int \sin^{2}x\dx = x - \int \sin^{2}x\dx$.  Substituting:
+\[
+  \int \sin^{2}x\dx = -\sin x\cos x + x - \int \sin^{2}x\dx.
+\]
+Solving:
+\[
+  2\int \sin^{2}x\dx = x - \sin x\cos x, \qquad \int \sin^{2}x\dx = \frac{x - \sin x\cos x}{2} + C.
+\]
+\end{example}
+
+\begin{remark}
+Both methods give the same answer (verify using $\sin 2x = 2\sin x\cos x$).  The integration-by-parts method can in principle be used for any even-power product, although it can easily get messy.
+\end{remark}
+
+%=============================================================================
+\section{Integration of Secant}
+\label{sec:9.9}
+%=============================================================================
+
+\textit{The integral of secant is a historically important problem.  In the early years of calculus in the 17th century, computing $\int \sec x\dx$ was needed in cartography, and mathematicians struggled for a while to find a solution.}
+
+\subsection*{Method 1: The textbook trick}
+
+\begin{example}
+\label{ex:9-16}
+Compute $\displaystyle\int \sec x\dx$ by multiplying and dividing by $\sec x + \tan x$.
+
+\textbf{Solution.}
+\[
+  \int \sec x\dx = \int \frac{\sec x(\sec x + \tan x)}{\sec x + \tan x}\dx = \int \frac{\sec^{2}x + \sec x\tan x}{\sec x + \tan x}\dx.
+\]
+Set $u = \sec x + \tan x$, $du = (\sec x\tan x + \sec^{2}x)\dx$.  The numerator is exactly $du$:
+\[
+  \int \sec x\dx = \int \frac{du}{u} = \ln\abs{u} + C = \ln\abs{\sec x + \tan x} + C.
+\]
+\end{example}
+
+\begin{remark}
+This method is fast and simple, but it raises an uncomfortable question: how on earth would one think to multiply and divide by $\sec x + \tan x$?  This seems like too great a leap, and there is no satisfying explanation for why one would try it, other than hindsight.
+\end{remark}
+
+\subsection*{Method 2: A more natural approach}
+
+\textit{The following method is longer, but each step is natural and could be discovered by any student with enough integration practice.}
+
+Write $\sec x = \dfrac{1}{\cos x}$.  Thinking of this as $\cos^{-1}x$ (i.e.\ $\sin^{0}x\,\cos^{-1}x$), the exponent of cosine is odd (namely $-1$), so by the strategy of \cref{sec:9.7}, the substitution $u = \sin x$ should help.
+
+Multiply numerator and denominator by $\cos x$:
+\[
+  \int \sec x\dx = \int \frac{\cos x}{\cos^{2}x}\dx = \int \frac{\cos x}{1 - \sin^{2}x}\dx.
+\]
+Set $u = \sin x$, $du = \cos x\dx$:
+\[
+  \int \sec x\dx = \int \frac{du}{1 - u^{2}}.
+\]
+This is a rational function --- a quotient of polynomials.  It can be integrated using partial fraction decomposition (see \cref{sec:9.10}).
+
+\begin{remark}
+This second method is longer, but every step is natural: rewrite in terms of sine and cosine, apply the standard substitution strategy, and reduce to a rational function.  Once one learns partial fractions, the problem can be completed.
+\end{remark}
+
+%=============================================================================
+\section{Partial Fractions: Distinct Factors}
+\label{sec:9.10}
+%=============================================================================
+
+\textit{A rational function is a quotient of polynomials.  The key idea for integrating all rational functions is that there are a few simple rational functions whose antiderivatives we already know, and we try to rewrite every other rational function in terms of those simpler pieces.}
+
+\begin{example}
+\label{ex:9-17}
+Compute $\displaystyle\int \frac{x+3}{(x-1)(x+1)}\dx$.
+
+\textbf{Solution.}  The denominator makes this difficult to integrate directly.  However, $\dfrac{1}{x-1}$ and $\dfrac{1}{x+1}$ are each easy to integrate.  We seek constants $A$ and $B$ such that
+\[
+  \frac{x+3}{(x-1)(x+1)} = \frac{A}{x-1} + \frac{B}{x+1}.
+\]
+Reducing the right-hand side to a common denominator:
+\[
+  \frac{A(x+1) + B(x-1)}{(x-1)(x+1)} = \frac{(A+B)x + (A-B)}{(x-1)(x+1)}.
+\]
+Matching coefficients: $A + B = 1$ and $A - B = 3$.  Solving gives $A = 2$, $B = -1$.
+
+\textit{Alternatively}, from the identity $x + 3 = A(x+1) + B(x-1)$, substitute $x = 1$ to get $4 = 2A$, so $A = 2$; substitute $x = -1$ to get $2 = -2B$, so $B = -1$.
+
+Therefore
+\[
+  \int \frac{x+3}{(x-1)(x+1)}\dx = \int \frac{2}{x-1}\dx - \int \frac{1}{x+1}\dx = 2\ln\abs{x-1} - \ln\abs{x+1} + C.
+\]
+This can be written as $\ln\!\left|\dfrac{(x-1)^{2}}{x+1}\right| + C$.
+\end{example}
+
+\subsection*{The general strategy}
+
+\textit{The same method works whenever the denominator factors into distinct linear factors.  Here is the general procedure.}
+
+Given a rational function $\dfrac{P(x)}{Q(x)}$:
+\begin{enumerate}
+  \item \textbf{Long division.}  If $\deg P \geq \deg Q$, perform polynomial long division to write $\dfrac{P(x)}{Q(x)} = S(x) + \dfrac{R(x)}{Q(x)}$, where $\deg R < \deg Q$.  The polynomial $S(x)$ is easy to integrate; focus on the remainder.
+  \item \textbf{Factor the denominator.}
+  \item \textbf{Partial fraction decomposition.}  If $Q(x) = (x - r_{1})(x - r_{2})\cdots(x - r_{k})$ with distinct roots, write
+  \[
+    \frac{R(x)}{Q(x)} = \frac{A_{1}}{x - r_{1}} + \frac{A_{2}}{x - r_{2}} + \cdots + \frac{A_{k}}{x - r_{k}}.
+  \]
+  Determine the constants $A_{i}$ by reducing to a common denominator and matching coefficients (or by evaluating at the roots).
+  \item \textbf{Integrate} each term: $\displaystyle\int \frac{A_{i}}{x - r_{i}}\dx = A_{i}\ln\abs{x - r_{i}} + C$.
+\end{enumerate}
+
+\begin{remark}
+The formal proof that this decomposition always works (with the correct number of constants) requires linear algebra --- it amounts to a change of basis in a finite-dimensional vector space.
+\end{remark}
+
+% ── BEGIN VISUAL ──
+\begin{figure}[ht]
+  \centering
+  \input{ch09/figures/fig-partial-fractions-decomposition.tex}
+  \caption{A rational function and its partial fraction pieces (qualitative shape).}
+  \label{fig:partial-fractions-decomposition}
+\end{figure}
+% ── END VISUAL ──
+
+%=============================================================================
+\section{Partial Fractions: Repeated Factors}
+\label{sec:9.11}
+%=============================================================================
+
+\textit{When the denominator has a repeated linear factor, the decomposition from \cref{sec:9.10} must be modified.  We need additional terms to account for the multiplicity.}
+
+\begin{example}
+\label{ex:9-18}
+Compute $\displaystyle\int \frac{x^{4}+1}{x^{3}+2x^{2}+x}\dx$.
+
+\textbf{Solution.}
+
+\textbf{Step 1: Long division.}  Since $\deg(x^{4}+1) = 4 > 3 = \deg(x^{3}+2x^{2}+x)$, we perform polynomial long division.  The result is
+\[
+  \frac{x^{4}+1}{x^{3}+2x^{2}+x} = (x - 2) + \frac{3x^{2}+2x+1}{x^{3}+2x^{2}+x}.
+\]
+The polynomial $x - 2$ is easy to integrate.
+
+\textbf{Step 2: Factor the denominator.}  $x^{3}+2x^{2}+x = x(x+1)^{2}$.
+
+\textbf{Step 3: Partial fractions.}  We seek constants $A$, $B$, $C$ such that
+\[
+  \frac{3x^{2}+2x+1}{x(x+1)^{2}} = \frac{A}{x} + \frac{B}{x+1} + \frac{C}{(x+1)^{2}}.
+\]
+\end{example}
+
+\begin{remark}[Warning]
+A common mistake is to try only $\dfrac{A}{x} + \dfrac{B}{x+1}$.  This has only two free constants, but the numerator on the left has three coefficients (degree $\leq 2$), so the system will generally be inconsistent.  The term $\dfrac{C}{(x+1)^{2}}$ is needed to provide enough degrees of freedom.
+\end{remark}
+
+\textit{Continuing the example:} reducing to a common denominator and matching coefficients gives $A = 1$, $B = 2$, $C = -2$.  Therefore:
+\begin{align*}
+  \int \frac{x^{4}+1}{x^{3}+2x^{2}+x}\dx &= \int (x-2)\dx + \int \frac{1}{x}\dx + \int \frac{2}{x+1}\dx + \int \frac{-2}{(x+1)^{2}}\dx \\
+  &= \frac{x^{2}}{2} - 2x + \ln\abs{x} + 2\ln\abs{x+1} + \frac{2}{x+1} + C.
+\end{align*}
+
+\begin{remark}
+The antiderivative of $\dfrac{1}{(x+1)^{2}}$ is $\dfrac{-1}{x+1}$, because $\dfrac{d}{dx}\!\left[\dfrac{-1}{x+1}\right] = \dfrac{1}{(x+1)^{2}}$.  This is just the power rule in disguise: $(x+1)^{-2}$ integrates to $\dfrac{(x+1)^{-1}}{-1}$.
+\end{remark}
+
+%=============================================================================
+\section{Partial Fractions: Irreducible Quadratics}
+\label{sec:9.12}
+%=============================================================================
+
+\textit{When the denominator contains an irreducible quadratic factor (one that does not factor over $\R$), the partial fraction approach requires different building blocks.}
+
+\begin{example}
+\label{ex:9-19}
+Compute $\displaystyle\int \frac{3x+7}{x^{2}+4}\dx$.
+
+\textbf{Solution.}  Since $\deg(3x+7) = 1 < 2 = \deg(x^{2}+4)$, no long division is needed.  The denominator $x^{2}+4$ is an irreducible quadratic --- it has no real roots.
+
+Split the integrand into two pieces:
+\[
+  \int \frac{3x+7}{x^{2}+4}\dx = 3\int \frac{x}{x^{2}+4}\dx + 7\int \frac{1}{x^{2}+4}\dx.
+\]
+Each of these is a basic building block that we can integrate directly.
+
+\textbf{First integral.}  The numerator $x$ is (up to a constant) the derivative of the denominator $x^{2}+4$.  Set $u = x^{2}+4$, $du = 2x\dx$:
+\[
+  \int \frac{x}{x^{2}+4}\dx = \frac{1}{2}\int \frac{du}{u} = \frac{1}{2}\ln(x^{2}+4) + C.
+\]
+(The absolute value is unnecessary since $x^{2} + 4 > 0$ for all $x$.)
+
+\textbf{Second integral.}  This is related to $\arctan$.  Factor $4$ from the denominator:
+\[
+  \int \frac{1}{x^{2}+4}\dx = \int \frac{1}{4\!\left(\frac{x^{2}}{4}+1\right)}\dx = \frac{1}{4}\int \frac{1}{\left(\frac{x}{2}\right)^{2}+1}\dx.
+\]
+Set $u = \frac{x}{2}$, $du = \frac{1}{2}\dx$:
+\[
+  \frac{1}{4}\int \frac{2\du}{u^{2}+1} = \frac{1}{2}\arctan(u) + C = \frac{1}{2}\arctan\!\left(\frac{x}{2}\right) + C.
+\]
+
+\textbf{Combining:}
+\[
+  \int \frac{3x+7}{x^{2}+4}\dx = \frac{3}{2}\ln(x^{2}+4) + \frac{7}{2}\arctan\!\left(\frac{x}{2}\right) + C.
+\]
+\end{example}
+
+\begin{remark}
+When the denominator is an irreducible quadratic $x^{2} + bx + c$, the two basic building blocks for integration are:
+\begin{enumerate}[label=(\roman*)]
+  \item $\dfrac{x + \text{const}}{x^{2}+bx+c}$, where the numerator is the derivative of the denominator (handled by a substitution, yielding a logarithm);
+  \item $\dfrac{1}{(x-h)^{2}+k^{2}}$ (after completing the square), which yields an arctangent.
+\end{enumerate}
+Any rational function with an irreducible quadratic denominator can be split into a combination of these two types.
+\end{remark}

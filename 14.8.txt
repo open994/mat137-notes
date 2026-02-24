@@ -1,0 +1,137 @@
+In this video, I will prove that the
+exponential function
+can be written as a power series,
+its Maclaurin series.
+This is an example of how to prove
+that a function is analytic
+using Lagrange's Remainder Theorem.
+First let's fix a notation.
+I'm looking at the function,
+I'm going to call it f, f(x) = eˣ,
+and I'm looking at the power series
+centered at a = 0.
+We know, since this function
+is C infinity,
+that eˣ can always be written as the n-th
+Taylor polynomial plus the n-th remainder.
+The n-th Taylor polynomial,
+P_n, has this form:
+it's the sum from k = 0 to n of xᵏk/k!.
+I had already computed this
+in a previous video.
+I will put a link in the description.
+And the n-th remainder is simply
+the difference between the function
+and the Taylor polynomial.
+Then, with this notation, my goal
+in this video is to prove
+that the limit as n approaches infinity
+of the n-th remainder is 0.
+Now the exponential is the n-th
+polynomial plus the remainder;
+since the limit of the remainders is 0,
+when I take the limit as n approaches
+infinity of the polynomials
+this will imply that the exponential is
+equal to the Maclaurin series.
+So eˣ equals sum from k = 0 to infinity
+of xᵏ/k!,
+or here are the first few terms.
+So to prove the exponential equals
+its Maclaurin series,
+all I have to prove is that the
+remainders approach 0
+as n goes to infinity.
+Let's write down the proof.
+First, I'm going to fix a real number x,
+and now for this value of x
+I have to prove the remainders go to 0.
+And my tool is going to be
+Lagrange's Remainder Theorem.
+I'm going to use it for the
+exponential function at 0.
+I explained this theorem
+in the previous video.
+I will add a link in the description.
+But that is the tool we always use to
+prove a function is analytic this way.
+If I use this theorem, I can conclude
+that there exists a number xi
+between 0 and x that allows me to write
+an explicit formula for the remainder.
+The remainder is equal to
+f⁽ⁿ⁺¹⁾(xi)/(n+1)! · xⁿ⁺¹.
+Luckily, in this case, computing the
+derivatives of the functions is easy.
+The first derivative of the exponential
+is just itself,
+therefore all the derivatives
+of the exponential are the same.
+So the (n + 1)st derivative at xi
+is simply eˣᶦ.
+And now this looks easy.
+All I have to do is compute the limit
+as n goes to infinity of this expression,
+of eˣᶦ·xⁿ⁺¹/(n + 1)!
+Perhaps I can factor out eˣᶦ and
+I have an easy limit,
+but wait. I cannot really do this.
+For the purpose of the limit,
+n is the variable and x is a constant.
+However, xi is NOT a constant,
+because xi depends on x and n.
+The fact that it depends on x
+is not a problem, but it depends on n.
+For every value of n, it is a different
+use of Lagrange's Remainder Theorem,
+so I can't quite do that.
+I have to do one more step.
+Unfortunately, I don't know what xi is,
+all I know is that it is between 0 and x.
+So the best thing to do is to try to
+bound the expression that depends on xi.
+For simplicity,
+I'm going to separate two cases:
+when x > 0 and when x < 0.
+When x = 0 there is nothing to do.
+This is just to simplify the algebra.
+So when x > 0, xi is between 0 and x,
+and therefore here is again the
+expression I have for the remainder:
+eˣᶦ·xⁿ⁺¹/(n + 1)!
+Since the exponential function
+is increasing,
+we know eˣᶦ is smaller than eˣ.
+So the remainder is
+less than or equal to eˣ,
+which now, yes, is a constant,
+times xⁿ⁺¹/(n + 1)!
+I know the limit of that part
+from the Big Theorem:
+xⁿ⁺¹/(n + 1)! goes to 0
+as n goes to infinity.
+And therefore from the Squeeze Theorem, I
+can conclude that the remainder goes to 0,
+because it's sandwiched between 0 and a
+constant times something that goes to 0.
+That's it.
+On the other hand when x is negative,
+I'll leave that as an exercise.
+It's a very very similar argument.
+So try to reproduce the argument.
+It's a slightly different bound,
+but the same argument.
+And that's it. That completes the proof.
+I have proven that eˣ
+equals its Maclaurin series
+Any proof of this kind would
+normally go the same way.
+First, you need to know what the
+Maclaurin series or the Taylor series is,
+and then use Langrange's Remainder Theorem
+and there's always a similar bound.
+As an exercise, to practice this,
+I invite you to try to use
+a very similar argument
+to prove that sinx is also analytic and
+can be written as its Maclaurin series.

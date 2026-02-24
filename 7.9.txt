@@ -1,0 +1,211 @@
+In this video,
+I will present a different way
+to understand integrals:
+as limits!
+I assume you have
+already watched
+the video where I originally
+defined integral.
+It is linked in
+the description.
+Like in the previous videos,
+I will be working with
+a bounded function f
+defined on a closed
+interval [a, b].
+This picture, which I
+have used before,
+summarizes what we know
+about lower and upper sums,
+and about lower
+and upper integrals.
+All the lower sums are
+less than or equal
+to all the upper sums.
+We define the upper integral
+as the infimum of
+all the upper sums,
+and we define the lower integral
+as the supremum of
+all the lower sums.
+In addition, we know that
+finer partitions
+produce better lower
+and upper sums.
+Finer partitions produce
+larger lower sums,
+which are closer
+to the lower integral,
+and finer partitions also
+produce smaller upper sums,
+which are closer to
+the upper integral.
+So far, this is what we know.
+The question motivating
+this video is:
+can we, instead,
+compute the lower or
+upper integral of a function
+as a LIMIT of lower
+or upper sums?
+It looks like we should
+be able to do this,
+but it is not clear how.
+A limit as WHAT
+approaches WHAT?
+A limit as the partitions
+become finer?
+What does that
+mean exactly?
+We may naïvely think that
+we want to take the limit
+as the number of points in
+the partition approaches infinity,
+and hence the number
+of rectangles
+in the upper or lower sum
+approaches infinity.
+But it is not that simple.
+We also need the width of
+every rectangle to approach 0.
+Otherwise we may end up
+with something like this picture.
+This suggests the following
+definition.
+Given a partition P,
+with points x_0 through x_n,
+I am calling ∆x_i
+(delta x_i)
+the width of the i-th
+sub-interval.
+For example,
+here is a partition with
+five points; four sub-intervals,
+with width 
+∆x_1, ∆x_2, ∆x_3, and ∆x_4.
+Then, I define the norm
+of the partition P
+as the largest of the lengths
+of the sub-intervals.
+I will represent
+the norm of P
+as P between double
+vertical bars (||P||).
+The norm is basically a measure
+of how good a partition is.
+If the norm is small,
+then ALL the sub-intervals
+have small length,
+and hence ALL the rectangles
+are very thin.
+The limit I wanted to take
+is the limit
+as the norm of the partition
+approaches 0.
+More specifically,
+the definition we chose
+for the lower integral
+is the supremum of
+all the lower sums,
+when I use all partitions
+of the interval [a, b].
+This is what we need.
+But now, we have
+a new theorem.
+The lower integral
+can also be calculated
+as the limit of the lower sums,
+as the norm of the
+partition approaches 0.
+What does this mean?
+I can think of the lower
+sums as a function
+whose domain is the set
+of all partitions,
+rather than the domain
+being a set of numbers.
+I can give a formal definition
+for this limit,
+similarly to how we defined
+the limit of a function
+with a set of numbers
+as the domain.
+This means that:
+for every positive number epislon,
+there exists a positive number delta
+such that for every partition
+P of the interval [a, b],
+if the norm of P is
+less than delta,
+then the distance between
+the lower integral,
+which is a number,
+and the P-lower sum of f,
+which is also a number,
+is less than epsilon.
+There! That's a
+rigorous statement.
+And that is a valid way
+to compute
+the lower integral as a limit,
+instead of as a supremum.
+However...in practice,
+this does not make the computation
+any simpler,
+and we still need to
+consider all partitions.
+There is a trick,
+and it comes from
+a second theorem.
+Instead of using
+ALL partitions,
+we can pick a specific
+sequence of partitions,
+call them P_1, P_2, P_3
+and so on,
+as long as the norm
+of P_n approaches 0
+as n approaches infinity.
+For example:
+we could choose the partition P_n
+to be the one that breaks
+the interval [a, b]
+into n sub-intervals
+of equal length.
+This is just an example;
+probably the simplest.
+We could also choose other
+sequences of partitions.
+This second theorem says that
+for any such choice of partitions,
+we can compute the
+lower integral of f
+as the limit
+as n approaches infinity
+of the P_n lower sum of f.
+And similarly, the upper integral
+can be computed
+as a limit of upper sums.
+This is a simpler expression,
+and it is a limit in the sense
+that we are used to:
+a limit as a certain number
+approaches infinity.
+I will omit the proof
+of these two theorems.
+In practice, to study the
+theory of integration,
+the original definition is both
+simpler and more useful
+than this new interpretation.
+The original definition
+makes it easier to prove
+further properties and theorems.
+But it is good to know
+that there is a way to redefine
+lower and upper integrals as limits.
+There is an alternative way
+to compute integrals as limits,
+using so-called Riemann sums.
+That will be the topic
+of the next video.

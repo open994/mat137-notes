@@ -1,0 +1,191 @@
+In this video,
+I will work out various examples...
+...of how to use the Substitution Rule
+to compute antiderivatives.
+These are just computational examples.
+If instead, you are interested in the
+theory behind the Substitution Rule,
+(why the method works)
+I invite you to watch
+the previous video instead,
+which is linked in the description.
+These are the examples
+I will work with,
+roughly in increasing order
+of difficulty.
+They are all well-suited
+for substitution.
+I invite you to pause the video
+to try to compute
+these antiderivatives first,
+and once you are ready,
+keep watching for the solution.
+For my first example,
+I want to calculate the antiderivatives
+of x²⋅sin(x³ + 7), with respect to x.
+The difficulty in this case is that the
+argument of sin is x³ + 7.
+That makes it complicated.
+But conveniently, the derivative of
+x³ + 7 is basically x²
+(up to a multiplying constant).
+This suggests trying the substitution:
+u = x³ + 7.
+If I do this, I also need
+to change the differential,
+and then du will be the derivative of
+x³ + 7, which is 3x²⋅dx.
+And I already see why
+this was a good idea:
+because the term I
+need for the differential,
+is right here in the integral.
+Let me rearrange the
+function a little bit.
+I need 3x²⋅dx for the differential.
+I had to multiply by 3,
+so I also divide by 3,
+and now this is ready
+for the substitution.
+I get (1/3)⋅∫sin(u)du.
+Now, if I compare the original
+integral with the new one,
+the new one is definitely simpler.
+This is an indication
+that this was a good idea.
+The substitution has been
+helpful, and in fact,
+I know that an antiderivative of
+sin(u) is simply -cos(u).
+Finally, now that the integration is
+over, I can undo the substitution:
+I get (-1/3)⋅cos(x³ + 7) + an integration
+constant, and that is the final answer.
+And of course we can
+verify this final answer:
+we can take the derivative and check
+that it is the function I started with.
+For my second example, I want to
+integrate tan(x), with respect to x.
+It's not apparent at first sight that a
+substitution may help here,
+so before I do anything,
+I'll use the definition of tan
+to write it as sin(x)/cos(x).
+And now, let's look at the
+function in this form.
+The numerator, sin,
+is the derivative of the denominator cos
+(times -1 but that doesn't matter).
+This suggests that I could do a
+substitution u = cos(x).
+Why? Because the derivative is
+already there at the top!
+Let's try that!
+I will try the
+substitution u = cos(x).
+If i do that, I also need
+to change the differential,
+and then du will be the derivative
+of cos(x). That's -sin(x)⋅dx.
+And as I said earlier, the reason
+that this is a good idea
+is because the piece I need for the
+differential is already there at the top.
+Perfect! This is ready for substitution,
+so let's do it!
+I get ∫-du/u, and i know an
+antiderivative of 1/u.
+I get -ln|u| + an integration constant.
+And now that the integration is over,
+I can undo the substitution:
+and I get -ln|cos(x)| + C,
+and this is the final answer.
+Like before, I can verify this answer:
+I just need to compute the derivative
+of this function explicitly,
+and see that it is equal to tan(x).
+For my last example, I will integrate
+x³√(x² + 1), with respect to x.
+The part that makes this
+difficult is the square root.
+I am tempted to try a substitution
+u = the thing inside the square root,
+to see if it simplifies this.
+However, this problem is not as
+straightforward as the previous two.
+What I have outside of the square root
+is not simply the derivative...
+...of what I have
+inside of the square root.
+Nevertheless, I'm going to try.
+I will try the substitution u = x² + 1.
+Why? Well, I don't know if
+this is going to work,
+but it's worth a try,
+because if it works,
+transforming the thing inside
+square root into the variable...
+...is bound to simplify the expression,
+and make this integral easier.
+So let's see if it works.
+If it doesn't, I will try something else.
+Now if I want to try this, I also
+need to change the differential,
+and then du will be the derivative
+of x² + 1. That is 2x⋅dx.
+So I need 2x for the differential.
+I have x³. I can separate that as x²⋅x,
+and then I can multiply and divide by 2.
+Great! I have the piece that I
+need for the differential.
+Now, can I execute the substitution?
+I need to transform everything else
+in terms of u.
+x² + 1 is u, but what about
+this other x²?
+Well, I can re-write x² as u - 1.
+This seems to work, let's do it!
+I get (1/2)⋅∫(u - 1)⋅(√u)du.
+And now let's pause for a moment:
+the transformed integral is definitely
+simpler than the original integral,
+so this is progress.
+Doing a substitution was a good idea.
+It helps.
+I'm not done yet,
+but this has helped.
+Now, the best way to complete this
+integral is probably to multiply it out.
+I get (1/2)⋅∫(u³ᐟ² - u¹ᐟ²)du.
+And now I think I know how
+to compute these antiderivatives:
+it is (1/2)⋅u⁵ᐟ²/(5/2) - (1/2)⋅u³ᐟ²/(3/2)
++ an integration constant.
+Excellent! And now that
+the integration is done,
+I can undo the substitution,
+and I get:
+(1/5)⋅(x² + 1)⁵ᐟ² - (1/3)⋅(x² + 1)³ᐟ²
++ the integration constant,
+(where I have also
+simplified the coefficients),
+and this is the final answer.
+I could also simplify this final answer
+a little bit by factoring √(x² + 1),
+but I'm not going to bother.
+Like in the previous two examples,
+I can verify that this answer is correct
+by taking this expression,
+computing the derivative, and verifying
+I get back what I started with.
+Out of all the examples,
+I like this one the most.
+With the first two examples,
+I could probably have gotten away
+with just using guess-and-check.
+But for this one,
+I don't think guess-and-check by
+itself would have been enough.
+This example illustrates the full power
+of the Substitution Rule.

@@ -1,0 +1,228 @@
+In the previous videos,
+I introduced the concept
+of "limit of a function at a point."
+In this video, I want to explain what 
+the limit of a function at INFINITY is.
+The motivating question is the following:
+when I talk about the limit 
+as x approaches infinity of f(x),
+I am asking:
+"When x is very large,
+what happens to f(x)?"
+That is a vague question.
+I am going to begin
+with an example that won't be rigorous
+just to gain some intuition
+about what this means geometrically,
+and then I will move on
+to give a formal definition.
+My first example will be this function f,
+defined by f(x) = (x + 1) ÷ x,
+which can be rewritten as 1 + (1/x).
+And rewriting it this way is convenient
+when we are going to talk
+about what happens if x is very large.
+So, when x approaches infinity,
+which roughly means for now
+"when x is very large,"
+I can say that 1/x will be very small.
+So, for example, if x is one million,
+then 1/x will be very close to 0.
+"Approximately" 0
+is what that squiggly line means.
+And therefore, the function f(x),
+which is 1 + (1/x),
+will be very close to 1.
+In this situation, I am going to say
+that the limit as x approaches infinity
+of f(x) equals 1. [lim_(x → ∞) f(x) = 1]
+And for now, the idea simply means
+that IF x is very large,
+THEN f(x) is very close to a number",
+and I say that that number
+is the limit at infinity.
+I can represent this with a graph.
+Here is the graph of the function f
+that I was just studying, in blue.
+And in red, I have drawn
+the graph of the line y = L.
+And indeed, when x is very large,
+f(x) is close to L.
+So the graph of the function
+and the graph of the line
+become very close.
+In other words, we have what we call
+a "horizontal asymptote at infinity."
+If you have learned
+about horizontal asymptotes
+in high school,
+perhaps your teacher taught you
+that it is a line that gets closer
+and closer to the graph of the function
+but it never touches it.
+Unfortunately, that is not correct;
+that is not what an asymptote is.
+Because for example,
+here is another function
+whose graph DOES have an asymnptote;
+lim_(x → ∞) f(x) in this case is L,
+and yet the two graphs DO intersect;
+they touch.
+And here is ANOTHER example
+where the two not only touch,
+but they get intimate:
+they intersect many times.
+But it is still a horizontal asymptote.
+Okay. Well, we HAVE some intuition
+of what it geometrically
+and algebraically means
+that lim_(x → ∞) f(x) = L .
+What I need now
+is a rigorous formal definition.
+I begin with the idea
+that IF x is large,
+THEN f(x) must be close to L.
+I want to transform this
+into something more formal.
+First, like before, I am going to say
+that f(x) being close to L is the same
+as "the distance between f(x) and L
+is small."
+The distance between f(x) and L
+is the absolute value
+of their difference.
+And to say that this quantity is small,
+I say that it is smaller than ε,
+where ε is probably some small number,
+some cut-off.
+I am going to have to explain
+what I mean by ε exactly, in a moment.
+On the other hand,
+to say that x is large,
+I'm simply going to say
+that x is greater than some other cut-off
+and I'm going to call it M.
+So, if M is a large number
+and ε is a small one,
+then that's a way to rewrite this
+in terms of inequalities.
+But again, I'm gonna have to specify
+what I mean by M and ε.
+First, let's have a look
+at what this means
+in the graph of the function.
+saying that the distance
+between f(x) and L is smaller than ε
+means that f(x)
+must be between L - ε and L + ε.
+So f(x) must be HERE.
+On the other hand,
+saying that x is greater than M
+simply means that x
+is to the right of this cut-off M.
+So x is HERE.
+Now, let's think
+about what the implication means:
+when x is greater than M,
+f(x) must be between L - ε and L + ε,
+so in this window.
+In other words,
+these two regions are forbidden.
+But when x is smaller than M,
+the function could be anywhere.
+So for example,
+for this value of M and this value of ε,
+this could be the graph
+of a function that satisfies that.
+Now, if this is true
+for just ONE value of M, FIXED
+and ONE single value of ε FIXED,
+that's not enough;
+it DOESN'T guarantee that the limit is L;
+it doesn't guarantee that my function
+comes arbitrarily close to L.
+If I compare M and ε,
+the important one is ε.
+As long as the domain of the function
+is the right one,
+it is certainly not difficult
+to take values of x large.
+So to make x greater than M
+is not going to be an accomplishment;
+it's not going to tell me
+that the limit of the function exists.
+On the other hand,
+what matters is that I am able
+to put the graph of the function
+in this window when ε is small.
+So what matters is not that this is true
+for SOME values of ε,
+but for ALL values of ε.
+Well, the only ones I care about
+are when it is small.
+If I keep making this smaller and smaller
+and I can still keep it in there,
+it's gonna mean
+the function gets arbitrarily close to L.
+So, I'm going to add here, at the top,
+a "for every ε greater than 0."
+And that means
+that I want this to be true no matter
+which value of ε positive I take.
+But for EACH such value of ε,
+it is only necessary
+to find ONE value of M that works.
+So I'm gonna put that
+as "there exists a real number M."
+And that value of M may depend on ε.
+So, if I CHOOSE one value of ε,
+I FIND one value of M.
+If I make ε smaller;
+make this window narrower,
+I may have to take a value of M bigger.
+If I make ε even smaller,
+I will find yet another value of M,
+probably bigger.
+But no matter what ε I choose,
+no matter how close
+I want f(x) and L to be,
+I will find a cut-off M
+that guarantees that I can do that.
+So there we have it!
+That's the definition I was looking for.
+To summarize, we say 
+that lim_(x → ∞) f(x) = L
+when, for EVERY positive real number ε,
+there EXISTS a real number M
+such that IF x is greater than M,
+THEN the distance from f(x) to L
+is less than ε
+One way to interpret this
+is that we can make the function
+as close to L as possible
+by taking large values of x.
+IF you tell me
+how close you would like the function
+and the limit to be,
+in other words, if you give me ε,
+THEN I can tell you how large x must be,
+meaning I can produce M;
+For every ε, you give me;
+you tell me how close you want them,
+I can produce an M;
+I can tell you how large x is.
+For this to be
+a proper formal definition,
+I should introduce all the variables.
+So I will add at the top
+that L must be a real number,
+and f must be a function.
+And to make sense
+to talk about this limit,
+I'm going to require
+that f is a function defined, at least,
+on an interval of the form (p, ∞)
+for some real number p.
+In other words, so that we can talk
+about what happens to the function
+when x is large.

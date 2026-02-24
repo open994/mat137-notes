@@ -1,0 +1,165 @@
+Series (or infinite sums) are linear.
+This refers to these two properties.
+If I have a series whose general term
+is the sum of two separate terms,
+then I can split it as
+the sum of two series,
+and if I have a series where the general
+term is a constant times something else,
+then I can take the constant out.
+Looking at these two properties,
+perhaps your reaction is:
+"Well that's obviously true!
+Do we have to waste any time on this?
+Do we have to bother proving it?"
+Yes. To justify why these
+properties are not obvious,
+and why we cannot take them for granted,
+I want to first look
+at a different property
+that surprisingly
+happens to be false.
+I'm going to do that with an example.
+Let's look at this infinite sum:
+it's 1 - 1/2 + 1/3 - 1/4, and so on,
+so it's the sum of the reciprocal
+of all the positive integers,
+but the odd ones I add,
+and the even ones I subtract.
+This infinite sum happens to be
+convergent, and the value is ln(2).
+This is not obvious at all, and
+I'm going to prove it now.
+For now, just trust me on it.
+Now I'm going to look at a second sum,
+which is very similar.
+I'm going to take the very same terms
+and I'm going to reorder them.
+So now I add two positive ones,
+then one negative,
+then two positive,
+then one negative, and so on,
+but ultimately in the infinite sum,
+it's the very same terms, reordered.
+We would probably expect that if the
+first sum is converging,
+so is the second,
+and it has the same value;
+and indeed the second sum is convergent,
+but the value of the sum is different.
+This should be surprising.
+This would make you perhaps a
+bit uncomfortable,
+and in fact, perhaps
+you do not believe me.
+While I'm not going
+to prove it yet,
+later in this series of
+videos (no pun intended),
+I will justify why this is true.
+I will explain it.
+But the reason I'm bringing it up now
+is to explain that just because a certain
+property of finite sums
+seems intuitive and natural, and we
+believe it's going to be true,
+doesn't mean it will necessarily carry
+forward for infinite sums...
+...and still be true.
+Finite sums can be reordered at will,
+but infinite sums can not be reordered
+at will, even when they are convergent.
+It may change the outcome.
+By contrast, linearity refers
+to two important properties
+that are true for finite sums,
+and are still true for infinite sums.
+Let's have a look at them.
+Linearity of series is
+summarized by two theorems:
+what happens when I add two series, and
+when I multiply a series by a constant.
+The first theorem says:
+IF I begin with two series,
+(the sum of aₙ and the sum of bₙ),
+and I assume they're both convergent,
+THEN the combined series
+(the sum of aₙ + bₙ),
+must also be convergent, and the value of 
+the sum is exactly what you would expect.
+(It's the sum of the other two series.)
+So for this specific rearrangement,
+it works as we expected.
+I need to assume the two initial series
+are convergent, otherwise it's not true.
+But if they're convergent,
+then the rearrangement works.
+The second theorem is about
+multiplying a series by a constant.
+IF c is a real number, and I begin with a 
+series (sum of aₙ), which is convergent,
+THEN the sum of c⋅aₙ is also convergent,
+and it's value is again, exactly what
+you would expect it to be.
+So this kind of property of finite sums
+also extends to infinite sums.
+But again, I need to assume that
+this series I begin with is convergent.
+As an example, I'm just going
+to prove the first theorem.
+The proof of the second theorem
+works very similarly.
+The proof is going
+to be quite straightforward.
+For these properties (when they're true),
+the proof tends to be very short.
+We need to use the definition
+of infinite sum.
+An infinite sum is defined as a
+limit of finite sums, so let's do that.
+I say that the infinite sum of all
+the aₙs is the limit of partial sums,
+and I'm going to call
+the partial sum Sₖ,
+where Sₖ is the finite sum of
+the aₙs only up to the term k.
+Similarly, the other two series can also
+be written as limits of partial sums,
+but I'm going to give different
+names to those partial sums.
+So, I'm going to say the sum of all the
+bₙs, is the limit of the partial sum Tₖ,
+where Tₖ is a finite sum of bₙs.
+And the sum of aₙ + bₙ is
+the limit of the partial sum Rₖ,
+where Rₖ is a finite sum of aₙ + bₙ.
+And once I have written the
+infinite sum as a limit of finite sums,
+I can now manipulate the finite sums.
+And for finite sums I
+don't have to be careful!
+I know that for finite sums, any of
+the usual manipulations are true,
+so I can reorder the terms.
+So it is true that Rₖ = Sₖ + Tₖ.
+Now, the hypothesis of the theorem is
+that the first two series are convergent.
+What that means is that the first
+two limits exist. That's my hypothesis.
+So, if Rₖ = Sₖ + Tₖ, and I am assuming the
+first two limits exist,
+then simply by the limit laws,
+the third limit also exists,
+and is the sum of the other two,
+and that's it!
+That completes the proof.
+This is kind of a template of
+all the common properties of series,
+and this is how they are all proven.
+First, write the infinite sum as a
+limit of partial sums (finite sums).
+Second, use the property you
+know is true for finite sums.
+And then third, pass to the limit.
+(Assuming we are allowed
+to pass to the limit.)

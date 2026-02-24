@@ -1,0 +1,33 @@
+\begin{tikzpicture}[>=Latex]
+  % Ground
+  \draw[thick] (-0.5,0) -- (9.5,0);
+
+  % Lamp post (height L)
+  \draw[very thick, color=thmcolor] (0,0) -- (0,4);
+  \node[color=thmcolor, anchor=east] at (0,2) {$L$};
+  \fill[color=thmcolor] (0,4) circle (2pt);
+  \node[anchor=west] at (0.1,4) {lamp};
+
+  % Person (height P) at distance x from lamp
+  \draw[very thick, color=defcolor] (5,0) -- (5,2);
+  \node[color=defcolor, anchor=west] at (5,1) {$P$};
+  \fill[color=defcolor] (5,2) circle (2pt);
+  \node[anchor=west] at (5.1,2) {person};
+
+  % Shadow endpoint at distance x+s from lamp
+  \coordinate (ShadowEnd) at (8.5,0);
+  \fill (ShadowEnd) circle (2pt);
+  \node[anchor=north] at (8.5,0) {shadow tip};
+
+  % Light rays
+  \draw[thick] (0,4) -- (ShadowEnd);
+  \draw[thick, dashed] (0,4) -- (5,2);
+
+  % Similar triangles indication
+  \draw[thick, color=excolor] (0,0) -- (0,4) -- (8.5,0) -- cycle;
+  \draw[thick, color=excolor] (5,0) -- (5,2) -- (8.5,0) -- cycle;
+
+  % Distance labels
+  \draw[<->] (0,-0.5) -- node[below] {$x$} (5,-0.5);
+  \draw[<->] (5,-1.0) -- node[below] {$s$} (8.5,-1.0);
+\end{tikzpicture}

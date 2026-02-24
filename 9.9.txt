@@ -1,0 +1,147 @@
+In this video, I will explain
+two different ways
+to integrate the function secant.
+Specifically,
+this is the calculation I want to do.
+This problem was historically
+very important.
+In the early years of calculus
+in the 17th century,
+in the field of cartography
+it was necessary
+to actually perform this
+integral analytically,
+and mathematicians struggled for a while
+to solve the problem
+because there is no apparent easy answer.
+I'm going to explain two solutions to it.
+The first one is the method that 
+appears in all calculus textbooks.
+It's fast and simple,
+and I don't like it.
+I will explain why, and then I will
+propose an alternative method.
+For my first method,
+to integrate the function secant
+I'm going to start by multiplying
+and dividing by secant plus tangent.
+Why? Hold on to that question.
+Okay, and now that I have it here,
+I'm going to try a substitution.
+The substitution I will try is
+u = secxtanx.
+You may wonder why I try that.
+Again, hold on to that question,
+I'll come back to it.
+If I use this substitution,
+then the differential will be
+the derivative of secant is secxtanx,
+and the derivative of tangent is sec²x.
+And now look at what happened.
+This expression here is
+exactly what I have at the top.
+What are the odds?
+So that means that the integral becomes
+du at the top and u at the bottom,
+and now I can complete it from here.
+This antiderivative is ln |u| + C,
+or after undoing the substitution, 
+ln |secx + tanx| + C. And we're done.
+This is the method that is presented
+in almost all calculus textbooks,
+and the method in itself
+is easy to understand.
+Once I explain it,
+it is clear why it works.
+And in particular, it is very simple
+to check that the answer is correct
+by taking this function, computing its
+derivative, seeing that it equals secant.
+But of course this leads to the question,
+why?
+How on earth did we think of this?
+How did anybody think of trying the
+substitution in the first place,
+and more importantly, how did somebody
+come up with idea
+of multiplying and dividing
+by secx + tanx?
+This seems like too much of a leap
+that one has to take,
+and I don't have a good answer for that.
+I don't know how to explain that this is
+something you should have thought of,
+because I would have never
+thought of it myself.
+And that is why I'm going to propose
+an alternative method.
+So my second method is going to be longer,
+but I think it's more natural,
+in the sense that an average student
+with enough practice integration
+could have come up with it.
+For the second method, I'm going to first
+rewrite secx as 1/cosx.
+And now I am going to think of this as
+cosx to the power of minus one.
+and I'm doing that because this reminds
+me, this is an aside,
+of this family of functions.
+We know there is a general method
+that allows me to integrate
+any function of the form
+a power of sine times a power of cosine,
+and this is the power of sine times the
+power of cosine with exponents 0 and -1.
+And in particular, I know that when
+I have a function of this form,
+and the exponent of cosine is odd,
+then there is a substitution that helps.
+And that substitution is u = sinx.
+Okay, so motivated by that,
+by how this family of functions works,
+I'm going to try this substitution.
+If I want to do that, I need the
+differential, which is cosx dx.
+So I'm going to start by putting
+a cosine in the numerator,
+so I have it ready for the differential.
+And now in order to be able to
+complete this substitution,
+I need to transform
+the rest of the cosines into sines.
+But I can do that
+because I have cos²x.
+Okay, and now
+this is ready for integration.
+That is what I need there.
+So let's perform the integration.
+And I'll pause here.
+I'm going to call this progress.
+I have transformed this integral
+into this integral,
+and I think this one is easier.
+I didn't know how to do this one;
+this is a rational function,
+this is a quotient of polynomials.
+That's an important family of functions
+we need to know how to integrate,
+and there is a method for integrating
+any rational function,
+any quotient of polynomials,
+by using partial fraction decomposition.
+So perhaps you haven't learned
+that method yet,
+and thus I'm not going to finish it,
+I'm going to stop here,
+and I'm going to say learn the method
+to integrate any quotient of polynomials
+and once you have done that, then
+come back here and complete this problem.
+So as I said, this method is longer
+than the previous one,
+but I think it is more natural.
+I think the two things I have to do
+in the process
+are natural things that one can think of,
+and that is why I prefer it.

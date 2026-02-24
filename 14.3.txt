@@ -1,0 +1,295 @@
+In this video,
+I will define Taylor polynomials.
+If you look at different books,
+you will find many equivalent ways
+to introduce Taylor polynomials.
+The definition I've chosen
+illustrates very well where
+they come from,
+and why we care about them,
+although it is not the most
+helpful for computations.
+In later videos,
+I will transform this definition
+into other equivalent versions
+that are better suited
+for computations,
+including an explicit formula.
+My goal is to approximate functions 
+with polynomials.
+Why? Because polynomials
+are simple,
+and they make everything easy!
+Let's say I have a function f,
+and a is a number in its domain.
+I want to find a polynomial P
+such that P(x) is close to f(x)
+when x is near a.
+In other words, the polynomial
+is a good approximation
+for the function near a.
+We already know an
+example of this:
+the tangent line!
+For example, here is the
+graph of a function,
+and its tangent line at a.
+We know that the graph
+of the function
+and the graph of the tangent line
+are close to each other
+as long as I stay near a.
+Of all the lines that intersect
+the graph of the function at x = a,
+the tangent line is the best
+approximation near a.
+But, what does that mean?
+I would like to know what
+being a good approximation
+near a actually means
+so that I can construct
+other polynomials
+that are even better approximations
+than the tangent line.
+For this purpose, I am going to
+define the "remainder", or "error",
+as the difference between
+the function and the polynomial.
+This difference is literally
+the error I make
+when I use the polynomial
+instead of the function.
+I want this error to be small...
+but I will need something
+more precise
+than merely saying "small"!
+Let's look at the tangent line again.
+Here is a value of x, and
+here is the remainder at x.
+It is this difference.
+Let's explore.
+What's special about the
+tangent line?
+I said I wanted an approximation
+near a,
+so perhaps the condition is
+that the remainder at a is 0?
+No, that's not enough.
+There are many other lines
+that also give error 0 at a,
+and some of them are
+very bad approximations
+so that's not it.
+I need something else.
+Well, I want the approximation
+to be good when x is NEAR a,
+not only AT a.
+Perhaps what I need is for
+the limit as x approaches a
+of the remainder at x to be zero.
+No, that's not enough either.
+All these other lines also
+satisfy that the limit
+of the remainder is zero.
+Then, what's special about
+the tangent line?
+What I need is for the remainder
+to approach zero...
+...FAST.
+All of these lines satisfy that
+as x approaches a,
+the remainder approaches 0,
+but the remainder for
+the tangent line
+approaches 0 faster than
+for any other line.
+That's the key.
+But of course, this immediately
+leads to another question:
+what does it mean to
+approach a limit "fast"?
+How do I measure
+how fast a function
+is approaching its limit?
+I need a scale.
+Fortunately, I have one.
+For simplicity, first let's
+focus on the case a = 0.
+This is the graph of y = x.
+As x approaches 0,
+y approaches 0.
+Now, compare it with y = x^2,
+and with y = x^6.
+They all approach 0
+as x approaches 0,
+but some do it faster
+than others.
+Look how flat the graph
+of x^6 is!
+As x approaches 0,
+every positive power of x
+approaches 0,
+but the larger the exponent,
+the faster it approaches 0.
+Excellent!
+I am going to use this idea.
+I want the remainder
+to approach 0 "fast".
+To determine how fast,
+I am going to compare it
+with powers of x.
+This leads to the
+following definition.
+Let f and g be two
+continuous functions at 0
+and let n be a natural number.
+We say that g is an
+approximation for f
+near 0 of order n when...
+Well, that's a lot of variables.
+Let's unpack them first.
+f is my original function,
+g is the function I am using as
+an approximation for f,
+0 is the point near which
+I want an approximation,
+and n measures how good
+the approximation is.
+Okay. As I was saying,
+g is an approximation for f
+near 0 of order n when
+the limit as x approaches 0
+of the difference of f and g
+over x^n is 0.
+What does this mean?
+If I write the function f
+as g plus a remainder,
+this means that
+as x approaches 0,
+the remainder approaches 0
+faster than x^n approaches 0.
+Why? Look at the limit
+here in the box.
+In general, I have an
+indeterminate form
+of type 0/0.
+The numerator is the remainder,
+which has limit 0,
+and the denominator is x^n,
+which has limit 0.
+For this indeterminate form
+to resolve into being 0,
+the numerator must win
+over the denominator.
+The numerator must approach 0
+faster than the denominator.
+That is why this is
+a sensible definition.
+Great!
+This works when a = 0,
+but what if I am looking for
+approximations
+near a different value of a,
+not just 0?
+All I need to do is SHIFT the scale.
+Here is the graph of (x – a),
+which approaches 0
+as x approaches a,
+and here is (x – a)^2,
+and (x – a)^6.
+They look the same as before.
+To study approximations near a,
+I will compare the remainder
+with powers of (x – a)
+instead of with powers of x.
+That is all.
+Other than that, the definition
+works the same way.
+This time, I begin with
+functions f and g,
+which are continuous at a,
+and I say that g is an
+approximation for f
+near a of order n
+when the limit
+as x approaches a
+of the difference
+over (x – a)^n is 0.
+That is all.
+The interpretation is
+the same as before.
+This means I can write
+f as g plus a remainder,
+and as x approaches a,
+the remainder approaches 0
+faster than (x – a)^n.
+Excellent.
+We are finally ready
+for the first definition
+of Taylor polynomials.
+Let a be a real number.
+Let f be a continuous function
+defined at and near a.
+Let n be a natural number.
+The n-th Taylor polynomial
+for f at a
+is a polynomial,
+which I will call P_n,
+that is an approximation
+for f near a of order n.
+...And now we know what that means.
+It means that as x approaches a,
+the function minus the polynomial
+approaches 0
+faster than (x – a)^n.
+I am also going to request
+that the polynomial
+has degree at most n.
+This requires some explanation.
+At the moment, the degree
+seems unimportant.
+In later videos I will prove that
+as long as f has enough derivatives,
+we can always construct
+this polynomial,
+and we can do so while keeping
+the degree at most n.
+We can also get other polynomials
+with the same property,
+and with higher degrees.
+But smaller degree is simpler,
+so we prefer it.
+That's the reason for
+this requirement.
+But again, right now this is
+the least important part
+of the definition.
+As an exercise, to make sure
+you understand the definition,
+I invite you to check that
+the first Taylor polynomial
+gives us the tangent line.
+I hope I have now made clear
+what I said at the beginning
+of the video.
+This definition explains where
+Taylor polynomials come from,
+why we care about them,
+and why they may be useful.
+However, this definition is
+not helpful for computations.
+Based on this, I have no idea,
+YET,
+how to compute the Taylor
+polynomials of a function.
+In the next videos,
+I will try to rewrite this definition
+into some equivalent forms
+that may obscure the meaning
+of Taylor polynomials a bit,
+but which are much more useful
+when I actually want to
+perform computations.
+Then I will work out
+some examples.
+Stay tuned!

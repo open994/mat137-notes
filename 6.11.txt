@@ -1,0 +1,174 @@
+Of all the limit
+indeterminate forms,
+1^infinity is probably the most
+controversial one.
+At least, it is the one I have seen
+students argue about the most.
+In this video, I want to explain why
+1^infinity really is an indeterminate form,
+and why our intuition about it
+may be a bit off.
+First, let's remember what it
+means to say that 1^infinity
+is an indeterminate form.
+It means that if I am trying to 
+calculate a limit
+like the one here at the bottom,
+the limit of a function f(x) raised to
+the power of another function g(x),
+and if I know that separately,
+the limit of the base, f, is 1,
+and the limit of the exponent
+g is infinity,
+if I know those two things, what
+can I say about the full power?
+Well, then I cannot draw any
+conclusion about the full power.
+The limit of f(x)^g(x) under these
+assumptions could be anything.
+That's what it means to say that
+1^infinity is an indeterminate form.
+No more, no less.
+Notice that at no point am I actually
+raising the number 1 to any power.
+It's going to be numbers CLOSE to 1
+raised an exponent that is large.
+That's all.
+Probably the best way to prove this,
+the best way to prove that
+under these hypotheses,
+I cannot draw a conclusion,
+is to offer the battery of examples
+where the hypotheses are true,
+but the outcome (the final limit)
+takes many different values.
+Let's do exactly that.
+I'm going to construct a family
+of examples the following way.
+Let c be any real number.
+I'm going to look at
+the following limit.
+The limit as x approaches 0
+on the right
+of (e^x) raised to (c/x).
+I think of this as a function
+raised to another function.
+So let me look at the
+two functions separately.
+As x approaches 0, e^x
+is approaching 1.
+As x approaches 0 on the right,
+c/x is going to be approaching...
+well, if c is positive,
+it will be infinity.
+If c is negative,
+it will be minus infinity.
+I'm going to exclude
+the case when c = 0.
+So all together, for every value
+of c I have a different example,
+and all those examples
+are of type
+1 raised to either
+plus or minus infinity.
+So, what's the value of this limit?
+The nice thing about this example
+is that we can compute it very easily.
+I can use the properties
+of exponentials
+and rewrite these
+functions as follows.
+e^x raised to c/x
+is simply e^(x * c/x).
+Now, I can simplify this.
+Turns out that this is just
+a constant function.
+So the limit is e^c.
+There you have it. By choosing
+different values of c,
+I can construct examples of
+limits of type 1^infinity
+that have many different values.
+In fact, I can make the final limit
+be any positive number I want.
+So, this justifies saying that
+1^infinity is an indeterminate form.
+Just from knowing I have 1^infinity,
+I can't know what the
+final answer will be.
+So, why is it hard to accept that
+1^infinity is an indeterminate form?
+I believe the answer comes from
+taking 1^infinity a little bit too literally.
+It's not ONE to the infinity,
+it's numbers CLOSE to 1 raised
+to very large exponents.
+Look at these five examples
+here on the top.
+If we were computing
+the limit as x goes to infinity
+of 1^x, this one
+definitely would be 1.
+This is just the constant
+function 1 in disguise.
+Now, let's compare with the others.
+If I am computing the limit as
+x approaches infinity of 2^x,
+we know that's going
+to be infinity.
+The same is true for any other
+constant base that is greater than 1.
+1.01^x as x approaches infinity
+goes to infinity.
+It just goes there much more slowly.
+It takes a long time to get large.
+On the other hand, the limit as
+x goes to infinity of 0.1^x,
+well, that is 0.
+The same is true for any other
+base smaller than 1.
+0.99^x as x goes to infinity
+also goes to 0.
+It just takes a long time
+to get close to 0.
+However, in practice,
+when I look at 1^infinity,
+I don't have a constant base.
+What I have now is a
+function that changes,
+and is approaching 1, perhaps
+above, perhaps below, perhaps both.
+I have another function g(x) that is
+changing and is getting large.
+So, what's happening
+to f(x)^g(x)?
+On the one hand, since f(x) is
+approaching 1,
+and 1 raised to anything is 1,
+we could say that the base, f, is
+trying to make the power get to 1.
+But on the other hand, 
+since g(x) is changing,
+and g(x) is approaching infinity,
+if f is slightly greater than 1,
+g(x) is saying:
+"anything slightly greater than 1
+raised to infinity is infinity."
+So, g is trying to make
+the answer infinity.
+Or, if f(x) is slightly smaller than 1,
+g is saying:
+"anything smaller than 1
+to infinity is 0."
+So, g(x) is trying to make
+the answer 0.
+There lies the tension.
+The base wants the
+answer to be 1,
+the exponent wants the answer
+to be either infinity or 0.
+That's why we get an
+indeterminate form,
+and that's why the actual outcome,
+the actual value of the limit,
+depends on the specific example.

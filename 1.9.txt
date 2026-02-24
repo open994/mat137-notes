@@ -1,0 +1,222 @@
+In this video,
+I will show an example of a bad proof:
+a proof that contains errors
+that students often make
+when they begin to write proofs.
+And then, I will explain
+how to fix those errors.
+The "theorem" I want to "prove"
+is this inequality.
+And I put "theorem" and "proof" in quotes
+for reasons that will become clear soon.
+In order to prove it,
+first I will get rid of the square root
+by squaring both sides.
+Next, I expand the square
+on the right hand side,
+I multiply both sides by 4,
+and I subtract 4xy from both sides
+so that everything
+is on the right-hand side.
+And now, I notice
+that here on the right hand side,
+I have a perfect square
+and this square
+is definitely non-negative,
+so this is true
+and we are done.
+But are we?
+This "proof" is wrong
+from beginning to end.
+And in fact,
+it is not a proof.
+The main problem
+is right at the beginning;
+I began by ASSUMING
+what I wanted to PROVE.
+Effectively, I have shown
+that IF this first inequality is true,
+THEN this number is non-negative.
+But THAT doesn't tell me
+whether the INITIAL inequality
+is true or not.
+Probably, the thinking here
+goes something like the following:
+this inequality
+is equivalent to THIS one
+is equivalent to THIS one
+and so on
+equivalent to THIS one,
+and since the
+LAST one is true,
+then the first one must
+be true as well.
+But THAT is NOT what I wrote;
+I only work FORWARD, and I never checked
+that every step was REVERSIBLE.
+So once again,
+I have ONLY shown
+that IF this inequality is true,
+THEN this number is non-negative.
+But THAT doesn't tell me
+whether THIS inequality is true or not,
+which is what I care about.
+In general, it is forbidden to begin
+by assuming what I want to prove.
+I got it all backwards!
+I should start ONLY
+with things I already KNOW are true,
+and END UP CONCLUDING this inequality.
+In case this doesn't convince you,
+here is a second problem:
+what are x and y?
+The statement of a theorem
+is never JUST an inequality 
+or an equation.
+A theorem may tell us
+WHEN an inequality is true,
+or that it is ALWAYS true,
+or that an equation has a solution;
+but this is just a plain inequality,
+nothing more.
+And this is not me being pedantic,
+because the inequality ISN'T always true.
+For example, look at what happens
+when x and y are both -1:
+the left-hand side would be
+the square root of 1 (√1), which is 1;
+and the right-hand side
+would be -2/2, which is -1.
+1 ≤ -1? That would be FALSE.
+So this inequality isn't always true.
+However, I never NOTICED that
+during this so-called "proof":
+that I needed
+to restrict myself to positive numbers.
+If this were a correct proof,
+I should have noticed at SOME POINT
+that x and y need to be positive,
+or at least non-negative.
+The goal of a proof is to figure out
+whether a statement is true or not,
+and a proof
+that works equally well
+for something that is true
+and something that is false
+is not a proof;
+it is completely useless.
+And finally, this proof has no words,
+only algebra.
+Sometimes,
+this may be okay.
+But in general,
+a proof is going to require
+EXPLAINING what we are doing.
+Let's fix this proof.
+First, let's write
+the statement of the theorem correctly.
+What the theorem should say
+is that if x and y
+are any non-negative real numbers,
+THEN this inequality is true.
+Now, how will the proof go?
+Remember: I need to begin
+with something I KNOW is true,
+and END UP
+concluding the inequality.
+It's going to look very much
+like rewriting this backwards.
+The last line here is
+something that I KNOW is true:
+every square is non-negative.
+So I'm going
+to take it as my STARTING point,
+and then hope
+that I can reverse all the steps
+and end up here.
+So let's begin with this,
+and let's write some explanation
+of what I'm doing.
+Since a square is always non-negative, 
+I have this.
+And then, the first few steps
+-- expanding, adding,
+dividing, and contracting --
+those are all algebraic manipulations
+that are reversible,
+so I will simply write those
+without any commentary.
+Next, I want to take the square root
+of both sides to hopefully end up here.
+In order to take the square root
+of BOTH sides,
+I need BOTH sides to be non-negative,
+which, luckily, is true.
+And now, let's see very careful here.
+The square root
+doesn't always CANCEL the square.
+The square root of a square
+is not the thing we begin with,
+it's only the ABSOLUTE VALUE
+of what I begin with.
+The square root of the square
+is the absolute value.
+Can I get rid
+of the absolute value?
+Yes, because x and y
+are non-negative.
+And finally I found the point
+where I use
+that x and y are non-negative.
+This is good. I knew this had to happen.
+And there we have it!
+I have proven the inequality.
+To conclude,
+here's a question you may be pondering:
+if I was supposed to BEGIN with this,
+how did I COME UP with that idea?
+How, just by looking at this,
+I thought of beginning by writing this
+and doing these algebraic manipulations?
+That's a very fair question.
+And the answer is that, to be fair,
+we actually need to do this FIRST.
+Except that
+this is not a proof,
+this is what we sometimes
+call "rough work."
+And "rough work"
+simply means taking what I want to prove
+and playing around with it
+to try to figure out where it came FROM.
+And once I figure out
+it came from here, I say:
+"Oh! this gives me an idea for a proof."
+"I could begin with this
+that I think is true,"
+"hope all the steps reverse,"
+"and then I can end up
+with the thing I want to prove!"
+And sometimes, they will reverse;
+sometimes not,
+and then I have to think
+of something else.
+And ONLY after doing the rough work,
+would I know to write this short proof.
+So to summarize:
+the statement of the theorem
+is NOT JUST an inequality,
+it tells me WHEN the inequality is true.
+The PROOF BEGINS
+with things that I am allowed to assume;
+things that I KNOW are TRUE.
+Every step follows logically
+from the previous one.
+Whenever necessary,
+I explain what I'm doing.
+And I END UP concluding what I
+wanted to prove.
+And notice how the proof
+in one of the steps
+did notice the restrictions
+we had to impose on the domain.

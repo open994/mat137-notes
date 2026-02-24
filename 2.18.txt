@@ -1,0 +1,202 @@
+In this video, I will prove
+that lim_(x → 0) (sin(x)/x) = 1.
+This was probably my favourite proof
+in high school.
+When I learned it,
+it made me fall in love with math.
+I like it,
+because it doesn't use anything advanced;
+it is just a clever use
+of high-school geometry and trigonometry.
+I will begin by drawing some pictures
+to get some information
+about the function sine.
+I'm drawing the unit circle.
+This is a circle with radius 1,
+centered at the origin.
+Then, I am drawing a radius
+that forms an angle x
+from the positive horizontal axis
+in the counterclockwise direction.
+I will call A the point
+where it intersects the circle,
+and I draw a vertical line from A
+that intersects the horizontal axis at B.
+Since the radius of the circle is 1,
+the coordinates of A
+are sin(x) and cos(x).
+Or equivalently,
+the distance from A to B, in red, 
+is sin(x),
+and the distance from O to B, in green,
+is cos(x).
+This is true
+because the radius of the circle is 1.
+Actually, this is what I consider
+the best way to DEFINE sine and cosine.
+But perhaps you learned
+a different definition.
+In that case, if you need it,
+pause the video for a moment
+and persuade yourself that this is true
+by looking at the right triangle OAB.
+Next, I am drawing another vertical line,
+from D, the rightmost point 
+of the circle,
+to C, a point in the radius.
+In this picture,
+the distance between C and D, in cyan,
+is tan(x)
+We know this by looking
+at the triangle OCD,
+because the distance from O to D is 1.
+Again, if you need it,
+pause the video for a moment
+and convince yourself.
+And this is ALL the trigonometry
+we will need;
+I will derive everything from here.
+Let me just keep
+THIS part of the picture.
+Next, I want to compare the areas
+of three different regions:
+the triangle OAB,
+the circle sector OAD,
+and the triangle OCD.
+Let’s go through them one at a time.
+First, the smaller triangle, OAB.
+Its area 
+is base ⋅ height ÷ 2.
+In this case,
+that is 1/2 ⋅ cos(x) ⋅ sin(x).
+Next, let’s look
+at the big triangle: OCD.
+Again, the area is 1/2 ⋅ base ⋅ height.
+The base is 1,
+because the radius of the circle was 1,
+so the area is 1/2 ⋅ 1 ⋅ tan(x).
+Finally, let’s look at the circle sector.
+Perhaps you know the formula
+for the area of a circle sector.
+In case you don’t,
+here’s how we can obtain it.
+I have drawn a sector with radius r
+and internal angle x.
+I want to calculate its area,
+which I will call S, for "surface."
+I need one key observation: the area
+must be proportional to the angle.
+So the area S is some constant k
+-- which I do not know yet --
+times the angle x.
+Here is why:
+if I double the angle,
+I would double the area,
+because it would be
+like having two copies of the sector.
+And more generally,
+if I multiply the angle by a factor,
+then the area will be multiplied
+by the same factor.
+That means that the area
+has to be directly proportional
+to the angle.
+How do I figure out
+the proportionality constant?
+Luckily, there is one specific sector
+whose area I know: the FULL circle!
+I can think of the full circle
+as a sector with angle 2π,
+and its area is πR^2.
+Excellent! I can use this data point
+to compute the value of the constant k.
+πR^2 must be equal to k ⋅ 2π.
+From here, I can solve for k.
+k = (πR^2) ÷ (2π)
+Or, simplifying, 1/2 ⋅ R^2.
+And now that I have a value
+for the proportionality constant k,
+I have my shiny new formula:
+the area of a circle sector
+is 1/2 ⋅ x ⋅ R^2.
+Okay. Back to the previous problem:
+I was trying to calculate the area
+of this circle sector OAD.
+I now know that it must
+be ONE HALF of the angle -- which is x --
+times the radius squared
+-- in this case, ONE.
+Good!
+I will take it from here,
+from these inequalities;
+I no longer need the picture.
+And I will multiply everything by 2.
+So I have that cos(x) ⋅ sin(x)
+is less than or equal to x
+is less than or equal to tan(x).
+and I can write tangent
+as sine over cosine.
+Let’s not lose track of the objective.
+I am trying to conclude something
+about sin(x)/x
+Look at the first inequality.
+From it, I can conclude
+that sin(x)/x is less than or equal
+to 1/cos(x).
+Now look at the second inequality.
+From IT, I can conclude that sin(x)/x
+is greater than or equal to cos(x).
+All these manipulations are legal,
+because I am just
+multiplying inequalities
+by positive numbers.
+Now I merge both inequalities together
+to conclude
+that sin(x)/x is sandwiched
+between cos(x) and 1/cos(x).
+Now, for which values of x is this true?
+x was in the first quadrant
+in the original picture,
+so x must be between 0 and π/2.
+x CANNOT be 0,
+because we have divided by x.
+But actually, the inequalities
+are also true for negative x.
+We can either repeat the same derivation
+with an angle in the fourth quadrant
+-- and be careful
+with the negative quantities,
+but the final inequalities
+end up being the same --
+OR, we can notice that the functions
+in the final inequalities are EVEN,
+so they take the same value
+when you change x into minus x.
+Either way, we end up
+with the same result for negative x.
+So, after all this work,
+these inequalities are true
+when x is CLOSE to 0, but NOT 0.
+And that is PERFECT to compute
+a limit as x approaches zero!
+And perhaps you already see
+what is coming.
+Here is the graph of cosine.
+It is nice and continuous at 0,
+with value 1.
+And here is the graph of one over cosine.
+It is also nice and continuous at 0,
+with value 1.
+sin(x)/x is NOT defined at 0.
+But everywhere ELSE near 0,
+it is SQUEEZED
+between the other two functions.
+Therefore, it must have limit 1 at 0, 
+as well.
+Or, more formally, the limit
+of the two functions on the ends is 1.
+So I use the Squeeze Theorem
+to conclude that the limit
+of the function in the middle is ALSO 1.
+That is what I wanted to prove!
+We are done!

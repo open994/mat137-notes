@@ -1,0 +1,175 @@
+How can we write a function
+as a power series quickly?
+We always have the slow method.
+If we start with
+a function that's C infinity,
+we can first compute all its derivatives
+and use those to write the Taylor series
+at a point, given by this formula.
+And then we have to prove,
+using the Remainder Theorems,
+that the limit of the remainders is 0
+as n goes to infinity,
+and then the function
+is equal to its Taylor series.
+But this is the slow method.
+I want something faster.
+Well, there is a better way.
+We already have four functions
+that we've written as power series.
+Exponential, sine, cosine,
+and the geometric series.
+The first three, we actually did it
+with the slow method I just described.
+The fourth one, we kind of ran into it.
+The key tool to use is that in the
+interior of the interval of convergence,
+a power series can be manipulated
+like a polynomial.
+So you can take any
+of these four functions
+we have already written as power series,
+and add them, multiply them,
+compose them, take derivatives, anything,
+and you will get other functions
+written as power series.
+I'm going to illustrate this
+with some examples.
+I'm going to try to write
+these four functions as power series,
+the first three in this video,
+and the fourth one in the next one.
+At this moment,
+I invite you to pause this video
+and try to solve the first three.
+Start with a function you already know
+how to write as a power series,
+and manipulate it until you get
+the one you want.
+Then continue watching.
+For my first example, I want to write
+the function e⁻ˣ
+as a power series centered at 0.
+This is very close to the function eˣ,
+and I already know how to write
+that one as a power series,
+so I'll begin with that.
+And this is true for all x.
+Then if instead of eˣ I want e⁻ˣ,
+all I have to do is replace
+x with - x everywhere,
+and I can use the same formula.
+This already looks like a power series.
+We can make it even more apparent
+if I separate the minus sign.
+And since the first one was true
+for all x, so is this one, and that's it.
+I got my new function written
+as a power series centered at 0.
+For the second example,
+I want to write this function, x³sinx²,
+as a power series centered at 0.
+Like before, I'm going to start
+with a function
+whose power series I already know,
+and in this case that would be sinx.
+And we know that this expansion for sine
+is true for any real number x.
+Now instead of sinx,
+I want to have sinx².
+Since this was true for all x,
+it will also be true when instead of x,
+I write x² everywhere.
+and x² to the 2n + 1 exponent
+can be simplified as x⁴ⁿ⁺².
+Now, that is almost the function
+I'm trying to write as a power series,
+except I need to multiply it times x³.
+But if I think of this
+as an infinite polynomial,
+the way to multiply by x³ is
+multiply it term by term,
+and x⁴ⁿ⁺² times x³ would simply be x⁴ⁿ⁺⁵.
+And that's it. That's how I write this
+function as a power series centered at 0.
+Finally, since the original expansion 
+was true for all x
+and what we've done is legal,
+this new power series is also equal
+to the function for any real number x.
+The third example is, I think,
+the most interesting one.
+I want to write this function, 1/x, 
+as a power series centered at 3.
+Not at 0, but at 3.
+Since it's not at 0, I'm going to begin
+by doing a change of variable.
+Why did I do that?
+With the power series centered at 3,
+we'll be writing the function in terms of
+powers of x - 3,
+and with this change of variable,
+what I call u = x - 3,
+I will just be writing powers of u.
+So effectively, I will be writing a
+power series centered at 0,
+and power series centered at 0
+are easier.
+We are more used to them. All the
+common examples we have are at 0.
+So, we find them easier.
+So first things first,
+if I'm going to do that,
+let me write 1/x in terms of u.
+If u = x - 3, x will be u + 3.
+And now I look at this function and it
+reminds me a little bit
+of the geometric series.
+So let's recall
+what the geometric series is.
+Here's how to write 1/(1 -  x)
+as a power series.
+So the first task is going to be to
+make this look a little bit like that.
+I'm going to factor a 3 in the
+denominator so I have a 1 instead of a 3.
+And that's looking better now.
+Now it's 1 over 1 plus something.
+I want 1 over 1 minus something.
+So let me multiply by -1 twice.
+There. Now it is ready to use the formula
+for the geometric series.
+So instead of x, I have to write -u/3.
+And I have been forgetting
+that I have an extra 1/3 all the time,
+so let me make sure I carry it.
+There is a 1/3 here,
+and there is a 1/3 here.
+And now this does look like
+a power series.
+I'm going to separate the -1,
+I'm going to enter this 3 into the sum,
+and finally,
+since I've done the hard part,
+I'm going to undo the substitution,
+and instead of powers of u,
+I will have powers of x -3.
+And that's it.
+I've succeeded at my goal,
+which was to write the function 1/x
+as a power series centered at 3.
+One more thing to do now.
+What's the domain for this expansion?
+The geometric series is only convergent
+when the absolute value of the variable
+is less than 1.
+So in this case, this will only work
+whenever the absolute value of the
+variable -u/3 is a smaller than 1.
+This is the same thing as saying that
+|u| is smaller than 3,
+or in other words |x - 3|
+has to be smaller than 3,
+so x must be between 0 and 6,
+which is an interval centered at 3,
+as it should be.

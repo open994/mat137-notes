@@ -1,0 +1,31 @@
+\begin{tikzpicture}
+  \begin{axis}[
+    width=11cm,
+    height=6.8cm,
+    axis lines=middle,
+    xmin=-4.2, xmax=4.2,
+    ymin=-4.2, ymax=4.2,
+    xlabel={$x$}, ylabel={$y$},
+    ticks=none,
+    clip=false,
+    legend style={draw=none, at={(0.02,0.98)}, anchor=north west}
+  ]
+    % f(x)=1/(x(x+1)) and decomposition 1/x - 1/(x+1)
+    \addplot[thick, color=thmcolor, domain=-4.2:-1.1, samples=400] {1/(x*(x+1))};
+    \addplot[thick, color=thmcolor, domain=-0.9:-0.1, samples=400] {1/(x*(x+1))};
+    \addplot[thick, color=thmcolor, domain=0.1:4.2, samples=400] {1/(x*(x+1))};
+    \addlegendentry{$\frac{1}{x(x+1)}$}
+
+    \addplot[dashed, color=defcolor, domain=-4.2:-0.1, samples=400] {1/x};
+    \addplot[dashed, color=defcolor, domain=0.1:4.2, samples=400] {1/x};
+    \addlegendentry{$\frac{1}{x}$}
+
+    \addplot[dashed, color=excolor, domain=-4.2:-1.1, samples=400] {-1/(x+1)};
+    \addplot[dashed, color=excolor, domain=-0.9:4.2, samples=400] {-1/(x+1)};
+    \addlegendentry{$-\frac{1}{x+1}$}
+
+    % Asymptotes x=0 and x=-1
+    \draw[dotted, color=black] (axis cs:0,-4.2) -- (axis cs:0,4.2);
+    \draw[dotted, color=black] (axis cs:-1,-4.2) -- (axis cs:-1,4.2);
+  \end{axis}
+\end{tikzpicture}

@@ -1,0 +1,256 @@
+In the next two videos
+I will present some methods
+for integrating products
+of trigonometric functions.
+Most calculus textbooks contain a section
+that explains how to integrate
+functions of this type:
+a product of a power of sine
+times a power of cosine,
+or a power of secant
+times a power of tangent,
+and sometimes even others.
+I want to try to explain where the
+different methods and tricks come from,
+so you don't have to memorize any of them,
+and so that every time
+you're faced with integrating
+a function that looks like this,
+or even of all the types,
+you can figure out on the spot how to do 
+it without having to resort to memory.
+And I'm going to begin with one example.
+I want to compute the antiderivatives
+of this function: sin⁵x cos²x dx.
+I'm going to try to do this
+with substitution.
+If I don't think much about it, there are
+at least two substitutions I could try.
+Since the function involves
+sines and cosines,
+perhaps I can try u = sinx,
+or perhaps I can try u = cosx.
+In this video I'm going to attempt both
+and see which one is better.
+Now, if I use sinx, of course I also
+need to transform the differential.
+du will be cosx dx.
+And luckily I do have a cosine,
+I have two.
+So one of them will be
+used for the differential,
+and then I have a second cosine left,
+and I need to transform it back into sines
+to be able to complete the substitution.
+I can use the main trig identity:
+sin²x + cos²x is always 1.
+So I will use one cosine
+for the differential,
+and with this identity I convert
+the other cosine into sine
+so I can complete the substitution.
+In my second attempt,
+I'm going to start using cosine as my
+new variable for the substitution,
+and then I need to change the
+differential. du will be -sinx dx.
+And again,
+I will need one sine 
+for the differential.
+We have five, 
+so I will be left with four.
+The other sines will be transformed
+into cosines using this identity.
+Which one will work best?
+Well let's find out.
+At this moment,
+I invite you to pause the video
+and try to compute this integral
+using both substitutions separately.
+If you do that,
+you will very quickly find out
+that one of them
+works much better than the other.
+See which one it is
+and then continue watching.
+First, I will attempt the substitution
+u = sinx.
+I'm going to need a cosine
+for the differential, and I have two.
+So I'm going to separate
+the one for the differential
+and leave the rest in the integrand.
+This is the cosine I need
+for the differential.
+Now everything else in the integrand
+I have to write it in terms of sine,
+because that's my substitution.
+The only thing I can think of here is
+let's use the main trig identity
+to convert this cosine into a sine,
+and that will look like this:
+cos²x is 1 - sin²x,
+so when I have a single cosine,
+this will be +/- √(1 - sin²x),
+and I still have this extra term here.
+Okay, there,
+now I can complete the substitution.
+This is +/-∫u⁵√(1 - u²)du.
+And I'll pause here for a moment.
+Let's forget the plus/minus for now.
+We would have to figure out what to
+do with it, but let's ignore it for now.
+I have introduced a square root,
+and the purpose of integration methods is
+always to transform the original integral
+into one that is easier to compute.
+And in this case,
+I've done the opposite.
+I don't think that ever
+introducing a square root is a good idea.
+So I'm going to declare this not helpful.
+Perhaps there is a way to complete the
+problem this way,
+but it doesn't look promising,
+because I ended up with something
+worse than what I started with.
+Since I have a second substitution
+I can try, I'm going to do that first
+and hope that the second substitution
+doesn't require me
+to include a new square root.
+I will now attempt the substitution
+u = cosx on the same function.
+I need to separate a sine
+for the differential, so let's do that.
+And to complete the substitution,
+I now need to make all the remaining sines
+to become cosines.
+Well, in this case
+it's easier than before.
+I now have sin⁴x,
+and sin⁴x can be written as (sin²x)².
+And now using the main trig identity,
+I can rewrite sin²x as 1-cos²x.
+And there.
+Here I can substitute now,
+because everything except for what I need
+for the differential
+is in terms of cosine.
+So after substituting, I get
+-∫(1-u²)²·u²·(du).
+And this was much better
+than in the previous example,
+because in order to substitute
+I didn't need to include any square roots.
+This new function is just a polynomial.
+Now I'm going to be able to finish it.
+I can take this polynomial and expand it,
+multiply it out,
+and then integrate it term by term.
+And after integrating term by term,
+I will be able to undo the substitution.
+So I won't finish it,
+but it should be clear
+that this is going to work better
+than my first attempt.
+We can summarize what we have learned,
+and we can get a little rule that tells us
+when each one of the two substitutions
+is useful.
+Let's say I want to compute
+an arbitrary integral of the form
+a certain power of sine
+times a certain power of cosine.
+When will the substitution sine and when
+will the substitution cosine help us?
+Well, if I try u = sinx,
+I'm going to need to get a cosine
+for the differential.
+So I separate one cosine out of here,
+and the remaining cosines
+I have to transform into sines
+using the main trig identity.
+For that to be easy, I want to have an
+even number of cosines, a multiple of 2.
+So after separating one cosine,
+I want an even number of cosines left.
+In other words,
+this is a good idea whenever m is odd.
+Similarly, if I want to try
+the substitution u = cosx,
+I'm going to need to separate one sine
+for the differential.
+And the remaining sines have to be
+converted back to cosines
+with this identity.
+For that to be simple,
+I want that after I separate one sine
+I have an even number of sines left.
+In other words, I need n to be odd.
+To finish this video, two comments.
+First, what happens if we want to perform
+an integral like this
+and both m and n are even?
+Well in that case, none of these
+substitutions is very helpful;
+none of them is a good idea.
+And we need to try something else.
+In the next video I will suggest a trick
+that can help in that situation.
+And second,
+this is not a formula to be memorized.
+If you understand the process
+I went through,
+every time you're faced
+with computing an integral like this,
+you can quickly do this in your head
+and determine which one
+of the substitutions, if any,
+is going to be helpful.
+And if you can do that,
+then now you can compute
+many more integrals then just these ones
+because there are other families
+of integrals
+for which the same ideas
+are going to apply.
+For example,
+let's say that we want to compute 
+these three integrals.
+They're all functions of the form a
+power of secant times a power of tangent.
+Secant and tangent are related
+the same way that sine and cosine are
+because their derivatives can be written
+in terms of each other.
+So following the same ideas in this video,
+to compute these three integrals
+there are two substitutions
+ I may want to try.
+Perhaps I want to use a substitution
+u = secx,
+or perhaps I want to use the substitution
+u = tanx.
+The derivative of secant is secx·tanx,
+and the derivative of tangent is sec²x.
+So when will the
+first substitution help,
+and when will the
+second substitution help?
+Like for sine and cosine, there's a
+trig identity here I need to use as well,
+sec²x = 1 + tan²x,
+that allows me to convert
+secants into tangents and vice versa.
+So can you use the same methods
+of this video
+and figure out which one
+of these two substitutions, if any,
+will help with each one
+of those three integrals?
+That is your challenge.
+In the next video, I will continue
+with integrals of this form,
+and explain what to do
+when both n and m are even.

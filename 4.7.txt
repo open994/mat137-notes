@@ -1,0 +1,41 @@
+What is the derivative of
+the natural logarithm?
+The goal of this video is to obtain a
+formula for the derivative of ln(x).
+We already know that
+the derivative of eˣ is itself.
+But how can this help me?
+Exponentials and logarithms
+are INVERSES of each other,
+so I know that eˡⁿ⁽ˣ⁾ = x,
+FOR ALL positive numbers x.
+This is helpful because it is a relation
+between the two functions.
+If I now take the
+derivative of both sides,
+I will get a relation between
+the derivative of the exponential,
+and the derivative of the logarithm.
+These two expressions are equal, so
+their derivatives must be equal as well.
+On the left-hand side,
+I have the derivative of e
+to the power of a function.
+By chain rule,
+that will be itself, multiplied by
+the derivative of the exponent.
+And on the right-hand side,
+I simply get "1".
+Great! Look--this is
+the piece I am looking for.
+Before solving for it,
+I can re-write eˡⁿ⁽ˣ⁾ as "x".
+And finally,
+I solve for the piece I want.
+The derivative of ln(x),
+with respect to x, = 1/x,
+and that’s my final answer.
+Notice that this same trick can be used
+to find the derivative of ANY function,
+IF we know the derivative of
+its INVERSE function first.

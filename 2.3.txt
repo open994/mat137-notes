@@ -1,0 +1,137 @@
+This is the last of three videos
+about the notion of limit.
+It is not a formal definition YET;
+I am only presenting
+the GEOMETRIC INTUITION
+behind the concept of limit.
+In the first video, I presented examples
+of functions that had a limit.
+In the second, of limits
+that did not exist.
+And in this third video,
+I will look at side limits.
+Here is my last example: Example 5.
+It's the function G,
+defined by the equation
+G(x) = (x^2 + x) ÷ |x|.
+G(0) is undefined.
+So I'm going to study whether 
+this function has a LIMIT at 0 or not;
+when x is very close to 0,
+is G(x) very close to a number?
+The best way to deal
+with an absolute value
+is probably to break it into cases
+depending on whether
+the thing INSIDE the absolute value
+is positive or negative.
+In this case, when x is greater than 0,
+then the absolute value of x is simply x.
+And I can simplify
+the expression for G(x).
+It will be (x ⋅ (x + 1)) ÷ x;
+that simplifies to x + 1.
+And similarly, when x is LESS than 0,
+the absolute value of x is -x,
+and G(x) simplifies
+as (x ⋅ (x + 1)) ÷ (-x),
+or simply -x - 1.
+So these are the two expressions for G,
+and each one of them
+is the equation of a line; 
+I recognize them.
+So I know what the graph is going
+to look like: something like this.
+Now that I have the graph,
+let's forget about the algebra,
+and let's look at the graph only.
+If x is very close to 0,
+is G(x) very close to one single number?
+I'm afraid not.
+I'm going to have to say
+"the limit does not exist,"
+because when x is close to 0,
+G(x) is sometimes close to 1,
+and sometimes close to -1.
+It should be one single number
+for the limit to exist,
+so this limit does NOT exist.
+But it does not exist
+in a very specific, controlled way.
+Because when x is close to 0,
+G(x) is very close to EITHER 1 or -1,
+DEPENDING 
+on whether x is positive or negative.
+So let's give a name to this phenomenon.
+I'm going to say that
+the limit as x approaches 0 on the RIGHT
+is 1.
+And I'm going to denote it
+with THIS equation,
+where I have put a plus (+)
+as a SUPERSCRIPT of the 0.
+And I'm going to say that
+the limit as x approaches 0 on the LEFT
+is -1,
+and I'm going to denote it
+with THIS equation,
+where I have put a MINUS (-)
+as a superscript of the 0.
+What does this mean?
+Well roughly speaking, it means that
+if x is very close to 0 but GREATER,
+then G(x) is very close to 1.
+And if x is very close to 0 but SMALLER,
+then G(x) is very close to -1.
+So the limit does not exist,
+because G(x) is not close
+to one single number,
+but does not exist
+in this VERY SPECIFIC way.
+And I'm going to call these two objects
+the "side limits."
+To conclude, let's summarize
+all the types of examples I've seen
+in these three videos
+of different ways that a function
+may or may not have a limit.
+The limit of a function at a point
+may or may not exist.
+When we say "the limit exists,"
+this means it is A SINGLE NUMBER;
+if x is very close to a but not a,
+then f(x) is very close to L.
+The typical example will look
+like the one in this graph,
+where it's a nice function
+that, at the point, simply has a hole.
+Notice that it DOESN'T matter
+whether the function is NOT defined
+at the point in question,
+or it IS defined and has, so to speak,
+the "wrong" value,
+or it is defined with the "right" value.
+All those count as "the limit exists."
+If this doesn't happen,
+we say that the limit does NOT exist.
+And the limit may not exist
+in different ways.
+Perhaps it doesn't exist,
+because the limit is infinity;
+the function grows arbitrarily large
+near this point,
+like the one in this graph.
+Or perhaps it is -∞,
+or perhaps the two side limits exist
+but they have different values,
+like in this case.
+Or perhaps something else,
+like the one in this graph.
+In this case, the limit does not exist
+because near the point,
+the function oscillates wildly.
+All those are different ways
+in which the limit doesn't exist,
+because as x approaches a,
+f(x) is not approaching 
+one single number.

@@ -1,0 +1,31 @@
+\begin{tikzpicture}[>=Latex]
+  % Rectangle with sides u and v, showing small increments du and dv
+  \def\u{4}
+  \def\v{2.5}
+  \def\du{0.9}
+  \def\dv{0.6}
+
+  % Base rectangle uv
+  \path[fill=excolor, fill opacity=0.12] (0,0) rectangle (\u,\v);
+  \draw[thick, color=thmcolor] (0,0) rectangle (\u,\v);
+
+  % Extra strips for du and dv
+  \path[fill=defcolor, fill opacity=0.12] (\u,0) rectangle (\u+\du,\v);
+  \path[fill=defcolor, fill opacity=0.12] (0,\v) rectangle (\u,\v+\dv);
+  \path[fill=defcolor, fill opacity=0.06] (\u,\v) rectangle (\u+\du,\v+\dv);
+  \draw[thick, color=defcolor] (0,0) rectangle (\u+\du,\v+\dv);
+
+  % Labels
+  \draw[<->] (0,-0.6) -- node[below] {$u$} (\u,-0.6);
+  \draw[<->] (\u,-0.6) -- node[below] {$du$} (\u+\du,-0.6);
+
+  \draw[<->] (-0.6,0) -- node[left] {$v$} (-0.6,\v);
+  \draw[<->] (-0.6,\v) -- node[left] {$dv$} (-0.6,\v+\dv);
+
+  \node at (\u/2,\v/2) {$uv$};
+  \node[color=defcolor] at (\u+\du/2,\v/2) {$v\,du$};
+  \node[color=defcolor] at (\u/2,\v+\dv/2) {$u\,dv$};
+  \node[color=defcolor] at (\u+\du/2,\v+\dv/2) {$du\,dv$};
+
+  \node[align=left, anchor=west] at (\u+\du+0.4,\v+\dv) {product rule intuition:\\$d(uv)=u\,dv+v\,du$ (ignoring $du\,dv$)};
+\end{tikzpicture}

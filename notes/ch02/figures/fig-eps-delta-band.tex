@@ -1,0 +1,36 @@
+\begin{tikzpicture}
+  \begin{axis}[
+    width=11cm,
+    height=6.2cm,
+    axis lines=middle,
+    xmin=0.4, xmax=1.6,
+    ymin=0.5, ymax=2.3,
+    xlabel={$x$}, ylabel={$y$},
+    ticks=none,
+    clip=false
+  ]
+    % Example: f(x)=x^2, a=1, L=1
+    \addplot[thick, color=thmcolor, domain=0.45:1.55, samples=200] {x^2};
+
+    \def\a{1}
+    \def\L{1}
+    \def\eps{0.25}
+    \def\del{0.12}
+
+    % epsilon band
+    \draw[dashed, color=defcolor] (axis cs:0.4,\L+\eps) -- (axis cs:1.6,\L+\eps);
+    \draw[dashed, color=defcolor] (axis cs:0.4,\L-\eps) -- (axis cs:1.6,\L-\eps);
+    \node[color=defcolor, anchor=west] at (axis cs:1.62,\L+\eps) {$L+\varepsilon$};
+    \node[color=defcolor, anchor=west] at (axis cs:1.62,\L-\eps) {$L-\varepsilon$};
+
+    % delta window
+    \draw[dashed, color=excolor] (axis cs:\a-\del,0.5) -- (axis cs:\a-\del,2.3);
+    \draw[dashed, color=excolor] (axis cs:\a+\del,0.5) -- (axis cs:\a+\del,2.3);
+    \node[color=excolor, anchor=north] at (axis cs:\a-\del,0.5) {$a-\delta$};
+    \node[color=excolor, anchor=north] at (axis cs:\a+\del,0.5) {$a+\delta$};
+
+    % mark (a,L)
+    \addplot[only marks, mark=*, mark size=1.7pt, color=black] coordinates {(\a,\L)};
+    \node[anchor=south west] at (axis cs:\a,\L) {$(a,L)$};
+  \end{axis}
+\end{tikzpicture}

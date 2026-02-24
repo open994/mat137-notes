@@ -1,0 +1,162 @@
+In this video, I will write two proofs
+for the same theorem.
+The two proofs are completely different,
+but they're both equally valid.
+Here's the theorem.
+I want to show that the sum
+of the first n positive integers,
+1 + 2 + 3 + ... + n , 
+equals (n ⋅ (n + 1)) ÷ 2.
+And I want to show this is true
+for EVERY positive integer n.
+I like this theorem
+because we have a CHOICE
+on how to prove it.
+The statement depends
+on a positive integer n,
+and therefore, 
+this is a good candidate for induction.
+And in fact, there is a nice short proof
+by induction that works very well;
+that will be my second proof.
+But we ALSO can do a nice DIRECT proof
+without using induction at all.
+That's going to be my first proof.
+I'm going to give a name to this sum.
+I'm going to call it S_n.
+So S_n = 1 + 2 + 3 + ... + n.
+And underneath, 
+I'm going to rewrite the SAME sum
+but I'm going to REVERSE the order
+of the terms, starting at n.
+So S_n can also be written
+as n + (n - 1) + (n - 2) + ... + 1.
+And then, the trick is going to be
+to ADD both lines.
+On the left hand side,
+I'm going to have S_n + S_n,
+which is 2 ⋅ S_n.
+And on the right hand side,
+let's group the terms.
+1 + n 
+is n + 1.
+2 + (n - 1)
+is ALSO n + 1.
+3 + (n - 2)?
+That is ALSO n + 1.
+And all the other PAIRS of terms,
+when I group them this way,
+add up to n + 1 as well.
+This is a nice surprise:
+I have a total of n terms,
+and every term is n + 1.
+So 2 ⋅ S_n must be n ⋅ (n + 1),
+which means that S_n
+is equal to (n ⋅ (n + 1)) ÷ 2,
+which is exactly what I wanted to show,
+and we are done!
+Notice that THIS was a DIRECT proof;
+there was no induction or anything else.
+The proof works fine
+for ALL values of n at once.
+I didn't assume ANYTHING at all;
+I simply used ALGEBRA
+without assuming anything,
+and ended up concluding
+what I wanted to prove.
+Now, if we prefer, we can also try
+to do a proof by induction.
+It's a statement that depends on n,
+so it's prepared for it.
+That's going to be my second proof.
+I have written explicitly
+that this is a proof by induction,
+since otherwise my reader
+will not know what I am doing.
+Like ALL proofs by induction,
+it has two parts.
+First is the base case.
+For this theorem, it's n = 1.
+When n = 1, 
+what do I need to show?
+That the sum
+of the first 1 positive integers
+-- that's just 1 --
+is equal to this expression 
+when n = 1.
+Let's simply write that down.
+And yes, this is true. 
+Just check the calculation.
+The induction step
+will be more interesting.
+First, I will FIX a positive integer n.
+And then for THAT value of n,
+what I need to do
+is ASSUME this equation is TRUE
+for THAT value of n, and try to prove
+that the equivalent equation
+when I use n + 1 instead of n
+is ALSO TRUE.
+So I am assuming
+that (1 + 2 + 3 + ... + n)
+is equal to (n ⋅ (n + 1)) ÷ 2,
+and I want to show
+that the same expression is true
+when instead of n, I put n + 1.
+So on the left hand side,
+it would be 1 + 2 + 3 + ... + (n + 1),
+and on the right hand side
+it will be this fraction
+when I use n + 1 instead of n.
+Now, how do I go
+from this equation to this equation?
+What I can notice is that
+in the second sum,
+what I have is the same
+as the first sum plus an extra term.
+And that's it! 
+That's all I need to notice.
+So I'm going to write
+that 1 + 2 + 3 + ... + (n + 1)
+can be broken
+as the sum of the first n terms
+plus (n + 1).
+And now, I simply get
+to use my assumption.
+By induction hypothesis,
+I can rewrite 
+the sum of the first n terms
+as (n ⋅ (n + 1)) ÷ 2.
+And the rest is algebra; 
+all I need to do
+is reduce to common denominator,
+and add up the two fractions.
+And I managed to prove
+exactly what I wanted to show.
+So that completes the proof.
+There we have it!
+Two very different proofs
+for the same theorem.
+To summarize, we wanted to prove
+that this equation was true
+for all positive integers n.
+The first proof was a direct proof;
+we managed to find a trick
+that allowed us to prove it
+for ALL values of n at once.
+The second proof
+was a proof by induction.
+I only proved it
+for one value of n, n = 1.
+But then I also proved
+that IF the equation was true
+for one value of n,
+THEN it MUST be true
+for the NEXT value of n.
+And those two things together
+imply that the equation is true
+for ALL positive integers n.
+Which proof is better?
+They're both equally valid,
+so it's a matter of taste.
+Which one do YOU prefer?

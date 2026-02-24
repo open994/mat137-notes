@@ -1,0 +1,193 @@
+Proof by induction
+is a type of proof
+that works particularly well
+for certain theorems.
+I will explain it with an example.
+I want to prove
+that for every natural number n
+greater than or equal to 4,
+n! is greater than 2^n.
+If I only wanted to prove this
+for one value of n,
+for example for n = 4, 
+it would be very easy.
+Just do the calculation and check it.
+But I have infinitely many values,
+so I CANNOT do it one by one.
+If I had a way to prove it
+for ALL values of n at once,
+I would do that; 
+it would probably be the fastest.
+But I can't think
+of how to do that in this case.
+So instead, I'm going to try
+to write a proof by induction.
+I'm going to call the inequality,
+the thing I want to prove, "S_n."
+This is just so I can refer to it easily.
+And in general,
+proof by induction
+is well-suited for certain theorems
+that depend on a natural number,
+like this one.
+Here is the structure
+of a proof by induction.
+It has two steps.
+The first one is called the "base case."
+I need to prove S_n
+for the smallest value of n
+-- in this case, 4.
+So I just need to prove S_4.
+The second step is the "induction step."
+I need to prove that for every n
+greater than or equal to 4,
+S_n implies S_(n+1).
+So that means I'm going to be proving
+that S_4 implies S_5,
+S_5 implies S_6,
+S_6 implies S_7,
+and so on.
+And I don't need to do anything else.
+So, I need to prove the statement
+for one value of n, n = 4,
+and then I need to prove
+a bunch of implications.
+To be clear,
+in the induction step
+I am NOT proving S_n
+and I am NOT proving S_(n+1).
+I am ONLY proving
+that one statement, S_n,
+implies another statement, S_(n+1).
+So in this case,
+I will be proving
+that one inequality
+implies another inequality.
+By itself,
+the induction step doesn't tell me
+whether ANY of the statements are true.
+If I ONLY prove the induction step,
+it would still be possible
+for ALL the S_n's to be FALSE.
+However, when I prove BOTH the base case
+AND the induction step,
+what can I conclude?
+Well, because I've proven the base case, 
+I know S_4 is true.
+And then, 
+because I've proved an induction step,
+I know that S_4 implies S_5,
+so S_5 is also true.
+I know S_5 implies S_6,
+so I know S_6 is also true.
+I know S_6 implies S_7,
+so I know S_7 is also true.
+And so on.
+And I will have proven the statement
+for all values of n, as I wanted.
+To summarize once more,
+I proved the statement for ONE value of n 
+-- that's it --
+and then I proved
+a BUNCH of implications,
+and the two things together
+are enough to conclude
+that the statement is true
+for all values of n.
+Enough introduction.
+Let's write down the proof.
+I'm going to write a proof by induction,
+but my reader doesn't know it
+and my reader CANNOT read my mind, 
+so I should mention that explicitly.
+First is the base case.
+In this case, what I need to do
+is prove the inequality when n = 4.
+Well that should be easy;
+let's just do the calculation.
+4! = 24, and 2^4 = 16.
+Done. That works.
+Next is the induction step.
+This is the more interesting one.
+What I need to do is, for every n,
+prove that S_n implies S_(n+1).
+So this should be for every n
+greater than or equal to 4.
+So the FIRST thing I need to do
+is FIX a value of n,
+otherwise nothing will make sense,
+and it must be arbitrary.
+So I write, 
+"let n be greater than or equal to 4,"
+which means I am fixing
+an arbitrary value of n 
+greater than or equal to 4,
+and then I need to prove an implication.
+I need to ASSUME the inequality with n,
+and I need to PROVE the same inequality
+when I put n + 1 instead of n.
+I assume that n!
+is greater than 2^n,
+and I WANT to show
+that (n + 1)!
+is greater than 2^(n + 1).
+Now, how do I prove this inequality
+when the only thing I'm allowed to use
+is this other inequality?
+I know how to relate (n + 1)! with n!,
+because (n + 1)! is (n + 1) ⋅ n! .
+And I also know
+how to relate 2^(n + 1) with 2^n,
+because 2^(n + 1) is 2 ⋅ 2^n.
+I am trying to prove
+that THIS is greater than THAT.
+Well I know that n! is greater than 2^n,
+so if I multiply this inequality 
+by n + 1,
+I can conclude that (n + 1) ⋅ n!
+is greater than (n + 1) ⋅ 2^n.
+And HERE, in this step,
+is where I have USED my assumption,
+the inequality 
+that I'm assuming is true for n.
+This is called
+the "induction hypothesis."
+And it's good to indicate
+in a proof by induction
+when we use the induction hypothesis.
+So now, can I also conclude
+that THIS is greater than THIS?
+Well yes,
+because I have 2^n in both cases,
+and n + 1 is definitely greater than 2,
+because since n 
+is greater than or equal to 4,
+then n + 1 is greater than 2.
+And that's it, because now
+I have managed to prove
+that (n+1)! is greater than 2^(n+1),
+which is exactly what I wanted to show!
+And in order to prove that,
+I had to USE 
+that n! was greater than 2^n.
+So this completes the proof.
+To conclude,
+I want to address
+a common misunderstanding
+of what a prove by induction is.
+The induction step does not consist
+of proving the statement for n + 1.
+It consists of proving
+that the statement for n
+IMPLIES the statement for n + 1;
+it's an implication.
+going back to how I set it up here,
+I've only proven the statement
+for one value: for 4.
+I have NOT proven it for n.
+I have NOT proven in for n + 1.
+I have just proven it for 4,
+and then I have
+proven a BUNCH of implications:
+that IF the statement is true for n,
+THEN the statement is true for n + 1.

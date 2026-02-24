@@ -1,0 +1,177 @@
+In this video I will explain the notions
+of antiderivative and indefinite integral.
+There are two different things
+that we call integrals.
+We use very similar notation,
+but they mean something very different.
+The first one is the one we already know:
+the definite integral.
+The integral from a number a
+to a number b of a function f.
+We already learned the formal definition
+of it - it's quite complicated -
+but ultimately the definite integral
+is a number,
+and it represents area, geometrically.
+The new concept, what we are going to call
+indefinite integral, is written similarly:
+the integral of f(x)dx, but now
+I don't say from where to where.
+I don't say from a to b,
+and this is something new.
+Here's how we define it: I begin with
+a function f defined on an interval.
+We only take integrals over an interval.
+I'm going to say that 
+an antiderivative of f
+is any other function 
+whose derivative is f.
+So I give you a function f,
+and I ask you it's the derivative of what.
+Notice that I say "an" antiderivative,
+because in general, 
+there will be more than one.
+Every function can only have one
+derivative, if it has one,
+but it can have many antiderivatives.
+And the collection of all the
+antiderivatives
+is what we are going to denote
+with these symbols.
+That's what the indefinite integral means.
+So these two things are different.
+The definite integral is a number;
+the indefinite integral
+is a collection of functions.
+The definite integral means area,
+whereas the indefinite integral
+means antiderivative.
+A priori, these two things
+have nothing to do with each other.
+They are completely different
+and separated.
+But we use very similar notation,
+and that's because they are related.
+They are related by the fundamental
+theorem of calculus
+that will come in a few videos.
+But for now, at this level,
+there are two separate things.
+Let's see with an example
+how to compute this.
+As an example I want to calculate
+the integral of x² dx.
+So I want to find all the antiderivatives
+of the function x².
+I can guess because
+this function is simple enough,
+and I can guess that the function 1/3x³
+will work, will be an antiderivative.
+And I can check that, because the
+derivative of 1/3x³ is 1/3(3x²) or x².
+It works.
+And of course, if this function works,
+if I add a constant, it will also work,
+because the derivative of a constant
+is zero.
+So for any constant C, the function
+1/3x³ + C is also an antiderivative.
+And we are done. That's all of them.
+Because I recall,
+there was a consequence of the mean value
+theorem
+that we proved in an earlier video,
+that said that if two functions
+have the same derivative on an interval,
+then they must differ by a constant.
+So what that means is that once 
+I have found one antiderivative,
+any other one must be the first 
+one I found plus a constant.
+If we didn't have this little result,
+I could only say that I found a bunch
+of antiderivatives, but not all of them.
+But now I have found all of them.
+So in conclusion,
+the integral of x²dx is 1/3x³ + C.
+There is a bunch of so-called
+integration techniques
+which are methods to try to compute
+antiderivatives easily,
+but by far the most important
+integration technique is guess and check.
+Which means literally that:
+make a guess for what you think the
+antiderivative should look like,
+check if it works,
+and modify it as necessary.
+I'm going to illustrate this
+with an example.
+I want to compute the integral of
+(2x + 7)^11 with respect to x.
+So I'm looking for a function
+whose derivative is this: (2x + 7)^11.
+Well since I know the power rule,
+this makes me think of the twelfth power
+of 2x + 7,
+because I know the derivative
+will be similar to this.
+And I know it's not going to work exactly,
+but hopefully it will come close
+and then I can fix it.
+So I will begin by trying (2x + 7)^12,
+and its derivative is [12(2x + 7)^11]·2
+- chain rule - or 24·(2x + 7)^11.
+So it's the function I wanted,
+but with an extra 24.
+I can fix that if I take the function
+I tried and I divide it by that 24.
+That will work because now the derivative
+is 1/24·24(2x + 7)^11, or (2x + 7)^11.
+It worked.
+So I found a function whose derivative
+is what I wanted,
+and therefore the integral of
+(2x + 7)^11 dx is 1/24(2x + 7)^12 + C.
+We're done.
+This method, even though it seems
+very rudimentary, is very powerful,
+and there are a lot of functions whose
+antiderivatives you can compute this way.
+In fact, all the integration techniques
+you will learn -
+substitution, integration by parts,
+and so on -
+are just sophisticated guessing and
+checking
+that make the guessing part easier.
+Now it's your turn - now you try it.
+Here is a collection of antiderivatives
+that I have chosen
+that you can solve entirely
+by guess and check.
+You don't have to use anything else
+more sophisticated,
+just guess and check will do.
+At this moment,
+if you were reading a calculus textbook,
+you would probably be presented with
+a table of elementary antiderivatives,
+which is a bunch of formulas.
+But my point is that you don't need
+those formulas;
+if you know the differentiation rules,
+you understand with an antiderivative is,
+and you are comfortable with guess and
+check,
+you can solve all these questions
+without having to memorize anything new.
+And isn't that a much better
+way of doing it?
+So I urge you to try to solve these
+questions without looking up anything.
+And the nice thing is that
+since you can check your answers
+by taking their derivatives,
+you will know
+whether they're right or not.

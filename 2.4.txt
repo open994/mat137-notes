@@ -1,0 +1,118 @@
+This video is a short preparation
+for the formal definition of limit.
+I want to explain how to use 
+absolute values and inequalities
+to think about distances,
+both using geometry and algebra.
+This will be necessary 
+to understand the definition of "limit."
+First, let's recall
+the basics of absolute value.
+The best way 
+to define absolute value algebraically
+is by breaking it into two cases:
+the absolute value of real number x (|x|)
+is itself (x) when it's positive,
+and minus itself (-x) if it's negative.
+We need to include 0
+in one of the two cases;
+it doesn't matter which one.
+If you need to solve an equation
+or an inequality algebraically,
+normally, the best way
+is to break it into cases
+by using this definition.
+But it's also helpful
+to think of absolute value geometrically.
+And geometrically, I'm going to say
+that the absolute value of x
+is the DISTANCE between x and 0.
+And more generally,
+if I have two real numbers x and a,
+the absolute value of x - a (|x - a|)
+is the distance between x and a.
+And finally,
+a couple of properties of absolute value
+that we know and use often:
+absolute value of the product
+of two real numbers
+is the product of their absolute values.
+That's #1. 
+But the same is NOT true for the SUM.
+Instead, inequality #2 here
+is the triangular inequality.
+That comes in handy very often.
+Now, let's move
+to the most important part of the video.
+What do I want to do
+with absolute values?
+When we try
+to write a definition of limit,
+we often need to talk
+about numbers being close to each other.
+And the way we do that
+is with inequalities like this one:
+"the absolute value of x - a (|x - a|) 
+is less than delta (δ),"
+where ALL the variables are real numbers,
+and δ is positive.
+My goal is to explain
+many equivalent ways
+to write this expression.
+First, let's interpret it.
+According to what I said that
+the absolute value means geometrically,
+this inequality means
+that the distance between x and a
+is smaller than δ.
+So whenever you want to think
+that the distance between x and a
+is smaller than δ,
+you can EQUIVALENTLY write it
+as |x - a| < δ.
+But this inequality
+includes an absolute value,
+and algebraically,
+sometimes this is hard to handle.
+We can get rid of the absolute value
+by doing the following:
+saying that the absolute value
+of a number is smaller than δ
+is the SAME thing as saying
+that the number is between -δ and δ.
+So these two lines
+are entirely equivalent.
+But in the last one,
+I now have two inequalities
+instead of one,
+but the absolute value is gone.
+And that normally
+makes the algebra easier.
+I can also try to isolate x
+by adding a to all the terms.
+So saying that x - a is between -δ and δ
+is equivalent to saying
+that x is between a - δ, and a + δ.
+And once I have it this way,
+I like to think of this picture:
+that x is in the interval
+between a - δ, and a + δ,
+not including the endpoints.
+What do we need to remember
+out of all of this?
+This is how we are going to try
+to formalize what it means
+for numbers to be close.
+And every time you see
+one of these inequalities,
+you can immediately convert it
+to the other equivalent inequalities,
+or to the geometric interpretation,
+or to this picture.
+And if you are able to do that;
+if you're able to move back and forth
+between all these equivalent statements,
+and you understand
+WHY they are equivalent,
+then you are ready to learn
+the formal definition of limit.

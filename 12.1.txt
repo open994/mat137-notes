@@ -1,0 +1,155 @@
+In this video, I will explain
+what an improper integral is,
+I will give the definition,
+and an example.
+One type of improper integral
+is any integral of this form:
+The integral from a number a to infinity.
+Before we can even try to compute
+something like this,
+we need to decide what does it even mean
+to integrate a function
+all the way to infinity.
+We need a definition, and I will
+motivate the definition with an example.
+In this example, I want to compute
+the integral from 0 to infinity
+of 1/(1+x²)dx.
+Geometrically, it represents this area:
+the area between the x-axis and this
+graph starting at x = 0
+and then going all the way to infinity.
+And the first thing to notice is that
+I don't even know
+what this is supposed to mean yet.
+For all I know, this doesn't make sense.
+I know how to integrate a function
+between two numbers a and b,
+and we know when that's guaranteed
+to be integrable or not,
+but what does it mean
+to integrate between 0 and infinity?
+My first task is to figure out
+what that means.
+I'm going to try to appeal to your
+geometric intuition
+to give a possible interpretation of it,
+and after computing this example
+I will define in general what it means
+to integrate between 0 and infinity.
+As I was saying, while I can't
+integrate between 0 and infinity,
+I can integrate between 0
+and any other number b.
+So if I stop at this point,
+I know how to compute this area.
+And that would be the integral
+between 0 and b of the same function.
+Then what I can do is, well,
+I cannot plug in b = ∞,
+but I can then take b and make it
+bigger and bigger and bigger;
+in other words,
+I can make b approach infinity.
+Or what's the same, I can take the limit
+as b approaches infinity of this quantity.
+Well, that's a limit
+I can try to compute.
+I don't know whether it will exist,
+perhaps it does, perhaps it doesn't,
+but at least this is something
+that makes sense geometrically,
+and this is how I'm going to choose
+to define any integral like this.
+I'm going to finish this computation,
+and then I will write
+a general definition of
+an integral between
+a number and infinity.
+First I have to calculate the integral,
+then take the limit.
+To compute this integral I find an
+antiderivative of 1/(1+x²),
+that is arctan(x),
+and then I have to evaluate at b
+and at 0.
+So this is this limit.
+We know the arctangent of 0 is 0,
+and then arctangent has a limit
+when the variable goes to infinity,
+which happens to be pi/2.
+Okay, so I was not expecting that,
+but here's the answer.
+The area between the axis and this curve,
+going all the way to infinity, is pi/2.
+Now let's take what I did in this example
+and let's generalize it.
+I'm going to use the same idea
+to define in general
+what it means to write an integral
+between a number and infinity.
+We are ready for a definition.
+This type of integral is called in some
+books an improper integral of type 1.
+I don't really care about the name.
+The problem of this integral is that
+the domain goes all the way to infinity;
+it's unbounded.
+So how do we define it?
+I have a real number a
+and I begin with a function f
+that is continuous from a to infinity,
+a is included.
+And then I want to define
+the integral of f from a to infinity.
+We're going to define it
+like in the previous example.
+First, for any real number b > a,
+I can compute the integral from a to b
+(that will be a number),
+and now I get a function
+that depends on b.
+And then I take the limit
+as b approaches infinity.
+Why is this a good definition?
+Since f is continuous from a to infinity,
+it will also be continuous from a to b,
+and therefore we know it's integrable.
+So from a to b, the integral always exists
+for any b > a.
+The second step, the limit,
+may or may not exist,
+so we're going to say that this is
+the integral assuming the limit exists.
+And that's why I require the function
+to be continuous.
+It's the easiest way to guarantee that it
+is integrable from a to b for every b > a.
+We will also say that this integral is
+convergent whenever the limit exists.
+And when it doesn't,
+we say the integral is divergent,
+which means simply the integral
+is not well-defined, it's not a number.
+Converent means it is a number,
+divergent could mean that it is infinity,
+or minus infinity, or any other reason
+why the limit does not exist.
+Now that we have a definition,
+we can compute lots of examples.
+In the next few videos,
+I will compute these four.
+I invite you to try to compute them
+before watching the answer
+in the corresponding videos.
+The first three are similar to this,
+but the last one is different.
+It is improper in a different way
+that I haven't explained yet,
+and I have yet to define.
+But the challenge is
+to try to figure out
+what is wrong or different about that
+integral and how it should be defined
+before watching the answer
+in the corresponding video.

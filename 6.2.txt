@@ -1,0 +1,160 @@
+A related rates problem is an application
+of calculus to a physical situation
+where we have multiple quantities that
+depend on each other or on time,
+and we need to find a relation between
+their derivatives.
+Here's an example of
+a related rates problem.
+A prisoner is trying to escape at night.
+He runs in a straight line towards
+the wall of the prison.
+A guard points a spotlight
+at the prisoner.
+The spotlight is on the ground,
+30m away from the wall.
+The prisoner is 1.8m tall and
+weighs 85kg.
+How fast is the height of the shadow on
+the wall changing
+when the prisoner is 20m away from
+the wall and running at 8m/s?
+I invite you to pause the video and try
+to solve this problem.
+Even if you cannot fully solve it,
+if you spend some time trying to
+understand the statement,
+drawing a picture, understanding what it
+is asking, and getting started,
+my explanation will be much more useful.
+First, we need to model the problem.
+That is, we will take the word problem
+and transform it into a math question.
+I'll begin by drawing a picture.
+Let's say that this is the
+ground and here is the wall.
+The prisoner is running towards the wall,
+so let's put the prisoner maybe here,
+and the spotlight is here.
+And the light is pointing towards 
+the prisoner,
+and then it's producing
+a shadow on the wall,
+so all of this is going to be the shadow.
+Now let's take the data from the statement
+of the problem and add it to the picture.
+First, we know that the distance between
+the light and the wall is 30m.
+I'm going to call this a,
+and we know that a is 30m.
+And we also know the height of the
+prisoner; I'm going to call it h.
+h is 1.8m, so this is not at scale.
+And I know that these two quantities are
+constant. They don't depend on time.
+But I do have a few other quantities
+that depend on time.
+As the prisoner is running, the position
+of the prisoner is going to change,
+and the height of the shadow
+is going to change as well.
+In fact as the prisoner
+gets closer to the wall,
+I expect the height of the shadow to
+decrease, to become smaller.
+So, let's give names to these two things.
+I'm going to call the height of the
+shadow, which is this, y,
+and I'm going to call the position of
+the prisoner x,
+and what I know is that x and y
+depend on time.
+Now what do we want to compute?
+We want to find out how fast is the
+height of the shadow on the wall changing.
+That is, what I want is the derivative of
+y with respect to t, with respect to time.
+And I want to find this at a moment when -
+let's see what's the data I have -
+when the prisoner is 20m away from the
+wall,
+so the distance from the prisoner
+to the wall is 20m.
+But since a was 30m,
+that means that x is 10m,
+so at a time when x is 10m
+and the prisoner is running at 8m/s.
+The velocity of the prisoner is the
+derivative of its position,
+so that is dx with respect to t is 8m/s.
+Now I need a relation between the
+derivative of y and the derivative of x.
+I can get one if I first get a relation
+between y and x.
+Luckily I can do that,
+because I notice that here I have
+two right triangles that are similar.
+I have the triangle with
+height h and base x,
+and then I also have the triangle with
+height y and base a, and they are similar.
+So by similar triangles,
+I can get the equation that says that h/x
+is going to be equal to y/a.
+And that completes the setup.
+I have finished the modelling part;
+I have everything I need.
+I figured out which quantities were
+constant
+and which quantities depended on time,
+what it is that I'm looking for
+and the data I have,
+and finally the relation
+between all the variables.
+The rest is calculations.
+Now that the problem is modelled, we can
+pretty much forget where it came from
+and solve the new calculus question
+by taking derivatives.
+I have a relation between x and y, and I
+want a relation between their derivatives.
+I will obtain that by differentiating this
+equation implicitly with respect to time,
+so let's do that.
+Here is the equation, and the derivative
+of the left-hand side
+is going to be equal to the
+derivative of the right-hand side.
+Now remember that in this problem
+h is a constant, so it comes out,
+and I need the derivative of 1/x;
+using the chain rule, that is -1/x²,
+times its derivative with respect to time.
+On the other side, a is a constant, it
+comes out, and I'm left simply with dy/dt.
+And now I can solve for the quantity
+I was looking for, which is dy/dt.
+And that comes out to be -ah/x²·dx/dt.
+So now let's see if I have all the
+variables to substitute in here.
+I know the values of a and h,
+they are constant,
+and at the instant I care about,
+I know the value of the function x
+and its derivative.
+So let's go ahead and substitute.
+This is going to be equal to minus...
+a is 30m, h is 1.8m, x is (10m)²,
+and the derivative of x
+with respect to time is 8m/s,
+and now simply do the computation,
+and this computation comes out to be
+-4.32m/s, which is my final answer.
+This is the rate of change of the height
+of the shadow on the wall,
+with respect to time.
+Notice that it is negative;
+that means that the height of the shadow
+is decreasing, as I had predicted.
+So I guess that is a good sign,
+pun intended.

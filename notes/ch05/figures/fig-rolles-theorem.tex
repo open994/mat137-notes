@@ -1,0 +1,25 @@
+\begin{tikzpicture}
+  \begin{axis}[
+    width=11cm,
+    height=6.8cm,
+    axis lines=middle,
+    xmin=-0.2, xmax=4.2,
+    ymin=-0.2, ymax=1.6,
+    xlabel={$x$}, ylabel={$y$},
+    ticks=none,
+    clip=false
+  ]
+    % A function with f(0)=f(4)=0 and a single interior maximum
+    \addplot[thick, color=thmcolor, domain=0:4, samples=250] {sin(deg(pi*x/4))};
+
+    % Endpoints
+    \addplot[only marks, mark=*, mark size=2pt, color=black] coordinates {(0,0) (4,0)};
+
+    % Indicate a horizontal tangent near x=2
+    \def\c{2}
+    \def\fc{1}
+    \addplot[thick, color=defcolor, domain=1.2:2.8, samples=2] {\fc};
+    \addplot[only marks, mark=*, mark size=2pt, color=black] coordinates {(\c,\fc)};
+    \node[color=defcolor, anchor=west] at (axis cs:2.9,1.02) {horizontal tangent at $c$};
+  \end{axis}
+\end{tikzpicture}

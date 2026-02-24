@@ -1,0 +1,293 @@
+We defined integrals in order to
+compute areas,
+but there are many other
+applications of integrals.
+Integrals can be used to
+compute many other things.
+In this video, I want to revisit the
+definition of Riemann integral,
+and reinterpret the notation we use
+with a different geometrical flavour.
+(And this interpretation will be very
+useful in other applications.)
+Specifically, I will try to use the same
+idea to set up VOLUMES as integrals.
+Let's recall the idea we use
+to define Riemann integral.
+I have a region here whose area
+I want to compute.
+It is the region surrounded
+by the graph of the function f,
+and the x-axis,
+from x = a to x = b.
+I want to compute its area.
+To define Riemann integral,
+first, we break the interval [a,b]
+into smaller pieces using a partition;
+and this breaks the region into slices.
+To make this process useful, I should
+have many many slices very very thin,
+but to make the picture visible,
+I'm using only six.
+And then, I'm going to approximate each
+one of the slices with a rectangle.
+I'm being a bit vague about
+exactly which rectangle...
+Now I'm going to write an equation
+for the area of all of those rectangles.
+I'm going to look at one rectangle first:
+let's say this one!
+I'm going to call the width
+of this rectangle Δx,
+and then the height of this rectangle
+is f(x), for some value of x.
+It's some value of the function f,
+and I'm not being very precise
+about which value...
+But therefore, the area of this rectangle
+is going to be f(x)⋅Δx.
+And now if I add over all the pieces
+(if we put a sum here),
+then I get the sum of the areas
+of the six rectangles.
+And that's an approximation for the area
+of the region I'm interested in!
+Now if my function is nice
+and integrable, perhaps continuous,
+then when I take
+the limit as Δx → 0,
+(as those rectangles become
+thinner and thinner)
+this approximation becomes exact,
+and that's what we call the
+value of the definite integral.
+I have been very hand-wavy here,
+but if we want to recall the
+precise formal way to do it,
+we spent quite a few videos doing that.
+What I want to do next is
+I want to reinterpret this notation,
+in a way that is not very precise,
+but is geometrically very useful.
+Since the integral is a limit of sums,
+I'm going to abuse notation,
+and think of the integral as an actual
+sum of infinitely many pieces,
+which are infinitely small.
+Or more precisely,
+when I write "dx",
+I'm going to think of dx as
+a Δx that is very very tiny;
+(the technical term is
+INFINITESIMALLY SMALL)
+and then of the integral, as the sum
+over infinitely many of those pieces.
+What do I mean by this?
+Here is the same region again.
+This time, instead of breaking
+it into six slices,
+I'm going to break it
+into infinitely many slices,
+which are infinitesimally small.
+I'm going to draw only one of them.
+Now, I drew a piece that looks big,
+(that looks finite)
+because it's the only way to see it,
+but we should pretend that
+this is infinitesimally small.
+I'm going to call the width of this
+piece "dx", to indicate that.
+I drew only one, but I'm thinking of all
+the infinitely many pieces like this...
+And I'm now looking at
+the area of this slice.
+Now, since this is infinitesimally small,
+the area will be as well,
+and therefore, I'm going to call its area
+"dA", because it's also an infinitesimal.
+Now in this case, I'm going to say that
+when I pretend that this is a rectangle,
+it's not an approximation, but
+it's exact... and here is why.
+If I calculate the area of
+this slice by a rectangle,
+then the error I'm making
+is just this piece.
+This is the error I'm making if
+I replace it with a rectangle.
+But if this dimension
+is infinitesimally small,
+then the error is
+infinitesimally small SQUARED,
+so by comparison,
+when this is very very tiny,
+it's negligible (it's not important),
+and I can omit it in the limit.
+So this area is equal to the height
+of the rectangle, which is f(x),
+times the width, which is dx.
+And now, the area of the full region,
+is going to be the "sum" of all these
+pieces (infinitely many of them),
+but that sum is what
+we call an integral.
+Or in other words,
+it's ∫ₐᵇ(f(x))dx.
+This was a bit hand-wavy,
+it can be made rigorous
+(it can be formalized),
+but I don't want to do that,
+for our purposes this is okay.
+The advantage of thinking of it this way,
+is that it helps
+with the geometric intuition,
+and it helps us reuse the same ideas
+for many other applications of the
+integral, apart from areas.
+For example, it is useful to
+think of integrals this way
+to figure out how to use integrals
+to compute volumes.
+This is a carrot.
+Let's say I want to compute its volume.
+If I don't know what else to try,
+maybe I can start by approximating
+it by a cylinder.
+It is definitely not a cylinder,
+but it's close,
+and that will give me
+a certain error.
+But let's say I want
+something better.
+Well, just like we did with areas,
+(we took an arbitrary
+region and sliced it,
+and approximated pieces
+(we used rectangles))
+I can also take this volume
+and slice it, literally...
+And now look at what we got:
+if I take any one of the slices,
+well, this is pretty much a disc.
+It is not an exact disc,
+but it's very close.
+This is pretty much a disc, and
+I can approximate it by a disc,
+and I know how to compute its volume.
+And if it takes some kind of limit,
+as the thickness of the slices goes to 0,
+and they become infinitesimally small,
+this will no longer be an approximation,
+but it will give me the
+exact value of the volume.
+I'm going to make that specific with
+a complete algebraic example.
+Here is a concrete example of a region
+whose volume I'm going to calculate.
+I'm going to call R the region
+on the first quadrant,
+between the graph of y = x² and
+the x-axis, from x = 0 to x = 1,
+and I'm going to rotate
+this region around the x-axis.
+This creates a solid, and I want to
+compute the volume of that solid.
+At this moment, I invite you to pause
+the video, draw a picture,
+and try to understand what
+this region looks like.
+What does this volume look like?
+Once you are comfortable with that,
+keep watching and I will explain
+how to set this up as an integral.
+This is the region R, between y = x²
+and the x-axis, from x = 0 to x = 1,
+so this is the region.
+And I'm going to rotate it
+around the x-axis.
+When this is rotated around the x-axis,
+it creates a solid,
+and it's going to look
+a little bit like this:
+it's kind of like a cone that
+has been bent a little bit.
+Now I want to compute
+the volume of this solid,
+and to do that I'm going to a
+slice it into pieces:
+infinitely many pieces,
+infinitesimally small.
+I'm going to draw one of
+the pieces, and to do that,
+let me cut a thin slice
+of the region R, here.
+I'm going to say the width is dx,
+because I'm pretending
+it's infinitesimally small.
+I'm drawing it as a finite piece because
+it's the only way to visualize it,
+but assume it's microscopic.
+And then when you rotate it here, this
+will correspond to a slice like this one.
+Now I want to figure out what
+the volume of this is slice is.
+I'm going to call it "dV", because since
+the slice is infinitesimally thin,
+the volume will also
+be infinitesimally small.
+Now what is this piece?
+This is pretty much a disc.
+It's not exactly a disc
+when this is finite,
+but in the limit when this is
+infinitesimally small,
+I can approximate it by a disc because
+the error I'm making is negligible.
+So the volume of it will be
+the volume of the disc.
+Now the volume of a disc is the
+surface area times the thickness
+(or height in this case).
+Now the height in this case is dx,
+so the volume of this piece is
+dx times the surface area;
+and if I call this radius R,
+then the surface area is π⋅R².
+Now let's see what R corresponds
+to in the original picture.
+Knowing where this comes from,
+R is this:
+which is equal to y,
+which is equal to x².
+(This is just in this specific case.)
+So, I have a way to write the volume
+of an infinitesimally thin piece,
+and then the volume of the whole thing,
+will be the "sum" of all those
+infinitesimally thin pieces,
+but that's actually an integral.
+Since I am using x as the variable,
+the integral goes from 0 to 1.
+And now the integral of the volume
+of this piece, which is this equation.
+Now instead of R, I'm going to put x²
+because I'm using x as the variable,
+and that's it!
+I have succeeded at setting up
+this volume as an integral.
+Now we can go ahead and use
+antiderivatives to compute it.
+I will leave that part
+as an exercise,
+but you can perform that computation
+and the final answer should be π/5.
+To conclude this video,
+in case you want to practice this method,
+here are four examples of solids
+whose volume you can compute
+with exactly the same idea, that I have
+used in the one example in this video.
+The calculations are more complicated
+but the idea is the same.
+They are all carrots that you have to
+slice infinitesimally thin.

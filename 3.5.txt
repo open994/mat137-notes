@@ -1,0 +1,101 @@
+In this video, I will prove that every
+differentiable function must also be
+continuous.
+Or, as a formal theorem: given a number c
+and a function f defined at and near c,
+IF f is differentiable at c, THEN f is
+also continuous at c.
+The converse is not true. There are some
+functions which are continuous without
+being differentiable.
+I will include a link in the description
+to some examples.
+As a reminder, saying that f is
+differentiable at c, means that
+the limit in the definition of derivative
+at c, [f(x) - f(c)] ÷ [x - c], exists,
+and is therefore a number.
+And saying that f is continuous at c
+means that the limit of f(x),
+the function itself, equals f(c).
+Notice that these are two different
+limits.
+Before doing anything else, it helps to
+rewrite the definition of continuity.
+Saying that the limit of f(x) is f(c)
+is equivalent to saying that the
+limit of f(x) - f(c) is 0.
+This is because for the purpose of the
+limit, the variable is x.
+f(c) does not depend on x. It just
+behaves like a constant
+for the purpose of the limit.
+We can justify this more carefully if
+needed. IF the limit of f(x) is f(c),
+THEN the limit of f(x) - f(c) will be
+f(c) - f(c), which is 0.
+And reciprocally,
+IF the limit of f(x) - f(c) is 0,
+THEN we can write f(x) as
+(f(x) - f(c)) + f(c).
+The first piece has limit 0, the second
+piece has limit f(c),
+and they add up to f(c).
+So the two conditions are equivalent.
+I will keep the second condition rather
+than the first.
+Now that we have agreed on definitions,
+let's explore the relationship between 
+differentiability and continuity.
+IF f is continuous at c, let's see what
+happens when I try to compute
+the derivative f'(c) as a limit.
+In the numerator, I get 0, and in the
+denominator, I get 0 as well.
+I get 0 ÷ 0, which is an indeterminate
+form.
+It means I have to do some more work
+to figure things out.
+In some cases, this limit will exist; in
+others, it won't.
+So the derivative f'(c) may
+or may not exist.
+By contrast, if f is not continuous at c,
+when I try to compute the derivative f'(c)
+as a limit, I get
+"not 0" ÷ 0, so to speak.
+This limit will never exist.
+In the best case I could get a non-zero
+number divided by 0,
+which may be plus or minus infinity,
+but the limit does not exist.
+Okay, this was not a rigorous proof, but I
+find this argument simple and convincing.
+It explains why, if a function is
+differentiable, then it must be continuous
+as well.
+But we can do better. We can write a
+formal proof. Let's do it.
+Assume f is differentiable at c. Then, I
+write the limit of f(x) - f(c).
+I multiply and divide by x - c.
+Now I have the product of two functions,
+so I use the limit law,
+and the limit is the product of limits.
+The first limit I recognize as the
+derivative f'(c),
+and the second limit is 0.
+So the product is 0.
+A very important remark: I am not saying
+that 0 times anything is 0.
+I am saying that 0 times a number is 0.
+To use the limit law, I needed both limits
+to exist.
+The first limit exists because I am
+assuming f is differentiable at c.
+Otherwise, I would not be able to use
+this argument.
+And now, I have proven that the limit of
+f(x) - f(c) is 0,
+which means f is continuous at c.
+And that completes the proof.

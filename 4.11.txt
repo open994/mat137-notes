@@ -1,0 +1,87 @@
+Ln or log:
+what’s the controversy?
+There are some SPECIAL BASES
+for logarithms,
+but we can’t agree on what to call them.
+If I have a favourite base, call it: "b",
+then I can write exponentials 
+with any other base,
+in terms of exponentials with base b.
+And I can write logarithms 
+with any other base,
+in terms of logarithms with base b.
+So why don’t we find the BEST BASE 
+and use it always as the only one?
+Mathematicians soon realized that
+the base "e" was special,
+and they gave a special name to
+logarithms with base e: "ln".
+(Sometimes read as “lawn”)
+This is called the natural logarithm,
+although I like to think the "n"
+stands for John Napier: 
+the inventor of logarithms.
+What’s special about e?
+Exponentials with base e 
+appear naturally as limits.
+Some limits involving eˣ, or ln(x),
+have nice clean values,
+whereas the same limits with 
+other bases... not so much.
+eˣ and ln(x) have SIMPLER derivatives
+than exponentials or logarithms
+with any other bases.
+eˣ and ln(x) also have beautiful
+power series expansions.
+The evidence is plenty.
+Natural logarithm is natural, and it is
+the only logarithm you should ever use.
+But wait! Some people disagree.
+To understand why,
+we have to go back to a time before
+computers, or even calculators,
+back when everything had to
+be computed by hand,
+with the help of log tables, 
+and slide rules.
+Since we use the decimal system 
+to write numbers,
+the logarithm in base 10,
+(sometimes called the "common logarithm"
+or "decimal logarithm")
+was the most useful 
+to do calculations by hand.
+It became common to write "log", without
+specifying the base, to mean base 10.
+Fast forward to the present.
+Nobody computes by hand anymore,
+and slide rules are museum relics.
+There is no longer the same need
+for logarithms in base 10.
+Modern mathematicians say hey!
+"log" by itself should clearly be 
+reserved for the most important base,
+the only one that matters: "e".
+But it is hard to change tradition,
+and engineers have never allowed...
+...mathematicians to tell them
+how to use notation,
+so they continue using "ln" instead.
+And that is the situation today.
+Whenever you see ln(x) OR log(x), they 
+both probably mean logarithm in base e.
+When you read a book, 
+or do math with somebody,
+it is probably a good idea to find out
+which convention they use.
+ln(x) is most commonly used in science
+and engineering, but also in calculus!
+Probably because most calculus students
+are in science and engineering,
+rather than math.
+log(x) is most commonly used in math.
+If you take any math courses
+beyond calculus,
+they will probably use log to
+refer to the natural logarithm.
+Which notation do YOU prefer?

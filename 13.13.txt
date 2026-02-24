@@ -1,0 +1,244 @@
+In this video, I will introduce a family
+of series (alternating series),
+which are easy to work with, and I will
+explain the theorem that justifies why.
+First, the definition:
+a series (an infinite sum)
+is ALTERNATING,
+when every term times
+the next term is negative.
+What this simply means is that
+if a term is positive,
+then the next term is negative,
+and if a term is negative,
+then the next term is positive,
+so the terms I am adding alternate
+between being positive and negative.
+It doesn't matter
+which one I start at.
+For example, here is probably the
+best-known alternating series:
+the sum from n = 1 to ∞,
+of (-1)ⁿ⁺¹/n.
+For the signs that change
+from positive to negative,
+we normally represent them
+by (-1)ⁿ or (-1)ⁿ⁺¹.
+Let's see what the
+first few terms here are.
+When n = 1, I get 1,
+when n = 2, -1/2,
+and then + 1/3 - 1/4 + 1/5 - 1/6,
+and so on...
+I'm going to prove that this series
+is convergent, and in the process,
+we will actually see that a much larger
+family of alternating series
+are convergent (all of them).
+I'm going to do this directly from the
+definition of series (or infinite sum),
+which is as a limit of partial sums.
+Let's see what the first few
+partial sums for the series are.
+The first one (S₁) is simply 1,
+then S₂ is 1 - 1/2,
+then 1 - 1/2 + 1/3 and so on,
+so by definition of series,
+what I have to do is construct
+this sequence of partial sums,
+and then see whether it has a limit.
+I'm going to argue geometrically,
+I will draw a picture for
+all of these partial sums,
+and see what I get from there.
+I start at 0.
+First, I add 1,
+then I subtract 1/2, (this is not
+going to be at scale)
+then I add 1/3,
+(since 1/3 is smaller than 1/2 I'm going
+to end up somewhere between S₂ and S₁)
+now I subtract 1/4,
+(since 1/4 is smaller than 1/3, I'm going
+to end up being between S₃ and S₂),
+and I keep going...
+Based on the picture,
+it looks like this sequence of partial
+sums is going to be convergent.
+I'm going to end up having
+a limit somewhere in there.
+What we've gotten, is that these partial
+sums are ordered in a specific way.
+The even partial sums
+are ordered like this;
+and they are all smaller
+than the odd partial sums,
+which are ordered like this.
+I obtain this string of
+inequalities from the picture,
+but I can prove them
+algebraically if necessary.
+Every even partial sum is
+smaller than the next one,
+because to go from an even
+partial sum to the next,
+I have to add something,
+and then subtract something smaller.
+The same argument tells me why every odd
+partial sum is greater than the next one.
+Then, every even partial sum is smaller
+than the next odd partial sum,
+because I go from even to odd
+by adding something positive,
+and then I go from odd to even
+by adding something negative.
+So, I can accept this
+string of inequalities.
+Now can I go from here,
+and use it to prove formally,
+that the sequence of partial sums,
+must have a limit?
+I'm going to look at the
+sequence of even partial sums,
+and the sequence of
+odd partial sums, separately.
+What we've proven is that the sequence
+of even partial sums is increasing,
+and also, it's bounded above
+(for example, by S₁).
+So, it's monotonic and bounded,
+and therefore, by the
+Monotone Convergence Theorem,
+it will be convergent.
+But the very same thing applies to
+the sequence of odd partial sums!
+That one must be decreasing,
+and is bounded below by S₂,
+so by the Monotone Convergence Theorem,
+I conclude that both are convergent.
+However, I cannot stop here.
+This doesn't guarantee (yet),
+that the full sequence of
+partial sums is convergent,
+because the even terms
+may be having one limit,
+and the odd terms may be
+having a different limit.
+I need to justify that those two
+limits are going to be the same.
+So, let me give names
+to those two limits.
+How do I prove they are the same?
+Well, I know how to write a relation
+between the even and odd partial sums.
+I can say that any odd partial sum,
+is the previous even partial sum,
++ the term I have to add,
+which in this case would be 1/(2n + 1).
+And now, if I think of this as three
+sequences with n as the index,
+this has a limit, this has a limit,
+and so does this,
+so I can use the limit laws!
+And I conclude the limit of the
+sequence of odd partial sums (that's B)
+= the limit of the sequence
+of even partial sums (A),
++ the limit of the term, which is 0,
+and so, the even and odd partial sums
+converge to the same number.
+And I want to say from there,
+that therefore,
+the full sequence of partial sums
+also converges to the same number.
+To do this, I need to
+use a technical lemma.
+(A general result that is
+true for all sequences.)
+If I have an arbitrary sequence,
+if I assume that the sequence of even
+terms and the sequence of odd terms
+(those are two separate sequences),
+IF I assume those two are both
+convergent, with the same limit,
+THEN I can conclude
+that the full sequence
+must also be convergent
+to the same limit.
+This can be proven directly from the
+formal definition of limit of a sequence.
+I won't do that here, but I apply this
+result to the sequence of partial sums,
+and thus I conclude, that
+our original series is convergent.
+I have not ONLY proven that the
+original series was convergent,
+because the same proof is going to apply
+to a large family of alternating series.
+So in fact, I have proven
+a more general theorem.
+Let me go back to the proof.
+I'm going to look at exactly which
+properties of the series I used,
+and then I'm going to write
+those properties as hypotheses,
+and I will have a new theorem,
+in which I can conclude,
+that under those hypotheses,
+the series is convergent.
+What have I used?
+First, I've used the fact that
+the series was alternating,
+and just writing it this way
+doesn't guarantee it's alternating.
+I have to say that the terms
+I'm calling bₙ are positive.
+I don't care where they start.
+An alternating series is the one where I
+can separate it as a sign that alternates
+times something positive, so this just
+means that the series is alternating.
+Second, I needed the sequence
+of partial sums to look like this.
+I add something,
+I subtract something smaller,
+then I add something smaller, I
+subtract something smaller, and so on...
+That's what guaranteed that I had
+this string of inequalities,
+so I need the terms that I am adding and
+subtracting to be getting smaller.
+I need that sequence to be decreasing.
+And third, just those two properties
+are not enough.
+Those two guaranteed that
+I could conclude
+the sequence of even partial sums,
+and of odd partial sums were convergent,
+but I needed to prove
+those two limits were the same.
+In the final step,
+I use the fact that the limit of the
+terms I am adding and subtracting is 0
+(that that converges to 0),
+so that's the third hypothesis.
+And that's it!
+Whenever I have an alternating series
+(a series with those three properties),
+I can immediately
+conclude it is convergent.
+It applies to a lot of series.
+For example, I could look at the
+sum from n = 2 to ∞, of (-1)ⁿ/ln(n).
+And, yes! It satisfies 1, 2, & 3, so
+by the Alternating Series Test,
+it must be convergent.
+To conclude, alternating series
+are nice for more than this reason.
+Not only is it sometimes easy to
+check that they are convergent,
+they are also easy to estimate.
+That's a topic that is important on
+its own. It deserves its own video.
+So I will leave that,
+for the next video.

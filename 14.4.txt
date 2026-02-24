@@ -1,0 +1,309 @@
+In the previous video, I wrote
+the first definition
+of Taylor polynomials.
+In this video,
+I will translate it into a second,
+equivalent definition,
+which is more useful
+for computations.
+Let's recall what we know.
+The n-th Taylor polynomial
+for the function f
+at the real number a 
+is a polynomial
+which is an approximation
+for f near a of order n.
+This means that
+as x approaches a,
+the difference between
+the function and the polynomial
+approaches 0 faster
+than (x – a)^n.
+In the previous video,
+I explained why
+this limit being 0 means
+that the polynomial is a good
+approximation for the function.
+And I also requested that
+the degree be at most n.
+As I explained,
+this definition encapsulates
+exactly
+what the important property
+of Taylor polynomials is,
+why we care about them,
+and why they are useful.
+However, it is quite abstract
+and it is not very useful
+for computations.
+I cannot easily use it
+to compute the Taylor
+polynomials of a function.
+Based on this property alone,
+I don't even know when
+these polynomials exist.
+My goal is to translate
+this property
+into a second, equivalent
+property that is easier to use,
+particularly for computations.
+Before doing that, I want to
+introduce some new notation.
+A function is called C^0
+when it is continuous.
+Sometimes it is also called
+"type C^0" or "class C^0".
+It is called C^1
+when the derivative exists
+and is continuous.
+It is called C^2 when the first
+and second derivatives exist
+and are continuous,
+and so on.
+It is called C^n when the
+first n derivatives
+all exist and are continuous.
+It is called C^infinity when ALL
+the derivatives exist
+and are continuous.
+I could use all these concepts
+at a point, or on an interval.
+Why do I introduce these names?
+We are going to encounter
+quite a few results
+that require different amounts
+of derivatives
+to exist and be
+continuous.
+It is nice to have a name
+for these concepts, that's all.
+It will make the statement
+of theorems a bit shorter.
+Okay. Now that I have this
+notation, let's move on.
+For now, let's assume that
+f and g are C^infinity.
+They have all their derivatives.
+I want to try and rewrite
+this condition,
+that the limit as x approaches a
+of their difference
+over (x – a)^n will be 0.
+I want to rewrite this condition
+into something simpler,
+involving the derivatives
+of f and g.
+As I said, for now I will just
+assume that f and g
+have all their derivatives.
+Once I finish my exploration,
+I will check back and see
+which assumptions
+I actually used.
+Let us call this limit L.
+I'll admit that this notation
+is a bit problematic
+because this limit
+may not exist.
+But for simplicity, I'll refer
+to this expression as L
+whether the limit exists or not.
+I have the limit of a quotient.
+The limit of the denominator is 0.
+Since f and g are continuous,
+the limit of the numerator
+is f(a) – g(a).
+IF f(a) – g(a) is not 0,
+THEN I will have a non-zero
+number divided by zero.
+The limit L will be plus
+or minus infinity.
+Possibly the limit on the left
+and the limit on the right
+will be different, but in any case,
+L will not be zero.
+So, let's discard that case.
+Let's assume that f(a) = g(a).
+In that case, I get 0/0,
+an indeterminate form,
+and I can try to use
+L'Hôpital's Rule.
+After using L'Hôpital's Rule,
+L becomes...
+the limit as x approaches a
+of f'(x) – g'(x)
+over n(x – a)^{n – 1}
+I put an asterisk over
+the equals sign
+because this is only if
+the use of L'Hôpital's Rule
+ends up being justified:
+if this limit ends up
+being a number,
+or infinity, or minus infinity.
+Otherwise, the use of
+L'Hôpital's Rule was not legal,
+I could not do this, and I know
+nothing about the original limit.
+Fortunately, that won't happen,
+as I will explain later.
+Now, we are exactly in the
+same situation as before.
+Assuming n is large, the
+denominator has limit 0.
+The numerator has limit
+f'(a) – g'(a),
+because f' and g' are continuous.
+If f'(a) – g'(a) is not 0,
+I get a non-zero number over zero.
+The limit is plus or
+minus infinity,
+possibly different on the
+left and on the right,
+the use of L'Hopital's Rule
+was legal, and L is not 0.
+So, let's discard that case as well,
+and assume that f'(a) = g'(a).
+Then, I have an indeterminate
+form of type 0/0, again.
+I use L'Hôpital's Rule again.
+And I keep going.
+After using L'Hôpital's Rule n times,
+I get that L equals the limit
+as x approaches a of
+the difference of the n-th
+derivatives on the top,
+over n factorial on the bottom.
+And since the derivatives
+are continuous,
+I simply evaluate at a.
+Great! I think I have found
+the conditions
+for the limit L to be 0.
+I needed all the previous derivatives
+of f and g to agree at a
+– this is how I kept getting
+indeterminate forms
+of type 0/0 and I could
+use L'Hôpital's Rule –
+and I also need the n-th
+derivatives to agree at a,
+so that the limit is finally 0.
+To be clear, this is an if and only if.
+These are necessary
+AND sufficient conditions.
+I have shown that IF
+I have all these conditions,
+THEN all the uses of
+L'Hôpital's Rule
+were justified, and
+the limit L is 0.
+On the other hand:
+what happens if any
+of these conditions fail?
+If the last condition fails,
+the limit L is a non-zero number.
+If any of the previous
+conditions failed,
+then at an earlier stage, one
+of the limits would have been
+plus or minus infinity,
+possibly different
+on the left and on the right,
+and therefore L wasn't 0.
+Finally, notice that
+in this whole process,
+I have used that f and g
+were C^n.
+I did not need C^infinity after all,
+but I did need C^n.
+I have proven a theorem
+that is worth stating.
+The theorem says: let f and g
+be C^n functions at a point a.
+Then, the following two
+conditions are equivalent.
+One: as x approaches a,
+the difference between
+f and g approaches 0
+faster than (x – a)^n,
+and two: the first few derivatives
+of f and g have the same value at a.
+So, g is a good approximation
+for f near a IF AND ONLY IF
+g and f have the same 
+first few derivatives at a.
+How good an approximation?
+It depends on how many
+derivatives they agree on.
+I need to acknowledge that
+the proof I have written
+could be made more formal.
+I could use induction
+instead of saying
+"I repeat the process n times."
+But, I am just going to
+leave it at that.
+In any case, this is exactly
+what I was looking for.
+I can now take the definition 
+of Taylor polynomial,
+which I had written using
+condition one,
+and rewrite it using
+condition two instead.
+Here we go.
+Let a be a real number,
+n a natural number,
+and f a C^n function at a.
+The n-th Taylor polynomial for f at a
+is a polynomial, which I
+will call P_n,
+such that the polynomial
+and the function
+have the same value at a,
+and so do their first derivatives,
+their second derivatives,
+and so on,
+all the way to their n-th derivatives.
+...And, in addition, the polynomial
+has degree at most n.
+As I said at the beginning,
+this definition is simpler
+than the original one.
+I am just specifying the value
+of the polynomial
+and its first few derivatives at a.
+For the purpose of constructing
+these polynomials,
+for the purpose of computations,
+this is more useful
+than the original definition.
+But I think we should always
+keep in mind the original definition
+as well; the one in terms
+of the limit.
+It tells us why Taylor polynomials
+make good approximations.
+Notice that this is not
+a completely new idea.
+We've encountered it before.
+What would the first
+Taylor polynomial be,
+according to this definition?
+It would be a polynomial with
+degree at most 1
+whose value at a is f(a),
+and whose derivative at a is f'(a).
+That is how we defined
+the tangent line!
+Great. This definition
+makes sense.
+In the next video, I will take
+this one step further
+and make it even more concrete,
+by providing an explicit formula
+to construct these polynomials.
+Then, from there, I will
+be able to compute examples.
+Stay tuned!

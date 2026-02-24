@@ -1,0 +1,879 @@
+\chapter{Series}
+
+%=============================================================================
+\section{Naive Infinite Sums}
+\label{sec:13.1}
+%=============================================================================
+
+\textit{A series is an infinite sum.  In this section we are intentionally careless: we assume infinite sums are well-defined, behave well, and can be manipulated exactly like finite sums.  The contradictions that arise will motivate the need for a rigorous definition.}
+
+\subsection*{A careless computation}
+
+\begin{example}
+\label{ex:13-1}
+Fix a real number $x$ and set
+\[
+  S \;=\; \sum_{n=0}^{\infty} x^{n} \;=\; 1 + x + x^{2} + x^{3} + \cdots
+\]
+Multiplying both sides by $x$ gives
+\[
+  xS \;=\; x + x^{2} + x^{3} + \cdots
+\]
+Subtracting the second line from the first, all terms cancel except the leading~$1$:
+\[
+  S - xS = 1 \quad\Longrightarrow\quad S = \frac{1}{1-x}, \qquad x\neq 1.
+\]
+This appears to give a value for every $x\neq 1$.  But substituting $x=2$ yields
+\[
+  1 + 2 + 4 + 8 + 16 + \cdots \;=\; \frac{1}{1-2} \;=\; -1,
+\]
+which is absurd: a sum of positive terms cannot be negative.
+\end{example}
+
+\begin{example}
+\label{ex:13-2}
+Set $T = \sum_{n=0}^{\infty}(-1)^{n} = 1 - 1 + 1 - 1 + \cdots$.  Grouping in pairs starting from the left gives
+\[
+  (1-1) + (1-1) + \cdots \;=\; 0+0+\cdots \;=\; 0.
+\]
+But grouping differently gives
+\[
+  1 + (-1+1) + (-1+1) + \cdots \;=\; 1 + 0 + 0 + \cdots \;=\; 1.
+\]
+We have ``proved'' $0 = 1$, which is obviously false.
+\end{example}
+
+\begin{remark}[Warning]
+Both contradictions arise from the same source: assuming every infinite sum represents a number, and that it can be manipulated like a finite sum.  Properties such as associativity and commutativity are valid for finite sums but \textbf{may fail} for infinite sums.
+\end{remark}
+
+\subsection*{The road ahead}
+
+\textit{To work with infinite sums without contradictions we need three things:}
+\begin{enumerate}[label=(\roman*)]
+  \item A \textbf{definition} of what an infinite sum means.
+  \item A way to distinguish \emph{convergent} series (those that represent a number) from \emph{divergent} ones (those that do not).
+  \item \textbf{Theorems} that identify which properties of finite sums carry over to infinite sums, and which do not.
+\end{enumerate}
+
+%=============================================================================
+\section{Definition of Series}
+\label{sec:13.2}
+%=============================================================================
+
+\textit{In everyday English, ``series'' and ``sequence'' are nearly synonymous; in mathematics they are fundamentally different.  A sequence is an infinite list; a series is an infinite sum.  We now make the latter idea precise.}
+
+\subsection*{Motivating example}
+
+\begin{example}
+\label{ex:13-3}
+Consider the sum
+\[
+  \sum_{n=1}^{\infty}\frac{1}{2^{n}} \;=\; \frac{1}{2} + \frac{1}{4} + \frac{1}{8} + \frac{1}{16} + \cdots
+\]
+Imagine a unit square.  Shade half of it (area $\frac{1}{2}$), then a quarter ($\frac{1}{4}$), then an eighth, and so on.  No matter how many pieces we add, we remain inside the square, yet the un-shaded region shrinks to nothing.  It seems the sum should equal~$1$.
+
+Algebraically, define partial sums:
+\[
+  S_{1} = \frac{1}{2}, \qquad
+  S_{2} = \frac{1}{2}+\frac{1}{4} = \frac{3}{4}, \qquad
+  S_{3} = \frac{1}{2}+\frac{1}{4}+\frac{1}{8} = \frac{7}{8}.
+\]
+In general, $S_{k} = \sum_{n=1}^{k}\frac{1}{2^{n}} = 1 - \frac{1}{2^{k}}$, so
+\[
+  \sum_{n=1}^{\infty}\frac{1}{2^{n}} \;=\; \lim_{k\to\infty} S_{k} \;=\; \lim_{k\to\infty}\!\Bigl(1-\frac{1}{2^{k}}\Bigr) = 1.
+\]
+The key idea: we never truly add infinitely many terms at once.  Instead, we add the first $k$ terms and take $k\to\infty$.
+\end{example}
+
+\subsection*{The general definition}
+
+\begin{definition}[Series and partial sums]
+\label{def:13-1}
+Let $(a_{n})$ be a sequence.  The \emph{$k$-th partial sum} of the series $\sum_{n=1}^{\infty}a_{n}$ is
+\[
+  S_{k} \;=\; \sum_{n=1}^{k} a_{n} \;=\; a_{1}+a_{2}+\cdots+a_{k}.
+\]
+We define
+\[
+  \sum_{n=1}^{\infty}a_{n} \;=\; \lim_{k\to\infty} S_{k},
+\]
+provided the limit exists.
+\begin{itemize}
+  \item If the limit exists (is a finite number), the series is \emph{convergent}.
+  \item If the limit does not exist, the series is \emph{divergent}.
+\end{itemize}
+Divergence may occur because the limit is $+\infty$, $-\infty$, or because the sequence of partial sums oscillates.
+\end{definition}
+
+\begin{remark}
+The definition parallels that of improper integrals.  An improper integral $\int_{a}^{\infty}f(x)\dx$ is defined as $\lim_{b\to\infty}\int_{a}^{b}f(x)\dx$: a limit of proper integrals.  Similarly, a series (infinite sum) is a limit of finite sums.  In both cases, the limit may or may not exist.
+\end{remark}
+
+% ── BEGIN VISUAL ──
+\begin{figure}[ht]
+  \centering
+  \input{ch13/figures/fig-partial-sums-converge.tex}
+  \caption{A convergent series' partial sums approach a limit.}
+  \label{fig:partial-sums-converge}
+\end{figure}
+% ── END VISUAL ──
+
+%=============================================================================
+\section{A Telescoping Series}
+\label{sec:13.3}
+%=============================================================================
+
+\textit{We compute a series directly from the definition, illustrating both the guess-and-induct approach and the more elegant partial-fraction technique.}
+
+\begin{remark}[Pause and Try]
+Compute $\displaystyle\sum_{n=1}^{\infty}\frac{1}{n^{2}+n}$ directly from the definition before reading on.
+\end{remark}
+
+\begin{example}
+\label{ex:13-4}
+Compute $\displaystyle\sum_{n=1}^{\infty}\frac{1}{n^{2}+n}$.
+
+\textbf{Step 1: Compute partial sums.}
+\[
+  S_{1} = \frac{1}{1^{2}+1} = \frac{1}{2}, \qquad
+  S_{2} = \frac{1}{2}+\frac{1}{6} = \frac{2}{3}, \qquad
+  S_{3} = \frac{2}{3}+\frac{1}{12} = \frac{3}{4}.
+\]
+The pattern $S_{k} = \dfrac{k}{k+1}$ can be verified by induction.
+
+\textbf{Alternative --- partial fractions (no guessing).}  Factor $n^{2}+n = n(n+1)$ and decompose:
+\[
+  \frac{1}{n(n+1)} \;=\; \frac{1}{n} - \frac{1}{n+1}.
+\]
+Therefore
+\begin{align*}
+  S_{k} &= \sum_{n=1}^{k}\!\Bigl(\frac{1}{n}-\frac{1}{n+1}\Bigr) \\
+  &= \Bigl(1-\frac{1}{2}\Bigr)+\Bigl(\frac{1}{2}-\frac{1}{3}\Bigr)+\cdots+\Bigl(\frac{1}{k}-\frac{1}{k+1}\Bigr) \\
+  &= 1 - \frac{1}{k+1} \;=\; \frac{k}{k+1}.
+\end{align*}
+\proofref{Telescoping cancellation: all intermediate terms cancel, leaving only the first and last.}
+
+This is a \emph{telescoping} sum.  No induction is needed; the derivation itself constitutes a proof.
+
+\textbf{Step 2: Take the limit.}
+\[
+  \sum_{n=1}^{\infty}\frac{1}{n^{2}+n}
+  \;=\; \lim_{k\to\infty}\frac{k}{k+1} \;=\; 1.
+\]
+The series is convergent and its sum is~$1$.
+\end{example}
+
+%=============================================================================
+\section{Two Divergent Series}
+\label{sec:13.4}
+%=============================================================================
+
+\textit{We verify that our definition correctly identifies two series that ought to be divergent.  Each diverges for a different reason, providing a useful sanity check on the definition.}
+
+\begin{example}
+\label{ex:13-5}
+Show that $\displaystyle\sum_{n=1}^{\infty}1$ is divergent.
+
+The $k$-th partial sum is $S_{k}=k$.  Therefore
+\[
+  \sum_{n=1}^{\infty}1 \;=\; \lim_{k\to\infty} k \;=\; \infty.
+\]
+The series is divergent (to~$\infty$), exactly as expected.
+\end{example}
+
+\begin{example}
+\label{ex:13-6}
+Show that $\displaystyle\sum_{n=0}^{\infty}(-1)^{n}$ is divergent.
+
+The first few partial sums are
+\[
+  S_{0}=1,\quad S_{1}=0,\quad S_{2}=1,\quad S_{3}=0,\quad\ldots
+\]
+In general, $S_{k}=1$ if $k$ is even and $S_{k}=0$ if $k$ is odd.  The sequence $1,0,1,0,\ldots$ has no limit --- it oscillates.  Therefore the series is divergent.
+\end{example}
+
+\begin{remark}
+The series $\sum(-1)^{n}$ is not divergent because the partial sums tend to $\pm\infty$; it is divergent because they fail to settle down to any single value.  Divergence can take many forms.
+\end{remark}
+
+%=============================================================================
+\section{Geometric Series}
+\label{sec:13.5}
+%=============================================================================
+
+\textit{The geometric series is one of the most important families of series.  We compute it carefully from the definition, obtaining both the domain of convergence and the formula for the sum.}
+
+\begin{remark}[Pause and Try]
+Fix $x\in\R$.  Use the definition of series to determine for which values of $x$ the series $\sum_{n=0}^{\infty}x^{n}$ converges, and find its sum when it does.
+\end{remark}
+
+\begin{theorem}[Geometric series]
+\label{thm:13-1}
+For any $x\in\R$,
+\[
+  \sum_{n=0}^{\infty}x^{n} \;=\;
+  \begin{cases}
+    \dfrac{1}{1-x} & \text{if } \abs{x}<1, \\[6pt]
+    \text{divergent} & \text{if } \abs{x}\ge 1.
+  \end{cases}
+\]
+\end{theorem}
+
+\begin{proof}
+\textbf{Case $x=1$.}  The series becomes $\sum 1 = \infty$, which is divergent.
+
+\textbf{Case $x\neq 1$.}  The $k$-th partial sum is $S_{k}=1+x+x^{2}+\cdots+x^{k}$.  Multiplying by $x$:
+\[
+  xS_{k} = x+x^{2}+\cdots+x^{k+1}.
+\]
+Subtracting gives $S_{k}-xS_{k}=1-x^{k+1}$, so
+\[
+  S_{k} = \frac{1-x^{k+1}}{1-x}.
+\]
+\proofref{Valid because $x\neq 1$.}
+
+Taking the limit,
+\[
+  \sum_{n=0}^{\infty}x^{n} = \lim_{k\to\infty}\frac{1-x^{k+1}}{1-x} = \frac{1-\lim_{k\to\infty}x^{k+1}}{1-x}.
+\]
+\begin{itemize}
+  \item If $\abs{x}<1$, then $x^{k+1}\to 0$, so the sum equals $\dfrac{1}{1-x}$.
+  \item If $x>1$, then $x^{k+1}\to\infty$, so the limit does not exist.
+  \item If $x\le -1$, then $x^{k+1}$ oscillates (e.g.\ $-1,1,-1,\ldots$ when $x=-1$), so the limit does not exist.
+\end{itemize}
+In every case with $\abs{x}\ge 1$ the series is divergent.
+\end{proof}
+
+\begin{remark}[Warning]
+The formula $\sum x^{n}=\frac{1}{1-x}$ is only valid when $\abs{x}<1$.  Using it outside this range --- as we did carelessly in \cref{sec:13.1} --- leads to contradictions.
+\end{remark}
+
+% ── BEGIN VISUAL ──
+\begin{figure}[ht]
+  \centering
+  \input{ch13/figures/fig-geometric-series-area.tex}
+  \caption{Geometric series visualized by filling a unit square.}
+  \label{fig:geometric-series-area}
+\end{figure}
+% ── END VISUAL ──
+
+%=============================================================================
+\section{Linearity of Series}
+\label{sec:13.6}
+%=============================================================================
+
+\textit{Not every property of finite sums extends to infinite sums.  For instance, finite sums are commutative, but infinite sums are not (see \cref{sec:13.17}).  We single out two properties that \textbf{do} carry over: addition and scalar multiplication.}
+
+\subsection*{A cautionary observation}
+
+\textit{Consider the alternating harmonic series $1-\frac{1}{2}+\frac{1}{3}-\frac{1}{4}+\cdots = \ln 2$.  If we rearrange the same terms (two positives, then one negative, repeating), the new sum is $\frac{3}{2}\ln 2$, not $\ln 2$.  Rearranging the terms of a convergent series can change its value!  This shows that we must carefully \emph{prove} any property we wish to use for infinite sums.}
+
+\subsection*{The linearity theorems}
+
+\begin{theorem}[Sum of two series]
+\label{thm:13-2}
+If $\sum a_{n}$ and $\sum b_{n}$ are both convergent, then $\sum(a_{n}+b_{n})$ is also convergent and
+\[
+  \sum_{n=1}^{\infty}(a_{n}+b_{n}) \;=\; \sum_{n=1}^{\infty}a_{n} \;+\; \sum_{n=1}^{\infty}b_{n}.
+\]
+\end{theorem}
+
+\begin{proof}
+Write $S_{k}=\sum_{n=1}^{k}a_{n}$, $T_{k}=\sum_{n=1}^{k}b_{n}$, and $R_{k}=\sum_{n=1}^{k}(a_{n}+b_{n})$.  For finite sums we have $R_{k}=S_{k}+T_{k}$.  By hypothesis, $\lim_{k\to\infty}S_{k}$ and $\lim_{k\to\infty}T_{k}$ both exist.  By the limit laws,
+\[
+  \lim_{k\to\infty}R_{k} = \lim_{k\to\infty}S_{k}+\lim_{k\to\infty}T_{k},
+\]
+so $\sum(a_{n}+b_{n})$ converges and equals the sum of the two series.
+\proofref{The key step is that $R_{k}=S_{k}+T_{k}$ holds for finite sums, then we pass to the limit.}
+\end{proof}
+
+\begin{theorem}[Scalar multiple of a series]
+\label{thm:13-3}
+If $\sum a_{n}$ is convergent and $c\in\R$, then $\sum c\,a_{n}$ is convergent and
+\[
+  \sum_{n=1}^{\infty}c\,a_{n} \;=\; c\sum_{n=1}^{\infty}a_{n}.
+\]
+\end{theorem}
+
+\begin{proof}
+The proof follows the same template: write $S_{k}$ for the partial sums of $\sum a_{n}$, observe that the $k$-th partial sum of $\sum c\,a_{n}$ equals $c\,S_{k}$ (a property of finite sums), and apply the limit laws.
+\end{proof}
+
+\begin{remark}
+Both theorems require the hypothesis that the original series are convergent.  Without this, the limit laws cannot be applied.  This \emph{template} recurs in almost every proof about series: (1) express the infinite sum as a limit of finite sums, (2) use a known property of finite sums, (3) pass to the limit.
+\end{remark}
+
+%=============================================================================
+\section{Tails of Series}
+\label{sec:13.7}
+%=============================================================================
+
+\textit{When studying convergence, the beginning of a series is irrelevant --- only its tail matters.  This simple but powerful observation makes many theorems more widely applicable.}
+
+\begin{theorem}[Changing the starting index]
+\label{thm:13-4}
+Let $(a_{n})$ be a sequence.  The series $\sum_{n=0}^{\infty}a_{n}$ is convergent if and only if $\sum_{n=1}^{\infty}a_{n}$ is convergent.  Moreover, if both converge,
+\[
+  \sum_{n=0}^{\infty}a_{n} \;=\; a_{0} + \sum_{n=1}^{\infty}a_{n}.
+\]
+More generally, for any integers $m_{1}$ and $m_{2}$, the series $\sum_{n=m_{1}}^{\infty}a_{n}$ converges if and only if $\sum_{n=m_{2}}^{\infty}a_{n}$ converges.
+\end{theorem}
+
+\begin{proof}
+Express each series as a limit of partial sums, use the corresponding property for finite sums, and pass to the limit.
+\end{proof}
+
+\begin{remark}
+Because of \cref{thm:13-4}, we may write ``$\sum a_{n}$ is convergent'' without specifying the starting index.  The starting index affects the \emph{value} of the sum but not whether the series converges.
+\end{remark}
+
+\textit{This observation has a useful consequence for applying convergence theorems.  A typical theorem has the form:}
+\[
+  \text{If for all } n\in\N,\;\text{[some property]},\quad\text{then } \sum a_{n} \text{ converges.}
+\]
+\textit{By the tail principle, the same conclusion holds if [some property] is true only for all sufficiently large $n$ --- that is, for all $n\ge n_{0}$ for some $n_{0}\in\N$.  In other words, a convergence theorem that requires a condition for all $n$ automatically yields a stronger version requiring the condition only \textbf{eventually}.  Whenever we prove a theorem of the first form, we get the second form for free.}
+
+\begin{definition}[Tail of a series]
+\label{def:13-2}
+For the purpose of convergence, only what happens for large values of $n$ matters.  We call the portion of a series for large $n$ the \emph{tail} of the series.
+\end{definition}
+
+%=============================================================================
+\section{The Divergence Test}
+\label{sec:13.8}
+%=============================================================================
+
+\textit{Before deploying heavy machinery, there is one quick check worth performing on every new series: does the general term tend to zero?  If not, the series cannot converge.}
+
+\begin{theorem}[Divergence Test (Necessary Condition for Convergence)]
+\label{thm:13-5}
+If $\displaystyle\sum_{n=1}^{\infty}a_{n}$ is convergent, then $\displaystyle\lim_{n\to\infty}a_{n}=0$.
+\end{theorem}
+
+\begin{proof}
+Suppose $\sum a_{n}$ converges; denote the $k$-th partial sum by $S_{k}$ and its limit by $S$.  Write
+\[
+  a_{n} = S_{n} - S_{n-1}.
+\]
+Since $\lim_{n\to\infty}S_{n}=S$ and $\lim_{n\to\infty}S_{n-1}=S$, the limit laws give
+\[
+  \lim_{n\to\infty}a_{n} = S - S = 0. \qedhere
+\]
+\proofref{Both $S_{n}$ and $S_{n-1}$ converge to the same limit $S$; their difference must converge to $0$.}
+\end{proof}
+
+% ── BEGIN VISUAL ──
+\begin{figure}[ht]
+  \centering
+  \input{ch13/figures/fig-divergence-test.tex}
+  \caption{A necessary condition for convergence: $a_n\to 0$.}
+  \label{fig:divergence-test}
+\end{figure}
+% ── END VISUAL ──
+
+\begin{remark}[Warning]
+The \textbf{converse is false}.  Having $\lim a_{n}=0$ does \textbf{not} guarantee that $\sum a_{n}$ converges.  For example, $\lim_{n\to\infty}\frac{1}{n}=0$ but $\sum\frac{1}{n}$ diverges (the harmonic series), while $\lim_{n\to\infty}\frac{1}{n^{2}}=0$ and $\sum\frac{1}{n^{2}}$ converges.  We will establish these facts in later sections.
+\end{remark}
+
+\textit{In practice we use the Divergence Test in its contrapositive form:}
+
+\begin{corollary}
+\label{cor:13-1}
+If $\lim_{n\to\infty}a_{n}\neq 0$ (including the case where the limit does not exist), then $\sum a_{n}$ is \textbf{divergent}.
+\end{corollary}
+
+\begin{example}
+\label{ex:13-7}
+The series $\displaystyle\sum_{n=0}^{\infty}\frac{\arctan n}{1+e^{-n}}$ is divergent, because
+\[
+  \lim_{n\to\infty}\frac{\arctan n}{1+e^{-n}} = \frac{\pi/2}{1+0} = \frac{\pi}{2}\neq 0.
+\]
+\end{example}
+
+\begin{remark}
+The Divergence Test is a quick first step.  It can never prove convergence, but it can sometimes prove divergence immediately, allowing us to move on without further analysis.
+\end{remark}
+
+%=============================================================================
+\section{Positive Series}
+\label{sec:13.9}
+%=============================================================================
+
+\textit{Proving convergence for a general series can be hard.  Positive series are substantially simpler: their only two behaviours are convergence and divergence to $\infty$.  This dichotomy is what makes comparison arguments possible.}
+
+\begin{definition}[Positive, negative, and non-negative series]
+\label{def:13-3}
+A series $\sum a_{n}$ is called \emph{positive} if $a_{n}>0$ for all~$n$, \emph{negative} if $a_{n}<0$ for all~$n$, and \emph{non-negative} if $a_{n}\ge 0$ for all~$n$.
+\end{definition}
+
+\begin{theorem}[Dichotomy for positive series]
+\label{thm:13-6}
+A positive series is either convergent or divergent to~$\infty$.  In particular, it cannot diverge by oscillation.
+\end{theorem}
+
+\begin{proof}
+If $\sum a_{n}$ is positive, then each $a_{n}>0$, so
+\[
+  S_{k+1} = S_{k}+a_{k+1} > S_{k}.
+\]
+The sequence $(S_{k})$ is therefore increasing.  By the Monotone Convergence Theorem, an increasing sequence either converges (if it is bounded above) or diverges to~$\infty$ (if it is unbounded).
+\proofref{Monotone Convergence Theorem applied to the increasing sequence of partial sums.}
+\end{proof}
+
+\begin{remark}
+The same conclusion holds for non-negative series (replace ``increasing'' with ``non-decreasing'') and for \emph{eventually} non-negative series, by the tail principle (\cref{sec:13.7}).
+\end{remark}
+
+\subsection*{Notation for positive series}
+
+\textit{Because a positive series can only converge or equal $\infty$, we adopt a convenient shorthand.}
+
+We write $\sum a_{n} < \infty$ to mean the positive series is convergent, and $\sum a_{n} = \infty$ to mean it is divergent.
+
+\begin{remark}[Warning]
+This notation is reserved for positive (or non-negative) series \textbf{only}.  An arbitrary series that is not $\infty$ may still be divergent by oscillation.
+\end{remark}
+
+\textit{To prove that a positive series converges, it suffices to show it is \textbf{not} $\infty$ --- equivalently, that the partial sums are bounded above.  This is less work than proving a limit exists directly.  The Integral Test, the Basic Comparison Test, and the Limit Comparison Test all exploit this fact.}
+
+%=============================================================================
+\section{The Integral Test}
+\label{sec:13.10}
+%=============================================================================
+
+\textit{Series and improper integrals are defined in the same way --- as limits of their ``finite'' counterparts.  It is natural to ask whether there is a direct relationship between them.  The Integral Test provides one, letting us leverage antiderivatives to study convergence of series.}
+
+\subsection*{Deriving the test}
+
+\textit{Let $f$ be continuous, positive, and decreasing on $[1,\infty)$.  We compare the integral $\int_{1}^{N}f(x)\dx$ with finite sums by bounding the area under the curve using rectangles.}
+
+\begin{itemize}
+  \item \textbf{Upper bound.}  On each interval $[n,n+1]$, the maximum of $f$ (since $f$ is decreasing) occurs at the left endpoint.  Rectangles of height $f(n)$ and width $1$ give
+  \[
+    \int_{1}^{N}f(x)\dx \;\le\; \sum_{n=1}^{N-1}f(n).
+  \]
+  \item \textbf{Lower bound.}  Rectangles of height $f(n+1)$ and width $1$ give
+  \[
+    \int_{1}^{N}f(x)\dx \;\ge\; \sum_{n=2}^{N}f(n).
+  \]
+\end{itemize}
+Combining and letting $N\to\infty$:
+\[
+  \sum_{n=2}^{\infty}f(n) \;\le\; \int_{1}^{\infty}f(x)\dx \;\le\; \sum_{n=1}^{\infty}f(n).
+\]
+Since $f$ is positive, each quantity is either a finite number or $\infty$.  The two series differ only by the single term $f(1)$, so they converge or diverge together.  Sandwiching the integral between them forces the integral to share their behaviour.
+
+\begin{theorem}[Integral Test]
+\label{thm:13-7}
+Let $a\in\R$ and let $f$ be continuous, positive, and decreasing on $[a,\infty)$.  Then
+\[
+  \int_{a}^{\infty}f(x)\dx \quad\text{converges} \qquad\Longleftrightarrow\qquad \sum_{n=\lceil a\rceil}^{\infty}f(n) \quad\text{converges.}
+\]
+\end{theorem}
+
+\begin{remark}
+We write $\int_{a}^{\infty}f(x)\dx \;\sim\; \sum f(n)$ to indicate the integral and series are either both convergent or both divergent.  This does \textbf{not} mean they are equal; when both converge, their values are generally different.
+\end{remark}
+
+%=============================================================================
+\section{Integral Test Applications}
+\label{sec:13.11}
+%=============================================================================
+
+\textit{We apply the Integral Test to two important examples.  The first identifies an entire family of convergent (and divergent) series; the second handles a series that is not covered by the $p$-series family.}
+
+\begin{example}[$p$-series]
+\label{ex:13-8}
+For $p>0$, determine when $\displaystyle\sum_{n=1}^{\infty}\frac{1}{n^{p}}$ converges.
+
+The function $f(x)=\frac{1}{x^{p}}$ is continuous, positive, and decreasing on $[1,\infty)$.  By the Integral Test,
+\[
+  \sum_{n=1}^{\infty}\frac{1}{n^{p}} \;\sim\; \int_{1}^{\infty}\frac{1}{x^{p}}\dx.
+\]
+From the theory of improper integrals, $\int_{1}^{\infty}\frac{1}{x^{p}}\dx$ converges if and only if $p>1$.
+\end{example}
+
+\begin{theorem}[$p$-series test]
+\label{thm:13-8}
+The series $\displaystyle\sum_{n=1}^{\infty}\frac{1}{n^{p}}$ converges if and only if $p>1$.
+\end{theorem}
+
+\begin{remark}
+In particular, the \emph{harmonic series} $\sum\frac{1}{n}$ (the case $p=1$) is divergent, while $\sum\frac{1}{n^{2}}$ is convergent.  These are the two benchmark series that the Divergence Test could not distinguish (\cref{sec:13.8}).
+\end{remark}
+
+\begin{example}
+\label{ex:13-9}
+Show that $\displaystyle\sum_{n=2}^{\infty}\frac{1}{n\ln n}$ diverges.
+
+The starting index is $n=2$ because $\ln 1=0$.  Set $f(x)=\frac{1}{x\ln x}$, which is continuous, positive, and decreasing on $[2,\infty)$.  By the Integral Test,
+\[
+  \sum_{n=2}^{\infty}\frac{1}{n\ln n} \;\sim\; \int_{2}^{\infty}\frac{1}{x\ln x}\dx.
+\]
+An antiderivative of $\frac{1}{x\ln x}$ is $\ln(\ln x)$ (check: $\frac{d}{dx}\ln(\ln x)=\frac{1}{\ln x}\cdot\frac{1}{x}$).  Therefore
+\[
+  \int_{2}^{b}\frac{1}{x\ln x}\dx = \ln(\ln b)-\ln(\ln 2) \;\xrightarrow{b\to\infty}\; \infty.
+\]
+The integral diverges, so by the Integral Test the series diverges as well.
+\end{example}
+
+%=============================================================================
+\section{Comparison Tests}
+\label{sec:13.12}
+%=============================================================================
+
+\textit{The comparison tests for series are identical in spirit and in proof to the comparison tests for improper integrals.  For brevity we state the results without reproving them, but the proofs transfer verbatim from the integral setting.}
+
+\textit{Both tests rest on the dichotomy for positive series (\cref{thm:13-6}): a positive series is either convergent or $\infty$.  To prove convergence, it suffices to show the partial sums are bounded above.}
+
+\begin{theorem}[Basic Comparison Test]
+\label{thm:13-9}
+Suppose $0 \le a_{n} \le b_{n}$ for all $n$ (or for all sufficiently large~$n$).  Then:
+\begin{enumerate}[label=(\roman*)]
+  \item If $\sum b_{n}$ converges, then $\sum a_{n}$ converges.
+  \item If $\sum a_{n}$ diverges, then $\sum b_{n}$ diverges.
+\end{enumerate}
+\end{theorem}
+
+\begin{theorem}[Limit Comparison Test]
+\label{thm:13-10}
+Let $\sum a_{n}$ and $\sum b_{n}$ be positive series.  If
+\[
+  \lim_{n\to\infty}\frac{a_{n}}{b_{n}} = L, \qquad 0<L<\infty,
+\]
+then $\sum a_{n}$ and $\sum b_{n}$ either both converge or both diverge.
+\end{theorem}
+
+\begin{remark}
+The proof of each theorem follows the same pattern as for improper integrals: replace every integral with a series, and every proper integral with a partial sum.  The details are otherwise unchanged.
+\end{remark}
+
+%=============================================================================
+\section{Alternating Series Test}
+\label{sec:13.13}
+%=============================================================================
+
+\textit{We now move beyond positive series.  A large and well-behaved family consists of alternating series --- those whose terms switch sign at every step.  Under mild hypotheses, they must converge, and there is a clean geometric picture explaining why.}
+
+\begin{definition}[Alternating series]
+\label{def:13-4}
+A series $\sum a_{n}$ is \emph{alternating} if $a_{n}\cdot a_{n+1}<0$ for every~$n$ --- that is, consecutive terms have opposite signs.
+\end{definition}
+
+\textit{A typical alternating series has the form $\sum(-1)^{n}b_{n}$ or $\sum(-1)^{n+1}b_{n}$ with $b_{n}>0$.}
+
+\begin{theorem}[Alternating Series Test (Leibniz Test)]
+\label{thm:13-11}
+Suppose the series $\sum_{n=1}^{\infty}(-1)^{n+1}b_{n}$ satisfies:
+\begin{enumerate}[label=(\roman*)]
+  \item $b_{n}>0$ for all $n$ \textup{(}the series alternates in sign\textup{)},
+  \item $(b_{n})$ is decreasing,
+  \item $\lim_{n\to\infty}b_{n}=0$.
+\end{enumerate}
+Then the series is convergent.
+\end{theorem}
+
+\begin{proof}
+Write $S_{k}=\sum_{n=1}^{k}(-1)^{n+1}b_{n}$.  The terms are $b_{1},-b_{2},b_{3},-b_{4},\ldots$
+
+\textbf{Step 1: Ordering of partial sums.}  Since $b_{n}$ is decreasing and positive,
+\begin{align*}
+  S_{2k+2} &= S_{2k} + (b_{2k+1}-b_{2k+2}) \ge S_{2k}, \\
+  S_{2k+1} &= S_{2k-1} - (b_{2k}-b_{2k+1}) \le S_{2k-1}.
+\end{align*}
+Also $S_{2k+1}=S_{2k}+b_{2k+1}>S_{2k}$.  Therefore
+\[
+  S_{2}\le S_{4}\le S_{6} \le \cdots \le S_{5} \le S_{3} \le S_{1}.
+\]
+\proofref{Even partial sums increase; odd partial sums decrease; every even partial sum is less than every odd one.}
+
+\textbf{Step 2: Even and odd subsequences converge.}  The sequence $(S_{2k})$ is increasing and bounded above (by~$S_{1}$), so by the Monotone Convergence Theorem it converges to some limit~$A$.  Similarly, $(S_{2k+1})$ is decreasing and bounded below (by~$S_{2}$), so it converges to some limit~$B$.
+
+\textbf{Step 3: The two limits agree.}  Since $S_{2k+1}=S_{2k}+b_{2k+1}$, taking limits gives $B = A + 0 = A$ (using hypothesis~(iii)).
+
+\textbf{Step 4: Full sequence converges.}  The even and odd subsequences both converge to the same limit~$A$.  By a standard lemma (if the even-indexed and odd-indexed subsequences of a sequence both converge to the same limit, then the full sequence converges to that limit), $\lim_{k\to\infty}S_{k}=A$.
+\end{proof}
+
+\begin{example}
+\label{ex:13-10}
+The alternating harmonic series $\displaystyle\sum_{n=1}^{\infty}\frac{(-1)^{n+1}}{n} = 1-\frac{1}{2}+\frac{1}{3}-\frac{1}{4}+\cdots$ converges by the Alternating Series Test, since $b_{n}=\frac{1}{n}$ is positive, decreasing, and has limit~$0$.
+\end{example}
+
+\begin{example}
+\label{ex:13-11}
+The series $\displaystyle\sum_{n=2}^{\infty}\frac{(-1)^{n}}{\ln n}$ converges by the Alternating Series Test, since $b_{n}=\frac{1}{\ln n}$ is positive, decreasing, and has limit~$0$.
+\end{example}
+
+%=============================================================================
+\section{Alternating Series Estimation}
+\label{sec:13.14}
+%=============================================================================
+
+\textit{Alternating series that satisfy the hypotheses of the Alternating Series Test are not only easy to test for convergence --- they are also easy to estimate.  The error made by truncating the series is bounded by the first omitted term.}
+
+\begin{theorem}[Alternating Series Estimation Theorem]
+\label{thm:13-12}
+Under the same three hypotheses as \cref{thm:13-11}, let $S=\sum_{n=1}^{\infty}(-1)^{n+1}b_{n}$ and $S_{k}=\sum_{n=1}^{k}(-1)^{n+1}b_{n}$.  Then
+\[
+  \abs{S - S_{k}} \;\le\; b_{k+1}.
+\]
+In words: the error made by approximating the infinite sum with its $k$-th partial sum is at most the absolute value of the first omitted term.
+\end{theorem}
+
+\begin{proof}
+From the proof of \cref{thm:13-11}, the value $S$ lies between every consecutive pair of partial sums.  In particular, $S$ is between $S_{k}$ and $S_{k+1}$, so $\abs{S-S_{k}}\le\abs{S_{k+1}-S_{k}}=b_{k+1}$.
+\end{proof}
+% ── BEGIN VISUAL ──
+\begin{figure}[ht]
+  \centering
+  \input{ch13/figures/fig-alternating-series-estimation.tex}
+  \caption{Alternating series estimation: the remainder is bounded by the next term.}
+  \label{fig:alternating-series-estimation}
+\end{figure}
+% ── END VISUAL ──
+\begin{example}
+\label{ex:13-12}
+Estimate $\displaystyle S=\sum_{n=1}^{\infty}\frac{(-1)^{n}}{n^{4}}$ with error less than $0.001$.
+
+The series satisfies the hypotheses of the Alternating Series Test ($b_{n}=\frac{1}{n^{4}}$ is positive, decreasing, and tends to~$0$), so the estimation theorem applies.  Truncating at the $k$-th term gives error at most $\frac{1}{(k+1)^{4}}$.  We need
+\[
+  \frac{1}{(k+1)^{4}} < 0.001 \quad\Longleftrightarrow\quad (k+1)^{4}>1000.
+\]
+The smallest integer $k$ satisfying this is $k=5$ (since $6^{4}=1296>1000$).  Therefore
+\[
+  S \;\approx\; S_{5} = \sum_{n=1}^{5}\frac{(-1)^{n}}{n^{4}} = -1+\frac{1}{16}-\frac{1}{81}+\frac{1}{256}-\frac{1}{625} \approx -0.94753.
+\]
+The exact value (computable by advanced methods) begins $-0.94703\ldots$, confirming that the error is indeed less than $0.001$.
+\end{example}
+
+\begin{remark}
+For other types of convergent series, bounding the truncation error is generally much harder.  The simplicity of the alternating-series error bound is one of the reasons alternating series are so pleasant to work with.
+\end{remark}
+
+%=============================================================================
+\section{Absolute and Conditional Convergence}
+\label{sec:13.15}
+%=============================================================================
+
+\textit{When a series is neither positive nor alternating, we have few direct tools.  A natural strategy is to take absolute values, reducing the problem to a positive series.  This motivates the distinction between absolute and conditional convergence.}
+
+\subsection*{Motivation}
+
+\begin{example}
+\label{ex:13-13}
+Is $\displaystyle\sum_{n=1}^{\infty}\frac{\sin n}{n^{2}}$ convergent?
+
+This series is not positive (since $\sin n$ changes sign irregularly) and not alternating.  However, taking absolute values gives a positive series:
+\[
+  \sum_{n=1}^{\infty}\frac{\abs{\sin n}}{n^{2}} \;\le\; \sum_{n=1}^{\infty}\frac{1}{n^{2}},
+\]
+and $\sum\frac{1}{n^{2}}$ converges ($p$-series with $p=2$).  By the Basic Comparison Test, $\sum\frac{\abs{\sin n}}{n^{2}}$ converges.  Can we then conclude the original series converges?
+\end{example}
+
+\subsection*{The Absolute Convergence Test}
+
+\begin{theorem}[Absolute Convergence Test]
+\label{thm:13-13}
+If $\displaystyle\sum_{n=1}^{\infty}\abs{a_{n}}$ converges, then $\displaystyle\sum_{n=1}^{\infty}a_{n}$ converges.
+\end{theorem}
+
+\textit{Returning to \cref{ex:13-13}: since $\sum\frac{\abs{\sin n}}{n^{2}}$ converges, the Absolute Convergence Test tells us that $\sum\frac{\sin n}{n^{2}}$ converges as well.}
+
+\begin{remark}[Warning]
+The converse is false.  A series may converge while the series of absolute values diverges (see the definitions below).
+\end{remark}
+
+\subsection*{Absolute versus conditional convergence}
+
+\begin{definition}[Absolute and conditional convergence]
+\label{def:13-5}
+A convergent series $\sum a_{n}$ is called:
+\begin{itemize}
+  \item \emph{absolutely convergent} if $\sum\abs{a_{n}}$ also converges,
+  \item \emph{conditionally convergent} if $\sum\abs{a_{n}}$ diverges.
+\end{itemize}
+\end{definition}
+
+\begin{example}
+\label{ex:13-14}
+The alternating harmonic series $\sum\frac{(-1)^{n+1}}{n}$ is \textbf{conditionally convergent}: the series itself converges (Alternating Series Test), but $\sum\frac{1}{n}$ diverges ($p$-series with $p=1$).
+\end{example}
+
+\begin{example}
+\label{ex:13-15}
+The series $\sum\frac{(-1)^{n+1}}{n^{2}}$ is \textbf{absolutely convergent}: the series itself converges (Alternating Series Test), and $\sum\frac{1}{n^{2}}$ also converges ($p$-series with $p=2$).
+\end{example}
+
+\begin{remark}
+Absolutely convergent series are the ``nice'' type.  They behave much like finite sums and enjoy all the properties we would expect (including commutativity of terms).  Conditionally convergent series are \textbf{treacherous}: they converge, but rearranging their terms can change the sum, or even make the series diverge.  See \cref{sec:13.17}.
+\end{remark}
+
+%=============================================================================
+\section{Proof of Absolute Convergence}
+\label{sec:13.16}
+%=============================================================================
+
+\textit{We prove the Absolute Convergence Test (\cref{thm:13-13}) by separating a series into its positive and negative parts and using comparison.}
+
+\subsection*{Positive and negative parts}
+
+\textit{Given a series $\sum a_{n}$, write $\mathrm{P.T.}$ for the sum of the positive terms (replacing negative terms by~$0$) and $\mathrm{N.T.}$ for the sum of the negative terms (replacing positive terms by~$0$).  For finite sums, $\sum a_{n}=\mathrm{P.T.}+\mathrm{N.T.}$ is obvious.  For infinite sums, this splitting is valid \textbf{only when both $\mathrm{P.T.}$ and $\mathrm{N.T.}$ converge}.}
+
+\begin{lemma}[Splitting a series into positive and negative parts]
+\label{lem:13-1}
+If $\sum\mathrm{P.T.}$ and $\sum\mathrm{N.T.}$ both converge, then $\sum a_{n}$ converges and $\sum a_{n}=\sum\mathrm{P.T.}+\sum\mathrm{N.T.}$
+\end{lemma}
+
+\begin{proof}
+Write the $k$-th partial sum as $S_{k}=P_{k}+N_{k}$, where $P_{k}$ and $N_{k}$ are the partial sums of the positive and negative parts respectively.  This identity holds for finite sums.  Since both $\lim P_{k}$ and $\lim N_{k}$ exist by hypothesis, the limit law gives $\lim S_{k}=\lim P_{k}+\lim N_{k}$.
+\proofref{Splitting $\lim(P_{k}+N_{k})=\lim P_{k}+\lim N_{k}$ requires both limits to exist.}
+\end{proof}
+
+\begin{remark}
+When $\sum\mathrm{P.T.}=\infty$ and $\sum\mathrm{N.T.}=-\infty$, the splitting tells us nothing: the original series may still converge or diverge, depending on the order of the terms.  This is exactly what happens for conditionally convergent series — see \cref{sec:13.17}.
+\end{remark}
+
+\subsection*{Proof of the Absolute Convergence Test}
+
+\begin{proof}[Proof of \cref{thm:13-13}]
+Assume $\sum\abs{a_{n}}$ converges.
+
+The positive terms satisfy $\abs{a_{n}^{+}}\le\abs{a_{n}}$, where $a_{n}^{+}=a_{n}$ if $a_{n}>0$ and $0$ otherwise.  By the Basic Comparison Test, $\sum a_{n}^{+}$ converges.
+
+Similarly, $\abs{a_{n}^{-}}\le\abs{a_{n}}$, where $a_{n}^{-}=a_{n}$ if $a_{n}<0$ and $0$ otherwise.  The series $\sum\abs{a_{n}^{-}}$ converges by comparison, so $\sum a_{n}^{-}$ converges as well (it differs only by a sign).
+
+Both the positive and negative parts converge.  By \cref{lem:13-1}, $\sum a_{n}=\sum a_{n}^{+}+\sum a_{n}^{-}$ converges.
+\proofref{Comparison with $\sum\abs{a_{n}}$ bounds both the positive and negative parts; \cref{lem:13-1} recombines them.}
+\end{proof}
+
+%=============================================================================
+\section{Rearrangements of Series}
+\label{sec:13.17}
+%=============================================================================
+
+\textit{This is perhaps one of the most surprising results about infinite sums: rearranging the terms of a convergent series can change its value.  We explore when this happens and why.}
+
+\begin{example}
+\label{ex:13-16}
+The alternating harmonic series $1-\frac{1}{2}+\frac{1}{3}-\frac{1}{4}+\cdots$ converges to $\ln 2$.  Rearranging the same terms --- two positives, then one negative, repeating --- produces a different convergent series with sum $\frac{3}{2}\ln 2$.  Same terms, different order, different answer.
+\end{example}
+
+\begin{theorem}[Rearrangements of absolutely convergent series]
+\label{thm:13-14}
+If $\sum a_{n}$ is \textbf{absolutely convergent}, then every rearrangement of its terms converges to the same sum.
+\end{theorem}
+
+\begin{theorem}[Riemann Rearrangement Theorem]
+\label{thm:13-15}
+If $\sum a_{n}$ is \textbf{conditionally convergent}, then for every $L\in\R$ there exists a rearrangement of the series that converges to~$L$.  There also exist rearrangements that diverge to $+\infty$, to $-\infty$, or by oscillation.
+\end{theorem}
+
+\textit{Three properties of a conditionally convergent series $\sum a_{n}$ explain why this is possible:}
+\begin{enumerate}[label=(\roman*)]
+  \item $\lim_{n\to\infty}a_{n}=0$ (true for any convergent series, by the Divergence Test).
+  \item The positive terms alone sum to $+\infty$.
+  \item The negative terms alone sum to $-\infty$.
+\end{enumerate}
+
+\begin{proof}[Proof sketch of \cref{thm:13-15}]
+Suppose we wish to rearrange the terms so the sum equals a target value~$L$.
+\begin{enumerate}
+  \item Add positive terms (in their original order) until a partial sum first exceeds~$L$.  This is possible because the positive terms sum to~$\infty$.
+  \item Add negative terms until a partial sum first drops below~$L$.  This is possible because the negative terms sum to~$-\infty$.
+  \item Repeat, alternating between positive and negative terms.
+\end{enumerate}
+Each time the partial sum overshoots or undershoots~$L$, it does so by at most the term just added.  Since $\lim a_{n}=0$, these overshoots shrink to zero, so the partial sums converge to~$L$.
+\end{proof}
+
+\begin{remark}
+This theorem is shocking: the ``value'' of a conditionally convergent series depends on the \emph{order} we add its terms.  In summary:
+\begin{itemize}
+  \item \textbf{Absolutely convergent} series are the ``good'' type --- they behave like finite sums.
+  \item \textbf{Conditionally convergent} series are treacherous --- they converge, but one must not rearrange their terms.
+\end{itemize}
+\end{remark}
+
+%=============================================================================
+\section{The Ratio Test}
+\label{sec:13.18}
+%=============================================================================
+
+\textit{The Ratio Test determines convergence by examining how fast the terms of a series shrink.  It is especially effective for series involving factorials and exponentials.}
+
+\begin{theorem}[Ratio Test]
+\label{thm:13-16}
+Let $\sum a_{n}$ be a series with $a_{n}\neq 0$ for all~$n$.  Suppose
+\[
+  L \;=\; \lim_{n\to\infty}\frac{\abs{a_{n+1}}}{\abs{a_{n}}}
+\]
+exists (or equals $\infty$).  Then:
+\begin{enumerate}[label=(\roman*)]
+  \item If $L<1$, the series is \textbf{absolutely convergent}.
+  \item If $L>1$ \textup{(}including $L=\infty$\textup{)}, the series is \textbf{divergent}.
+  \item If $L=1$, the test is \textbf{inconclusive}.
+\end{enumerate}
+\end{theorem}
+
+\subsection*{Idea of the proof}
+
+\textit{\textbf{Case $L>1$.}  For large $n$, $\abs{a_{n+1}}>\abs{a_{n}}$, so the terms grow in absolute value and cannot tend to~$0$.  By the Divergence Test (\cref{thm:13-5}), the series diverges.}
+
+\textit{\textbf{Case $L<1$.}  For large $n$, $\abs{a_{n+1}}\approx L\cdot\abs{a_{n}}$, meaning each term is roughly a fixed fraction $L$ of the previous one.  This mirrors the behaviour of a geometric series $\sum L^{n}$, which converges because $\abs{L}<1$.  A (rigorous) comparison with such a geometric series shows $\sum\abs{a_{n}}$ converges, so the series is absolutely convergent.}
+
+\begin{remark}[Pause and Try]
+Try to fill in the formal $\eps$-details of the proof for the case $L<1$: choose $r$ with $L<r<1$, show $\abs{a_{n+1}}\le r\abs{a_{n}}$ for all large~$n$, and compare $\sum\abs{a_{n}}$ with a convergent geometric series.
+\end{remark}
+
+%=============================================================================
+\section{Ratio Test Examples}
+\label{sec:13.19}
+%=============================================================================
+
+\textit{We illustrate the Ratio Test with two examples that highlight its strengths and its limitations.}
+
+\begin{example}
+\label{ex:13-17}
+Determine whether $\displaystyle\sum_{n=0}^{\infty}\frac{(-1)^{n}\,e^{2n}}{n!\,(n+3)}$ converges.
+
+Set $a_{n}=\frac{(-1)^{n}\,e^{2n}}{n!\,(n+3)}$.  Compute
+\begin{align*}
+  \frac{\abs{a_{n+1}}}{\abs{a_{n}}}
+  &= \frac{e^{2(n+1)}}{(n+1)!\,(n+4)}\cdot\frac{n!\,(n+3)}{e^{2n}} \\
+  &= \frac{e^{2}}{n+1}\cdot\frac{n+3}{n+4}.
+\end{align*}
+Therefore
+\[
+  L = \lim_{n\to\infty}\frac{e^{2}}{n+1}\cdot\frac{n+3}{n+4} = 0.
+\]
+Since $L=0<1$, the Ratio Test tells us the series is \textbf{absolutely convergent}.
+\end{example}
+
+\begin{remark}
+The Ratio Test is particularly effective when $a_{n}$ involves factorials and exponentials, because the ratio $\abs{a_{n+1}/a_{n}}$ simplifies these terms cleanly.
+\end{remark}
+
+\begin{example}
+\label{ex:13-18}
+Attempt to use the Ratio Test on $\displaystyle\sum_{n=1}^{\infty}\frac{n+1}{n^{2}+2}$.
+
+Set $a_{n}=\frac{n+1}{n^{2}+2}$.  Then
+\[
+  \frac{a_{n+1}}{a_{n}} = \frac{(n+2)(n^{2}+2)}{((n+1)^{2}+2)(n+1)}.
+\]
+Both numerator and denominator are degree-$3$ polynomials with leading coefficient~$1$, so
+\[
+  L = \lim_{n\to\infty}\frac{a_{n+1}}{a_{n}} = 1.
+\]
+The Ratio Test is \textbf{inconclusive}.
+\end{example}
+
+\textit{For this series the Limit Comparison Test (\cref{thm:13-10}) is the right tool.  Comparing with $\sum\frac{1}{n}$:}
+\[
+  \lim_{n\to\infty}\frac{(n+1)/(n^{2}+2)}{1/n} = \lim_{n\to\infty}\frac{n(n+1)}{n^{2}+2} = 1,
+\]
+so the series diverges (since the harmonic series diverges).
+
+\begin{remark}
+In general, whenever $a_{n}$ is a rational function of~$n$ (a quotient of polynomials), the Ratio Test gives $L=1$ and is inconclusive.  The Limit Comparison Test with an appropriate $p$-series is the better choice.  These two tests complement each other: the Ratio Test handles factorials and exponentials; the Limit Comparison Test handles rational functions.
+\end{remark}

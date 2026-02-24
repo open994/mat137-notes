@@ -1,0 +1,24 @@
+\begin{tikzpicture}
+  \begin{axis}[
+    width=11cm,
+    height=6.8cm,
+    axis lines=middle,
+    xmin=-4.2, xmax=6.2,
+    ymin=-6.2, ymax=8.2,
+    xlabel={$x$}, ylabel={$y$},
+    ticks=none,
+    clip=false
+  ]
+    % f(x) = (x^2+1)/(x-1) = x+1 + 2/(x-1)
+    \addplot[thick, color=thmcolor, domain=-4.2:0.9, samples=400] {(x^2+1)/(x-1)};
+    \addplot[thick, color=thmcolor, domain=1.1:6.2, samples=400] {(x^2+1)/(x-1)};
+
+    % Vertical asymptote x=1
+    \draw[dashed, color=defcolor] (axis cs:1,-6.2) -- (axis cs:1,8.2);
+    \node[color=defcolor, anchor=south] at (axis cs:1,8.1) {$x=1$};
+
+    % Slant asymptote y=x+1
+    \addplot[dashed, color=excolor, domain=-4.2:6.2, samples=2] {x+1};
+    \node[color=excolor, anchor=west] at (axis cs:4.6,5.6) {$y=x+1$};
+  \end{axis}
+\end{tikzpicture}

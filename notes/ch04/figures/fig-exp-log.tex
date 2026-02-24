@@ -1,0 +1,22 @@
+\begin{tikzpicture}
+  \begin{axis}[
+    width=11cm,
+    height=7cm,
+    axis lines=middle,
+    xmin=-2.2, xmax=2.2,
+    ymin=-2.2, ymax=5.2,
+    xlabel={$x$}, ylabel={$y$},
+    ticks=none,
+    clip=false
+  ]
+    % y=x guide
+    \addplot[dashed, color=black, domain=-2.2:2.2, samples=2] {x};
+
+    % exp and log
+    \addplot[thick, color=thmcolor, domain=-2.2:2.2, samples=250] {exp(x)};
+    \addplot[thick, color=defcolor, domain=0.1:2.2, samples=250] {ln(x)};
+
+    \node[color=thmcolor, anchor=west] at (axis cs:1.25,3.2) {$y=e^x$};
+    \node[color=defcolor, anchor=west] at (axis cs:1.25,0.5) {$y=\ln x$};
+  \end{axis}
+\end{tikzpicture}

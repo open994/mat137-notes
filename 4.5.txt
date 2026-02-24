@@ -1,0 +1,96 @@
+In this video,
+I will try to obtain a formula
+for the derivative of an exponential
+from the definition of
+derivative as a limit.
+In the process, I will come up with
+a defining property of the number "e".
+There are many exponential functions,
+one for each base.
+The base should be a positive number "a".
+If "a" is greater than 1,
+then aˣ is increasing.
+If "a" is between 0 and 1,
+then aˣ is decreasing.
+Either way,
+the domain is all of the reals,
+and the range is the positive reals.
+Let’s fix a positive number "a",
+and define the function f as:
+f(x) = aˣ.
+What is its derivative f’(x)?
+First, I write the definition
+of derivative as a limit.
+Then I use the definition of f,
+both at x+h, and at x.
+I can use a property of exponentials
+to write aˣ⁺ʰ as: aˣ⋅aʰ.
+And now I can take aˣ as a common factor.
+Let’s pause for a moment.
+For the purpose of the limit,
+the variable is "h".
+This term, aˣ, does not depend on h,
+so for the purpose of the limit,
+it is a just a CONSTANT,
+and I can take it out of the limit.
+Look at what happened:
+the limit no longer depends on x.
+It still depends on a, but ONLY on a.
+Let’s give it a name:
+I am going to call this limit "Lₐ".
+So far, I have concluded that the
+derivative of aˣ is: (a number)⋅aˣ.
+So the derivative of an arbitrary
+exponential is a MUTLIPLE OF ITSELF,
+and the multiplicity constant
+depends on the base "a".
+I do not know the value
+of the constant in general,
+but the value of a for which
+this constant is 1,
+whatever that value of a is,
+will be very important.
+Let’s give it a name.
+We define "e" to be the ONLY number
+for which this limit is 1.
+Or, equivalently, e is the only
+number that satisfies that:
+the derivative of eˣ,
+with respect to x, is itself.
+So far, I have pretended that
+everything was working fine,
+but if we want to be rigorous, there
+are a few issues with this derivation.
+First, I have been assuming this limit
+exists, but I have not proven it.
+A priori, this limit might not exist,
+and then the function
+would be non-differentiable.
+Second, even if this limit exists
+FOR ALL positive numbers "a",
+how do I know there is one value of a
+for which the limit is 1?
+I would need to prove that.
+And third, if I am being really rigorous,
+there is an even bigger problem:
+I have been assuming that exponential
+functions are always well-defined,
+but I did not explain how.
+This might be a surprise,
+but it is not obvious how to define aˣ
+when x is an arbitrary real number;
+and I should take care of that before
+I even try to compute the derivative.
+I will explain this problem
+in the next video.
+Nevertheless, despite all those caveats,
+I still find this derivation helpful.
+I think it helps understand
+where the number "e" comes from,
+and why exponentials have the
+derivative that they have.
+If you care about making this much more
+rigorous, watch the next video.
+(link in the description)
+But if you find this explanation
+to be enough, you may skip it.

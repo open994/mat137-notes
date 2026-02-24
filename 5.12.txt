@@ -1,0 +1,184 @@
+In this video, I will illustrate
+with an example
+how to find the intervals where
+a function is increasing or decreasing.
+I want to find the intervals where the
+function defined by this equation,
+f(x) = 8x^5 + 5x^4 - 20x^3,
+is increasing or decreasing.
+I invite you to pause the video and try to solve this problem.
+Then, continue watching.
+This function is a polynomial.
+It is defined for all real numbers,
+and it is nice!
+It is always continuous, and it is
+always differentiable.
+Let's compute the derivative.
+f'(x) = 40x^4 + 20x^3 - 60x^2.
+To find out when the function is
+increasing or decreasing,
+I want to know when the derivative
+is positive, negative, or zero.
+This will be easier
+if I can factor f'.
+First, I notice I can factor 20x^2.
+I am left with a quadratic.
+I can always factor quadratics!
+Either guess and check,
+or with the quadratic formula.
+In this case, it factors as
+(2x + 3)(x – 1).
+Now, the derivative will be zero
+exactly when...
+any one of these terms is zero.
+So, when x = 0, -3/2, or 1.
+In between any pair of
+consecutive zeroes,
+the derivative will stay either
+positive or negative.
+At this moment, this is not
+a calculus question.
+Figuring out the sign of this
+product is a pre-calculus question.
+So, use your favourite method.
+For example, here is
+one way to do it.
+The derivative is the product
+of these three terms
+To figure out the
+sign of the derivative,
+I will figure out the sign of each
+piece independently.
+I have drawn here a
+real number line,
+and I have marked the three critical
+points, -3/2, 0, and 1.
+Let's look at the factors
+one-by-one.
+20x^2 is zero at x = 0,
+and otherwise,
+it is always positive.
+2x + 3 is zero at x = -3/2.
+It is positive for
+greater values of x,
+and it is negative for
+smaller values of x.
+Similarly, x – 1 is zero at x = 1,
+is positive for greater values,
+and is negative for smaller values.
+Now, onto the derivative.
+I know where the derivative is zero,
+Between minus-infinity and -3/2, the
+derivative will be
+positive times negative times negative.
+That's positive.
+Between -3/2 and 0, it will be positive
+times positive times negative.
+That's negative.
+And it continues negative...
+...and then becomes positive.
+That's the derivative. What can we
+say about the function now?
+Well, to the left of -3/2 (in the open
+interval up to -3/2),
+the derivative is positive, so the
+function must be increasing.
+Between -3/2 and 0,
+it will be decreasing.
+Between 0 and 1, decreasing,
+and after 1, increasing.
+Let's examine the critical points
+more closely.
+What happens at x = -3/2?
+The derivative is zero, so I am going
+to have a horizontal tangent line.
+The function is increasing to the left,
+and decreasing to the right.
+So, that must look
+like this.
+That must be a
+local maximum.
+I do not need to compute second
+derivatives of anything;
+I know this just by looking at the
+first derivative on the left and right.
+And similarly, at x = 1,
+the tangent line is horizontal,
+the function is decreasing to the left,
+and increasing to the right, so it
+must look like a local minimum.
+Now, the point x = 0 is the
+most interesting one.
+At x = 0 I also have a
+horizontal tangent line.
+But the function is
+decreasing to the left,
+and decreasing
+to the right!
+So, it's going to look
+something like this.
+It is what we will call an inflection
+point – it is not a local extremum.
+Finally, let's answer the
+original question.
+In which intervals is this function
+increasing and decreasing?
+I know that to the left of x = -3/2,
+the function is increasing.
+But I can actually say the function
+is increasing on the interval
+all the way to -3/2, INCLUSIVE.
+This is because the derivative is
+positive on the interior of the interval,
+and at the endpoint the
+function is continuous.
+So, I am allowed to include
+the endpoint as well.
+Similarly, I can say the function
+must be decreasing
+from -3/2 to 0, including
+both endpoints.
+The derivative is negative
+on the interior,
+and the function is continuous
+at the endpoints.
+But the function is also decreasing
+from 0 to 1.
+So I can say it is decreasing all the
+way from -3/2 to 1,
+including both endpoints.
+With the same argument, I can say
+the function is increasing
+from 1 to infinity, including 1.
+And that's my final answer!
+Remember that to
+include an endpoint
+in an interval of monotonicity, I only
+need continuity at the endpoint.
+Finally, notice that, yes, I am
+including 1 in both of these intervals.
+That's OK!
+It's not a contradiction.
+The function cannot be increasing or
+decreasing at a point, only an interval.
+In this interval, it is decreasing.
+On this one, it is increasing.
+I have already answered
+the original question:
+on which intervals is the function
+increasing or decreasing?
+But with all this information,
+we can go one step further, and
+sketch the graph of the function.
+I have three critical points.
+I can evaluate f at those points,
+and include them in the graph.
+And then, I know what the graph
+looks like at each of those points,
+and in between them.
+If I want a precise graph, I will have
+to compute a few more things,
+like the intercepts with the axes,
+for example.
+But as a first approximation,
+this is pretty good!

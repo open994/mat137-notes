@@ -1,0 +1,619 @@
+\chapter{The Mean Value Theorem and Applications}
+
+%=============================================================================
+\section{Motivation for the MVT}
+\label{sec:5.1}
+%=============================================================================
+
+\textit{The Mean Value Theorem is perhaps the most interesting result in calculus.  And yet, when you look at the statement, at first sight it appears not very interesting, technical, boring\dots\ honestly, it appears useless.  So why do we care?  Or should we care?}
+
+The goal of the Mean Value Theorem is to help us obtain information about a function using something about its derivative.  When we know something about the derivative, what can we say about the function?
+
+Consider the following natural question.  We know that constant functions have zero derivative.  Are those the only ones?  Are there other functions with zero derivative?  It appears not, and we would like to prove this.
+
+\begin{theorem}[Zero Derivative Implies Constant --- Preview]
+\label{thm:5-1}
+Let $f$ be a function defined on an open interval $(a,b)$.  If $f'(x) = 0$ for every $x \in (a,b)$, then $f$ is constant.
+\end{theorem}
+
+\textit{This is the simplest example of a theorem in which we use something about the derivative to conclude something about the function.  Since it is the simplest, let us try to prove it first\ldots\ Surprisingly, we do not even know how to start!  Despite looking very simple, this is not easy to prove.}
+
+\begin{remark}[Pause and Try]
+Pause and try to prove \cref{thm:5-1}.  There is no clear way to do it.  In fact, we do not know \textbf{any} way to prove this simple theorem without using the Mean Value Theorem.
+\end{remark}
+
+Here is a partial list of results that all rely on the Mean Value Theorem:
+\begin{itemize}
+  \item If a function has zero derivative, it must be constant.
+  \item If a function has positive derivative, it must be increasing.
+  \item All integration methods (finding antiderivatives up to a constant).
+  \item L'H\^opital's Rule.
+  \item The Fundamental Theorem of Calculus.
+  \item Taylor's Theorem and Taylor series with remainder.
+  \item Equality of mixed partial derivatives in multivariable calculus.
+\end{itemize}
+\textbf{Everything} important in calculus, whether big or small, requires the Mean Value Theorem to prove it.
+
+\textit{But reaching the Mean Value Theorem is quite an investment.  Before we are ready to state and prove it, we need a simplified version called Rolle's Theorem, which is interesting on its own but whose main purpose is as a stepping stone.  And in order to prove Rolle's Theorem, we need two other results: the Extreme Value Theorem, which we already know, and the Local Extreme Value Theorem, which we will study next.}
+
+\begin{remark}
+Should you care about the Mean Value Theorem?  It depends on your goals.  If you just want to \emph{use} calculus tools, you can skip it---you will never use it directly.  But if you want to \emph{prove} the theorems and understand why they are true, then you absolutely need the MVT, since there is little or nothing you can prove without it.
+\end{remark}
+
+%=============================================================================
+\section{Local Extrema and Critical Points}
+\label{sec:5.2}
+%=============================================================================
+
+\textit{Before defining local extremum, let us look at an example.  Consider a function $f$ defined on $[0,5]$.  This function has a minimum of $1$ at $x = 3$ and a maximum of $5$ at $x = 5$ (an endpoint---nothing wrong with that).  But there is a third interesting point: the value there is $3$, and the function takes values greater than $3$ elsewhere, so it is not a maximum.  However, if we stay close to that point, it looks like a maximum.  We call it a \emph{local} maximum.}
+
+\begin{definition}[Maximum and Local Maximum]
+\label{def:5-1}
+Let $f$ be a function with domain $I$, and let $c \in I$.
+\begin{enumerate}[label=(\roman*)]
+  \item We say $f$ has a \emph{maximum} at $c$ when $f(x) \leq f(c)$ for all $x \in I$.
+  \item We say $f$ has a \emph{local maximum} at $c$ when there exists $\delta > 0$ such that
+  \[
+    \abs{x - c} < \delta \;\Longrightarrow\; f(x) \leq f(c).
+  \]
+\end{enumerate}
+Analogous definitions hold for \emph{minimum} and \emph{local minimum}.
+\end{definition}
+
+\begin{remark}
+Some terminology:
+\begin{itemize}
+  \item The word \emph{extremum} means ``maximum or minimum.''
+  \item Some authors say \emph{global extremum} instead of simply \emph{extremum} to emphasise the contrast with local extremum.  The two phrases mean the same thing.
+  \item The plurals are \emph{extrema}, \emph{maxima}, and \emph{minima} (irregular Latin plurals).
+\end{itemize}
+\end{remark}
+
+\begin{remark}[Warning]
+According to the definition above, endpoints \textbf{never} count as local extrema, because the function needs to be defined on both sides of $c$.  This convention is used by the majority of calculus textbooks, and we adopt it here.  However, the majority of analysis textbooks use a different convention that \emph{does} include endpoints.  When reading other sources, be sure to check which convention is in use.  There is one specific point later where this distinction is very important.
+\end{remark}
+
+\textit{Now that we have our definitions, let us move towards the Local Extreme Value Theorem.  What can we say about the derivative of a function at a local extremum?  Looking at graphs, the tangent line at a local extremum appears to be horizontal (derivative zero)\ldots\ unless the function has a corner, in which case the derivative does not exist.  These seem to be the only two options.}
+
+\begin{theorem}[Local Extreme Value Theorem]
+\label{thm:5-2}
+Let $f$ be a function with domain an interval $I$, and let $c$ be an interior point of $I$.  If $f$ has a local extremum at $c$, then $f'(c) = 0$ or $f'(c)$ does not exist.
+\end{theorem}
+
+\begin{remark}
+Given the definition of local extremum that we use (which excludes endpoints), the hypothesis that $c$ is an interior point is already implicit.  We state it explicitly anyway, to emphasise it.  If one uses the alternative definition that allows endpoints, then this hypothesis is \textbf{essential} and must not be omitted.
+\end{remark}
+
+\begin{definition}[Critical Point]
+\label{def:5-2}
+Let $f$ be a function defined on an interval $I$.  We say that $c$ is a \emph{critical point} of $f$ when $c$ is an interior point of $I$ and either $f'(c) = 0$ or $f'(c)$ does not exist.
+\end{definition}
+
+With this terminology, \cref{thm:5-2} simply says that \textbf{local extrema are always critical points}.
+
+\begin{remark}[Warning]
+The converse is \textbf{not} true.  A critical point is not always a local extremum.
+\end{remark}
+
+% ── BEGIN VISUAL ──
+\begin{figure}[ht]
+  \centering
+  \input{ch05/figures/fig-critical-points.tex}
+  \caption{A smooth function with critical points at a local max and min.}
+  \label{fig:critical-points}
+\end{figure}
+% ── END VISUAL ──
+
+%=============================================================================
+\section{Proof of the Local EVT}
+\label{sec:5.3}
+%=============================================================================
+
+\textit{We now prove the Local Extreme Value Theorem stated in \cref{sec:5.2}.  The argument treats the case of a local maximum; the case of a local minimum is entirely analogous (reverse the inequalities).}
+
+\begin{proof}[Proof of \cref{thm:5-2} (local maximum case)]
+Suppose $f$ has a local maximum at an interior point $c$.  The derivative, if it exists, is
+\[
+  f'(c) = \lim_{x \to c} \frac{f(x) - f(c)}{x - c}.
+\]
+We wish to show that either this limit does not exist or it equals zero.  Assume the limit exists; we show it must be zero.
+
+\proofref{Examining the quotient from each side separately.}
+
+Consider the \textbf{denominator}.  When $x \to c^{+}$, the quantity $(x - c)$ is positive.  When $x \to c^{-}$, it is negative.
+
+Consider the \textbf{numerator}.  Since $f$ has a local maximum at $c$, we have $f(x) \leq f(c)$ for all $x$ sufficiently close to $c$.  Therefore $f(x) - f(c) \leq 0$ for $x$ near $c$, regardless of the side of approach.
+
+Combining:
+\begin{itemize}
+  \item From the right: the quotient $\dfrac{f(x) - f(c)}{x - c}$ is $\dfrac{(\leq 0)}{(> 0)} \leq 0$, so the right-hand limit is $\leq 0$.
+  \item From the left: the quotient is $\dfrac{(\leq 0)}{(< 0)} \geq 0$, so the left-hand limit is $\geq 0$.
+\end{itemize}
+Since we assumed the full limit exists, the two one-sided limits must exist and be equal.  A quantity that is both $\leq 0$ and $\geq 0$ must be zero.  Therefore $f'(c) = 0$.
+\end{proof}
+
+\begin{remark}
+We needed $c$ to be an interior point because we examined the limit from both sides.  If $c$ were an endpoint, the argument would fail.
+\end{remark}
+
+\begin{remark}[Pause and Try]
+Write the proof for a local minimum.  It is very similar: change the direction of the inequalities in the numerator.  Everything else works the same way.
+\end{remark}
+
+%=============================================================================
+\section{Finding Global Extrema}
+\label{sec:5.4}
+%=============================================================================
+
+\textit{The Local Extreme Value Theorem is not only a stepping stone towards the Mean Value Theorem; it is also useful on its own.  Here we illustrate, with an example, how to use it to find the global maximum and minimum of a function.}
+
+\begin{example}[Extrema of a Polynomial on a Closed Interval]
+\label{ex:5-1}
+Find the extrema (and local extrema) of
+\[
+  f(x) = x^{3} - 3x^{2} - 9x + 35 \qquad \text{on } [-4, 4].
+\]
+
+\textbf{Step 1.}  The function $f$ is continuous on the closed, bounded interval $[-4, 4]$.  By the Extreme Value Theorem, $f$ must have a maximum and a minimum on this interval.
+
+\begin{remark}[Warning]
+Some students like to skip this first step, but it is \textbf{essential}.  Without it, everything else fails: the function might not even have a maximum or a minimum.
+\end{remark}
+
+\textbf{Step 2.}  Since $f$ has a maximum and a minimum, each must occur at an \textbf{endpoint} or at an \textbf{interior point}.  If it occurs at an interior point, it is also a local extremum, so by \cref{thm:5-2} it must be a critical point.
+
+Therefore, the plan is:
+\begin{enumerate}[label=(\roman*)]
+  \item Find all endpoints and critical points.
+  \item Evaluate $f$ at each of these candidate points.
+  \item The largest value is the maximum; the smallest is the minimum.
+\end{enumerate}
+
+\begin{remark}[Warning]
+This method only works for a \textbf{continuous function on a closed, bounded interval}.  Otherwise, the function may not have a maximum or minimum, and applying this method carelessly may give the wrong answer.
+\end{remark}
+
+\textbf{Calculations.}  The endpoints are $x = -4$ and $x = 4$.  For the critical points, compute the derivative:
+\[
+  f'(x) = 3x^{2} - 6x - 9 = 3(x + 1)(x - 3).
+\]
+Since $f$ is a polynomial, $f'$ exists everywhere, so the critical points are the solutions of $f'(x) = 0$: namely $x = -1$ and $x = 3$.
+
+Evaluating $f$ at all four candidate points:
+\[
+\begin{array}{c|cccc}
+  x   & -4  & -1 & 3   & 4  \\ \hline
+  f(x) & -41 & 40 & 8  & 15
+\end{array}
+\]
+The largest value is $f(-1) = 40$, so $f$ has a \textbf{maximum of $40$ at $x = -1$}.  The smallest value is $f(-4) = -41$, so $f$ has a \textbf{minimum of $-41$ at $x = -4$}.
+
+From this information, we can also guess the shape of the graph: $f$ has a local maximum at $x = -1$ and a local minimum at $x = 3$.  Strictly speaking, this last observation is not yet fully rigorous, but geometrically it makes perfect sense.  We will learn how to argue this rigorously when we study monotonicity.
+\end{example}
+
+%=============================================================================
+\section{Rolle's Theorem}
+\label{sec:5.5}
+%=============================================================================
+
+\textit{Rolle's Theorem is an intermediate step that will allow us to prove the Mean Value Theorem.  That is the main reason to study it.  By itself, the theorem may appear a bit dry and uninteresting, but it will lead us to something much more important.}
+
+\begin{theorem}[Rolle's Theorem]
+\label{thm:5-3}
+Let $f$ be defined on a closed, bounded interval $[a,b]$.  Suppose:
+\begin{enumerate}[label=(\roman*)]
+  \item $f$ is continuous on $[a,b]$,
+  \item $f$ is differentiable on $(a,b)$,
+  \item $f(a) = f(b)$.
+\end{enumerate}
+Then there exists at least one $c \in (a,b)$ such that $f'(c) = 0$.
+\end{theorem}
+
+% ── BEGIN VISUAL ──
+\begin{figure}[ht]
+  \centering
+  \input{ch05/figures/fig-rolles-theorem.tex}
+  \caption{Rolle's theorem: a horizontal tangent in the interior.}
+  \label{fig:rolles-theorem}
+\end{figure}
+% ── END VISUAL ──
+
+\textit{Before writing the proof, let us understand \textbf{why} each hypothesis is needed.}
+
+\begin{remark}
+\textbf{Why hypothesis (iii)?}  If $f(a) = f(b)$, the graph must go up and come back down (or vice versa), forcing a local extremum with derivative zero.  Without this condition, the function could be monotone and have no point with zero derivative.
+
+\textbf{Why hypothesis (ii)?}  Even with $f(a) = f(b)$, the function could have a local extremum at a corner, where the derivative does not exist.
+
+\textbf{Why hypothesis (i)?}  Even with differentiability on the interior and equal endpoint values, a jump discontinuity at an endpoint can destroy the conclusion.
+\end{remark}
+
+\begin{remark}
+One might ask: ``Why not simply require differentiability on the full closed interval $[a,b]$?'' That would also make the theorem true.  However, it is good practice to state theorems with hypotheses as \textbf{weak} as possible, because then the theorem applies in more situations and is therefore more useful.
+\end{remark}
+
+\begin{proof}[Proof of Rolle's Theorem]
+Since $f$ is continuous on the closed, bounded interval $[a,b]$, the Extreme Value Theorem guarantees that $f$ attains a maximum and a minimum on $[a,b]$.
+
+\proofref{Using the Extreme Value Theorem and \cref{thm:5-2}.}
+
+\textbf{Case 1:} At least one extremum (maximum or minimum) occurs at an interior point $c \in (a,b)$.  Then $f$ has a local extremum at $c$.  By the Local Extreme Value Theorem (\cref{thm:5-2}), $f'(c)$ is either zero or does not exist.  Since $f$ is differentiable on $(a,b)$, we conclude $f'(c) = 0$.
+
+\textbf{Case 2:} Both the maximum and the minimum occur at endpoints.  Since $f(a) = f(b)$, the maximum value and the minimum value are both equal to $f(a)$.  Therefore $f$ is constant on $[a,b]$, so $f'(c) = 0$ for every $c \in (a,b)$.
+
+In both cases, there exists $c \in (a,b)$ with $f'(c) = 0$.
+\end{proof}
+
+\begin{remark}
+All three hypotheses were used in the proof: continuity on $[a,b]$ to invoke the Extreme Value Theorem, differentiability on $(a,b)$ to conclude $f'(c) = 0$ (rather than merely ``does not exist''), and $f(a) = f(b)$ to handle the case when both extrema occur at endpoints.
+\end{remark}
+
+%=============================================================================
+\section{Counting Zeroes of Functions}
+\label{sec:5.6}
+%=============================================================================
+
+\textit{The main reason we learned Rolle's Theorem is as a stepping stone to the Mean Value Theorem.  Nevertheless, it has applications of its own.  Here is one: it can help us count the number of zeroes of a function.}
+
+\begin{definition}[Zero of a Function]
+\label{def:5-3}
+We say that $c$ is a \emph{zero} of a function $f$ when $f(c) = 0$.
+\end{definition}
+
+\begin{remark}[Warning]
+We say $c$ is a zero of the \textbf{function} $f$, and a solution of the \textbf{equation} $f(x) = 0$.  A function by itself is not an equation.
+\end{remark}
+
+The strategy for counting zeroes of a function uses two steps:
+\begin{enumerate}[label=(\roman*)]
+  \item Use the \textbf{Intermediate Value Theorem} to show that $f$ has \emph{at least} a certain number of zeroes.
+  \item Use \textbf{Rolle's Theorem} to show that $f$ has \emph{at most} a certain number of zeroes.
+\end{enumerate}
+If the two bounds agree, we know the exact count.
+
+\textit{The key observation linking Rolle's Theorem to zeroes is the following.}
+
+\begin{theorem}[Zeroes and Derivatives]
+\label{thm:5-4}
+Let $f$ be continuous and differentiable on an interval $I$.  Then the number of zeroes of $f$ on $I$ is at most the number of zeroes of $f'$ on $I$, plus one.
+\end{theorem}
+
+\begin{proof}
+Suppose $f$ has $n$ zeroes on $I$, say $x_{1} < x_{2} < \cdots < x_{n}$.  On each sub-interval $[x_{k}, x_{k+1}]$ ($k = 1, \ldots, n-1$), the function $f$ satisfies the hypotheses of Rolle's Theorem: it is continuous on $[x_{k}, x_{k+1}]$, differentiable on $(x_{k}, x_{k+1})$, and $f(x_{k}) = f(x_{k+1}) = 0$.
+
+\proofref{Rolle's Theorem applied to consecutive zeroes.}
+
+Therefore, for each $k$, there exists $c_{k} \in (x_{k}, x_{k+1})$ with $f'(c_{k}) = 0$.  Since $c_{1} < c_{2} < \cdots < c_{n-1}$, the derivative $f'$ has at least $n - 1$ zeroes.
+
+Equivalently, if $f'$ has $m$ zeroes, then $f$ has at most $m + 1$ zeroes.
+\end{proof}
+
+\begin{example}[Exact Number of Zeroes]
+\label{ex:5-2}
+How many zeroes does $g(x) = x^{6} + x^{2} + x - 2$ have?
+
+\textbf{Lower bound (IVT).}  The function $g$ is a polynomial, hence continuous on $\R$.  We compute:
+\[
+  g(-2) = 64 + 4 - 2 - 2 = 64 > 0, \qquad g(0) = -2 < 0, \qquad g(1) = 1 + 1 + 1 - 2 = 1 > 0.
+\]
+Since $g$ changes sign from positive to negative on $(-2, 0)$ and from negative to positive on $(0, 1)$, the IVT guarantees at least \textbf{two} zeroes.
+
+\textbf{Upper bound (Rolle's Theorem and \cref{thm:5-4}).}  Compute:
+\begin{align*}
+  g'(x)  &= 6x^{5} + 2x + 1, \\
+  g''(x) &= 30x^{4} + 2.
+\end{align*}
+Since $x^{4} \geq 0$ for all $x$, we have $g''(x) \geq 2 > 0$ for all $x$.  So $g''$ has \textbf{zero} zeroes.
+
+By \cref{thm:5-4} applied to $g'$: the number of zeroes of $g'$ is at most $0 + 1 = 1$.
+
+By \cref{thm:5-4} applied to $g$: the number of zeroes of $g$ is at most $1 + 1 = 2$.
+
+Since $g$ has at least two zeroes and at most two zeroes, $g$ has \textbf{exactly two} zeroes.
+\end{example}
+
+%=============================================================================
+\section{The Mean Value Theorem}
+\label{sec:5.7}
+%=============================================================================
+
+\textit{We have been working towards this theorem for a while: the Extreme Value Theorem, the Local Extreme Value Theorem, and Rolle's Theorem were all stepping stones.  The Mean Value Theorem itself will appear not very interesting at first, but we care about it because it has many powerful applications.}
+
+Recall Rolle's Theorem (\cref{thm:5-3}): if $f$ is continuous on $[a,b]$, differentiable on $(a,b)$, and $f(a) = f(b)$, then there exists $c \in (a,b)$ with $f'(c) = 0$.
+
+\textit{For the Mean Value Theorem, we keep the first two hypotheses (they hold for most common functions) but remove the third.  The question is: with only continuity and differentiability, what conclusion can we still draw?}
+
+\textit{Consider a function satisfying the first two hypotheses, but with $f(a) \neq f(b)$.  Draw the line through the points $(a, f(a))$ and $(b, f(b))$.  Imagine ``tilting'' the picture so that this line becomes horizontal.  From the tilted perspective, the endpoint values are equal, so Rolle's Theorem applies and there is a point where the tangent line is horizontal---that is, parallel to the line through the endpoints.  Returning to the original picture, we conclude there exists a point where the slope of the tangent line equals the slope of the secant line through $(a, f(a))$ and $(b, f(b))$.}
+
+\begin{theorem}[Mean Value Theorem]
+\label{thm:5-5}
+Let $f$ be defined on a closed, bounded interval $[a,b]$.  Suppose:
+\begin{enumerate}[label=(\roman*)]
+  \item $f$ is continuous on $[a,b]$,
+  \item $f$ is differentiable on $(a,b)$.
+\end{enumerate}
+Then there exists at least one $c \in (a,b)$ such that
+\[
+  f'(c) = \frac{f(b) - f(a)}{b - a}.
+\]
+\end{theorem}
+
+% ── BEGIN VISUAL ──
+\begin{figure}[ht]
+  \centering
+  \input{ch05/figures/fig-mean-value-theorem.tex}
+  \caption{Mean Value Theorem: a tangent parallel to the secant.}
+  \label{fig:mean-value-theorem}
+\end{figure}
+% ── END VISUAL ──
+
+\begin{remark}[Warning]
+The Mean Value Theorem does \textbf{not} merely assert that the equation $f'(c) = \dfrac{f(b) - f(a)}{b - a}$ holds.  It says: \textbf{if} the hypotheses are satisfied, \textbf{then} there \textbf{exists} a value $c \in (a,b)$ making the equation true.  The full logical structure---hypotheses, existential quantifier, and equation---is the theorem.
+\end{remark}
+
+\begin{remark}
+Like Rolle's Theorem and the Intermediate Value Theorem, the MVT is a pure \textbf{existence} result.  It guarantees that at least one such $c$ exists, but it does not tell us how to find it.
+\end{remark}
+
+%=============================================================================
+\section{Proof of the MVT}
+\label{sec:5.8}
+%=============================================================================
+
+\textit{The idea of the proof is to reduce the Mean Value Theorem to Rolle's Theorem.  We construct a new function $h$ that measures the vertical distance between the graph of $f$ and the secant line through $(a, f(a))$ and $(b, f(b))$.  Since $h(a) = h(b) = 0$, Rolle's Theorem applies to $h$.}
+
+\begin{proof}[Proof of the Mean Value Theorem (\cref{thm:5-5})]
+Let
+\[
+  m = \frac{f(b) - f(a)}{b - a}
+\]
+be the slope of the secant line through $(a, f(a))$ and $(b, f(b))$.
+
+Define a new function $h$ on $[a,b]$ by
+\[
+  h(x) = f(x) - f(a) - m(x - a).
+\]
+
+\proofref{Applying Rolle's Theorem (\ref{thm:5-3}) to the auxiliary function $h$.}
+
+We verify the hypotheses of Rolle's Theorem for $h$ on $[a,b]$:
+\begin{enumerate}[label=(\roman*)]
+  \item $h$ is continuous on $[a,b]$, since $f$ is continuous and $m(x - a)$ is a polynomial.
+  \item $h$ is differentiable on $(a,b)$, since $f$ is differentiable and $m(x - a)$ is a polynomial.
+  \item $h(a) = f(a) - f(a) - m \cdot 0 = 0$, and
+  \[
+    h(b) = f(b) - f(a) - m(b - a) = f(b) - f(a) - \bigl(f(b) - f(a)\bigr) = 0.
+  \]
+  So $h(a) = h(b) = 0$.
+\end{enumerate}
+
+By Rolle's Theorem, there exists $c \in (a,b)$ such that $h'(c) = 0$.
+
+Now observe that for any $x \in (a,b)$,
+\[
+  h'(x) = f'(x) - m.
+\]
+Therefore $h'(c) = 0$ gives $f'(c) = m$, which is exactly
+\[
+  f'(c) = \frac{f(b) - f(a)}{b - a}. \qedhere
+\]
+\end{proof}
+
+\textit{After all this work, we have a proof of the Mean Value Theorem.  We are now ready to start profiting from it!}
+
+%=============================================================================
+\section{Zero Derivative Implies Constant}
+\label{sec:5.9}
+%=============================================================================
+
+\textit{This is our first application of the Mean Value Theorem.  We return to the problem raised at the very beginning: proving that constant functions are the only functions with zero derivative.  This seems obvious, but it genuinely requires the Mean Value Theorem.}
+
+\begin{theorem}[Zero Derivative on a Closed Interval]
+\label{thm:5-6}
+Let $f$ be defined on a closed interval $[a,b]$.  If $f$ is continuous on $[a,b]$ and $f'(x) = 0$ for every $x \in (a,b)$, then $f$ is constant on $[a,b]$.
+\end{theorem}
+
+\begin{proof}
+We must show that $f(x_{1}) = f(x_{2})$ for every $x_{1}, x_{2} \in [a,b]$.
+
+Fix arbitrary $x_{1}, x_{2} \in [a,b]$.  Without loss of generality, assume $x_{1} < x_{2}$.  (If $x_{1} = x_{2}$, there is nothing to prove.)
+
+\proofref{Mean Value Theorem (\ref{thm:5-5}) applied on $[x_{1}, x_{2}]$.}
+
+We apply the Mean Value Theorem to $f$ on the interval $[x_{1}, x_{2}]$.  The hypotheses are satisfied: $f$ is continuous on $[x_{1}, x_{2}] \subseteq [a,b]$, and $f$ is differentiable on $(x_{1}, x_{2}) \subseteq (a,b)$.
+
+By the MVT, there exists $c \in (x_{1}, x_{2})$ such that
+\[
+  f'(c) = \frac{f(x_{2}) - f(x_{1})}{x_{2} - x_{1}}.
+\]
+But $f'(c) = 0$ by hypothesis, so $f(x_{2}) - f(x_{1}) = 0$, that is, $f(x_{1}) = f(x_{2})$.
+\end{proof}
+
+\begin{theorem}[Zero Derivative on an Open Interval]
+\label{thm:5-7}
+Let $f$ be defined on an open interval $(a,b)$.  If $f'(x) = 0$ for every $x \in (a,b)$, then $f$ is constant on $(a,b)$.
+\end{theorem}
+
+\begin{remark}[Pause and Try]
+The proof is a slight modification of the proof of \cref{thm:5-6}.  Try to write it yourself.
+\end{remark}
+
+\begin{example}[Proving a Trigonometric Identity]
+\label{ex:5-3}
+Prove that there exists a constant $C$ such that
+\[
+  \arctan\!\sqrt{\frac{1-x}{1+x}} = C - \frac{1}{2}\arcsin x,
+\]
+find the value of $C$, and determine for which values of $x$ the identity holds.
+
+\textbf{Solution.}  In principle, this is a problem in trigonometry that could be solved with identities.  But calculus makes it faster.
+
+Proving the identity is equivalent to proving that the function
+\[
+  F(x) = \arctan\!\sqrt{\frac{1-x}{1+x}} + \frac{1}{2}\arcsin x
+\]
+is constant.  After checking the domain (which turns out to be $(-1, 1]$), we compute the derivative.  The calculation requires some work, but after simplification, one obtains $F'(x) = 0$ for all $x \in (-1, 1)$.
+
+By \cref{thm:5-6} (noting that $F$ is continuous on $(-1, 1]$ and differentiable on $(-1, 1)$), the function $F$ is constant on $(-1, 1]$.
+
+To find $C$, evaluate at $x = 0$:
+\[
+  C = F(0) = \arctan(1) + \frac{1}{2}\arcsin(0) = \frac{\pi}{4}.
+\]
+The identity holds for all $x \in (-1, 1]$.
+\end{example}
+
+%=============================================================================
+\section{Antiderivatives and Integration}
+\label{sec:5.10}
+%=============================================================================
+
+\textit{This is our second application of the Mean Value Theorem.  It explains why integration is possible---more precisely, why adding a constant ``$+ C$'' to one antiderivative produces \emph{all} antiderivatives.}
+
+\begin{example}[Finding All Functions with a Given Derivative]
+\label{ex:5-4}
+Find all functions $f$ whose derivative is $x^{2}$.  By trial and error, $\frac{1}{3}x^{3}$ works.  Adding any constant still works: $\frac{1}{3}x^{3} + C$ is also a solution.  But could there be other solutions that are \textbf{not} of this form?
+\end{example}
+
+\textit{The answer is no, and we must prove it.  The proof is short, now that we have the Mean Value Theorem.}
+
+\begin{corollary}[Functions with the Same Derivative]
+\label{thm:5-8}
+Let $f$ and $g$ be defined on an open interval $(a,b)$.  If $f'(x) = g'(x)$ for all $x \in (a,b)$, then there exists a constant $C$ such that $f(x) = g(x) + C$ for all $x \in (a,b)$.
+\end{corollary}
+
+\begin{proof}
+Define $h(x) = f(x) - g(x)$.  Then $h'(x) = f'(x) - g'(x) = 0$ for all $x \in (a,b)$.  By \cref{thm:5-7}, $h$ is constant, so there exists $C \in \R$ with $h(x) = C$ for all $x$.  That is, $f(x) = g(x) + C$.
+\end{proof}
+
+\begin{remark}
+Returning to \cref{ex:5-4}: if $f'(x) = x^{2}$, then $f'(x) = g'(x)$ where $g(x) = \frac{1}{3}x^{3}$.  By \cref{thm:5-8}, there exists a constant $C$ such that $f(x) = \frac{1}{3}x^{3} + C$.  These are \textbf{all} the solutions.
+\end{remark}
+
+\textit{This bears repeating, because it is very important.  Without the Mean Value Theorem, we could only say that any function of the form $\frac{1}{3}x^{3} + C$ is \emph{a} solution.  Thanks to the Mean Value Theorem, we can say these are \textbf{all} the solutions.  This idea is at the core of every integration method: find one antiderivative, add ``$+ C$,'' and you have found them all.  The MVT is therefore at the foundation of all integration theorems.}
+
+%=============================================================================
+\section{Monotonicity and Derivatives}
+\label{sec:5.11}
+%=============================================================================
+
+\textit{This is our third application of the Mean Value Theorem: the relationship between the sign of the derivative and whether a function is increasing or decreasing.}
+
+\begin{remark}[Warning]
+Saying that a function is increasing is \textbf{not} the same thing as saying it has positive derivative.  These two concepts are related, but they are \textbf{not the same}.  A function can be increasing everywhere yet have derivative zero at a point, or have a corner where the derivative does not exist, or even be discontinuous at infinitely many points.  Positive derivative is not the \emph{definition} of increasing.
+\end{remark}
+
+\begin{definition}[Increasing and Decreasing Functions]
+\label{def:5-4}
+Let $f$ be a function defined on an interval $I$.
+\begin{enumerate}[label=(\roman*)]
+  \item $f$ is \emph{increasing} on $I$ when, for every $x_{1}, x_{2} \in I$,
+  \[
+    x_{1} < x_{2} \;\Longrightarrow\; f(x_{1}) < f(x_{2}).
+  \]
+  \item $f$ is \emph{non-decreasing} on $I$ when, for every $x_{1}, x_{2} \in I$,
+  \[
+    x_{1} < x_{2} \;\Longrightarrow\; f(x_{1}) \leq f(x_{2}).
+  \]
+\end{enumerate}
+Analogous definitions hold for \emph{decreasing} and \emph{non-increasing} (reverse the second inequality).
+\end{definition}
+
+\begin{remark}
+This terminology is not universal.  Some books use ``strictly increasing'' for what we call ``increasing,'' and ``increasing'' for what we call ``non-decreasing.''  When reading other sources or working with others, make sure you agree on the definitions.
+\end{remark}
+
+\begin{theorem}[Positive Derivative Implies Increasing --- Open Interval]
+\label{thm:5-9}
+Let $f$ be defined on an open interval $(a,b)$.  If $f'(x) > 0$ for every $x \in (a,b)$, then $f$ is increasing on $(a,b)$.
+\end{theorem}
+
+\begin{theorem}[Positive Derivative Implies Increasing --- Closed Interval]
+\label{thm:5-10}
+Let $f$ be defined on a closed, bounded interval $[a,b]$.  If $f$ is continuous on $[a,b]$ and $f'(x) > 0$ for every $x \in (a,b)$, then $f$ is increasing on $[a,b]$.
+\end{theorem}
+
+\begin{remark}[Pause and Try]
+The proofs of \cref{thm:5-9,thm:5-10} are direct applications of the Mean Value Theorem, following the same pattern as the proof of \cref{thm:5-6}.  Fix $x_{1} < x_{2}$ in the interval, apply the MVT on $[x_{1}, x_{2}]$, and use $f'(c) > 0$ to conclude $f(x_{2}) - f(x_{1}) > 0$.  Try writing them out.
+\end{remark}
+
+Here is a summary of the results linking the sign of the derivative to monotonicity on an open interval $(a,b)$:
+
+\begin{center}
+\begin{tabular}{lcl}
+  \toprule
+  \textbf{Derivative condition} && \textbf{Conclusion} \\
+  \midrule
+  $f'(x) = 0$ for all $x \in (a,b)$   && $f$ is constant on $(a,b)$ \\
+  $f'(x) > 0$ for all $x \in (a,b)$   && $f$ is increasing on $(a,b)$ \\
+  $f'(x) < 0$ for all $x \in (a,b)$   && $f$ is decreasing on $(a,b)$ \\
+  \bottomrule
+\end{tabular}
+\end{center}
+
+At an isolated point where the derivative is zero or does not exist, the function could be increasing, decreasing, or have a local extremum.  The derivative at a single point does not determine the local behaviour; one must examine the sign of the derivative on intervals.
+
+%=============================================================================
+\section{Intervals of Monotonicity}
+\label{sec:5.12}
+%=============================================================================
+
+\textit{Let us illustrate, with an example, how to find the intervals where a function is increasing or decreasing using the theorems of the previous section.}
+
+\begin{example}[Monotonicity of a Polynomial]
+\label{ex:5-5}
+Find the intervals on which $f(x) = 8x^{5} + 5x^{4} - 20x^{3}$ is increasing or decreasing.
+
+\begin{remark}[Pause and Try]
+Pause and try to solve this problem before reading the solution.
+\end{remark}
+
+\textbf{Step 1: Compute and factor the derivative.}
+\[
+  f'(x) = 40x^{4} + 20x^{3} - 60x^{2} = 20x^{2}(2x + 3)(x - 1).
+\]
+
+\textbf{Step 2: Find the critical points.}  Setting $f'(x) = 0$ gives $x = 0$, $x = -\frac{3}{2}$, and $x = 1$.
+
+\textbf{Step 3: Determine the sign of $f'$ on each sub-interval.}  Since $f'$ is a product of three factors $20x^{2}$, $(2x+3)$, and $(x-1)$, we analyse the sign of each:
+
+\begin{center}
+\begin{tabular}{l|ccccccc}
+  \toprule
+  & $\bigl(-\infty,-\tfrac{3}{2}\bigr)$ & $-\frac{3}{2}$ & $\bigl(-\tfrac{3}{2},0\bigr)$ & $0$ & $(0,1)$ & $1$ & $(1,\infty)$ \\
+  \midrule
+  $20x^{2}$  & $+$ & $+$ & $+$ & $0$ & $+$ & $+$ & $+$ \\
+  $2x+3$     & $-$ & $0$ & $+$ & $+$ & $+$ & $+$ & $+$ \\
+  $x-1$      & $-$ & $-$ & $-$ & $-$ & $-$ & $0$ & $+$ \\
+  \midrule
+  $f'(x)$    & $+$ & $0$ & $-$ & $0$ & $-$ & $0$ & $+$ \\
+  \bottomrule
+\end{tabular}
+\end{center}
+
+\textbf{Step 4: Conclude monotonicity.}
+\begin{itemize}
+  \item On $\bigl(-\infty, -\frac{3}{2}\bigr)$, $f'(x) > 0$, so $f$ is increasing.
+  \item On $\bigl(-\frac{3}{2}, 0\bigr)$ and $(0, 1)$, $f'(x) < 0$, so $f$ is decreasing on each.
+  \item On $(1, \infty)$, $f'(x) > 0$, so $f$ is increasing.
+\end{itemize}
+
+Since $f$ is continuous at the critical points, we may include them in the intervals of monotonicity (by \cref{thm:5-10} and its decreasing analogue):
+\begin{itemize}
+  \item $f$ is \textbf{increasing} on $\bigl(-\infty, -\frac{3}{2}\bigr]$.
+  \item $f$ is \textbf{decreasing} on $\bigl[-\frac{3}{2}, 1\bigr]$ (since $f'<0$ on $\bigl(-\frac{3}{2},0\bigr) \cup (0,1)$ and $f'(0) = 0$, the function is decreasing on the entire interval $\bigl[-\frac{3}{2},1\bigr]$).
+  \item $f$ is \textbf{increasing} on $[1, \infty)$.
+\end{itemize}
+
+\textbf{Step 5: Classify the critical points.}
+
+At $x = -\frac{3}{2}$: the derivative is zero, the function is increasing to the left and decreasing to the right, so $f$ has a \textbf{local maximum}.
+
+At $x = 1$: the derivative is zero, the function is decreasing to the left and increasing to the right, so $f$ has a \textbf{local minimum}.
+
+At $x = 0$: the derivative is zero, but the function is decreasing on both sides.  This is \textbf{not} a local extremum; it is an \emph{inflection point} (with a horizontal tangent line).
+
+\begin{remark}
+We include $x = 1$ in both the decreasing interval $\bigl[-\frac{3}{2}, 1\bigr]$ and the increasing interval $[1, \infty)$.  This is not a contradiction: a function is increasing or decreasing on an \emph{interval}, not at a \emph{point}.
+\end{remark}
+\end{example}

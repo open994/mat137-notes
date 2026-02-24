@@ -1,0 +1,228 @@
+In the previous videos,
+I derived an explicit formula
+for the Taylor polynomials and
+the Taylor series of a function.
+In this video, I will illustrate
+them with some examples.
+As a reminder,
+this is what we know.
+The n-th Taylor polynomial
+of a function f at the point a
+is given by this sum:
+It is a polynomial,
+of degree at most n.
+The Taylor series for
+the function f at a
+is given by this sum.
+It looks similar, but instead
+of a finite sum,
+it is an infinite sum,
+or power series.
+You can think of it as a
+polynomial of infinite degree,
+if you prefer.
+We know that Taylor polynomials
+are good approximations
+for f, near a.
+The higher n, the better
+the approximation,
+and the Taylor series is an
+even better approximation.
+There is one special,
+important case.
+When the Taylor series is
+centred at zero,
+we call it a
+MACLAURIN series.
+That's just a name.
+Finally, we say that
+a function is ANALYTIC
+when it is equal to its
+Taylor series.
+For analytic functions,
+the Taylor series is not
+an approximation.
+It is exactly the function.
+But we do not know yet
+which functions are analytic.
+The actual definition of analytic
+is a bit longer.
+I will explain it in the next video.
+I need to specify the domain
+where this must be true.
+But, for now, I will just go
+with this imprecise idea.
+When I talk about
+analytic functions,
+I am talking about functions that
+can be written as power series.
+Here's a spoiler:
+Most common functions,
+including exponential
+and trigonometric functions,
+are analytic!
+They can be written as power series.
+It will take us a bit of work
+to get there.
+For now, in this video,
+I will just concentrate on
+finding the Maclaurin series
+for some functions,
+without proving yet that the
+function equals the series.
+As a first example,
+let's compute the
+Maclaurin series
+of the exponential
+with base e.
+I am going to define
+f(x) as e^x.
+We know that the derivative
+of this exponential is itself.
+Therefore, all the derivatives
+are the same function,
+and when I evaluate
+any derivative at zero,
+I get 1.
+Now, here is the general formula
+for the Maclaurin series
+of a function.
+In this case, all derivatives
+at zero are 1,
+so I get the sum
+from k = 0 to infinity
+of x^k/k!
+The first few terms are
+1, plus x, plus x^2/2!, plus x^3/3!
+...and so on.
+But, there is more!
+This function IS analytic.
+I am postponing the proof
+until later.
+So, the function equals
+the Maclaurin series.
+e^x equals this infinite sum,
+for ALL values of x.
+What if...instead of
+the Maclaurin series,
+I wanted the Taylor series
+centred at any other point c?
+Well, we could repeat the calculation,
+and evaluate the derivatives
+at c rather than at 0.
+In this case it would
+be quite similar.
+But there is also an
+alternative trick
+that is worth knowing.
+If I want to write e^x in terms
+of powers of (x – c)...
+(that is what a Taylor series
+centred at c will do)
+...I can use the subtitution
+u = x – c.
+Then, I just need to write
+the function
+in terms of powers of u instead.
+What do we mean by this?
+Under this substitution,
+e^x becomes e^{c+u},
+or e^c (which is a constant)
+times e^u,
+and then I can use the
+Maclaurin series for e^u.
+After that, I simply undo
+the substitution,
+and I get that e^x
+equals this power series
+centred at c.
+This trick is quite convenient,
+and it works for
+many functions.
+It is the reason why
+most of the time,
+we only work with
+Maclaurin series.
+If we ever need a Taylor series
+centred at another point,
+we can re-interpret it
+as a Maclaurin series
+with a substitution.
+As a second example,
+I want to find
+the Maclaurin series
+for sine.
+In this case, not all
+derivatives are the same,
+but there is still a pattern!
+I begin with sin.
+The first derivative is cos,
+the second derivative is -sin,
+then -cos, and the fourth
+derivative is sin again.
+We are back where we started.
+The four derivatives repeat
+in a cycle.
+I need to evaluate these
+functions at zero.
+sin(0) = 0.
+cos(0) = 1.
+...and I see the pattern now.
+The derivatives at zero
+are going to be zero,
+one, zero, minus one,
+and then they repeat.
+Let's use this information
+and try to write
+the Maclaurin series for sin.
+We know this is
+the general formula.
+All the even derivatives
+disappear.
+For the odd derivatives,
+the coefficients
+alternate between 1 and -1.
+So, I get  x/1! –x^3/3!
++ x^5/5! – x^7/7!, and so on.
+There is a nice way
+to rewrite this sum.
+Since I only get terms
+with odd degree,
+I can rewrite the exponent
+of x as 2m + 1,
+summed from m = 0 to infinity,
+and the coefficient is 
+(-1)^m/(2m + 1)!
+But, there is more.
+sin is also analytic.
+Again, I am postponing the proof.
+So, this is not just the
+Maclaurin series for sin...
+it is sin itself!
+sin(x) equals this power series,
+for all values of x.
+As an exercise, I invite you
+to repeat
+the same calculation for cosine,
+instead of for sine.
+It's very similar, and you will
+obtain a new Maclaurin series.
+To summarize, these are the
+three Maclaurin series
+we know so far.
+Actually, these is a fourth one
+we already knew:
+the geometric series!
+We are going to take these
+four series as our starting point.
+We will use all kinds
+of manipulations
+to get Maclaurin series
+for new functions from these four.
+But first, I need to explain
+how we actually prove
+that a function IS analytic.
+All of that will be
+in the next videos,
+which are linked
+in the description.

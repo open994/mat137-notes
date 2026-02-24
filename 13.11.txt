@@ -1,0 +1,140 @@
+In the previous video, I
+presented the Integral Test:
+a theorem that gives a relation between
+improper integrals and infinite sums.
+In this video, I will present
+some examples of how to use it.
+As a reminder, here's
+what the theorem says.
+I begin with a function that's
+continuous, positive, and decreasing,
+between a real number a, and ∞.
+Then I can say, that
+the improper integral
+obtained by integrating this function
+all the way to ∞ is convergent,
+IF AND ONLY IF the series obtained
+from this function is convergent.
+And as notation in that case, we
+write a tilde between the two of them.
+This doesn't mean
+their values are equal,
+it means that they are both
+convergent (both a number),
+or that they are both ∞.
+I assume you have watched
+the previous video,
+where I explain where
+this theorem came from.
+I will add a link in the description.
+So now, let's see some examples of
+how to use this in practice.
+Most of the time, the
+examples will look the same.
+I want to know whether a certain
+series is convergent or divergent,
+and it happens to be easier
+to check whether the integral
+is convergent or divergent.
+The first example is probably
+the most important one.
+It's the commonly called "p-series".
+I want to know when the sum of
+1/(powers of n) is convergent,
+For every value of p
+(a positive real number),
+I get a different series
+(sum of 1/nᵖ).
+For some values of p,
+this will be convergent,
+for some this will be divergent.
+Can I use Integral Test here?
+Yes I can.
+If I fix p, and I consider the
+function f defined as:
+f(x) = 1/xᵖ, starting at 1,
+then this function
+is certainly continuous,
+it's positive,
+and it's decreasing,
+so I can use integral test.
+By Integral Test, this series behaves
+like the corresponding improper integral,
+so it's convergent IF AND ONLY IF
+the integral is convergent.
+And why is this useful?
+Because we already know what the
+answer is for the improper integral.
+We know that this improper integral is
+convergent exactly when p > 1,
+and ∞ otherwise.
+I will add a link in the
+description of this video
+to the video where I prove that
+for improper integrals,
+but it's an easy calculation:
+just find the antiderivative
+and take the limit.
+Therefore, by Integral Test, we get
+exactly the same result for the series,
+and that's it! Now we have
+a new large family of series,
+that we know to be convergent.
+For the second example,
+I will look at a very specific series:
+the sum from n = 2 to ∞,
+of 1/(n⋅ln(n)).
+I want to know whether
+it is convergent.
+Notice I can not start the index at 1,
+since ln(1) is 0,
+and I cannot divide by 0,
+but this series
+starting at 2 makes sense.
+I want to use the Integral Test,
+so I'm going to look at the function
+defined by the same equation:
+f(x) = 1/(x⋅ln(x)).
+Starting at 2, this function is positive,
+decreasing, and continuous,
+so I can use the Integral Test.
+And by Integral Test, the series will
+behave like the improper integral,
+so one is convergent
+IF AND ONLY IF the other is.
+Why is this good?
+Because there is something else I can do
+for the improper integral,
+which is to actually
+find an antiderivative,
+and that's exactly what I'm going to do.
+The integral from 2 to ∞
+of this function is defined as
+the limit as b → ∞,
+of the integral from 2 to b.
+So, what I need to do is find
+an antiderivative for 1/(x⋅ln(x)),
+and then I will evaluate that
+antiderivative at b - evaluate it at 2,
+and then take the limit as b → ∞.
+At this moment, perhaps you see
+what the antiderivative is right away,
+or perhaps you need
+to do guess-and-check,
+otherwise try the substitution u = ln(x),
+because it's derivative is there.
+Either way, pause the video if necessary,
+and find the antiderivative.
+You will end up getting ln(ln(x)).
+It's easy to check that it worked.
+The derivative of ln(ln(x))
+is (1/ln(x))⋅(1/x).
+So now, let's evaluate!
+I get the limit
+as b → ∞, of ln(ln(b)) - ln(ln(2)),
+and as b → ∞, ln(ln(b)) also → ∞,
+albeit slowly,
+so the improper integral diverges to ∞,
+and by Integral Test,
+the series diverges to ∞ as well.
+That's it!

@@ -1,0 +1,755 @@
+\chapter{The Definition of the Integral}
+
+%=============================================================================
+\section{Geometric Motivation}
+\label{sec:7.1}
+%=============================================================================
+
+\textit{The definition of the integral is quite long, and we will not reach it in this section.  Rather, we introduce the main ideas we will need.  In a later section we formalize these ideas into the actual definition.}
+
+\textit{We begin with a geometric interpretation.}  Consider a function $f$ that is positive and continuous on an interval $[a,b]$.  The region between the graph of $f$ and the $x$-axis is shaded, and we would like to define the \emph{area} of this region to be the integral.
+
+\begin{definition}[Integral --- Informal]
+\label{def:7-1}
+The expression
+\[
+  \int_{a}^{b} f(x)\dx
+\]
+is read ``the integral from $a$ to $b$ of $f(x)$, with respect to $x$,'' where $f$ is a function and $a,b$ are real numbers.  It is sometimes abbreviated as $\int_{a}^{b} f$.  We call this a \emph{definite integral}; it is a number.
+\end{definition}
+
+\begin{remark}
+For now, the symbol $\dx$ is merely a piece of notation indicating that the variable of integration is $x$.  We will later give it more meaning.
+\end{remark}
+
+\begin{remark}[Warning]
+This is \textbf{not} a formal definition, because we do not yet know what the area of an arbitrary region is.  In general, we only know how to compute the area of very simple shapes such as rectangles and triangles.  We take this geometric picture as \textbf{motivation} for what we want the integral to represent.
+\end{remark}
+
+\textit{We now spend some time trying to come up with a method to calculate the area of an arbitrary region.  Once we have that method, we will use the resulting calculation as the definition of integral.}
+
+There are three key steps in this construction.
+
+\textbf{Step 1: Estimate with rectangles.}  The simplest shape whose area we know is the rectangle.  Given the region under $f$ over $[a,b]$, we draw a rectangle contained in the region, whose height is the minimum value $m$ of $f$ on $[a,b]$, and a rectangle containing the region, whose height is the maximum value $M$.  Then
+\[
+  m(b-a) \;\le\; \int_{a}^{b} f(x)\dx \;\le\; M(b-a).
+\]
+These are very rough estimates unless $f$ is nearly constant.
+
+\textbf{Step 2: Cut into slices.}  We improve the estimation by dividing the region into vertical slices.  For example, we cut the interval into four sub-intervals and estimate each slice separately with a rectangle below (under-estimate) and a rectangle above (over-estimate).  The resulting approximation is better: the error is smaller.
+
+\textbf{Step 3: Take more and thinner slices.}  As we increase the number of slices and make them very thin, the estimation becomes better and better.
+
+\textit{We now have a plan: cut into slices, approximate each slice with rectangles, and then, in the limit, take many very thin slices.  However, we are not ready for the formal definition yet.  We need two tools first.}
+
+\begin{enumerate}
+  \item \textbf{Sigma notation.}  When we use many slices and approximate each one with a rectangle, we must sum the areas of all those rectangles.  The so-called sigma notation makes writing long, complicated sums much easier.
+  \item \textbf{Supremum and infimum.}  We have casually used the maximum and minimum of $f$ for the heights of the rectangles, but many nice functions do not attain maximum or minimum values.  The notions of supremum and infimum are similar to maximum and minimum, but more versatile; they will replace the maximum and minimum in the formal definition.
+\end{enumerate}
+
+%=============================================================================
+\section{Sigma Notation}
+\label{sec:7.2}
+%=============================================================================
+
+\textit{Sigma notation is a convenient notation for writing complicated sums in a compact way.}
+
+\begin{example}
+\label{ex:7-1}
+The sum $\dfrac{1}{3}+\dfrac{1}{4}+\dfrac{1}{5}+\dfrac{1}{6}+\dfrac{1}{7}$ can be written in sigma notation as
+\[
+  \sum_{i=3}^{7}\frac{1}{i}.
+\]
+Each term has the form $\frac{1}{i}$, where $i$ ranges from $3$ to $7$ in steps of $1$.  The letter $i$ under the $\Sigma$ indicates the \emph{summation index}, $i=3$ is the first value, and $7$ is the last value.
+\end{example}
+
+More generally, we write the sum $a_1 + a_2 + \cdots + a_N$ as
+\[
+  \sum_{i=1}^{N} a_i,
+\]
+where $a_i$ is any expression depending on an integer~$i$.  This notation is especially useful when $a_i$ is complicated.
+
+\begin{remark}
+The summation index is a \emph{dummy index}: it does not carry any intrinsic meaning.  We could equally write $\displaystyle\sum_{k=1}^{N} a_k$ and it would denote exactly the same sum.  Any letter (or symbol) may be used, as long as it is not already in use for something else.
+\end{remark}
+
+\begin{example}[Dummy Index]
+\label{ex:7-2}
+Let $k$ be a fixed constant.  Compute each of the following:
+\begin{enumerate}[label=(\roman*)]
+  \item $\displaystyle\sum_{i=1}^{3}\frac{i}{k}$,\qquad
+  \item $\displaystyle\sum_{k=1}^{3}\frac{i}{k}$,\qquad
+  \item $\displaystyle\sum_{\mu=1}^{3}\frac{i}{k}$.
+\end{enumerate}
+
+\textbf{Solution.}
+\begin{enumerate}[label=(\roman*)]
+  \item The summation index is $i$.  For the purpose of the sum, $k$ is a constant:
+  \[
+    \frac{1}{k}+\frac{2}{k}+\frac{3}{k} = \frac{6}{k}.
+  \]
+  \item The summation index is $k$.  For the purpose of the sum, $i$ is a constant:
+  \[
+    \frac{i}{1}+\frac{i}{2}+\frac{i}{3} = \frac{11i}{6}.
+  \]
+  \item The summation index is $\mu$.  Both $i$ and $k$ are constants, so the quantity $\frac{i}{k}$ does not change from term to term:
+  \[
+    \frac{i}{k}+\frac{i}{k}+\frac{i}{k} = \frac{3i}{k}.
+  \]
+\end{enumerate}
+\end{example}
+
+We conclude with two basic algebraic properties of sums.
+
+\begin{proposition}[Properties of Sigma Notation]
+\label{thm:7-1}
+Let $c$ be a constant and let $a_i,b_i$ depend on the index~$i$.  Then:
+\begin{enumerate}[label=(\roman*)]
+  \item \textbf{Constant factor:} $\displaystyle\sum_{i=1}^{N} c\,a_i = c\sum_{i=1}^{N} a_i$.
+  \item \textbf{Sum rule:} $\displaystyle\sum_{i=1}^{N}(a_i + b_i) = \sum_{i=1}^{N} a_i + \sum_{i=1}^{N} b_i$.
+\end{enumerate}
+\end{proposition}
+
+\begin{remark}
+These are not new results.  The first is the distributive property (``take a common factor''), and the second follows from commutativity and associativity of addition.  They are simply old facts expressed in the new notation.
+\end{remark}
+
+%=============================================================================
+\section{Supremum and Infimum of Sets}
+\label{sec:7.3}
+%=============================================================================
+
+\textit{The supremum and infimum are concepts similar to the maximum and minimum, but more useful.  In this section we define them for sets; in the next section we extend the concepts to functions.}
+
+\textit{The notion of maximum is often insufficient.  Let us explain why with an example.}
+
+\begin{example}
+\label{ex:7-3}
+The closed interval $[0,2]$ has a maximum: the number~$2$, which is the largest element in the set.  However, the open interval $(0,2)$ does \textbf{not} have a maximum, because $2$ is not in the set.  Yet $2$ still ``behaves like a maximum'' in some sense.  We need a concept that describes what the number $2$ is to both $[0,2]$ and $(0,2)$.
+\end{example}
+
+\begin{definition}[Maximum]
+\label{def:7-2}
+A number $c$ is the \emph{maximum} of a set $A$ when $c \in A$ and $x \le c$ for every $x \in A$.
+\end{definition}
+
+\begin{definition}[Upper Bound]
+\label{def:7-3}
+Let $A$ be a set of real numbers.  A number $c$ is an \emph{upper bound} of $A$ when $x \le c$ for every $x \in A$.
+\end{definition}
+
+\begin{example}
+\label{ex:7-4}
+For both $[0,2]$ and $(0,2)$, the number $2$ is an upper bound.  But it is not the only one: $2.1$, $\pi$, and $100$ are all upper bounds.  On the other hand, the set of integers $\Z$ has no upper bound at all.
+\end{example}
+
+\textit{What is special about the number $2$?  Of all the upper bounds of $[0,2]$ or $(0,2)$, the number $2$ is the \textbf{smallest}.  This is the key idea.}
+
+\begin{definition}[Supremum / Least Upper Bound]
+\label{def:7-4}
+A number $c$ is the \emph{supremum} (or \emph{least upper bound}) of a set $A$ when:
+\begin{enumerate}[label=(\roman*)]
+  \item $c$ is an upper bound of $A$, and
+  \item every upper bound $b$ of $A$ satisfies $b \ge c$.
+\end{enumerate}
+We write $c = \sup A$.
+\end{definition}
+
+\begin{example}
+\label{ex:7-5}
+Both $[0,2]$ and $(0,2)$ have $\sup = 2$.  The set $\Z$ does not have a supremum, because it does not have an upper bound to begin with.
+\end{example}
+
+\begin{remark}
+When the supremum of a set happens to be an element of the set, then it is the maximum.  The closed interval $[0,2]$ has maximum $2$.  The open interval $(0,2)$ does not have a maximum.  Neither does $\Z$.
+\end{remark}
+
+\begin{definition}[Bounded Above]
+\label{def:7-5}
+A set $A$ is \emph{bounded above} when it has at least one upper bound.
+\end{definition}
+
+\begin{remark}[Pause and Try]
+By reversing the direction of all inequalities in the definitions above, define: \emph{lower bound}, \emph{infimum} (greatest lower bound), \emph{minimum}, and \emph{bounded below}.
+\end{remark}
+
+\begin{definition}[Infimum, Lower Bound, and Related Notions]
+\label{def:7-6}
+Let $A$ be a set of real numbers.
+\begin{enumerate}[label=(\roman*)]
+  \item A number $c$ is a \emph{lower bound} of $A$ when $c \le x$ for every $x \in A$.
+  \item A number $c$ is the \emph{infimum} (or \emph{greatest lower bound}) of $A$, written $c = \inf A$, when $c$ is a lower bound of $A$ and every lower bound $b$ of $A$ satisfies $b \le c$.
+  \item A number $c$ is the \emph{minimum} of $A$ when $c \in A$ and $c$ is the infimum of $A$.
+  \item $A$ is \emph{bounded below} when it has at least one lower bound.
+  \item $A$ is \emph{bounded} when it is both bounded above and bounded below.
+\end{enumerate}
+\end{definition}
+
+\begin{theorem}[Least Upper Bound Principle]
+\label{thm:7-2}
+If a set $A \subseteq \R$ is non-empty and bounded above, then $A$ has a supremum.
+\end{theorem}
+
+\begin{remark}
+This result is perhaps the most important property of the real numbers.  It is the main difference between $\R$ and $\Q$.  In an analysis course, where one constructs $\R$ rigorously, proving this property is a fundamental step.  For now, we accept it without proof; some authors treat it as an \textbf{axiom}.
+\end{remark}
+
+\begin{remark}[Pause and Try]
+State the analogous result for lower bounds: if a set $A$ is non-empty and bounded below, then $A$ has an infimum.
+\end{remark}
+
+%=============================================================================
+\section{Supremum and Infimum of Functions}
+\label{sec:7.4}
+%=============================================================================
+
+\textit{In the previous section we defined the supremum and infimum of a set.  In this section we extend these concepts to functions.  The idea is actually simple: the supremum (or infimum) of a function is just the supremum (or infimum) of its range.}
+
+\begin{definition}[Supremum of a Function]
+\label{def:7-7}
+Let $f$ be a function defined on a domain $I$.  The \emph{supremum of $f$ on $I$} is
+\[
+  \sup_{x \in I} f(x) \;=\; \sup\bigl\{\, f(x) : x \in I \,\bigr\},
+\]
+i.e.\ the supremum of the range of $f$ restricted to~$I$.  If the domain $I$ is not specified, it is understood to be the full domain of $f$.
+\end{definition}
+
+\begin{remark}
+Every other concept --- upper bound, maximum, infimum, minimum, bounded above, bounded below --- extends to functions in exactly the same way: we apply the set-theoretic definition to the range of the function.
+\end{remark}
+
+\begin{example}
+\label{ex:7-6}
+Consider a function $f$ whose graph passes through the values $-1$ and $1$ on the interval $[-2,2]$, with range $[-1,1]$.  Then
+\[
+  \sup_{x \in [-2,2]} f(x) = \sup[-1,1] = 1.
+\]
+\end{example}
+
+\begin{example}
+\label{ex:7-7}
+Let $g$ be a function whose graph on $[0,2]$ approaches but never reaches the value $1$ from below, and attains the value $-1$ at some point.  Then $g$ is bounded on $[0,2]$, with $\sup_{[0,2]} g = 1$ (but $g$ has no maximum), and $\inf_{[0,2]} g = -1$ (which is also a minimum).
+\end{example}
+
+We mention two important theorems connecting supremum and maximum for functions.
+
+\begin{theorem}[Least Upper Bound Principle for Functions]
+\label{thm:7-3}
+If $f$ is bounded above on a non-empty domain $I$, then $\sup_{x \in I} f(x)$ exists.
+\end{theorem}
+
+This is an immediate consequence of the Least Upper Bound Principle for sets (\cref{thm:7-2}).
+
+\begin{theorem}[Extreme Value Theorem]
+\label{thm:7-4}
+If $f$ is continuous on a closed, bounded interval $[a,b]$, then $f$ attains a maximum and a minimum on $[a,b]$.
+\end{theorem}
+
+\begin{remark}
+These two theorems are related.  Both provide a sufficient condition guaranteeing that a function has a supremum (first theorem) or, more strongly, a maximum (second theorem).
+\end{remark}
+
+%=============================================================================
+\section{The Darboux Integral}
+\label{sec:7.5}
+%=============================================================================
+
+\textit{We now take the ideas from \cref{sec:7.1} and convert them into a formal, rigorous definition.  Throughout this section, $f$ is a bounded function defined on a closed interval $[a,b]$.  We assume \textbf{only} that $f$ is bounded --- we do not need continuity or any other hypothesis.}
+
+\textit{We recall the plan: cut the region into slices, approximate with rectangles below and above, and then ``take the limit'' by making the slices very thin.}
+
+\subsection*{Step 1: Partitions}
+
+\begin{definition}[Partition]
+\label{def:7-8}
+A \emph{partition} of the interval $[a,b]$ is a finite set $P \subseteq [a,b]$ that contains both endpoints $a$ and $b$.
+\end{definition}
+
+In other words, $P$ consists of $a$, $b$, and finitely many other points from $[a,b]$.
+
+\begin{example}
+\label{ex:7-8}
+The set $\{0, 0.2, 0.5, 0.9, 1\}$ is a partition of $[0,1]$.
+\end{example}
+
+Every partition determines a way to split $[a,b]$ into consecutive sub-intervals.  When we write a partition $P = \{x_0, x_1, x_2, \ldots, x_n\}$, we adopt the convention that the points are listed in increasing order:
+\[
+  a = x_0 < x_1 < x_2 < \cdots < x_n = b.
+\]
+
+\subsection*{Step 2: Lower and Upper Sums}
+
+Given a partition $P = \{x_0, x_1, \ldots, x_n\}$ of $[a,b]$, on each sub-interval $[x_{i-1}, x_i]$ we define:
+\begin{align*}
+  m_i &= \inf_{x \in [x_{i-1},\, x_i]} f(x), \\[4pt]
+  M_i &= \sup_{x \in [x_{i-1},\, x_i]} f(x), \\[4pt]
+  \Delta x_i &= x_i - x_{i-1}.
+\end{align*}
+
+\begin{remark}
+We use the \emph{infimum} rather than the minimum for $m_i$ because not every bounded function attains its minimum.  Since $f$ is bounded on $[a,b]$, it is bounded on every sub-interval, so the infimum and supremum exist by the Least Upper Bound Principle (\cref{thm:7-2}).
+\end{remark}
+
+\begin{definition}[Lower and Upper Sums]
+\label{def:7-9}
+Let $f$ be a bounded function on $[a,b]$ and $P$ a partition of $[a,b]$.  The \emph{$P$-lower sum} and \emph{$P$-upper sum} of $f$ are
+\[
+  L_P(f) = \sum_{i=1}^{n} m_i\,\Delta x_i,
+  \qquad
+  U_P(f) = \sum_{i=1}^{n} M_i\,\Delta x_i.
+\]
+\end{definition}
+
+\textit{Geometrically, $L_P(f)$ is the total area of the rectangles \textbf{below} the graph of $f$ (the under-estimate), and $U_P(f)$ is the total area of the rectangles \textbf{above} the graph (the over-estimate).}
+
+% ── BEGIN VISUAL ──
+\begin{figure}[ht]
+  \centering
+  \input{ch07/figures/fig-darboux-upper-lower.tex}
+  \caption{Upper and lower sums on a fixed partition.}
+  \label{fig:darboux-upper-lower}
+\end{figure}
+% ── END VISUAL ──
+
+\subsection*{Step 3: Lower and Upper Integrals}
+
+\textit{The integral must be a number lying between all lower sums and all upper sums.  We need every lower sum to be at most every upper sum; this will be proved in \cref{sec:7.6}.  Assuming this fact, we proceed.}
+
+\begin{lemma}
+\label{lem:7-1}
+For any two partitions $P$ and $Q$ of $[a,b]$,
+\[
+  L_P(f) \le U_Q(f).
+\]
+That is, every lower sum is less than or equal to every upper sum.
+\end{lemma}
+
+The proof is given in \cref{sec:7.6}.
+
+\textit{As we use finer partitions, the lower sums increase and the upper sums decrease, each approaching the area we want to compute.  Rather than taking a ``limit'' of partitions (which are not numbers), we proceed more elegantly: we define two integrals, one from each side.}
+
+\begin{definition}[Lower and Upper Integrals]
+\label{def:7-10}
+Let $f$ be a bounded function on $[a,b]$.  The \emph{lower integral} of $f$ is
+\[
+  \lowint_{a}^{b} f \;=\; \sup\bigl\{\, L_P(f) : P \text{ is a partition of } [a,b] \,\bigr\},
+\]
+and the \emph{upper integral} of $f$ is
+\[
+  \upint_{a}^{b} f \;=\; \inf\bigl\{\, U_P(f) : P \text{ is a partition of } [a,b] \,\bigr\}.
+\]
+\end{definition}
+
+\begin{remark}
+The set of lower sums is non-empty (there is at least one partition) and bounded above (by any upper sum, via \cref{lem:7-1}), so the supremum exists.  Similarly, the set of upper sums is non-empty and bounded below, so the infimum exists.
+\end{remark}
+
+Since every lower sum is at most every upper sum, it follows that
+\[
+  \lowint_{a}^{b} f \;\le\; \upint_{a}^{b} f.
+\]
+
+\begin{definition}[Integrability]
+\label{def:7-11}
+A bounded function $f$ on $[a,b]$ is \emph{integrable} on $[a,b]$ when
+\[
+  \lowint_{a}^{b} f \;=\; \upint_{a}^{b} f.
+\]
+In this case, the common value is called the \emph{integral of $f$ from $a$ to $b$}, denoted
+\[
+  \int_{a}^{b} f(x)\dx.
+\]
+If the lower and upper integrals are not equal, we say $f$ is \emph{non-integrable} on $[a,b]$, and the integral is undefined.
+\end{definition}
+
+\begin{theorem}[Continuous Functions are Integrable]
+\label{thm:7-5}
+Every continuous function on a closed interval $[a,b]$ is integrable on $[a,b]$.
+\end{theorem}
+
+\begin{remark}
+The proof is quite technical and is typically covered in an analysis course.  If $f$ is not continuous, it may or may not be integrable.
+\end{remark}
+
+%=============================================================================
+\section{Properties of Darboux Sums}
+\label{sec:7.6}
+%=============================================================================
+
+\textit{We now list and justify three important properties of lower and upper sums.  Throughout this section, $f$ is a bounded function on $[a,b]$.}
+
+\begin{proposition}[Property 1: Same Partition]
+\label{thm:7-6}
+For any partition $P$ of $[a,b]$,
+\[
+  L_P(f) \le U_P(f).
+\]
+\end{proposition}
+
+\begin{proof}
+On each sub-interval $[x_{i-1}, x_i]$, the infimum $m_i$ is at most the supremum $M_i$, so $m_i\,\Delta x_i \le M_i\,\Delta x_i$.  Summing over all sub-intervals gives $L_P(f) \le U_P(f)$.
+\end{proof}
+
+\textit{Can we compare lower and upper sums for \textbf{different} partitions?  There is a sense in which some partitions are ``better'' than others.}
+
+\begin{definition}[Refinement]
+\label{def:7-12}
+Given two partitions $P$ and $Q$ of $[a,b]$, we say $Q$ is \emph{finer than} $P$ (or $Q$ is a \emph{refinement} of $P$) when $P \subseteq Q$.
+\end{definition}
+
+\begin{remark}
+Being finer does not merely mean having more points.  $Q$ must contain \textbf{all} the points of $P$, plus possibly additional ones.
+\end{remark}
+
+\textit{What happens when we add a single extra point to a partition?  The extra point splits one sub-interval into two, creating an extra slice.  The lower sum increases (or stays the same), because the infimum on a smaller sub-interval is at least as large as the infimum on the original sub-interval.  Adding several points one at a time produces the same effect.}
+
+\begin{proposition}[Property 2: Refinement]
+\label{thm:7-7}
+Let $P$ and $Q$ be partitions of $[a,b]$ with $Q$ finer than $P$.  Then
+\[
+  L_P(f) \le L_Q(f) \quad\text{and}\quad U_Q(f) \le U_P(f).
+\]
+That is, finer partitions produce larger lower sums and smaller upper sums.
+\end{proposition}
+
+\textit{What if we have two partitions and neither is finer than the other?  We cannot, in general, compare their lower sums or their upper sums individually, but we can always compare \textbf{any} lower sum with \textbf{any} upper sum.}
+
+\begin{proposition}[Property 3: Any Lower Sum vs.\ Any Upper Sum]
+\label{thm:7-8}
+For any two partitions $P$ and $Q$ of $[a,b]$,
+\[
+  L_P(f) \le U_Q(f).
+\]
+\end{proposition}
+
+\begin{proof}
+Define $R = P \cup Q$.  Then $R$ is a partition that is finer than both $P$ and $Q$.  By Property~2 (\cref{thm:7-7}):
+\[
+  L_P(f) \le L_R(f) \le U_R(f) \le U_Q(f).
+\]
+\proofref{The middle inequality is Property~1 (\ref{thm:7-6}); the outer inequalities are Property~2 (\ref{thm:7-7}).}
+The middle step uses Property~1 (\cref{thm:7-6}).
+\end{proof}
+
+\begin{remark}
+Property~3 is exactly \cref{lem:7-1}, which we assumed when defining the integral in \cref{sec:7.5}.  The three properties together fully justify the picture: all lower sums sit to the left, all upper sums sit to the right, the lower integral lies between them on the left, and the upper integral lies between them on the right.
+\end{remark}
+
+%=============================================================================
+\section{An Integrable Function}
+\label{sec:7.7}
+%=============================================================================
+
+\textit{We illustrate how to use the definition of integral to prove that a function is integrable.}
+
+\begin{example}
+\label{ex:7-9}
+Define $f \colon [-1,1] \to \R$ by
+\[
+  f(x) = \begin{cases} 1 & \text{if } x = 0, \\ 0 & \text{if } x \ne 0. \end{cases}
+\]
+We will show that $f$ is integrable on $[-1,1]$ and $\displaystyle\int_{-1}^{1} f(x)\dx = 0$.
+\end{example}
+
+\textbf{Lower sums.}  Let $P$ be any partition of $[-1,1]$.  On every sub-interval, the infimum of $f$ is $0$ (regardless of whether $0$ is one of the partition points).  Therefore $L_P(f) = 0$ for every partition $P$.  Hence
+\[
+  \lowint_{-1}^{1} f = \sup\{0\} = 0.
+\]
+
+\textbf{Upper sums.}  Let $P$ be an arbitrary partition of $[-1,1]$.  The supremum of $f$ on a sub-interval is $1$ if the sub-interval contains $0$, and $0$ otherwise.  Exactly one sub-interval (or two, if $0 \in P$) contributes, and the corresponding upper rectangle has height $1$ and some positive width $w$.  Therefore $U_P(f) = w$.
+
+The width $w$ can be made arbitrarily small (by placing partition points close to $0$), but it must remain positive.  With the simplest partition $P = \{-1,1\}$, we get $w = 2$.  Thus
+\[
+  \bigl\{\, U_P(f) : P \text{ is a partition of } [-1,1] \bigr\} = (0, 2].
+\]
+Hence
+\[
+  \upint_{-1}^{1} f = \inf(0,2] = 0.
+\]
+
+Since the lower and upper integrals are both $0$, the function $f$ is integrable on $[-1,1]$ and $\displaystyle\int_{-1}^{1} f(x)\dx = 0$.
+
+%=============================================================================
+\section{A Non-Integrable Function}
+\label{sec:7.8}
+%=============================================================================
+
+\textit{We now illustrate how to use the definition of integral to prove that a function is non-integrable.}
+
+\begin{example}[The Dirichlet Function]
+\label{ex:7-10}
+Define $g \colon [0,1] \to \R$ by
+\[
+  g(x) = \begin{cases} 1 & \text{if } x \in \Q, \\ 0 & \text{if } x \notin \Q. \end{cases}
+\]
+We will show that $g$ is \textbf{not} integrable on $[0,1]$.
+\end{example}
+
+The entire argument rests on one key observation.
+
+\begin{remark}
+For any real numbers $a < b$, the interval $(a,b)$ contains both rational and irrational numbers.
+\end{remark}
+
+\begin{remark}[Pause and Try]
+Pause and convince yourself that this observation is true, because the rest of the argument depends on it.
+\end{remark}
+
+Consider any partition $P$ of $[0,1]$, and look at any sub-interval $[x_{i-1},x_i]$.  Since this sub-interval contains both a rational number (where $g = 1$) and an irrational number (where $g = 0$), we have:
+\[
+  m_i = \inf_{[x_{i-1},\,x_i]} g = 0, \qquad M_i = \sup_{[x_{i-1},\,x_i]} g = 1.
+\]
+Therefore:
+\[
+  L_P(g) = \sum_{i=1}^{n} 0 \cdot \Delta x_i = 0, \qquad
+  U_P(g) = \sum_{i=1}^{n} 1 \cdot \Delta x_i = \sum_{i=1}^{n} \Delta x_i = 1.
+\]
+This is true for \textbf{all} partitions.  Hence
+\[
+  \lowint_{0}^{1} g = \sup\{0\} = 0, \qquad
+  \upint_{0}^{1} g = \inf\{1\} = 1.
+\]
+Since $0 \ne 1$, the function $g$ is not integrable on $[0,1]$.
+
+% ── BEGIN VISUAL ──
+\begin{figure}[ht]
+  \centering
+  \input{ch07/figures/fig-nonintegrable-dense-oscillation.tex}
+  \caption{Dense oscillation intuition: upper sums stay high while lower sums stay low.}
+  \label{fig:nonintegrable-dense-oscillation}
+\end{figure}
+% ── END VISUAL ──
+
+\begin{remark}
+There are alternative ways to define the integral.  In the \emph{Lebesgue} theory of integration, the Dirichlet function \textit{is} integrable (with integral $0$).  The Lebesgue integral is more powerful but more complex; it is beyond the scope of this course.
+\end{remark}
+
+%=============================================================================
+\section{Integrals as Limits}
+\label{sec:7.9}
+%=============================================================================
+
+\textit{Can we compute the lower or upper integral of a function as a limit of lower or upper sums?  It looks like we should be able to, but it is not clear how: a limit as \textbf{what} approaches \textbf{what}?}
+
+\textit{A limit as the partitions ``become finer''?  We cannot naïvely take the limit as the number of points in the partition approaches infinity, because we also need the width of every sub-interval to approach~$0$.}
+
+\begin{definition}[Norm of a Partition]
+\label{def:7-13}
+Given a partition $P = \{x_0, x_1, \ldots, x_n\}$ of $[a,b]$, the \emph{norm} (or \emph{mesh}) of $P$ is
+\[
+  \norm{P} = \max_{1 \le i \le n} \Delta x_i,
+\]
+the largest of the widths of the sub-intervals.
+\end{definition}
+
+\begin{remark}
+The norm is a measure of how ``good'' a partition is.  If $\norm{P}$ is small, then \textbf{all} sub-intervals have small width, hence all the approximating rectangles are very thin.
+\end{remark}
+
+\begin{theorem}[Lower Integral as a Limit]
+\label{thm:7-9}
+Let $f$ be a bounded function on $[a,b]$.  Then
+\[
+  \lowint_{a}^{b} f \;=\; \lim_{\norm{P}\to 0} L_P(f).
+\]
+More precisely: for every $\eps > 0$, there exists $\delta > 0$ such that for every partition $P$ of $[a,b]$ with $\norm{P} < \delta$,
+\[
+  \left|\; \lowint_{a}^{b} f - L_P(f) \;\right| < \eps.
+\]
+Similarly, $\displaystyle\upint_{a}^{b} f = \lim_{\norm{P}\to 0} U_P(f)$.
+\end{theorem}
+
+\textit{In practice, however, considering all partitions is still cumbersome.  The following theorem allows us to use a single convenient sequence of partitions.}
+
+\begin{theorem}[Limits Along a Sequence of Partitions]
+\label{thm:7-10}
+Let $f$ be a bounded function on $[a,b]$, and let $(P_n)_{n=1}^{\infty}$ be a sequence of partitions of $[a,b]$ such that $\norm{P_n} \to 0$ as $n \to \infty$.  Then
+\[
+  \lowint_{a}^{b} f = \lim_{n \to \infty} L_{P_n}(f),
+  \qquad
+  \upint_{a}^{b} f = \lim_{n \to \infty} U_{P_n}(f).
+\]
+\end{theorem}
+
+\begin{example}
+The simplest choice is the \emph{uniform partition} $P_n$ that breaks $[a,b]$ into $n$ sub-intervals of equal length $\dfrac{b-a}{n}$.  Then $\norm{P_n} = \dfrac{b-a}{n} \to 0$.
+\end{example}
+
+\begin{remark}
+This expression is a limit in the familiar sense: a limit as a certain number ($n$) approaches infinity.  For studying the theory of integration, the original definition (as a supremum/infimum) is both simpler and more useful --- it makes it easier to prove further properties and theorems.  But it is good to know that the integral can also be interpreted as a limit.
+\end{remark}
+
+%=============================================================================
+\section{Riemann Sums}
+\label{sec:7.10}
+%=============================================================================
+
+\textit{Riemann sums are an alternative way to calculate the integral of a function.  They are not very convenient for proving theorems, but they are often useful for computations.}
+
+Throughout this section, $f$ is a bounded, integrable function on $[a,b]$.
+
+\textit{So far, we have estimated the area of each slice with a rectangle whose height is the infimum (lower sum) or the supremum (upper sum) of $f$ on that sub-interval.  What if, instead, we choose a \textbf{random} point on the graph of $f$ over each sub-interval and use the value of $f$ at that point as the height of the rectangle?}
+
+\begin{definition}[Riemann Sum]
+\label{def:7-14}
+Let $f$ be a bounded function on $[a,b]$, let $P = \{x_0, x_1, \ldots, x_n\}$ be a partition of $[a,b]$, and for each $i = 1, \ldots, n$, choose a \emph{sample point} $x_i^{*} \in [x_{i-1}, x_i]$.  The \emph{Riemann sum} for $f$ and $P$ (with these sample points) is
+\[
+  S_P^{*}(f) = \sum_{i=1}^{n} f(x_i^{*})\,\Delta x_i.
+\]
+\end{definition}
+
+\begin{remark}
+We say ``\textit{a} Riemann sum,'' not ``\textit{the} Riemann sum.''  Even for a fixed function and partition, the Riemann sum depends on the choice of sample points $x_i^{*}$.  The star in $S_P^{*}$ indicates this dependence.
+\end{remark}
+
+\begin{remark}
+Since $m_i \le f(x_i^{*}) \le M_i$ on each sub-interval, every Riemann sum satisfies
+\[
+  L_P(f) \le S_P^{*}(f) \le U_P(f).
+\]
+\end{remark}
+
+% ── BEGIN VISUAL ──
+\begin{figure}[ht]
+  \centering
+  \input{ch07/figures/fig-riemann-rectangles.tex}
+  \caption{A right-endpoint Riemann sum approximation.}
+  \label{fig:riemann-rectangles}
+\end{figure}
+% ── END VISUAL ──
+
+\begin{theorem}[Integral as a Limit of Riemann Sums]
+\label{thm:7-11}
+Let $f$ be bounded and integrable on $[a,b]$.  Let $(P_n)$ be a sequence of partitions of $[a,b]$ with $\norm{P_n} \to 0$, and for each $P_n$, choose sample points $x_i^{*}$ on each sub-interval.  Then
+\[
+  \int_{a}^{b} f(x)\dx = \lim_{n \to \infty} \sum_{i=1}^{n} f(x_i^{*})\,\Delta x_i.
+\]
+\end{theorem}
+
+\begin{proof}
+From \cref{thm:7-10}, we know $L_{P_n}(f) \to \displaystyle\int_{a}^{b} f$ and $U_{P_n}(f) \to \displaystyle\int_{a}^{b} f$ as $n \to \infty$ (using the fact that $f$ is integrable, so the lower and upper integrals both equal the integral).  Since $L_{P_n}(f) \le S_{P_n}^{*}(f) \le U_{P_n}(f)$, the Squeeze Theorem gives $S_{P_n}^{*}(f) \to \displaystyle\int_{a}^{b} f$.
+\end{proof}
+
+\begin{remark}[Warning]
+\textbf{This method requires knowing in advance that $f$ is integrable.}  If $f$ is continuous on $[a,b]$, then $f$ is integrable by \cref{thm:7-5}, and Riemann sums may be used.  For an arbitrary bounded function whose integrability is unknown, the limit of Riemann sums may fail to exist or may depend on the choices made.
+\end{remark}
+
+\textit{Suggestive notation.}  The Riemann sum formula
+\[
+  \sum_{i=1}^{n} f(x_i^{*})\,\Delta x_i \;\xrightarrow{n\to\infty}\; \int_{a}^{b} f(x)\dx
+\]
+suggests that in the limit, the sum $\displaystyle\sum$ turns into the integral $\displaystyle\int$, and the finite width $\Delta x$ turns into the ``infinitesimally small'' $\dx$.  This is why some authors say $\dx$ represents an infinitesimally small width.
+
+\begin{example}[Integral of $f(x)=x$]
+\label{ex:7-11}
+We compute $\displaystyle\int_{0}^{1} x\dx$ using Riemann sums.  (The function $f(x) = x$ is continuous, hence integrable.)
+
+Choose the uniform partition $P_n = \bigl\{0,\,\frac{1}{n},\,\frac{2}{n},\,\ldots,\,1\bigr\}$, which has $n$ sub-intervals of equal width $\Delta x_i = \frac{1}{n}$.  On each sub-interval, choose the right endpoint as the sample point: $x_i^{*} = \frac{i}{n}$.  The Riemann sum is
+\[
+  S_{P_n}^{*}(f) = \sum_{i=1}^{n} \frac{i}{n}\cdot\frac{1}{n} = \frac{1}{n^{2}}\sum_{i=1}^{n} i = \frac{1}{n^{2}}\cdot\frac{n(n+1)}{2} = \frac{n+1}{2n}.
+\]
+Taking the limit:
+\[
+  \int_{0}^{1} x\dx = \lim_{n\to\infty}\frac{n+1}{2n} = \frac{1}{2}.
+\]
+This agrees with the fact that the region under $f(x)=x$ on $[0,1]$ is a triangle of area $\frac{1}{2}$.
+\end{example}
+
+\begin{remark}
+Riemann sums may look like a simpler way to compute integrals than the original definition, but they only work if we know the function is integrable.  For developing the theory of integration and proving theorems, the original definition via lower and upper integrals is more useful.
+\end{remark}
+
+%=============================================================================
+\section{Properties of Definite Integrals}
+\label{sec:7.11}
+%=============================================================================
+
+\textit{We now list the five most important properties of definite integrals.  They are all geometrically intuitive.  To be rigorous, each should be proved from the definition, but we omit the proofs here.}
+
+\subsection*{Linearity}
+
+\begin{theorem}[Linearity of the Integral]
+\label{thm:7-12}
+Let $f$ and $g$ be bounded functions on $[a,b]$.
+\begin{enumerate}[label=(\roman*)]
+  \item \textbf{Sum rule.}  If $f$ and $g$ are both integrable on $[a,b]$, then $f+g$ is integrable on $[a,b]$ and
+  \[
+    \int_{a}^{b}\bigl(f(x)+g(x)\bigr)\dx = \int_{a}^{b} f(x)\dx + \int_{a}^{b} g(x)\dx.
+  \]
+  \item \textbf{Constant multiple.}  If $f$ is integrable on $[a,b]$ and $c \in \R$, then $cf$ is integrable on $[a,b]$ and
+  \[
+    \int_{a}^{b} c\,f(x)\dx = c\int_{a}^{b} f(x)\dx.
+  \]
+\end{enumerate}
+\end{theorem}
+
+\begin{remark}[Warning]
+If $f$ or $g$ is non-integrable, the sum $f+g$ may or may not be integrable, and the equation does not apply.  This is analogous to the situation with limit laws and differentiation rules.
+\end{remark}
+
+\subsection*{Additivity over Intervals}
+
+\begin{theorem}[Splitting the Interval]
+\label{thm:7-13}
+Let $f$ be a bounded function on $[a,c]$ with $a < b < c$.  If $f$ is integrable on $[a,b]$ and on $[b,c]$, then $f$ is integrable on $[a,c]$ and
+\[
+  \int_{a}^{c} f(x)\dx = \int_{a}^{b} f(x)\dx + \int_{b}^{c} f(x)\dx.
+\]
+\end{theorem}
+
+\textit{So far, we have only defined $\displaystyle\int_{a}^{b} f$ when $a < b$.  The following convention extends the definition.}
+
+\begin{definition}[Backwards and Degenerate Integrals]
+\label{def:7-15}
+If $f$ is integrable on $[a,b]$ (with $a < b$), we define
+\[
+  \int_{b}^{a} f(x)\dx = -\int_{a}^{b} f(x)\dx.
+\]
+In addition, for any $a$,
+\[
+  \int_{a}^{a} f(x)\dx = 0.
+\]
+\end{definition}
+
+\begin{remark}
+With these conventions, the identity
+\[
+  \int_{a}^{c} f(x)\dx = \int_{a}^{b} f(x)\dx + \int_{b}^{c} f(x)\dx
+\]
+holds for \textbf{all} orderings of $a$, $b$, and $c$ (as long as $f$ is integrable where needed).  For instance, taking $a = c$ gives $\displaystyle\int_{a}^{b} f + \int_{b}^{a} f = 0$, confirming that $\displaystyle\int_{b}^{a} f = -\int_{a}^{b} f$.
+\end{remark}
+
+\subsection*{Geometric Interpretation: Signed Area}
+
+\textit{Our original motivation defined the integral as the area of the region between the graph of $f$ and the $x$-axis, but we always assumed $f$ was positive.  The definition of the integral makes no such assumption --- it works for any bounded function.  So what does the integral represent when $f$ is not positive?}
+
+\begin{remark}
+For a \textbf{negative} function, the integral equals \textbf{minus} the area of the region between the graph and the $x$-axis.  This is because the heights of the rectangles in the lower and upper sums are values of~$f$, which are negative.
+\end{remark}
+
+For a function that takes both positive and negative values on $[a,b]$, we split the region between the graph and the $x$-axis into the part above the axis and the part below. Then:
+\[
+  \int_{a}^{b} f(x)\dx = (\text{area above the }x\text{-axis}) - (\text{area below the }x\text{-axis}).
+\]
+
+\begin{remark}[Warning]
+Areas are always positive, but definite integrals may be positive, negative, or zero.
+\end{remark}
+
+\subsection*{Comparison}
+
+\begin{theorem}[Comparison of Integrals]
+\label{thm:7-14}
+If $f$ and $g$ are integrable on $[a,b]$ and $f(x) \le g(x)$ for all $x \in [a,b]$, then
+\[
+  \int_{a}^{b} f(x)\dx \le \int_{a}^{b} g(x)\dx.
+\]
+\end{theorem}
+
+\begin{remark}
+This also makes sense geometrically: the region under the graph of $f$ is contained in the region under the graph of~$g$, so its area is no larger.
+\end{remark}
+
+\begin{remark}
+Practically everything one needs to do with definite integrals rests on these five properties.  To a certain extent, if one is not concerned with rigorous definitions and proofs, one could forget the formal definition and take these properties as a starting point.
+\end{remark}

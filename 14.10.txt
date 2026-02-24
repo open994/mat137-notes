@@ -1,0 +1,147 @@
+How can we write the logarithm function
+as a power series?
+We have written the exponential, the sine,
+and the cosine and power series,
+so logarithm seems like
+the next natural candidate.
+Well right off the bat, things are
+going to be a little bit different.
+The domain of the function ln
+is only positive reals.
+It's not all the reals like it was
+for exponential, sine, or cosine.
+So, for example, I cannot expect to
+write it as a power series centered at 0.
+The function is not even defined at 0;
+it has a vertical asymptote.
+And whatever I manage to do,
+the interval of convergence of this
+power series will have to be finite.
+There are two options,
+there two things I can try to do.
+I either try to write its Taylor series
+centered at some positive number,
+not at 0,
+or, instead, I can shift the function,
+and instead of looking at lnx,
+I look at ln(1 + x).
+And then I can try to write
+the Taylor series centered at 0,
+the Maclaurin series.
+These two things are pretty much
+the same calculation,
+it's just that the shift
+is done at different stages.
+There is something psychological
+that makes us believe
+that power series
+centered at 0 are easier,
+perhaps simply because we are more
+used to thinking of those.
+So I'm going to go with option 2.
+I want to write this function, ln(1 + x),
+as a power series centered at 0.
+I want to try to relate this function
+to any of the other ones that I have
+already written as a power series.
+But unfortunately, logarithm seems
+too different from all of them.
+Luckily, the derivative of this function
+is easier.
+The derivative of this function
+is 1/(1 + x),
+and now this one looks very similar
+to the geometric series,
+which is already written as a power series.
+Let's remember what
+the geometric series is.
+And this will do,
+because I can transform this derivative
+into something like the geometric series,
+then write the derivative
+as a power series,
+and then integrate it to get
+the original function as a power series.
+That's exactly what I'm going to do.
+I need to write it as 1 over
+1 minus the variable,
+so I'm going to multiply it by -1 twice,
+and I'll write it as 1/[1-(-x)].
+And now I can use this equation,
+using -x instead of x.
+That's my power series.
+I'm going to separate the -1
+to make it easier to integrate things.
+There. So that's the derivative, f'.
+But if the derivative is a power series,
+I know the original function
+is also a power series,
+and I can integrate it the same way
+I integrate a polynomial: term by term.
+An antiderivative of xⁿ is
+xⁿ⁺¹/(n + 1),
+and don't forget
+the integration constant.
+I'll find out what the integration
+constant is in a moment,
+but first, where will all of this be true?
+Well, the original expansion
+was when |x| < 1,
+so this one will be when |-x| < 1,
+but that's the same thing as |x|.
+And when I take a derivative
+or an antiderivative
+of a power series term by term,
+then the radius of convergence
+doesn't change,
+So this is all still going to be true
+when |x| < 1.
+The behavior at the endpoints
+of the interval of convergence
+may change when taking a derivative
+or an antiderivative,
+so it is possible that this new expansion
+happens to also be true at 1 or -1.
+I don't know that yet.
+But what I know is that for sure
+it will be true when the |x| < 1.
+Now, how do I find out the value of C?
+The best way is to evaluate
+at some easy point,
+and the easiest number to evaluate
+this power series is when x = 0.
+When I do that, I get that f(0)
+is equal to 
+this power series at 0 is simply 0,
+notice that the smallest exponent is 1,
+plus C.
+And f(0) is ln1 which happens to be 0.
+Okay, so the constant was 0 after all.
+So this is the formula I have proven:
+ln(1+x) equals to this power series.
+Perhaps it feels a bit unsatisfying
+that the exponent of x
+is not exactly the index of the sum.
+If so, we can fix this easily.
+I can do a change of index,
+and what I was calling n + 1,
+I'm going to call it m.
+And then since n goes from 0 to infinity,
+m will go from 1 to infinity,
+and then I change the index
+everywhere else,
+and that's exactly the same power series,
+but perhaps this is
+a more standard way to write it.
+Or if you prefer to remember the first
+few terms of the series, they are this.
+And finally, very important,
+remember that this expansion for the
+logarithm is only true when |x| < 1.
+To conclude, as an exercise,
+I invite you to try to write the
+arctangent function
+as a power series centered at 0.
+It is a very, very similar derivation
+to the one I have done in this video
+for the logarithm.

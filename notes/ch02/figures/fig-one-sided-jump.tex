@@ -1,0 +1,26 @@
+\begin{tikzpicture}
+  \begin{axis}[
+    width=11cm,
+    height=6.2cm,
+    axis lines=middle,
+    xmin=-2.2, xmax=2.2,
+    ymin=-0.5, ymax=2.5,
+    xlabel={$x$}, ylabel={$y$},
+    ticks=none,
+    clip=false
+  ]
+    % Piecewise: f(x)=1 for x<0, f(0)=2, f(x)=2 for x>0
+    \addplot[thick, color=thmcolor, domain=-2.2:-0.02] {1};
+    \addplot[thick, color=defcolor, domain=0.02:2.2] {2};
+
+    % open circles at the jump
+    \addplot[only marks, mark=o, mark size=2.3pt, very thick, color=thmcolor] coordinates {(0,1)};
+    \addplot[only marks, mark=o, mark size=2.3pt, very thick, color=defcolor] coordinates {(0,2)};
+
+    % actual function value at 0
+    \addplot[only marks, mark=*, mark size=2.3pt, color=black] coordinates {(0,2)};
+
+    \node[anchor=west, color=thmcolor] at (axis cs:0.15,1) {$\lim_{x\to 0^-} f(x)=1$};
+    \node[anchor=west, color=defcolor] at (axis cs:0.15,2) {$\lim_{x\to 0^+} f(x)=2$};
+  \end{axis}
+\end{tikzpicture}

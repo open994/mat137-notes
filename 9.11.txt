@@ -1,0 +1,153 @@
+This is my second video on
+how to integrate rational functions.
+A rational function
+is a quotient of polynomials.
+If you haven't watched
+the first example yet,
+I suggest you do that before continuing.
+In the first example I explain things
+in more detail and more slowly.
+In this video,
+I will integrate this function.
+I want to compute an antiderivative
+of this function:
+(x⁴ + 1)/(x³ + 2x² + x).
+My first step is going to be
+to make this a little bit easier
+by using long division
+and reducing the degree of the numerator.
+Long division for polynomials
+works the same way as for integers.
+If I have a quotient of integers,
+for example 17/3, I can do division;
+the quotient is 5 and the remainder is 2,
+so I can write it as 5 + 2/3
+and the advantage is that now the
+numerator is smaller than the denominator.
+So I can do the same thing for
+this quotient of polynomials
+to get a numerator with a degree
+smaller than the denominator.
+I won't write the details, this could
+be long, but the outcome is this.
+And indeed,
+the degree of the numerator
+is 2 less than
+the degree of the denominator.
+So we only have to worry about
+integrating a quotient like this
+when the degree of the top is at most 2.
+Next, I'm going to
+factor the denominator.
+In this case,
+the denominator factors easily.
+I know how to integrate the quotient;
+this is just a polynomial.
+The difficult step
+is to integrate this part.
+And the idea is going to be
+try to rewrite this
+in terms of fractions of polynomials
+that we already know how to integrate.
+This step is sometimes called
+decomposition into "partial fractions".
+And I'll repeat, what I am trying to do
+is take this function
+and write it in terms of
+rational functions
+that I already know how to integrate.
+So with a denominator like those,
+there are already two functions
+I can think of quickly.
+I can consider 1/x because I know
+what an antiderivative of it is,
+and I can consider 1/(x+1), again because
+I know what an antiderivative is.
+So given that I like those two functions,
+perhaps it's a good idea
+to write this fraction as
+a real number A/x,
+plus another real number B/(x + 1).
+If I succeed at that,
+great,
+because I will know
+how to integrate the right-hand side.
+Unfortunately, this is not going to work,
+and here is why.
+I can certainly reduce this
+to common denominator.
+I can make it have
+the same denominator as here,
+and then I will have
+a polynomial of degree 2 at the top.
+However, I only have two coefficients,
+and here I also have a polynomial of
+degree 2, and I have three coefficients.
+So chances are it's not going to work,
+it's not going to match up.
+I won't find real numbers of A and B
+that will make it work,
+and even if I do,
+it will be by accident.
+But I want a method that will work
+for any polynomial of degree 2 here.
+We already did long division to make sure
+the degree at the top is at most 2,
+and now I need a method that will work
+for anything with degree 2.
+In other words, I'm going to need
+three coefficients here.
+If I don't have three terms,
+it's not possible that it works.
+So I need an extra term,
+which means I need an extra function
+that I know how to integrate,
+with a denominator related to that.
+And that function is 1/(x+1)²
+because this one is as easy to integrate
+as the other two.
+Specifically,
+an antiderivative will be -1/(x+1),
+because the derivative of this is
+--(x+1)⁻².
+So let's add a third term.
+And now yes, the common denominator
+will be the same one.
+At the top I will have a polynomial
+of degree 2 with three coefficients,
+which therefore I can match up for any
+polynomial of degree 2
+with three coefficients.
+I won't do the algebra,
+I invite you to do it slowly,
+maybe like I did in the previous video,
+and after doing it the answer will be
+that A = 1, B = 2, and C = -2.
+So we've done the algebra; now let's
+go back and finish the integration.
+This was the integral I was looking at,
+and the first step I did was
+use long division
+and factor the denominator
+to rewrite it as follows.
+Then the second step was to decompose this
+quotient in terms of simpler fractions.
+So all that is left is
+integrate this term by term.
+I know how to integrate a polynomial.
+The antiderivative of 1/x is ln|x|,
+the antiderivative of 1/(x+1) is ln|x+1|,
+and here the antiderivative is -1/(x+1)
+and don't forget the integration constant.
+And there we have it.
+This is the final answer.
+And this can be verified.
+You can take this function,
+compute its derivative
+and see that it agrees with that one.
+It's an interesting process to do
+because if you do that
+and then regroup terms
+to make it look like that,
+you will be undoing exactly each one
+of the steps we did to get to here.

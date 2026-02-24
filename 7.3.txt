@@ -1,0 +1,217 @@
+In this video, I will define the
+supremum and infimum of a set.
+These are concepts similar
+to maximum and minimum,
+but more useful.
+In the next video I will extend
+these concepts to functions.
+The notion of the maximum
+of a set is often insufficient,
+and I want to improve it.
+Let me explain why
+with an example.
+The closed interval from 0 to 2,
+including both endpoints, is a set,
+and it has a maximum:
+the number 2.
+2 is the largest element
+in the set.
+However, if I instead look at
+the open interval from 0 to 2,
+not including the endpoints,
+what is the number 2?
+It is not the maximum.
+It is not the largest
+element in the set,
+because it is not in the set.
+But it behave a bit like
+a maximum? Kind of?
+I need a better concept
+than maximum.
+I need a concept
+that describes both
+what the number 2 is
+to the closed interval,
+but also what the number 2
+is to the open interval.
+That will be the notion
+of supremum.
+First, let's recall what
+the maximum of a set is.
+I say that a number c
+is the maximum of a set A
+when c is in A,
+and every element in A
+is less than or equal to c.
+That's the maximum.
+But that's not what I want.
+Let's take this as a
+starting point
+to define something new.
+It is going to take
+us a few steps.
+Let us fix a set A,
+and a real number c.
+c may or may not be in A.
+It doesn't matter.
+First, we say that c is
+an upper bound of A
+when all elements of A
+are smaller than or equal to c.
+For example, let's look at both
+the closed and open intervals
+from 0 to 2.
+For both sets,
+2 is an upper bound.
+But it is not the only one.
+2.1 is also an upper bound.
+So is pi, and 100, and
+anything bigger than 2.
+By contrast, if I look at
+the set of integers, Z,
+it has no upper bounds at all.
+Let's go back
+to the two intervals.
+What's special about
+the number 2?
+Of all the upper bounds,
+2 is the smallest.
+And yes, that applies
+to both intervals.
+Great! This is
+the key idea.
+This is all I need.
+Let's give it a name.
+I am going to say
+that the number c
+is the "least upper bound"
+or "supremum"
+of the set A...
+(these two phrases
+are synonymous.)
+(Least upper bound and supremum
+mean the same thing.)
+...when two things happen.
+First, c is an upper bound of A.
+And second, every
+upper bound b of A
+is greater than or equal to c.
+This is just another way to say
+that c is the smallest upper bound.
+For example, the two intervals
+we were looking at
+both have supremum 2.
+On the other hand, the set of
+integers does not have
+a least upper bound, because it
+does not have an upper bound
+to begin with!
+Now that we have the
+definition of supremum,
+we can compare it
+with maximum.
+When the supremum of a set
+is also an element of the set,
+then it is the maximum.
+Back to our examples.
+The closed interval 0 to 2
+has maximum 2.
+But the open interval
+does not have a maximum.
+Neither does
+the set of integers.
+Finally, there is one more
+related definition.
+We say that the set A
+is bounded above
+when it has at least
+one upper bound.
+In our examples, the closed
+interval [0, 2] is bounded above.
+The open interval (0, 2)
+is also bounded above.
+But, the set of integers
+is not bounded above.
+That's it!
+We have our
+new definitions.
+We are not done.
+I have only defined
+supremum,
+But we have a full second
+set of definitions
+when we talk about lower bounds
+instead of upper bounds.
+I am going to invite you to write
+these definitions as an exercise.
+Can you take the
+original definitions
+and modify them to define
+the new concepts?
+Instead of upper bound,
+we have lower bound.
+Instead of the least upper bound,
+we have the greatest lower bound,
+or "infimum."
+Instead of maximum,
+we have minimum.
+And finally, we can talk about
+a set being bounded below.
+To complete these definitions,
+you pretty much only have to
+reverse the direction of
+all the inequalities
+in the original set
+of definitions.
+Finally, there is one more
+definition you may encounter.
+When we say that
+a set is "bounded"
+– just "bounded" –
+we mean that it is both
+bounded above and bounded below.
+I will conclude this video
+with a very important theorem.
+This is called the
+Least Upper Bound Principle,
+but it also has
+a few other names.
+This theorem says that
+if a set is bounded above,
+and is non-empty,
+then it has a
+least upper bound.
+In other words, if a set
+has one upper bound,
+then it must have a
+smallest upper bound,
+as long as the set
+is non-empty.
+If you think about examples,
+this seems to make sense.
+It is intuitive.
+All the examples we can
+think of will satisfy it.
+But why is it true?
+That is a deep question,
+beyond the scope of this video.
+This result is probably the
+most important property
+of the real numbers.
+It is the main difference between
+the reals and the rationals.
+If you take an analysis course,
+where you construct
+the reals rigorously,
+proving this property will be a
+fundamental step in your construction.
+For now, I am just going to take
+this as true without proving it.
+In fact, some people
+call this an "axiom."
+Of course, there is an
+equivalent theorem
+about lower bounds rather
+than upper bounds.
+I invite you to write the statement
+as an exercise.

@@ -1,0 +1,130 @@
+In this video I will study the most
+important family of improper integrals:
+the integral from 1 to infinity
+of 1/xᵖ with respect to x.
+This is not a single integral,
+it's a family of them.
+For each real number p
+I get a different one.
+Some are convergent,
+and some are divergent.
+I want to know which ones.
+This family is very important
+not because it is complicated
+(the calculation will
+be relatively simple),
+but because it comes up again and again.
+Later, we will learn how to determine
+whether other integrals
+are convergent or divergent
+by comparing them to this one.
+At this moment,
+I invite you to pause the video
+and try to answer the question
+before continuing watching.
+This is an improper integral because the
+domain goes all the way to infinity.
+So like in the previous examples,
+we set it up as a limit.
+First I integrate between 1 and a
+number b, the same function,
+and then I take the limit as
+b approaches infinity.
+So first integrate,
+and then take the limit.
+In order to integrate, I need to find
+an antiderivative for this function.
+And I'm going to break that
+into two cases:
+when p = 1, I will have 1/x, and we know
+an antiderivative is the logarithm.
+But in all other cases,
+I just have a power
+whose antiderivative is also a power.
+So I will do this second case first,
+when p is not 1.
+The antiderivative of x⁻ᵖ is going to be
+x⁻ᵖ⁺¹/(-p+1).
+That works because
+I omitted the case p = 1.
+And then I need to evaluate it when x = b
+and when x = 1.
+Let's do that.
+Now to calculate the limit, I'm going to
+have to consider a couple of cases.
+I'm taking the limit
+as b approaches infinity,
+so for the purpose of the limit,
+b is the variable and
+P is just a constant.
+This is a fixed number,
+and so is this.
+This is the only part that depends on b.
+When b approaches infinity,
+it matters whether this exponent
+is positive or negative,
+so I'm going to break it into two cases:
+when -p+1 is positive
+and when -p+1 is negative.
+if -p+1 is positive, I have b approaching
+infinity raised to a positive exponent;
+that also approaches infinity;
+divided by a positive number
+is still infinity;
+and the constant doesn't matter.
+So in this case,
+I'm going to get that the limit 
+does not exist because it is infinity.
+But in the second case,
+when the exponent is negative,
+b approaching infinity
+raised to a negative exponent,
+that's going to go to 0.
+So this term is 0 and doesn't matter,
+and I'm left only with this term.
+And I enter the minus in the fraction
+and I get that this is the number 1/(p-1).
+But more importantly, in the first case
+the improper integral is divergent,
+and in the second case
+the improper integral is convergent.
+And perhaps it's simpler to summarize
+the first case by saying p < 1,
+that's an equivalent inequality,
+and the second case by saying that p > 1.
+So we have only one case left.
+What happens when p equals exactly 1?
+Now I go back here and when p = 1,
+I have the function 1/x.
+The antiderivative is lnx,
+which I have to evaluate at b,
+minus evaluate at 1.
+And then do all the steps;
+as b approaches infinity,
+I'm going to have lnb
+that also approaches infinity.
+So in this case, I also get infinity,
+and the integral is also divergent.
+So in these two cases it's divergent,
+and in this case only it is convergent.
+Here is a summary of the calculation
+we just did.
+The improper integral from 1 to infinity
+of 1/xᵖ
+is convergent
+if and only if p > 1.
+If you ever need the specific value, you
+can repeat the calculation we just did.
+And it is divergent, not just divergent
+but specifically to infinity,
+if and only if p < 1 or equal to 1,
+and put those two cases together.
+This summary is important and it's
+actually worth memorizing
+because it appears a lot.
+Once you learn to use comparison test,
+both for improper integrals
+and for series,
+you will be using this a lot it.
+It is the most ubiquitous family
+of improper integrals.

@@ -1,0 +1,40 @@
+\begin{tikzpicture}
+  \begin{axis}[
+    width=11cm,
+    height=6.2cm,
+    axis lines=middle,
+    xmin=-0.2, xmax=2.4,
+    ymin=-0.2, ymax=6.2,
+    xlabel={$x$}, ylabel={$y$},
+    ticks=none,
+    clip=false
+  ]
+    % f(x)=x^2, base point a=1
+    \addplot[thick, color=thmcolor, domain=-0.1:2.3, samples=250] {x^2};
+
+    \def\a{1}
+    \def\fa{1}
+
+    % Two secants with different h
+    \def\hA{0.9}
+    \def\hB{0.3}
+
+    % Points
+    \addplot[only marks, mark=*, mark size=2pt, color=black] coordinates {(\a,\fa)};
+    \addplot[only marks, mark=*, mark size=2pt, color=black] coordinates {(\a+\hA,{(\a+\hA)^2})};
+    \addplot[only marks, mark=*, mark size=2pt, color=black] coordinates {(\a+\hB,{(\a+\hB)^2})};
+
+    % Secant lines
+    \addplot[thick, color=defcolor, domain=0.2:2.2, samples=2]
+      {\fa + (((\a+\hA)^2-\fa)/\hA)*(x-\a)};
+    \addplot[thick, color=excolor, domain=0.2:2.2, samples=2]
+      {\fa + (((\a+\hB)^2-\fa)/\hB)*(x-\a)};
+
+    % Tangent line at a=1: slope 2
+    \addplot[thick, color=black, domain=0.2:2.2, samples=2] {\fa + 2*(x-\a)};
+
+    \node[color=defcolor, anchor=west] at (axis cs:2.25,4.2) {secant ($h=0.9$)};
+    \node[color=excolor, anchor=west] at (axis cs:2.25,3.3) {secant ($h=0.3$)};
+    \node[anchor=west] at (axis cs:2.25,2.4) {tangent};
+  \end{axis}
+\end{tikzpicture}

@@ -1,0 +1,112 @@
+In this video, I will present two
+examples of divergent series,
+and I will prove that they are divergent
+directly from the definition.
+In each example,
+the sequence of partial sums does not
+have a limit for a different reason.
+The two examples are simple.
+They are series that we know (probably)
+must be divergent,
+but I want to evaluate them
+directly from the definition.
+I want to see that our definition
+correctly identifies that they're
+divergent and agrees with our intuition.
+In a way, this is a test that the
+definition of series is a good one.
+The first example is the sum from
+n = 1 to ∞, of the constant term 1.
+What does this mean?
+Well, when n = 1, I add 1,
+when n = 2, I add 1,
+when n = 3, I add 1, and so on,
+infinitely many times.
+And it's clear what is
+going to happen, right?
+Intuitively, this has to be ∞, it
+can't possibly be anything else,
+but I want to do it from the definition,
+and make sure that the definition
+reaches the same conclusion;
+otherwise, we have the wrong definition.
+So the definition of series (or
+infinite sums), says that the full sum,
+should be the limit of partial sums.
+And the k-th partial sum
+is defined as the same sum,
+but where the index stops at k.
+So what would this be?
+Well this would be the sum of k terms,
+and all the terms are 1,
+so Sₖ is simply k;
+(this is probably the easiest series
+calculation you will ever do)
+therefore, the value of the full sum is
+the limit as k → ∞ of Sₖ, which is k.
+In other words, ∞. Yes! Exactly
+what we expected! Good.
+Another way to say the same thing,
+is that the original series is divergent,
+because the limit of
+partial sums does not exist.
+My second example is the sum
+from n = 0 to ∞, of (-1)ⁿ.
+Let's see what the first few
+terms look like:
+when n = 0, I am
+adding (-1)⁰, which is 1,
+when n = 1, I am
+adding (-1)¹, which is -1,
+when n = 2, I add 1,
+when n = 3, I add -1,
+and then I keep going
+like that forever.
+Unlike before, I want to compute
+the value of this infinite sum,
+strictly from the definition.
+So once again, the definition of series
+(or infinite sum) says that
+S should be the limit as k → ∞
+of the k-th partial sum,
+where the k-th partial sum is
+defined to be the very same sum,
+but when I stop as the index
+reaches the value k.
+Let's compute the first few partial sums
+to see what this looks like.
+I will assign this case
+with 0 not with 1,
+so S₀ will be the sum when I stop at 0,
+so just the 0th term: 1.
+S₁ will be the sum when I stop at 1,
+so it's the 0th term + the 1st term,
+which is -1,
+so it's 0.
+S₂ is the 0th term + the 1st term
++ the 2nd term, so 1 again.
+S₃ is the 0th term + the 1st term
++ the 2nd term + the 3rd term,
+in this case it's 0.
+And we see what's happening right?
+Depending on where I stop
+(if it's after a -1 or a 1),
+they're all gonna cancel and I'll get 0,
+or I'm going to get 1.
+Or more precisely,
+the formula for Sₖ is that Sₖ is 0,
+if k is odd, and 1, if k is even,
+so it's the sequence 1, 0, 1, 0,
+1, 0, 1, 0, and so on...
+What's the limit for the sequence?
+There isn't one.
+The limit as k → ∞ of the sequence
+of partial sums does not exist,
+and it's not because it's ∞.
+It does not exist because it oscillates
+this way between 0 and 1.
+In other words, we say that
+the series is divergent;
+and divergent simply means that this
+series does not represent a number.
+It doesn't equal a number.

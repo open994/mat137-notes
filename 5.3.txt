@@ -1,0 +1,88 @@
+In this video, I will write a proof of the
+Local Extreme Value Theorem.
+In the previous video (linked in the description),
+I already introduced the theorem.
+I explained the statement and I gave
+some motivation.
+In this video I will ONLY write the proof.
+As a reminder, this is the theorem.
+It says that IF a function f has a local
+extremum at a point c,
+which is an interior point to the domain,
+not an endpoint,
+THEN the derivative f'(c) is zero or
+does not exist.
+This is exactly the statement I wrote in
+the previous video.
+Time for a proof.
+There are actually two proofs!
+One if f has a local maximum, and one if
+it has a local minimum.
+I will write a proof only for a local 
+maximum. The other case is very similar.
+We know that the derivative f'(c)
+is defined as 
+lim_(x → c) [f(x) – f(c)]/(x – c)
+I want to prove that EITHER this limit
+does not exist or equals zero.
+To do so, I am going to assume
+the limit exists,
+and then I will prove that it must be zero.
+That will be enough.
+I will examine what happens to this limit 
+as x approaches c
+on the right and on the left separately.
+First, the denominator.
+When x approaches c on the right,
+(x – c) is positive.
+When x approaches c on the left,
+(x – c) is negative.
+Then, the numerator.
+The numerator has the same sign
+in both cases.
+[f(x) – f(c)] must be negative or zero
+as x approaches c on both sides.
+This is my definition of local maximum.
+f(c) must be greater than or equal to f(x)
+when x is close to c.
+As a consequence, on the right of c, the
+QUOTIENT is negative or zero,
+and on the left of c, the quotient is
+positive or zero.
+What can we say about the side limits?
+The limit on the right must be negative or zero.
+A priori, it could also not exist, but we
+are assuming the full limit exists,
+so the two side limits must also exist,
+and be equal.
+...and the limit on the left must be
+positive or zero.
+For the two side limits to exist and be
+equal, they must both equal zero.
+That is it!
+That completes the proof.
+I want to add some comments.
+First, notice that we needed c to be an
+interior point,
+because we needed to examine the limit
+on both sides of c.
+If c had been an endpoint of the domain,
+the proof would not have worked.
+Second, this was a proof only for a
+local maximum.
+I invite you to think about how to prove
+the result for a local minimum.
+It is very similar.
+You only need to change the direction of
+some of the inequalities.
+Everything else works the same way.
+Finally, I remind you that I have proven
+this theorem as a first step
+in our long journey towards
+the Mean Value Theorem.
+But this theorem is useful on its own.
+In the next video, as an application,
+I will explain, with an example, how to use
+this result to find
+both local and global maxima and
+minima of certain functions.

@@ -1,0 +1,25 @@
+\begin{tikzpicture}
+  \begin{axis}[
+    width=11cm,
+    height=6.8cm,
+    axis lines=middle,
+    xmin=-0.2, xmax=4.4,
+    ymin=-0.4, ymax=2.6,
+    xlabel={$x$}, ylabel={$y$},
+    ticks=none,
+    clip=true
+  ]
+    % Region under y = 2 - x/2 on [0,4], rotated about x-axis
+    \addplot[thick, color=thmcolor, domain=0:4, samples=2] {2 - 0.5*x};
+    \addplot[domain=0:4, draw=none, fill=excolor, fill opacity=0.12] {2 - 0.5*x} \closedcycle;
+
+    % Representative slice at x=2
+    \def\xS{2}
+    \pgfmathsetmacro{\rS}{2 - 0.5*\xS}
+    \draw[thick, color=defcolor] (axis cs:\xS,0) -- (axis cs:\xS,\rS);
+    \draw[thick, color=defcolor] (axis cs:\xS-0.12,0) -- (axis cs:\xS+0.12,0);
+    \node[color=defcolor, anchor=west] at (axis cs:2.15,\rS/2) {$r=f(x)$};
+
+    \node[anchor=west] at (axis cs:2.55,2.2) {rotate about $x$-axis $\Rightarrow$ disk};
+  \end{axis}
+\end{tikzpicture}

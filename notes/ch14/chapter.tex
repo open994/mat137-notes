@@ -1,0 +1,982 @@
+\chapter{Power Series and Taylor Series}
+
+%=============================================================================
+\section{A Motivating Example}
+\label{sec:14.1}
+%=============================================================================
+
+\textit{We begin with a concrete example of a power series before defining the general notion.  This example illustrates the phenomena that arise every time: a radius of convergence, an interval of convergence, and different behaviour at the endpoints.}
+
+\begin{example}
+\label{ex:14-1}
+Define a function $g$ by
+\[
+  g(x) \;=\; \sum_{n=1}^{\infty}\frac{x^{n}}{n\cdot 3^{n}}.
+\]
+The domain of $g$ is the set of real numbers $x$ for which this series converges, since convergent means the series adds up to a number.
+\end{example}
+
+\textit{Without any calculation, we can already anticipate the shape of the answer.  When $x$ is large the terms $x^{n}$ are large, and we expect divergence.  When $x$ is small, close to zero, the terms are small, and we expect convergence.}
+
+\begin{remark}[Pause and Try]
+Find the exact domain of $g$.  This is an exercise in convergence tests; begin with the ratio test.
+\end{remark}
+
+\subsection*{Applying the ratio test}
+
+Set $a_{n}=\dfrac{x^{n}}{n\cdot 3^{n}}$.  Then
+\[
+  \frac{\abs{a_{n+1}}}{\abs{a_{n}}}
+  \;=\; \frac{\abs{x}^{n+1}}{(n+1)\cdot 3^{n+1}}
+        \cdot \frac{n\cdot 3^{n}}{\abs{x}^{n}}
+  \;=\; \frac{\abs{x}}{3}\cdot\frac{n}{n+1}.
+\]
+Taking the limit as $n\to\infty$, the factor $\frac{n}{n+1}\to 1$, so
+\[
+  \lim_{n\to\infty}\frac{\abs{a_{n+1}}}{\abs{a_{n}}}
+  \;=\; \frac{\abs{x}}{3}.
+\]
+
+\begin{itemize}
+  \item If $\abs{x}<3$, this limit is less than $1$, and the ratio test gives \textbf{absolute convergence}.
+  \item If $\abs{x}>3$, this limit is greater than $1$, and the ratio test gives \textbf{divergence}.
+  \item If $\abs{x}=3$, the ratio test is inconclusive; we check the endpoints individually.
+\end{itemize}
+
+\subsection*{Checking the endpoints}
+
+At $x=3$:
+\[
+  \sum_{n=1}^{\infty}\frac{3^{n}}{n\cdot 3^{n}}
+  \;=\; \sum_{n=1}^{\infty}\frac{1}{n},
+\]
+the harmonic series, which is \textbf{divergent}.
+
+At $x=-3$:
+\[
+  \sum_{n=1}^{\infty}\frac{(-3)^{n}}{n\cdot 3^{n}}
+  \;=\; \sum_{n=1}^{\infty}\frac{(-1)^{n}}{n},
+\]
+which is \textbf{conditionally convergent} by the alternating series test.
+
+\subsection*{Conclusion}
+
+The domain of $g$ is the interval $[-3,3)$.  We call this interval the \emph{interval of convergence}, and the number $3$ (half the length of the interval) the \emph{radius of convergence}.  In the next section we will see that this picture---an interval centred at some point, absolute convergence in the interior, divergence in the exterior, and case-by-case behaviour at the endpoints---appears for every power series.
+
+% ── BEGIN VISUAL ──
+\begin{figure}[ht]
+  \centering
+  \input{ch14/figures/fig-motivating-example-interval.tex}
+  \caption{A typical power-series convergence picture: absolute inside, case-by-case at endpoints.}
+  \label{fig:motivating-example-interval}
+\end{figure}
+% ── END VISUAL ──
+
+%=============================================================================
+\section{Definition of Power Series}
+\label{sec:14.2}
+%=============================================================================
+
+\textit{Polynomials are nice.  Taking derivatives, computing integrals, evaluating limits---everything is easy with polynomials.  The idea behind power series is to enlarge the family of ``nice, easy functions'' from finite polynomials to infinite polynomials.  An infinite polynomial is a series of powers, and that is why it is called a \emph{power series}.}
+
+\begin{definition}[Power series]
+\label{def:14-1}
+Let $a\in\R$ and let $c_{0},c_{1},c_{2},\ldots$ be real numbers.  A \emph{power series centred at $a$} is an expression of the form
+\[
+  \sum_{n=0}^{\infty}c_{n}(x-a)^{n}
+  \;=\; c_{0}+c_{1}(x-a)+c_{2}(x-a)^{2}+\cdots
+\]
+The numbers $c_{n}$ are called the \emph{coefficients}.  When the power series is convergent, it defines a function of $x$.
+\end{definition}
+
+\begin{remark}
+If the notation is intimidating, think first of the case $a=0$.  Then the power series is simply $c_{0}+c_{1}x+c_{2}x^{2}+\cdots$, which looks exactly like a polynomial of infinite degree.
+\end{remark}
+
+\textit{The domain of a function defined by a power series is the set of real numbers $x$ for which the series converges.  One value is always in the domain: $x=a$, because every term except $c_{0}$ vanishes.  In the best case the domain is all of $\R$; in the worst case it is just the single point $\{a\}$.  In general, some values of $x$ will be in the domain and some will not.}
+
+\subsection*{The main theorem}
+
+\textit{The following theorem, stated in three parts, describes the structure of convergence for every power series and explains why power series are so powerful.}
+
+\begin{theorem}[Structure of power series]
+\label{thm:14-1}
+Let $\sum_{n=0}^{\infty}c_{n}(x-a)^{n}$ be a power series centred at~$a$.
+
+\begin{enumerate}[label=(\roman*)]
+  \item \textbf{Interval of convergence.}  The domain (the set of values of $x$ for which the series converges) is always an interval centred at~$a$.  It could be a single point, a bounded interval (open, closed, or half-open), or all of $\R$.
+
+  \item \textbf{Nature of convergence.}  In the \emph{interior} of this interval, the series is \textbf{absolutely convergent}.  In the \emph{exterior}, it is \textbf{divergent}.  At the endpoints, if any, anything may happen: the series may converge absolutely, converge conditionally, or diverge, independently at each endpoint.
+
+  \item \textbf{Polynomial-like behaviour.}  In the interior of the interval of convergence, a power series can be \textbf{treated like a polynomial}.  That is, power series may be added, multiplied, composed, differentiated, and integrated \textbf{term by term}, in the same way as finite polynomials.  None of these operations changes the radius of convergence.
+\end{enumerate}
+\end{theorem}
+
+\begin{definition}[Interval and radius of convergence]
+\label{def:14-2}
+The domain described in part~(i) of \cref{thm:14-1} is called the \emph{interval of convergence}.  Its radius (half its length) is called the \emph{radius of convergence}, denoted $R$.  We allow $R=0$ (when the domain is $\{a\}$) and $R=\infty$ (when the domain is $\R$).
+\end{definition}
+
+\textit{That the domain is always an interval centred at $a$ is intuitively natural: the farther $x$ is from $a$, the larger $\abs{x-a}$ is, and the more likely the series is to diverge.  The closer $x$ is to $a$, the more likely it is to converge.}
+
+% ── BEGIN VISUAL ──
+\begin{figure}[ht]
+  \centering
+  \input{ch14/figures/fig-radius-of-convergence.tex}
+  \caption{Radius of convergence for a power series centered at $a$.}
+  \label{fig:radius-of-convergence}
+\end{figure}
+% ── END VISUAL ──
+
+\subsection*{Derivatives and antiderivatives}
+
+Part~(iii) of \cref{thm:14-1} has an especially useful consequence for derivatives and antiderivatives.  If
+\[
+  f(x) \;=\; \sum_{n=0}^{\infty}c_{n}\,x^{n},
+\]
+then inside the interval of convergence,
+\[
+  f'(x) \;=\; \sum_{n=1}^{\infty}n\,c_{n}\,x^{n-1}
+  \qquad\text{and}\qquad
+  \int_{0}^{x}f(t)\dt \;=\; \sum_{n=0}^{\infty}\frac{c_{n}}{n+1}\,x^{n+1}.
+\]
+These are obtained by differentiating or integrating term by term, exactly as one would do for a finite polynomial.
+
+\begin{remark}
+The proof of \cref{thm:14-1} is technical.  The key ingredient is that in the interior of the interval of convergence, the series enjoys \emph{absolute uniform convergence} on every compact subset.  We will not develop that theory here; instead we focus on stating the theorem and learning to use it.
+\end{remark}
+
+\subsection*{The road ahead}
+
+\textit{Our ultimate goal is twofold.  First, try to rewrite as many functions as possible as power series, using \emph{Taylor series}.  Second, once we have done that, exploit the polynomial-like behaviour of power series to make calculations---limits, integrals, estimates, differential equations---\textbf{much} easier.  This programme will occupy us for the remainder of this chapter, and it is well worth the effort.}
+
+%=============================================================================
+\section{Taylor Polynomials}
+\label{sec:14.3}
+%=============================================================================
+
+\textit{Our goal is to approximate functions with polynomials.  Polynomials are simple, and they make everything easy.  Given a function $f$ and a point $a$ in its domain, we want to find a polynomial $P$ such that $P(x)$ is close to $f(x)$ when $x$ is near $a$.}
+
+\subsection*{The tangent line as a first approximation}
+
+\textit{We already know one example of such an approximation: the tangent line.  Of all lines through the point $(a,f(a))$, the tangent line is the one whose graph stays closest to the graph of the function near $a$.  But what, precisely, does ``closest'' mean?  And how can we construct even better polynomial approximations?}
+
+\subsection*{The remainder}
+
+Define the \emph{remainder} (or \emph{error}) as the difference between the function and the polynomial:
+\[
+  R(x) \;=\; f(x)-P(x).
+\]
+We want this error to be small near $a$.  Saying $R(a)=0$ is too weak: many lines pass through $(a,f(a))$, and most are poor approximations.  Saying $\lim_{x\to a}R(x)=0$ is still not enough, because every line through $(a,f(a))$ satisfies this.
+
+\textit{What makes the tangent line special is that its remainder approaches zero \textbf{fast}.  The remainder for every other line also tends to zero, but the tangent line's remainder does so faster than any other line's.  This is the key idea: we need the error to approach zero \emph{fast}.}
+
+\subsection*{A scale for ``fast''}
+
+\textit{To measure how fast a function approaches zero, we need a scale.  A natural one is provided by powers of $(x-a)$.}
+
+For simplicity, consider first the case $a=0$.  As $x\to 0$, every positive power $x^{n}$ approaches $0$, but the larger the exponent $n$, the faster the approach.  This gives us our yardstick: we compare the remainder with powers of $x$.
+
+\begin{definition}[Order of approximation]
+\label{def:14-3}
+Let $f$ and $g$ be continuous at $a$, and let $n\in\N$.  We say that $g$ is an \emph{approximation for $f$ near $a$ of order $n$} when
+\[
+  \lim_{x\to a}\frac{f(x)-g(x)}{(x-a)^{n}} \;=\; 0.
+\]
+\end{definition}
+
+\textit{The limit is an indeterminate form $\frac{0}{0}$: the numerator $f(x)-g(x)$ tends to $0$ (because both are continuous at $a$ and approximate each other there), and the denominator $(x-a)^{n}$ tends to $0$.  For this indeterminate form to resolve to $0$, the numerator must approach $0$ faster than the denominator.  That is precisely the content of the definition.}
+
+\begin{definition}[Taylor polynomial --- first definition]
+\label{def:14-4}
+Let $a\in\R$, let $f$ be continuous at and near $a$, and let $n\in\N$.  The \emph{$n$-th Taylor polynomial for $f$ at $a$} is a polynomial $P_{n}$ of degree at most $n$ that is an approximation for $f$ near $a$ of order $n$.  That is,
+\[
+  \lim_{x\to a}\frac{f(x)-P_{n}(x)}{(x-a)^{n}} \;=\; 0.
+\]
+\end{definition}
+
+\begin{remark}
+The requirement that $\deg P_{n}\le n$ deserves a comment.  One can always find polynomials of higher degree with the same approximation property, but polynomials of lower degree are simpler, so we prefer them.  Later we will show that, provided $f$ has enough derivatives, such a polynomial always exists and is unique.
+\end{remark}
+
+\begin{remark}[Pause and Try]
+Check that the first Taylor polynomial $P_{1}$ is the tangent line to $f$ at $a$.
+\end{remark}
+
+\textit{This definition explains where Taylor polynomials come from and why they are useful.  However, it is not directly helpful for computations.  Based on it alone, we have no recipe for actually \emph{constructing} $P_{n}$.  The next section remedies this.}
+
+%=============================================================================
+\section{Taylor Polynomials via Derivatives}
+\label{sec:14.4}
+%=============================================================================
+
+\textit{We now translate the definition of Taylor polynomials into a second, equivalent form that is more concrete and better suited for computations.}
+
+\subsection*{Smoothness notation}
+
+\begin{definition}[$C^{n}$ functions]
+\label{def:14-5}
+A function is called $C^{0}$ when it is continuous.  It is $C^{1}$ when its first derivative exists and is continuous, $C^{2}$ when the first two derivatives exist and are continuous, and in general $C^{n}$ when all derivatives up to and including order~$n$ exist and are continuous.  A function is $C^{\infty}$ when \textbf{all} of its derivatives exist and are continuous.
+\end{definition}
+
+\begin{remark}
+We will encounter many results that require different numbers of derivatives.  The $C^{n}$ notation makes statements shorter.
+\end{remark}
+
+\subsection*{From the limit condition to matching derivatives}
+
+\textit{Recall the original definition: $g$ is an approximation for $f$ near $a$ of order $n$ when}
+\[
+  L \;=\; \lim_{x\to a}\frac{f(x)-g(x)}{(x-a)^{n}} \;=\; 0.
+\]
+\textit{We now investigate, under the assumption that $f$ and $g$ are $C^{n}$, what conditions on the derivatives of $f$ and $g$ are equivalent to $L=0$.}
+
+Suppose first that $f(a)\neq g(a)$.  Then the numerator has a nonzero limit while the denominator tends to $0$, so $L$ is infinite.  Hence we need $f(a)=g(a)$.
+
+With $f(a)=g(a)$ we have the indeterminate form $\frac{0}{0}$.  Apply L'H\^{o}pital's Rule:
+\[
+  L \;=\; \lim_{x\to a}\frac{f'(x)-g'(x)}{n(x-a)^{n-1}}.
+\]
+The same argument now forces $f'(a)=g'(a)$, and we apply L'H\^{o}pital's Rule again.  Repeating this process $n$ times, we arrive at
+\[
+  L \;=\; \lim_{x\to a}\frac{f^{(n)}(x)-g^{(n)}(x)}{n!}
+  \;=\; \frac{f^{(n)}(a)-g^{(n)}(a)}{n!},
+\]
+where the last step uses the continuity of the $n$-th derivatives.
+
+\begin{theorem}[Approximation via matching derivatives]
+\label{thm:14-2}
+Let $f$ and $g$ be $C^{n}$ functions at a point $a$.  Then the following are equivalent:
+\begin{enumerate}[label=(\roman*)]
+  \item $\displaystyle\lim_{x\to a}\frac{f(x)-g(x)}{(x-a)^{n}}=0$. \quad (The function $g$ approximates $f$ near $a$ of order $n$.)
+  \item $f^{(k)}(a) = g^{(k)}(a)$ for every $k=0,1,2,\ldots,n$.
+\end{enumerate}
+\end{theorem}
+
+\textit{In words: $g$ is a good approximation for $f$ near $a$ if and only if $f$ and $g$ have the same first few derivatives at $a$.  How good the approximation is depends on how many derivatives agree.}
+
+\subsection*{Second definition of Taylor polynomial}
+
+We can now rewrite the definition of Taylor polynomial using condition~(ii) of \cref{thm:14-2}.
+
+\begin{definition}[Taylor polynomial --- second definition]
+\label{def:14-6}
+Let $a\in\R$, $n\in\N$, and let $f$ be a $C^{n}$ function at~$a$.  The \emph{$n$-th Taylor polynomial for $f$ at $a$} is the polynomial $P_{n}$ of degree at most $n$ satisfying
+\[
+  P_{n}^{(k)}(a) = f^{(k)}(a) \qquad\text{for each } k=0,1,\ldots,n.
+\]
+\end{definition}
+
+\begin{remark}
+This is not a completely new idea.  The first Taylor polynomial is a polynomial of degree at most $1$ whose value at $a$ is $f(a)$ and whose derivative at $a$ is $f'(a)$.  That is exactly the tangent line.
+\end{remark}
+
+\textit{This definition is more useful for computations than the first: we are simply specifying the value of the polynomial and its first $n$ derivatives at $a$.  But we should always keep the first definition (\cref{def:14-4}) in mind---it tells us \emph{why} Taylor polynomials are good approximations.  In the next section, we take this one step further, providing an explicit formula for the coefficients.}
+
+%=============================================================================
+\section{The Explicit Formula and Taylor Series}
+\label{sec:14.5}
+%=============================================================================
+
+\textit{We have defined Taylor polynomials in two equivalent ways: first via the approximation property (\cref{def:14-4}), then via matching derivatives (\cref{def:14-6}).  Both are useful for understanding, but neither gives us a quick recipe for computing the coefficients.  Our goal now is to simplify the definition even further and obtain an explicit formula.}
+
+\subsection*{The case $a=0$}
+
+A polynomial of degree at most $n$ can be written as
+\[
+  P_{n}(x) \;=\; c_{0}+c_{1}\,x+c_{2}\,x^{2}+\cdots+c_{n}\,x^{n}.
+\]
+We impose the matching conditions from \cref{def:14-6}: $P_{n}^{(k)}(0)=f^{(k)}(0)$ for $k=0,1,\ldots,n$.
+
+\begin{remark}[Pause and Try]
+Differentiate $P_{n}$ repeatedly and evaluate at $0$.  Each condition determines exactly one coefficient.  Try to find the formula before reading on.
+\end{remark}
+
+Differentiating $k$ times and setting $x=0$ kills every term except the one of degree~$k$:
+\[
+  P_{n}^{(k)}(0) \;=\; k!\,c_{k}.
+\]
+The matching condition $P_{n}^{(k)}(0)=f^{(k)}(0)$ therefore forces
+\[
+  c_{k} \;=\; \frac{f^{(k)}(0)}{k!}.
+\]
+
+\subsection*{The general case}
+
+For an arbitrary centre $a$, write the polynomial in powers of $(x-a)$ instead of powers of~$x$:
+\[
+  P_{n}(x) \;=\; c_{0}+c_{1}(x-a)+c_{2}(x-a)^{2}+\cdots+c_{n}(x-a)^{n}.
+\]
+\textit{This is still a generic polynomial of degree at most $n$; we have simply changed basis from powers of $x$ to powers of $(x-a)$.  The advantage is that the $k$-th derivative evaluated at $a$ depends only on the coefficient~$c_{k}$.}
+
+\begin{remark}[Pause and Try]
+Impose the conditions $P_{n}^{(k)}(a)=f^{(k)}(a)$ for $k=0,1,\ldots,n$ and find the coefficients.  Take as much time as you need.
+\end{remark}
+
+The same calculation gives $P_{n}^{(k)}(a)=k!\,c_{k}$, and the matching condition yields
+\[
+  c_{k} \;=\; \frac{f^{(k)}(a)}{k!}.
+\]
+
+\subsection*{Third definition of Taylor polynomial}
+
+\begin{definition}[Taylor polynomial --- explicit formula]
+\label{def:14-7}
+Let $f$ be a $C^{n}$ function at $a$.  The $n$-th Taylor polynomial for $f$ at $a$ is
+\[
+  P_{n}(x) \;=\; \sum_{k=0}^{n}\frac{f^{(k)}(a)}{k!}\,(x-a)^{k}.
+\]
+\end{definition}
+
+\textit{Some textbooks take this formula as the starting point.  We chose to begin with the more abstract approximation definition (\cref{def:14-4}) and slowly derive the formula from it, because the abstract version explains \emph{why} Taylor polynomials are good approximations.  It is best to understand all three equivalent viewpoints.}
+
+\begin{remark}
+By construction the polynomial has degree at most $n$: the terms up to degree $n$ suffice to match the first $n$~derivatives.  Higher-degree terms could be added without affecting those derivatives, but they are unnecessary.  Since the formula pins down every coefficient, the $n$-th Taylor polynomial of a given function at a given point is \textbf{unique}.  This was not obvious from the earlier definitions, where it seemed possible that two different polynomials might satisfy the same conditions.
+\end{remark}
+
+\subsection*{Graphical intuition}
+
+\textit{Consider a function and its Taylor polynomials at $a=0$.  The first Taylor polynomial is the tangent line---a reasonable approximation very close to~$0$.  The second Taylor polynomial is better, and the third better still.  The sixth Taylor polynomial produces a fantastic approximation, not just near~$0$, but on a surprisingly large interval around it.  The higher the order, the better the approximation.}
+
+% ── BEGIN VISUAL ──
+\begin{figure}[ht]
+  \centering
+  \input{ch14/figures/fig-taylor-approx-exp.tex}
+  \caption{Taylor polynomial approximations to $e^x$ near $0$.}
+  \label{fig:taylor-approx-exp}
+\end{figure}
+% ── END VISUAL ──
+
+\subsection*{The Taylor series}
+
+\textit{This raises a natural question: what happens if we use a ``polynomial of infinite degree''?  Such an object is not a polynomial---it is a power series---but if every finite truncation is a good approximation, perhaps the infinite version is an \textbf{exact} representation of the function.}
+
+\begin{definition}[Taylor series]
+\label{def:14-8}
+Let $f$ be a $C^{\infty}$ function at $a$.  The \emph{Taylor series for $f$ at $a$} is the power series
+\[
+  \sum_{k=0}^{\infty}\frac{f^{(k)}(a)}{k!}\,(x-a)^{k}.
+\]
+This is the same formula as in \cref{def:14-7}, but with the sum extended to all degrees.  All the derivatives of the power series at $a$ agree with the corresponding derivatives of~$f$.
+\end{definition}
+
+\textit{Like any power series, the Taylor series makes sense only where it converges.  In the ideal case it converges to $f(x)$ on some interval around~$a$.}
+
+\begin{remark}[Warning]
+A function that equals its Taylor series on an interval around $a$ is called \emph{analytic}.  Not every $C^{\infty}$ function is analytic: there exist $C^{\infty}$ functions whose Taylor series converges but does \textbf{not} equal the function.  However, most of the common functions we encounter are analytic.  Whether a given function equals its Taylor series is a deeper question, addressed in \cref{sec:14.7}.
+\end{remark}
+
+%=============================================================================
+\section{Computing Maclaurin Series}
+\label{sec:14.6}
+%=============================================================================
+
+\textit{In the previous sections we derived the explicit formula for Taylor polynomials and the Taylor series.  In this section we illustrate them with examples.}
+
+\begin{definition}[Maclaurin series]
+\label{def:14-9}
+When the Taylor series is centred at $a=0$, it is called a \emph{Maclaurin series}.  That is, the Maclaurin series for $f$ is
+\[
+  \sum_{k=0}^{\infty}\frac{f^{(k)}(0)}{k!}\,x^{k}.
+\]
+\end{definition}
+
+\textit{We say that a function is \emph{analytic} when it is equal to its Taylor series (see \cref{sec:14.7} for the precise definition).  For analytic functions, the Taylor series is not merely an approximation---it \textbf{is} the function.  Spoiler: most common functions, including exponentials and trigonometric functions, are analytic.  It will take some work to prove this.  For now, we focus on \emph{finding} the Maclaurin series, without yet proving equality.}
+
+\begin{example}[Maclaurin series for $e^{x}$]
+\label{ex:14-2}
+Define $f(x)=e^{x}$.  Since the derivative of $e^{x}$ is itself, every derivative equals $e^{x}$, and so
+\[
+  f^{(k)}(0) = e^{0} = 1 \qquad\text{for all } k\ge 0.
+\]
+The Maclaurin series is therefore
+\[
+  e^{x} \;=\; \sum_{k=0}^{\infty}\frac{x^{k}}{k!}
+  \;=\; 1 + x + \frac{x^{2}}{2!} + \frac{x^{3}}{3!} + \cdots
+\]
+This equality holds for \textbf{all} $x\in\R$.  (The proof of analyticity is given in \cref{sec:14.8}.)
+\end{example}
+
+\begin{remark}
+If we want the Taylor series for $e^{x}$ centred at a point $c\neq 0$, one convenient method is to substitute $u=x-c$.  Then $e^{x}=e^{c+u}=e^{c}\cdot e^{u}$, and we can use the Maclaurin series for $e^{u}$:
+\[
+  e^{x} \;=\; e^{c}\sum_{k=0}^{\infty}\frac{(x-c)^{k}}{k!}.
+\]
+This substitution trick works for many functions, and it is the reason we most often work with Maclaurin series.
+\end{remark}
+
+\begin{example}[Maclaurin series for $\sin x$]
+\label{ex:14-3}
+The derivatives of $\sin x$ repeat in a cycle of length four:
+\[
+  \sin x,\;\cos x,\;-\sin x,\;-\cos x,\;\sin x,\;\ldots
+\]
+Evaluating at $x=0$ gives the pattern $0,\,1,\,0,\,-1,\,0,\,1,\,0,\,-1,\,\ldots$\,.  All even-order derivatives vanish, and the odd-order derivatives alternate between $1$ and $-1$.  Therefore
+\[
+  \sin x \;=\; \sum_{m=0}^{\infty}\frac{(-1)^{m}}{(2m+1)!}\,x^{2m+1}
+  \;=\; x - \frac{x^{3}}{3!} + \frac{x^{5}}{5!} - \frac{x^{7}}{7!} + \cdots
+\]
+This holds for all $x\in\R$.
+\end{example}
+
+\begin{remark}[Pause and Try]
+Repeat the calculation for $\cos x$.  You should obtain
+\[
+  \cos x \;=\; \sum_{m=0}^{\infty}\frac{(-1)^{m}}{(2m)!}\,x^{2m}
+  \;=\; 1 - \frac{x^{2}}{2!} + \frac{x^{4}}{4!} - \frac{x^{6}}{6!} + \cdots
+\]
+valid for all $x\in\R$.
+\end{remark}
+
+\subsection*{The four fundamental Maclaurin series}
+
+To summarise, we now have four Maclaurin series that will serve as building blocks:
+\begin{align*}
+  e^{x}           &= \sum_{k=0}^{\infty}\frac{x^{k}}{k!},            & \abs{x}&<\infty, \\[4pt]
+  \sin x          &= \sum_{m=0}^{\infty}\frac{(-1)^{m}}{(2m+1)!}\,x^{2m+1}, & \abs{x}&<\infty, \\[4pt]
+  \cos x          &= \sum_{m=0}^{\infty}\frac{(-1)^{m}}{(2m)!}\,x^{2m},     & \abs{x}&<\infty, \\[4pt]
+  \frac{1}{1-x}   &= \sum_{n=0}^{\infty}x^{n},                        & \abs{x}&<1.
+\end{align*}
+\textit{We will use all kinds of manipulations to derive Maclaurin series for new functions from these four.}
+
+%=============================================================================
+\section{Analytic Functions and Remainders}
+\label{sec:14.7}
+%=============================================================================
+
+\textit{Fair warning: this section is packed with theorems, some quite technical.  They will make the rest of this chapter considerably easier, so they are worth the effort.}
+
+\subsection*{Precise definition of analytic}
+
+\textit{So far we have been casually saying that a function is analytic when it equals its Taylor series.  But we need to specify \emph{which} Taylor series, and on which domain.}
+
+\begin{definition}[Analytic function]
+\label{def:14-10}
+Let $f$ be a $C^{\infty}$ function on an open interval $I$, and let $a\in I$.  Denote by $S_{a}$ the Taylor series of $f$ centred at $a$.  We say $f$ is \emph{analytic at $a$} when $f(x)=S_{a}(x)$ for all $x$ in some open interval centred at $a$.  We say $f$ is \emph{analytic} (without specifying a point) when it is analytic at every point of its domain.
+\end{definition}
+
+\subsection*{Properties of analytic functions}
+
+\begin{theorem}[Algebra of analytic functions]
+\label{thm:14-3}
+The following hold:
+\begin{enumerate}[label=(\roman*)]
+  \item Polynomials are analytic.
+  \item Sums, products, quotients (where the denominator is nonzero), and compositions of analytic functions are analytic.
+  \item Derivatives and antiderivatives of analytic functions are analytic.
+\end{enumerate}
+Moreover, all operations listed in \textup{(ii)} and \textup{(iii)} can be performed on the corresponding Taylor series term by term, exactly as one would do with polynomials.  The Taylor series of a function at a point is unique.
+\end{theorem}
+
+\begin{remark}
+Because of \cref{thm:14-3}, our strategy is very efficient.  We only need to prove that the exponential and the sine function are analytic.  All other elementary functions can then be obtained from these two, from polynomials, and from the operations listed above.
+\end{remark}
+
+\subsection*{Remainders and analyticity}
+
+\textit{Let us make a plan for proving a function is analytic.}
+
+Let $f$ be $C^{\infty}$ on an open interval, and fix $a$ in that interval.  We can always write
+\[
+  f(x) \;=\; P_{n}(x) + R_{n}(x),
+\]
+where $P_{n}$ is the $n$-th Taylor polynomial and $R_{n}=f-P_{n}$ is the $n$-th remainder.  The Taylor series is
+\[
+  S_{a}(x) \;=\; \lim_{n\to\infty}P_{n}(x),
+\]
+since the Taylor polynomials are the partial sums of the Taylor series.  Therefore
+\[
+  f(x)=S_{a}(x) \quad\Longleftrightarrow\quad \lim_{n\to\infty}R_{n}(x)=0.
+\]
+
+\begin{remark}[Warning]
+There are \textbf{two different limits} involving $R_{n}$ that must not be confused.
+\begin{itemize}
+  \item From the \emph{definition} of Taylor polynomials, we know that for a fixed $n$, the remainder $R_{n}(x)\to 0$ as $x\to a$ (and it does so fast).
+  \item To prove a function is \emph{analytic}, we need the remainder $R_{n}(x)\to 0$ as $n\to\infty$, for a fixed value of $x$.
+\end{itemize}
+These are different limits, and the first does not imply the second.
+\end{remark}
+
+\subsection*{Lagrange's Remainder Theorem}
+
+\textit{To show $R_{n}\to 0$ as $n\to\infty$, we need a concrete formula for $R_{n}$.  This is provided by the remainder theorems---a family of results that give explicit expressions for the remainder.  There are several versions (Lagrange, Cauchy, integral form); all are proved using the Mean Value Theorem and are interchangeable for our purposes.}
+
+\begin{theorem}[Lagrange's Remainder Theorem]
+\label{thm:14-4}
+Let $I$ be an open interval, $a\in I$, $n\in\N$, and let $f$ be $C^{n+1}$ on $I$.  Write
+\[
+  f(x) = P_{n}(x) + R_{n}(x),
+\]
+where $P_{n}$ is the $n$-th Taylor polynomial for $f$ at $a$.  Then for every $x\in I$, there exists a number $\xi$ between $a$ and $x$ such that
+\[
+  R_{n}(x) \;=\; \frac{f^{(n+1)}(\xi)}{(n+1)!}\,(x-a)^{n+1}.
+\]
+\end{theorem}
+
+\begin{remark}
+This is reminiscent of the Mean Value Theorem: under certain hypotheses, there exists some intermediate point $\xi$ satisfying an equation.  The exact value of $\xi$ is unknown, but the formula is powerful nonetheless, because it lets us \textbf{bound} $R_{n}$.
+\end{remark}
+
+\textit{Lagrange's Remainder Theorem has two main applications.  First, we can use it to prove that a function is analytic, by showing $R_{n}\to 0$ as $n\to\infty$ (see \cref{sec:14.8}).  Second, we can use it to \textbf{estimate} the value of a complicated function with a Taylor polynomial and bound the error (see \cref{sec:14.11}).}
+
+% ── BEGIN VISUAL ──
+\begin{figure}[ht]
+  \centering
+  \input{ch14/figures/fig-taylor-remainder-band.tex}
+  \caption{A qualitative "error band" around a Taylor approximation.}
+  \label{fig:taylor-remainder-band}
+\end{figure}
+% ── END VISUAL ──
+
+%=============================================================================
+\section{Analyticity of the Exponential}
+\label{sec:14.8}
+%=============================================================================
+
+\textit{We now prove that the exponential function equals its Maclaurin series.  This is a model example of how to use Lagrange's Remainder Theorem to establish analyticity.}
+
+\begin{theorem}[$e^{x}$ is analytic]
+\label{thm:14-5}
+For every $x\in\R$,
+\[
+  e^{x} \;=\; \sum_{k=0}^{\infty}\frac{x^{k}}{k!}.
+\]
+\end{theorem}
+
+\begin{proof}
+Fix $x\in\R$.  Write $f(t)=e^{t}$.  Since every derivative of $f$ equals $e^{t}$, the $n$-th Taylor polynomial at $a=0$ is
+\[
+  P_{n}(x) \;=\; \sum_{k=0}^{n}\frac{x^{k}}{k!},
+\]
+and $f(x)=P_{n}(x)+R_{n}(x)$.  We must show $R_{n}(x)\to 0$ as $n\to\infty$.
+
+By \cref{thm:14-4}, there exists $\xi$ between $0$ and $x$ with
+\[
+  R_{n}(x) \;=\; \frac{e^{\xi}}{(n+1)!}\,x^{n+1}.
+\]
+
+\textbf{Case $x>0$.}  Since $0<\xi<x$, the exponential is increasing, so $e^{\xi}\le e^{x}$.  Therefore
+\[
+  \abs{R_{n}(x)} \;\le\; e^{x}\cdot\frac{\abs{x}^{n+1}}{(n+1)!}.
+\]
+\proofref{The constant $e^{x}$ does not depend on $n$.}
+Since $\dfrac{\abs{x}^{n+1}}{(n+1)!}\to 0$ as $n\to\infty$ (factorial growth dominates any fixed power), the Squeeze Theorem gives $R_{n}(x)\to 0$.
+
+\textbf{Case $x<0$.}  Since $x<\xi<0$, we have $e^{\xi}\le e^{0}=1$.  The same argument applies with the bound $\abs{R_{n}(x)}\le\dfrac{\abs{x}^{n+1}}{(n+1)!}\to 0$.
+
+\textbf{Case $x=0$.}  Trivially $R_{n}(0)=0$ for all $n$.
+\end{proof}
+
+\begin{remark}[Pause and Try]
+Use a very similar argument to prove that $\sin x$ is analytic:
+\[
+  \sin x \;=\; \sum_{m=0}^{\infty}\frac{(-1)^{m}}{(2m+1)!}\,x^{2m+1}
+  \qquad\text{for all } x\in\R.
+\]
+The key observation is that every derivative of $\sin$ is bounded in absolute value by $1$, so $\abs{f^{(n+1)}(\xi)}\le 1$ and $\abs{R_{n}(x)}\le\dfrac{\abs{x}^{n+1}}{(n+1)!}\to 0$.
+\end{remark}
+
+%=============================================================================
+\section{Constructing New Power Series}
+\label{sec:14.9}
+%=============================================================================
+
+\textit{We always have the slow method: compute all the derivatives, plug into the Taylor series formula, then prove analyticity with the Remainder Theorem.  But there is a better way.  We already have four functions written as power series (exponential, sine, cosine, geometric).  Using the fact that power series can be manipulated like polynomials (\cref{thm:14-1}), we can derive power series for new functions quickly.}
+
+\begin{remark}[Pause and Try]
+Before reading the solutions below, try to write each of the following functions as a power series centred at $0$: \quad $e^{-x}$, \quad $x^{3}\sin(x^{2})$, \quad $\dfrac{1}{x}$ centred at $3$.
+\end{remark}
+
+\begin{example}[Maclaurin series for $e^{-x}$]
+\label{ex:14-6}
+Start from the known expansion $e^{x}=\sum_{k=0}^{\infty}\frac{x^{k}}{k!}$, valid for all $x$.  Replace $x$ by $-x$:
+\[
+  e^{-x}
+  \;=\; \sum_{k=0}^{\infty}\frac{(-x)^{k}}{k!}
+  \;=\; \sum_{k=0}^{\infty}\frac{(-1)^{k}}{k!}\,x^{k}
+  \;=\; 1 - x + \frac{x^{2}}{2!} - \frac{x^{3}}{3!} + \cdots
+\]
+Valid for all $x\in\R$.
+\end{example}
+
+\begin{example}[Maclaurin series for $x^{3}\sin(x^{2})$]
+\label{ex:14-7}
+Begin with $\sin x = \sum_{m=0}^{\infty}\frac{(-1)^{m}}{(2m+1)!}\,x^{2m+1}$, valid for all $x$.  Replace $x$ by $x^{2}$:
+\[
+  \sin(x^{2})
+  \;=\; \sum_{m=0}^{\infty}\frac{(-1)^{m}}{(2m+1)!}\,x^{4m+2}.
+\]
+Multiply term by term by $x^{3}$:
+\[
+  x^{3}\sin(x^{2})
+  \;=\; \sum_{m=0}^{\infty}\frac{(-1)^{m}}{(2m+1)!}\,x^{4m+5}
+  \;=\; x^{5} - \frac{x^{9}}{3!} + \frac{x^{13}}{5!} - \cdots
+\]
+Valid for all $x\in\R$.
+\end{example}
+
+\begin{example}[Power series for $1/x$ centred at $3$]
+\label{ex:14-8}
+Since the centre is $a=3$, set $u=x-3$ so that powers of $u$ appear naturally.  Then $x=u+3$, and
+\[
+  \frac{1}{x} = \frac{1}{u+3}
+  = \frac{1}{3}\cdot\frac{1}{1+u/3}
+  = \frac{1}{3}\cdot\frac{1}{1-(-u/3)}.
+\]
+Apply the geometric series with variable $-u/3$:
+\[
+  \frac{1}{x}
+  = \frac{1}{3}\sum_{n=0}^{\infty}\!\Bigl(-\frac{u}{3}\Bigr)^{\!n}
+  = \sum_{n=0}^{\infty}\frac{(-1)^{n}}{3^{n+1}}\,(x-3)^{n}.
+\]
+This is valid when $\abs{-u/3}<1$, i.e.\ $\abs{x-3}<3$, i.e.\ $x\in(0,6)$.
+\end{example}
+
+%=============================================================================
+\section{The Logarithm Series}
+\label{sec:14.10}
+%=============================================================================
+
+\textit{The domain of $\ln x$ is only the positive reals.  In particular, $\ln$ is not even defined at $0$, so we cannot write a Maclaurin series for $\ln x$ directly.  Instead, we shift the function and consider $\ln(1+x)$, whose domain includes $0$.}
+
+\subsection*{Strategy}
+
+\textit{The function $\ln(1+x)$ does not closely resemble any of our four fundamental series, but its derivative does.  Since}
+\[
+  \frac{d}{dx}\ln(1+x) = \frac{1}{1+x},
+\]
+\textit{and the right-hand side is closely related to the geometric series, we will write the derivative as a power series and then integrate to recover $\ln(1+x)$.}
+
+\begin{example}[Maclaurin series for $\ln(1+x)$]
+\label{ex:14-9}
+We have
+\[
+  \frac{1}{1+x} = \frac{1}{1-(-x)}
+  = \sum_{n=0}^{\infty}(-x)^{n}
+  = \sum_{n=0}^{\infty}(-1)^{n}\,x^{n},
+  \qquad \abs{x}<1.
+\]
+Integrate term by term (valid inside the interval of convergence):
+\[
+  \ln(1+x)
+  = \int_{0}^{x}\frac{1}{1+t}\dt
+  = \sum_{n=0}^{\infty}\frac{(-1)^{n}}{n+1}\,x^{n+1}
+  = \sum_{m=1}^{\infty}\frac{(-1)^{m+1}}{m}\,x^{m},
+\]
+where the second form uses the substitution $m=n+1$.  Writing out the first few terms:
+\[
+  \ln(1+x) \;=\; x - \frac{x^{2}}{2} + \frac{x^{3}}{3} - \frac{x^{4}}{4} + \cdots, \qquad \abs{x}<1.
+\]
+\end{example}
+
+\begin{remark}
+When we differentiate or integrate a power series term by term, the \textbf{radius} of convergence does not change.  The geometric series has radius $1$, so the series for $\ln(1+x)$ also has radius $1$.  The behaviour at the endpoints, however, may change; in fact the series for $\ln(1+x)$ converges at $x=1$ (it gives $\ln 2$ as the alternating harmonic series) but not at $x=-1$.
+\end{remark}
+
+% ── BEGIN VISUAL ──
+\begin{figure}[ht]
+  \centering
+  \input{ch14/figures/fig-log-series.tex}
+  \caption{Approximating $\ln(1+x)$ by truncating its power series.}
+  \label{fig:log-series}
+\end{figure}
+% ── END VISUAL ──
+
+\begin{remark}[Pause and Try]
+Use a very similar derivation to write $\arctan x$ as a Maclaurin series.  Start with the fact that $\dfrac{d}{dx}\arctan x = \dfrac{1}{1+x^{2}}$.
+\end{remark}
+
+%=============================================================================
+\section{Estimation via Taylor Polynomials}
+\label{sec:14.11}
+%=============================================================================
+
+\textit{One of the primary uses of Taylor series is to estimate complicated functions.  Taylor polynomials were designed precisely for this purpose: they are good approximations.  In this section we illustrate the method with a concrete example.}
+
+\begin{example}[Estimating $\sqrt{e}$]
+\label{ex:14-10}
+We wish to estimate $\sqrt{e}=e^{1/2}$ with an error smaller than $0.001$.
+
+Since $e^{x}$ equals its Maclaurin series, we have
+\[
+  e^{1/2}
+  = \sum_{k=0}^{\infty}\frac{(1/2)^{k}}{k!}
+  = P_{n}({\textstyle\frac{1}{2}}) + R_{n}({\textstyle\frac{1}{2}}),
+\]
+where $P_{n}$ is the $n$-th Taylor polynomial and $R_{n}$ is the remainder.  We need to choose $n$ large enough that $\abs{R_{n}(1/2)}<0.001$.
+
+\textbf{Bounding the remainder.}  By \cref{thm:14-4}, there exists $\xi\in(0,\frac{1}{2})$ with
+\[
+  R_{n}({\textstyle\frac{1}{2}})
+  = \frac{e^{\xi}}{(n+1)!}\Bigl(\frac{1}{2}\Bigr)^{\!n+1}.
+\]
+Since $e^{\xi}\le e^{1/2}<2$ (because $e<3$, so $\sqrt{e}<\sqrt{3}<2$), we obtain
+\[
+  \abs{R_{n}({\textstyle\frac{1}{2}})}
+  < \frac{2}{2^{n+1}\,(n+1)!}
+  = \frac{1}{2^{n}\,(n+1)!}.
+\]
+We need $2^{n}(n+1)!>1000$.  Checking: $2^{4}\cdot 5!=16\cdot 120=1920>1000$.  So $n=4$ suffices.
+
+\textbf{Computing the estimate.}
+\[
+  P_{4}({\textstyle\frac{1}{2}})
+  = 1 + \frac{1}{2} + \frac{(1/2)^{2}}{2!} + \frac{(1/2)^{3}}{3!} + \frac{(1/2)^{4}}{4!}
+  = \frac{211}{128}
+  \approx 1.64844.
+\]
+The exact value begins $\sqrt{e}\approx 1.64872\ldots$\,, confirming that our estimate is correct to three decimal places.
+\end{example}
+
+\begin{remark}
+This is precisely the process a calculator or computer uses to evaluate $e^{x}$: replace the function with its Taylor polynomial, compute the polynomial (a finite sum), and bound the error using the Remainder Theorem.
+\end{remark}
+
+%=============================================================================
+\section{Integration via Power Series}
+\label{sec:14.12}
+%=============================================================================
+
+\textit{Power series are, in a sense, polynomials, and nothing is easier to integrate than a polynomial.  In this section we illustrate how Taylor series can compute integrals that are impossible or impractical by other means.}
+
+\begin{example}[An integral with no elementary antiderivative]
+\label{ex:14-11}
+Compute $\displaystyle\int_{0}^{3}e^{-x^{2}}\dx$.
+
+It can be shown (using differential Galois theory) that $e^{-x^{2}}$ has no antiderivative expressible in terms of elementary functions.  Power series offer a way around this obstacle.
+
+Start with $e^{x}=\sum_{k=0}^{\infty}\frac{x^{k}}{k!}$ and replace $x$ by $-x^{2}$:
+\[
+  e^{-x^{2}}
+  = \sum_{k=0}^{\infty}\frac{(-1)^{k}}{k!}\,x^{2k}.
+\]
+Integrate term by term:
+\[
+  \int_{0}^{3}e^{-x^{2}}\dx
+  = \sum_{k=0}^{\infty}\frac{(-1)^{k}}{k!}\cdot\frac{3^{2k+1}}{2k+1}
+  = \sum_{k=0}^{\infty}\frac{(-1)^{k}\cdot 3^{2k+1}}{k!\,(2k+1)}.
+\]
+This is a convergent series (the factorial in the denominator ensures rapid convergence), and truncating it to a partial sum yields an estimate to any desired accuracy.
+\end{example}
+
+\begin{example}[A simpler series than partial fractions]
+\label{ex:14-12}
+Find $\displaystyle\int\frac{1}{1-x^{8}}\dx$.
+
+One could factor $1-x^{8}$ and decompose into partial fractions, but the result is extremely complicated.  Instead, use the geometric series with variable $x^{8}$:
+\[
+  \frac{1}{1-x^{8}} = \sum_{n=0}^{\infty}x^{8n}, \qquad \abs{x}<1.
+\]
+Integrate term by term:
+\[
+  \int\frac{1}{1-x^{8}}\dx
+  = \sum_{n=0}^{\infty}\frac{x^{8n+1}}{8n+1} + C, \qquad \abs{x}<1.
+\]
+This expression is far shorter, far cleaner, and far more useful than the partial-fractions answer.
+\end{example}
+
+\begin{remark}
+The moral: using power series to compute integrals is often preferable---sometimes because no elementary antiderivative exists, and sometimes because the elementary antiderivative, while it exists in principle, is too complicated to be useful.
+\end{remark}
+
+%=============================================================================
+\section{Limits via Power Series}
+\label{sec:14.13}
+%=============================================================================
+
+\textit{Power series provide an extremely efficient method for computing limits of indeterminate forms.  The strategy is simple: expand numerator and denominator as power series, and keep only the first nonzero term.}
+
+\subsection*{The key observation}
+
+Consider $\displaystyle\lim_{x\to 0}\frac{2x^{3}+7x^{5}}{5x^{3}-x^{4}}$.  Factor $x^{3}$ from both to get $\dfrac{2+7x^{2}}{5-x}\to\dfrac{2}{5}$.  The only terms that matter are those with the \textbf{smallest exponent}.  The same idea applies when the numerator and denominator are power series instead of polynomials.
+
+\begin{example}[A straightforward limit]
+\label{ex:14-13}
+Compute $\displaystyle\lim_{x\to 0}\frac{\sin x - x}{x^{3}}$.
+
+Replace $\sin x$ by its Maclaurin series:
+\[
+  \sin x - x
+  = \Bigl(x - \frac{x^{3}}{3!}+\frac{x^{5}}{5!}-\cdots\Bigr) - x
+  = -\frac{x^{3}}{6} + \frac{x^{5}}{120} - \cdots
+\]
+The first nonzero term is $-\frac{x^{3}}{6}$.  Therefore
+\[
+  \lim_{x\to 0}\frac{\sin x - x}{x^{3}}
+  = \lim_{x\to 0}\frac{-\frac{x^{3}}{6}+\text{h.o.t.}}{x^{3}}
+  = -\frac{1}{6}.
+\]
+\end{example}
+
+\begin{example}[A complicated limit]
+\label{ex:14-14}
+Compute $\displaystyle\lim_{x\to 0}\frac{3x^{2}-e^{x^{2}}+\cos 2x}{x\sin x - \ln(1+x^{2})}$.
+
+This is an indeterminate form of type $\frac{0}{0}$.  Using L'H\^{o}pital's Rule would require four differentiations of a messy expression.  Power series are much faster.
+
+\textbf{Numerator.}  Expand each piece:
+\begin{align*}
+  3x^{2} &= 3x^{2}, \\
+  e^{x^{2}} &= 1 + x^{2} + \frac{x^{4}}{2!} + \cdots, \\
+  \cos 2x &= 1 - \frac{(2x)^{2}}{2!} + \frac{(2x)^{4}}{4!} - \cdots
+  = 1 - 2x^{2} + \frac{2}{3}\,x^{4} - \cdots
+\end{align*}
+Combine:
+\[
+  3x^{2} - e^{x^{2}} + \cos 2x
+  = (-1+1) + (3-1-2)x^{2} + \Bigl(-\frac{1}{2}+\frac{2}{3}\Bigr)x^{4}+\cdots
+  = \frac{1}{6}\,x^{4} + \text{h.o.t.}
+\]
+The constant and $x^{2}$ terms cancel; the first nonzero term is $\frac{1}{6}x^{4}$.
+
+\textbf{Denominator.}  Expand each piece:
+\begin{align*}
+  x\sin x &= x\Bigl(x - \frac{x^{3}}{3!}+\cdots\Bigr) = x^{2} - \frac{x^{4}}{6}+\cdots, \\
+  \ln(1+x^{2}) &= x^{2} - \frac{x^{4}}{2} + \cdots
+\end{align*}
+Combine:
+\[
+  x\sin x - \ln(1+x^{2})
+  = (1-1)x^{2} + \Bigl(-\frac{1}{6}+\frac{1}{2}\Bigr)x^{4}+\cdots
+  = \frac{1}{3}\,x^{4} + \text{h.o.t.}
+\]
+
+\textbf{Conclusion.}
+\[
+  \lim_{x\to 0}\frac{3x^{2}-e^{x^{2}}+\cos 2x}{x\sin x - \ln(1+x^{2})}
+  = \frac{1/6}{1/3}
+  = \frac{1}{2}.
+\]
+\end{example}
+
+\begin{remark}
+Here is a secret: experienced analysts and calculus instructors \textbf{rarely use L'H\^{o}pital's Rule}.  They almost always use this power-series method, because it is faster and less error-prone.
+\end{remark}
+
+%=============================================================================
+\section{Exact Summation of Series}
+\label{sec:14.14}
+%=============================================================================
+
+\textit{There are very few series whose exact value can be computed directly from the definition---mostly just geometric and a few telescoping series.  Taylor series change this dramatically: with a little creativity, we can compute the exact value of many more.}
+
+\begin{example}[Sum of $n/2^{n}$]
+\label{ex:14-15}
+Compute $\displaystyle\sum_{n=1}^{\infty}\frac{n}{2^{n}}$.
+
+\textbf{Step 1: Interpret as a power series.}
+\[
+  \sum_{n=1}^{\infty}\frac{n}{2^{n}}
+  = \sum_{n=1}^{\infty}n\,x^{n}\bigg|_{x=1/2}.
+\]
+
+\textbf{Step 2: Relate to a known series.}  We know $\sum_{n=0}^{\infty}x^{n}=\dfrac{1}{1-x}$ for $\abs{x}<1$.  Differentiating term by term:
+\[
+  \sum_{n=1}^{\infty}n\,x^{n-1} = \frac{1}{(1-x)^{2}}.
+\]
+Multiply both sides by $x$:
+\[
+  \sum_{n=1}^{\infty}n\,x^{n} = \frac{x}{(1-x)^{2}}.
+\]
+
+\textbf{Step 3: Evaluate.}  Setting $x=\frac{1}{2}$:
+\[
+  \sum_{n=1}^{\infty}\frac{n}{2^{n}}
+  = \frac{1/2}{(1/2)^{2}}
+  = \frac{1/2}{1/4}
+  = 2.
+\]
+\end{example}
+
+\begin{example}[Sum of $2^{n}/((n+2)\cdot n!)$]
+\label{ex:14-16}
+Compute $\displaystyle\sum_{n=0}^{\infty}\frac{2^{n}}{(n+2)\cdot n!}$.
+
+\textbf{Step 1: Interpret as a power series.}
+\[
+  \sum_{n=0}^{\infty}\frac{2^{n}}{(n+2)\cdot n!}
+  = \sum_{n=0}^{\infty}\frac{x^{n}}{(n+2)\cdot n!}\bigg|_{x=2}.
+\]
+
+\textbf{Step 2: Relate to a known series.}  We know $\sum_{n=0}^{\infty}\dfrac{x^{n}}{n!}=e^{x}$, so $\sum_{n=0}^{\infty}\dfrac{x^{n+1}}{n!}=x\,e^{x}$.  To introduce the factor $(n+2)$ in the denominator, integrate: since $\displaystyle\int x^{n+1}\dx = \frac{x^{n+2}}{n+2}$,
+\[
+  \sum_{n=0}^{\infty}\frac{x^{n+2}}{(n+2)\cdot n!}
+  = \int_{0}^{x}t\,e^{t}\dt.
+\]
+Integration by parts gives
+\[
+  \int_{0}^{x}t\,e^{t}\dt = (x-1)e^{x}+1.
+\]
+
+\textbf{Step 3: Extract the desired sum.}  Dividing by $x^{2}$:
+\[
+  \sum_{n=0}^{\infty}\frac{x^{n}}{(n+2)\cdot n!}
+  = \frac{(x-1)e^{x}+1}{x^{2}}.
+\]
+
+\textbf{Step 4: Evaluate at $x=2$.}
+\[
+  \sum_{n=0}^{\infty}\frac{2^{n}}{(n+2)\cdot n!}
+  = \frac{(2-1)e^{2}+1}{4}
+  = \frac{e^{2}+1}{4}.
+\]
+\end{example}
+
+%=============================================================================
+\section{Application to Kinetic Energy}
+\label{sec:14.15}
+%=============================================================================
+
+\textit{One of the major uses of Taylor series in the sciences is to approximate complicated physical equations with simpler polynomials.  In this section we illustrate this with a fundamental example from physics: kinetic energy.}
+
+\subsection*{Two formulas for kinetic energy}
+
+The kinetic energy of a particle---the energy it possesses because of its motion---has a different formula in classical and relativistic physics.
+
+\textbf{Classical formula.}
+\[
+  T_{\text{classical}} \;=\; \frac{1}{2}\,m_{0}\,v^{2},
+\]
+where $m_{0}$ is the rest mass and $v$ is the velocity.
+
+\textbf{Relativistic formula.}  Einstein's famous equation $E=mc^{2}$ gives the total energy.  The kinetic energy is the total energy minus the rest energy $m_{0}c^{2}$:
+\[
+  T_{\text{rel}} \;=\; m_{0}c^{2}\!\left(\frac{1}{\sqrt{1-(v/c)^{2}}}-1\right),
+\]
+where $c$ is the speed of light and the relativistic mass is $m = m_{0}/\!\sqrt{1-(v/c)^{2}}$.
+
+\textit{These two expressions look very different, yet they describe the same physical quantity.  The classical formula should be obtainable from the relativistic one as an approximation when velocities are small compared to~$c$.  This is precisely what Taylor polynomials are designed for.}
+
+\subsection*{Taylor expansion}
+
+\begin{example}
+\label{ex:14-17}
+Set $u=(v/c)^{2}$ and consider the function $f(u)=(1-u)^{-1/2}$.  When $v\ll c$, the variable $u$ is small and close to $0$, so we expand around $u=0$.
+
+\textbf{First-order approximation.}
+\[
+  f(0)=1, \qquad f'(u)=\tfrac{1}{2}(1-u)^{-3/2}, \qquad f'(0)=\tfrac{1}{2}.
+\]
+So $f(u) \approx 1+\frac{1}{2}u$.  Substituting back:
+\[
+  T_{\text{rel}} \;\approx\; m_{0}c^{2}\!\left(1+\frac{1}{2}\cdot\frac{v^{2}}{c^{2}}-1\right)
+  = \frac{1}{2}\,m_{0}\,v^{2}
+  = T_{\text{classical}}.
+\]
+The classical formula is exactly the first nonzero Taylor polynomial of the relativistic formula.
+
+\textbf{Second-order approximation.}
+\[
+  f''(u) = \tfrac{3}{4}(1-u)^{-5/2}, \qquad f''(0) = \tfrac{3}{4}.
+\]
+The second Taylor polynomial is $f(u)\approx 1+\frac{1}{2}u+\frac{3}{8}u^{2}$.  This gives the first \emph{relativistic correction} to the classical kinetic energy:
+\[
+  T_{\text{rel}} \;\approx\; \frac{1}{2}\,m_{0}\,v^{2} + \frac{3}{8}\,m_{0}\,\frac{v^{4}}{c^{2}}.
+\]
+Higher-order Taylor polynomials yield further correction terms, each one improving the approximation for moderate velocities, until eventually one may as well use the full relativistic expression.
+\end{example}
+
+\begin{remark}
+This is a recurring pattern throughout physics.  One derives an exact equation using fundamental principles, but that equation is too complicated for practical use.  Replacing certain functions by their Taylor polynomials yields simpler, approximate equations valid in appropriate regimes (here, small $v/c$).  The classical formula for kinetic energy is not an accident---it is the inevitable low-velocity consequence of the deeper relativistic formula.
+\end{remark}

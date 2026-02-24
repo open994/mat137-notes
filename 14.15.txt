@@ -1,0 +1,179 @@
+One of the major uses of Taylor series
+is to approximate complicated functions
+with easy polynomials,
+and there is nowhere that this
+happens more often than in physics.
+It typically goes something like this.
+We use physics laws, principles,
+reasoning,
+to derive equations that will
+regulate the behavior of a system,
+but those equations are too complicated
+to do anything useful with them.
+So instead we approximate those equations
+with Taylor polynomials,
+and then we can draw
+all kinds of conclusions.
+In this video, I'm going to present one
+example of something slightly different
+where Taylor polynomials also help
+add light to a physical concept:
+kinetic energy.
+The kinetic energy of a particle
+is the energy it will have because
+it is moving, because it has a velocity.
+If you've taken a physics class,
+you're probably familiar with the
+classical formula for kinetic energy.
+The kinetic energy T is 1/2 of the mass
+times the square of the velocity.
+I've written mass at rest even though 
+classically it doesn't matter,
+mass doesn't change with velocity, 
+because relativistically it will matter.
+Now in relativity, the formula for
+kinetic energy is quite different.
+You probably are familiar with
+Einstein's famous formula
+that says the energy
+of a particle is mc²,
+where c is just a constant,
+it's the speed of light.
+But that is the total energy
+of a particle.
+The kinetic energy, the energy
+it has because it's moving,
+will be the total energy
+minus the energy it has at rest.
+So now I am distinguishing
+between the mass at rest m_0,
+and m, that will be the mass
+when it's moving at velocity v.
+Now there is also an equation
+that allows us to write
+the mass at an arbitrary velocity
+in terms of the mass at rest,
+and when I use it I get this.
+The mass is the mass at rest divided by
+√[1 - (v/c)²].
+And that's all the physics
+I am going to use.
+Now these two expressions, even though
+they refer to the same physical quantity,
+are very very different.
+This doesn't look at all like that.
+And yet there should be
+a relation between them.
+Well, relativity is the better model,
+but classical physics is a model
+that works perfectly fine
+when velocities are small.
+Or more precisely,
+I should be able to obtain
+the equations for classical physics
+from the equation for relativity
+as an approximation
+in the case that this variable is small.
+And that's exactly what
+Taylor polynomials were made for.
+And indeed, this expression
+for the kinetic energy
+is the smallest nonzero Taylor polynomial
+of this expression for the kinetic energy.
+That's the relation,
+and that's what I am going to prove.
+Here is once again the formula for
+the kinetic energy in relativity.
+I am thinking of this as a function
+where v is the variable,
+So the part that depends on v
+and is complicated is this,
+so I'm going to isolate
+the essence of the function.
+The function is the -1/2 power of
+1 minus the variable,
+where the variable is (v/c)².
+If this were my starting point,
+and I wanted to approximate this function
+with something simpler,
+what I could do is look for
+the Taylor polynomials for this function.
+And indeed, let's do that.
+The first Taylor polynomial,
+that would be simply the tangent line,
+would be f(0) + f'(0)·x.
+And we can compute those values.
+The value of this function at 0 is 1,
+and the first derivative is -1/2(1 - x),
+to something, times -1,
+when I evaluate, I end up with 1/2x.
+Now, instead of x I have (v/c)²,
+so the function I have is
+something like 1/√(1 - x²),
+and in this case the approximation
+would be 1 + 1/2x².
+So let's go back at the top
+and use this approximation.
+m_0·c² is simply multiplying.
+Now the first term is 1, but I have a -1,
+so it vanishes,
+so the next term is 1/2 of the
+variable squared; the variable is (v/c)².
+That's it.
+And if you group those terms together,
+it will feel familiar.
+It is exactly 1/2·m_0·v².
+It's the classical expression
+for the kinetic energy. Success!
+So the classical expression
+is the first nonzero term
+on the Taylor series expansion
+of the relativistic expression.
+As it should be.
+Now let's say I want something
+slightly better,
+but not going full meld into relativity.
+Let's say I'm working
+with a range of velocities
+where the classical expression
+is already not being very good,
+but the velocities are not high enough
+that I need the full expression
+for relativity,
+and I would like to know can I still get
+an approximation
+that is better than this one, but that is 
+not as complicated as this one?
+Well of course I can.
+What I should do is instead of
+taking the first polynomial,
+take the second polynomial.
+So the second Taylor polynomial
+would be like this one,
+but I need to add one more term,
+which is f''(0)/2!·x².
+So now take this function,
+take the second derivative evaluated at 0
+and divide by 2,
+and if you go through that whole process,
+in this case the coefficient is 3/8x².
+Or down here, for this other function,
+it would be 3/8x⁴.
+And now let's use it here as well.
+I have to add one new term, the new
+correction, and it will be + 3/8(v/c)⁴ .
+And when I simplify and
+group everything together, this is...
+And I should correct something. We put
+here an equal, but this is not an equal.
+This is an approximated value.
+So what I have obtained here is
+the first relativistic correction
+to the classical expression
+for kinetic energy.
+This is the classical expression for
+kinetic energy, this is slightly better,
+and I could keep adding more terms
+if I need better and better values.
+Although at some point, it may be worth
+it to just use the original expression.

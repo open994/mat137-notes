@@ -1,0 +1,229 @@
+In this video,
+I will present the proof of the Monotone
+Convergence Theorem for sequences.
+I'm writing "for sequences"
+because there are a few other theorems
+in various areas of analysis
+with the same name.
+Here is the theorem in its
+most generality.
+It says that IF a sequence is
+(eventually) monotonic and bounded,
+THEN it must be convergent.
+I've written "eventually" in parentheses
+because you will often find...
+...the statement as simply "monotonic and
+bounded" (without the eventually).
+But in any theorem about convergence,
+you can always replace "monotonic"
+with "eventually monotonic",
+you just have to
+modify the proof slightly.
+What I'm actually going to
+prove is a particular case.
+I'm just going to prove that IF a
+sequence is increasing and bounded above,
+THEN it must be convergent.
+And then there could be
+a second theorem that says:
+IF a sequence is decreasing
+and bounded below,
+THEN it must be convergent.
+(And the proof is very similar.)
+But I will only prove the first case.
+Here is my plan.
+First, I'm going to write down what the
+structure of the proof should be,
+to make sure that when I write it,
+it is rigorous and formal.
+Then, I will stop to think and figure out
+the subtle steps of the proof,
+and once I know that,
+I will go back and write a full proof
+from beginning to end, rigorously.
+Let's figure out the
+structure of the proof first
+I begin by assuming I have a sequence
+that is increasing and bounded above,
+and I want to prove it's convergent.
+So here is the definition of the
+limit of that sequence is L.
+I assume you are familiar
+with this formal definition.
+For every positive ε,
+there exists a natural number n₀,
+such that for every natural number n,
+if n ≥ n₀,
+then aₙ is between L - ε and L + ε.
+Unfortunately if I start writing this,
+it's going to make no sense
+because L is not given to me as part of
+the statement of the proof.
+This is not what I want.
+This is the definition of
+the limit of the sequence is L.
+It's not a definition of
+the sequence is convergent,
+and what I want to prove is that
+the sequence is convergent.
+So before anything I have
+to say what L is.
+The definition of the sequence is
+convergent is that...
+...there exists a real number L such
+that... and then the definition of limit.
+So, the first step in the proof
+is going to have to be...
+...to figure out what the limit is.
+(to explain what L is)
+If I don't begin my proof by saying what
+L is, it'll probably make no sense.
+After that I need to prove
+something for every ε,
+so I will fix
+an arbitrary positive ε.
+I have to say that there exists
+an n₀ natural number with a property,
+so I will have to say how I construct it.
+(And it probably depends on L and ε.)
+And then I have to prove something for
+every natural number n,
+so I will fix an arbitrary
+natural number n.
+And finally, I have
+to prove the implication,
+so I will assume that n ≥ n₀, and I will
+show that aₙ is between L - ε and L + ε.
+So this is the structure that my proof,
+when I'm done with it, should have.
+(And again the most important
+step is that I have to begin
+by figuring out what is L.)
+How do I construct L out of a sequence
+if the only things I know is that
+it is increasing and bounded above?
+Next, I'll do some rough work to figure
+out what the proof actually is,
+and then I will write it down.
+I begin with a sequence
+that is increasing and bounded above,
+and I have to figure out
+what is the limit L?
+Again, this is the difficult part.
+Can I define L entirely
+in terms of the sequence?
+This is what the terms of the
+sequence may look like.
+The sequence is increasing
+and bounded above,
+so intuitively, the terms are going
+to be crowding around some point,
+which is what I want to call the limit.
+But what is that point
+they're crowding around?
+I kind of want to say it's
+the maximum of the sequence...
+Except no it isn't!
+There doesn't have to be a maximum.
+But I can say it is the
+SUPREMUM of the sequence,
+and that at least
+is a valid way to start,
+because given a sequence that is bounded
+above, I can define its supremum.
+So that's what I'm going to call L.
+And then all I have to do is
+prove that L is the limit.
+But now I have a candidate for it.
+So then I will take an interval with 
+radius ε, centered around this point L.
+And what I have to prove,
+is that all terms of the sequence except
+the first few ones, are in this interval.
+Well, L - ε is smaller than L
+which is the supremum,
+so L - ε cannot be an
+upper bound of the sequence,
+because L is the lowest upper bound.
+So that means there has to
+be at least one term of the sequence,
+which I'm putting here in green,
+(I'm going to call it a_n₀)
+in there between L - ε and L.
+But once I find a single term there,
+because the sequence is increasing,
+all terms that come after n₀, must be
+greater than a_n₀, and also less than L.
+So once I find one term in there,
+the rest of the sequence after this one
+has to be crowded here,
+between a_n₀ and L.
+And therefore, it will be
+between L - ε and L + ε.
+And that's it!
+That will complete the proof.
+This is not only the idea
+but actually the full proof,
+so if you understand this part
+you understand what's about to come.
+So to conclude, I'm going to take these
+ideas and write them down formally.
+Here's how the proof goes.
+I begin with a sequence {aₙ}, I assume
+it is increasing and bounded above.
+I want to prove it's convergent.
+I consider the set (I'm going to call A)
+of all the terms of the sequence.
+(This is the range of the
+sequence as a function.)
+And the sequence as a set is non-empty,
+because there's at
+least one element in it,
+and is bounded above
+(that was one of the hypotheses).
+So by the least upper bound axiom,
+it must have a supremum.
+That supremum; I'm going to call it L.
+(That's what I take as L.)
+And now my goal is to prove that L
+is the limit of the sequence.
+For that purpose, I fix an arbitrary
+value of ε that is positive,
+and I have to construct n₀ from it.
+I'm going to look at L - ε.
+L - ε, since it is smaller
+than L which is the supremum,
+by definition of supremum,
+cannot be an upper bound,
+so there exists an n₀ natural number
+such that L - ε is less than a_n₀,
+and that is the value of n₀ I'm going to
+take in the definition of limit.
+Now for this value, I fix an
+arbitrary natural number n,
+and I assume it is ≥ n₀,
+and I need to show that
+aₙ is between L - ε and L + ε.
+If I do that,
+I will have completed the proof
+that the limit of the sequence is L.
+And now, I put together
+a chain of inequalities.
+On the one hand, we know
+L - ε is less than a_n₀,
+because that is how we chose n₀.
+Then because the sequence is increasing,
+a_n₀ ≤ aₙ.
+And then finally, aₙ ≤ L,
+by definition of supremum.
+So I put these inequalities together,
+and also the fact that L < L + ε.
+If I keep only the things in blue,
+that's exactly what I needed to prove,
+so this completes the proof.
+And finally, if you look at the parts of
+the proof I have written in blue,
+they summarize the
+structure of the proof,
+which is the one I said
+earlier, that it should be.

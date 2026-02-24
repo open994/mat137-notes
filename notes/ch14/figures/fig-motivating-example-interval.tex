@@ -1,0 +1,23 @@
+\begin{tikzpicture}[x=1.15cm,y=1cm]
+  % A concrete interval-of-convergence picture for the motivating example in Sec. 14.1
+  \draw[->] (-4.4,0) -- (4.4,0) node[right] {$x$};
+
+  % Interval [-3,3)
+  \draw[very thick, color=thmcolor] (-3,0) -- (3,0);
+  \fill[color=thmcolor] (-3,0) circle (2.2pt);
+  \draw[thick, color=thmcolor] (3,0) circle (2.2pt);
+
+  % Center and ticks
+  \fill (0,0) circle (2pt);
+  \node[below] at (0,0) {$0$};
+  \node[below] at (-3,0) {$-3$};
+  \node[below] at (3,0) {$3$};
+
+  % Labels for behavior
+  \node[above, color=excolor] at (0,0.55) {absolute convergence for $|x|<3$};
+  \node[above, color=defcolor, align=center] at (3,1.05) {diverges\\(harmonic)};
+  \node[above, color=defcolor, align=center] at (-3,1.05) {converges conditionally\\(alternating)};
+
+  % Radius markers
+  \draw[<->, color=refgray] (0,-0.55) -- node[below] {$R=3$} (3,-0.55);
+\end{tikzpicture}

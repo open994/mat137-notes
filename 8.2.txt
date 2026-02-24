@@ -1,0 +1,190 @@
+In this video I will explain how we can
+use integrals to define new functions.
+We already know two notions of integral:
+the definite integral, which is a number
+(the area under the graph of a function
+from a to b),
+and the indefinite integral, which is
+a collection of antiderivatives.
+The new concept is the following.
+We can use the function little f to define
+a new function big F by this equation:
+F(x) is the integral from a to x
+of f(t)dt.
+Strictly speaking,
+this is not a new concept;
+this is just a definite integral,
+but where the endpoint of the interval
+is not a fixed constant,
+but it becomes the variable
+for a new function.
+However, I know that the first time
+one sees this,
+even though it's in a way
+the same concept,
+it becomes a little bit confusing
+how it relates and how it differs,
+and in particular
+why we use the notation that we use.
+So I want to try to break this down
+so we understand exactly what we are doing
+and why we use this notation.
+And I will begin with a graphic example.
+I have drawn some axes here.
+For reasons that I will explain later,
+I am labeling the axes t and y,
+rather than x and y.
+I'm going to be looking at a function
+which I'm defining via its graph.
+So this is, in blue,
+the graph of y = f(t).
+I'm going to put a scale as well.
+We know how to interpret an integral
+as area.
+So for example, this area in green
+under the graph of the function f 
+from t = 1 to t = 2,
+is what we call the integral
+from 1 to 2 of f(t)dt.
+I can calculate the integral or the area
+between any other two values.
+For example, from 1 to 3, that will be
+the integral from 1 to 3 of f(t)dt.
+Or the area between 1 and 4 would be
+the integral from 1 to 4 of f(t)dt.
+And I don't even need to use integers:
+for example, this would be
+the integral from 1 to 3.5.
+And what I am doing here is
+I'm fixing the first endpoint 1,
+but I'm considering different values
+for the second endpoint.
+So I'm looking at the second endpoint
+of the interval of integration
+as a variable of a new function.
+And more specifically, this quantity,
+the integral from 1 to 2 of f(t)dt,
+I am going to call it F(2).
+And this quantity, the integral from 1 to
+3 of f(t)dt, I am going to call it F(3).
+And this quantity, the integral from 1 to
+4 of f(t)dt, I am going to call it F(4).
+And in general, one will always be fixed,
+but the other endpoint will change.
+So I'm going to call this arbitrary
+other endpoint x.
+Notice the role of x now is different.
+It's not the variable of integration,
+it's the other endpoint of
+the interval of integration.
+And for each choice of x, I'm going to
+look at the area between t = 1 and t = x.
+That's the integral from 1 to x of f(t)dt,
+and that's what
+I'm going to be calling F(x).
+And by doing this
+I just did a new function.
+For each choice of x,
+x is a number,
+the integral from 1 to x is
+another number, which I'm calling F(x).
+And I can do this in general.
+This was just one example.
+So what I am doing is the following:
+I begin with an interval I,
+a fixed point a in I
+(in the previous example it was 1),
+and a function f that must be integrable
+for all of this to make sense.
+And then, for each value of x,
+I calculate the integral from a (fixed) 
+to x of the function f.
+And this is a new number
+that I'm calling F(x).
+Okay. For each value of x,
+I get a new number F(x),
+so this is a valid way
+to define a new function.
+That's all there is to it.
+This is how we define a function 
+as an integral,
+by making the variable of the function
+be the second endpoint
+(or it could have been the first)
+of integration.
+There is something about this notation
+that I need to comment on.
+Notice that I didn't use x as the
+variable of integration. I used t.
+Why did I change from x to t?
+Because x already had a different role,
+a different meaning in this problem:
+it was the endpoint.
+Compare with the following.
+Let's say we are calculating
+just a definite integral,
+the integral from a to b of f(x)dx,
+where a and b are fixed numbers.
+Well in that case, we can use any variable
+we want as the integration variable.
+The integral from a to b of f(x)dx
+is the same as the integral
+from a to b of f(t)dt.
+Choose any letter you want.
+EXCEPT we will never use a or b
+as an integration variable,
+because they represent something else.
+So we would never write 
+the integral from a to b of f(a)da.
+Well the same thing is happening now.
+Now I define a function as an integral.
+F(x)is the integral from a to x of f(t)dt.
+a is now a constant,
+but x is the variable of my new function.
+So for the purpose of the integration,
+I can use any letter I want
+for the integration variable.
+Instead of the integral
+from a to x of f(t)dt,
+I could use the integral from a to x
+of f(s)ds, or anything else.
+EXCEPT I cannot use a or x,
+because they both already have a meaning:
+a is a fixed constant and
+x is the variable of F.
+Both are ends of integration.
+So I can never write F(x) is the integral
+from a to x of f(x)dx.
+This is really bad notation.
+Never do this. It's ambiguous.
+Unfortunately, this abuse of notation
+sometimes happens,
+particularly in physics,
+but it is a bad idea.
+I recommend you never write this.
+Technically, it is wrong.
+To conclude, now that we understand how
+to use integrals to define new functions,
+what can we say about them?
+There is a theorem,
+the fundamental theorem of calculus,
+that ties together the notions of
+definite integral, indefinite integral,
+and functions defined as integrals.
+It actually consists of two theorems;
+it has two separate parts.
+The first part answers the question
+what can we say about a function
+defined as an integral?
+So far, all I have said is that this is
+a valid way to define,
+to construct, a new function.
+But this theorem will tell us
+what important property
+this function always has.
+And the second part will tell us
+how can we use it
+to quickly compute definite integrals.
+For the precise statements
+of these two theorems and their proofs,
+keep watching the next few videos.

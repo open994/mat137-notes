@@ -1,0 +1,22 @@
+\begin{tikzpicture}
+  \begin{axis}[
+    width=11cm,
+    height=6.2cm,
+    axis lines=middle,
+    xmin=-0.2, xmax=4.2,
+    ymin=-0.2, ymax=18,
+    xlabel={$t$}, ylabel={$s(t)$},
+    ticks=none,
+    clip=false
+  ]
+    % Position function s(t)=t^2
+    \addplot[thick, color=thmcolor, domain=0:4, samples=250] {x^2};
+
+    % Tangent at t0=3: slope 6
+    \def\tZero{3}
+    \def\sZero{9}
+    \addplot[thick, color=defcolor, domain=1.2:4.2, samples=2] {\sZero + 6*(x-\tZero)};
+    \addplot[only marks, mark=*, mark size=2pt, color=black] coordinates {(\tZero,\sZero)};
+    \node[color=defcolor, anchor=west] at (axis cs:3.2,12.2) {$s'(3)=6$};
+  \end{axis}
+\end{tikzpicture}

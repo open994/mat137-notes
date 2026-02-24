@@ -1,0 +1,138 @@
+In this video, I will present formulas
+for the derivatives of the
+six trigonometric functions.
+I will explain how to prove them quickly,
+and how we came up with them
+in the first place.
+First, as a summary,
+here are the six derivatives.
+The derivative of sin is cos,
+the derivative of cos is -sin,
+the derivative of tan is sec²,
+the derivative of cot is -csc²,
+the derivative of sec is sec⋅tan,
+and the derivative of csc is -csc⋅cot.
+Notice that the second column can be
+obtained from the first column
+by adding minus signs, and swapping
+sin for cos, tan for cot, and sec for csc.
+I advise that you memorize the first
+three, sin cos and tan,
+because you will use them a lot.
+As for the rest, if you ever need them
+and you do not remember them,
+they take 20 seconds to derive,
+as I will explain later.
+I need to prove these six identities,
+but I am lazy.
+I do not want to do all six from scratch.
+Instead, I will use an all-time tradition
+in mathematics:
+do the hard work only once,
+and then milk it for all it's worth.
+Yes, I'm going to have to prove at least
+one of the six the long way,
+from the definition of
+derivative as limit,
+but after that I can use the many
+relations between trig functions
+to reduce the other five to
+the one I have already proven.
+Here's what I mean.
+First, I need to obtain the derivative
+of sin from the definition of derivative.
+Second, we can write cos as the
+composition of sin and a polynomial.
+Then, if we already know
+the derivative of sin,
+we can simply use chain rule
+to get the derivative of cos.
+Finally, the other four trig functions can
+all be written in terms of sin and cos.
+For example tangent is sin over cos,
+sec is 1/cos, and so on.
+Once we know the derivative of sin and
+cos, we simply use the quotient.
+And that's it.
+This plan is entirely rigorous,
+and it is much simpler than proving all
+six of them from the definition.
+I will leave steps two and three as
+exercises.
+They are pretty quick calculations.
+It is worth doing them once.
+If, at a later date, you need the
+derivative of csc for example,
+and you don't remember it,
+you can simply repeat the derivation,
+it takes 20 seconds.
+Now, I will show how to do step one,
+which is the hard part.
+First, I will use the definition
+of derivative as a limit.
+x and h are mixed in here; I can separate
+them with a trig identity.
+sin(x + h) = sinx⋅cosh + cosx⋅sinh,
+and I'll keep the rest as this.
+Now, for the purpose of the limit,
+the variable is h;
+so x is kind of a constant
+for the purpose of the limit.
+And sinx and cosx can also be treated as
+constants for the purpose of the limit.
+They do not depend on h.
+I'm going to separate the pieces that
+depend on h
+from the pieces that do not depend on h.
+And now I am thinking of this expression
+as a number times a function of h,
+plus a number times another function of h.
+So, I can use the limit laws.
+Of course, I can only do this if I know
+that this limit exists,
+and that this limit exists.
+But I got lucky, because these two limits
+are limits I already know.
+In an earlier video,
+which I will link in the description,
+I already computed these two limits,
+and I computed them from scratch
+using only geometry and trigonometry,
+nothing more.
+And I learned that this limit here is 1,
+and this limit here is 0.
+So, the derivative is going to be
+sinx⋅0 + cosx⋅1,
+or in other words simply cosx,
+which is what I wanted to show.
+To conclude this video,
+for any fans of using L'Hôpital's rule to
+compute every limit, I have a warning.
+If you don't know what L'Hôpital's rule
+is, don't worry,
+ignore this final part of the video.
+In the video I have linked,
+I proved that lim_(h→0) sinh ÷ h was 1.
+Perhaps you thought the proof
+I used in that video
+was unnecessarily complicated and long.
+After all, why not simply use L'Hôpital's
+rule to compute this limit?
+Well, in order to use L'Hôpital's rule
+to compute this limit,
+I need to already know that the
+derivative of sin is cos,
+but as you saw in this video, in order to
+prove the derivative of sin is cos,
+I need to already know that
+this limit is 1.
+And this looks like a cyclic argument.
+That is why it was very important to
+prove that this limit was 1
+using only elementary methods -
+only geometry and trigonometry,
+and not L'Hôpital's rule -
+because otherwise we would never be able
+to conclude the derivative of sin was cos,
+and then we would never be able to use
+L'Hôpital's rule in the first place.

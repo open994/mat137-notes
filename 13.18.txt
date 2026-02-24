@@ -1,0 +1,170 @@
+In this video, I will
+introduce the Ratio Test:
+a theorem that we can use
+to try to determine whether a series
+is convergent or divergent,
+by performing a simple limit computation.
+I will explain the theorem and
+why it works in this video,
+and then in the next video, I will
+illustrate it with some examples.
+Here is what the theorem says.
+I begin with a
+series (sum of aₙ),
+I want to determine whether
+it is convergent or divergent.
+I'm going to assume that none
+of the terms I am adding are 0
+(they could be positive,
+negative, anything, just not 0),
+and I'm going to compute
+the following limit:
+the lim_(n → ∞) |aₙ₊₁/aₙ|.
+What this means is: one term of the
+series, divided by the previous one.
+I'm going to assume that
+this limit exists, or is ∞.
+In both cases, I can possibly
+obtain some information.
+There is a more general
+version of this theorem,
+that doesn't require
+the limit even to exist,
+by using the concept of "limit superior",
+but I won't explain that in this video.
+For now, I'll just assume
+it exists or is ∞.
+And then, I'm going to split
+this in three cases,
+depending on whether this limit
+is < 1, = 1, or > 1,
+I will get different conclusions.
+First, what can I conclude
+if the limit is < 1?
+Let's look at what
+the limit means.
+I'm calculating the quotient of one
+term divided by the previous one,
+in absolute value.
+If this limit is < 1,
+it tells me that in absolute value, the
+terms of the series are getting smaller,
+and they're getting smaller quick,
+so I expect they will be converging to 0,
+and actually converging to 0 quickly.
+And in that case, the theorem concludes
+that the series is absolutely convergent.
+In the other end,
+when the limit is > 1,
+remember this is the quotient of one term
+by the previous one, in absolute value.
+If this limit is > 1,
+it means that in absolute value,
+the terms are not getting smaller,
+they're getting bigger,
+so they can't possibly
+be converging to 0.
+And if the terms I imagine
+do not converge to 0,
+then the series must be divergent.
+And there is a middle case:
+when the limit is 1,
+then I can draw no conclusion.
+Every theorem about convergence of
+series has a case like this.
+In some cases,
+they are able to tell us whether the
+series is convergent or divergent,
+but there's always a situation in which
+they don't give us any information.
+In this case when the limit is 1,
+the series could
+be absolutely convergent,
+or conditionally convergent, or
+divergent, but we don't know yet.
+We have to try something else
+to figure out which one it is.
+I'm not going to write
+a full proof rigorously in all detail,
+but I want to summarize
+the idea of the proof,
+because it explains why the theorem
+works, on a more or less intuitive level.
+So remember, I'm calling L this limit,
+and this is the limit of the quotient of
+one term divided by the previous one,
+in absolute value.
+The easier case is when
+this limit is > 1.
+As I said before, if this limit is > 1,
+it means that for large values of n,
+the terms are getting bigger in
+absolute value, not smaller.
+And if the terms are getting bigger,
+then the limit of the terms of
+the series cannot possibly be 0,
+and we know if the terms
+are not approaching 0,
+the series is divergent,
+by the necessary condition.
+That's the easy case.
+The more interesting case to
+prove is when the limit is < 1.
+(It will necessarily have to be ≥ 0
+because it's a limit of positive terms.)
+In this case I'm going to
+interpret that the limit is L,
+by saying that for large values of n,
+|aₙ₊₁/aₙ| is approximately L.
+If I am rigorous from the
+definition of limit,
+I will say that it is between
+a little bit more than L,
+and a little bit less than L,
+and that will be enough.
+I'm going to rewrite this by saying
+that the |aₙ₊₁|, is about |aₙ|⋅L.
+Now this will only be true for large
+values of n, but that is good enough,
+because we know for the purpose of
+convergence or divergence,
+the only thing that matters is what
+happens to the tail of the series.
+And I recognize another series
+that behaves exactly like this
+(that one term is the previous one
+times a constant).
+That is how geometric series work.
+So this is going to allow me
+to do a comparison
+between this series with absolute
+values, and the sum of Lⁿ.
+But we know the sum of Lⁿ is convergent,
+because it's a geometric series
+with L being between 0 and 1,
+and that will allow me to prove that the
+original series is absolutely convergent.
+That is all that there is to the proof.
+The rest are formal details.
+I invite you, as an exercise, to try to
+complete the rigorous proof.
+(That's filling in all those formal
+details. (all the epsilons and such))
+But all the ideas you need
+are summarized here.
+Well, that is the theory. How do
+we use this theorem in practice?
+I'm going to illustrate
+it with two examples.
+Here are two series,
+and I want to determine whether
+they are convergent or not.
+It's going to be straightforward:
+just take the theorem and compute
+the limit it says we should compute,
+and based on the outcome, see
+which conclusion we can draw.
+I invite you to try
+to perform the calculations
+and see which conclusions you
+can draw, before watching it.

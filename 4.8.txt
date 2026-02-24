@@ -1,0 +1,66 @@
+We know that the derivative
+of eˣ is itself,
+but what is the derivative of an
+exponential with a DIFFERENT base?
+That is the goal of this video.
+The base "a" could be
+any positive real number,
+it has to be positive, otherwise the
+exponential does not make sense.
+I will use a trick
+that is very common in mathematics.
+I want to solve the general problem
+FOR ALL values of a,
+and I already know the answer
+for one value: "e".
+I am going to try to write
+the general case (FOR ALL a),
+in terms of the one case I can solve.
+So, write aˣ in terms of eˣ.
+And here is how to do it:
+any positive number "a", can be
+written as eˡⁿ⁽ᵃ⁾.
+(This is by definition of ln.)
+Then aˣ, can be written as (eˡⁿ⁽ᵃ⁾)ˣ.
+And now I can use
+the properties of powers.
+(And perhaps it is more common
+to write this as: eˣˡⁿ⁽ᵃ⁾.)
+And that's all I need!
+I have written aˣ in terms of eˣ.
+That's going to allow me
+to take the derivative.
+So now, the derivative of aˣ is...
+Instead of as aˣ,
+I will think of it as eˣˡⁿ⁽ᵃ⁾.
+I know the derivative of eˣ is itself,
+so the derivative of e to a function,
+by chain rule,
+will be itself, multiplied by
+the derivative of the exponent.
+And now that I have taken the derivative,
+I can re-write this
+as it was originally (as aˣ).
+And here I have x multiplied by a number,
+so the derivative is just
+the multiplying number: ln(a).
+And that's my final answer!
+The derivative of an
+arbitrary exponential is itself,
+multiplied by ln of the base.
+Notice that when a = e,
+I get ln(e), which is 1.
+So this term disappears, and I recover
+the identity that I already knew.
+This strategy,
+reducing a bigger problem to a
+smaller problem we have already solved,
+is very common in mathematics.
+Here is an exercise
+for you to practice it.
+You already know that
+the derivative of ln(x) is 1/x,
+but what is the derivative of logarithm
+on a DIFFERENT base?
+As a hint, use the logarithm
+change of base identity.

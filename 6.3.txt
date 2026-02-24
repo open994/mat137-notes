@@ -1,0 +1,167 @@
+An optimization problem is an application
+of calculus to a physical situation
+where I want to make a certain quantity
+as large as possible
+or as as small as possible.
+Here is an example. I want to build an
+open box that will have four side walls
+and a bottom but no top,
+with a square base.
+The volume of the box must be 500cm³,
+and I want to spend as little as possible
+on the materials.
+What dimensions should I choose for
+the box?
+At this moment I invite you to pause the
+video and try to solve it
+before you continue watching.
+Even if you cannot fully solve it, my
+explanation will be much more useful if
+you spend some time trying to understand
+the statement and setting it up.
+First, we need to model the problem.
+That is, we want to convert the word
+problem
+into a precise mathematical question.
+In this case, I'm looking for a question
+of the form,
+I want to find the maximum or the minimum
+of this specific function
+on this specific domain,
+and figuring out what that function is
+and what the domain is
+is the modelling part of the problem.
+This is what the box may look like.
+I'll begin by giving names to the
+dimensions of the box,
+since that is what the problem
+is asking about.
+I'm going to call x this side of the base,
+and since the base is a square,
+x is also the length of this side.
+The height is a different dimension, so I'll call it y.
+In this question I want to spend as
+little as possible on the materials.
+What that means is that I want the total
+surface of all the five walls I'm building
+to be as as small as possible, 
+because that will use
+the smallest possible amount of material.
+So I want to minimize the total area.
+I'm going to call the total area s for
+surface. So let's figure out what it is.
+First, we have the bottom of the box, and
+the bottom of the box is a square,
+and it is a square with side length x,
+therefore the area here is x².
+And then I also have the other four walls.
+Now let's look at the right wall, for
+example.
+Here the base is x, but the height is y, 
+so this wall has area xy,
+and the same is true of the wall on the 
+back, and the one on the left,
+and the one on the front.
+So this adds 4xy 
+to the total surface area.
+That's the quantity I want to minimize.
+However, x and y are not independent
+variables; they are related.
+There is an extra constraint because we
+want the total volume of the box
+to be a fixed quantity.
+We want the total volume to be 500cm³.
+Now the volume of a box is the product of
+the three dimensions,
+so it's going to be x·x·y or x²y.
+I think I should also say that x must be
+a positive number
+and y must be a positive number,
+otherwise the problem 
+doesn't make any sense physically.
+And that's it. Now I have a function with
+two variables but with a constraint.
+I find it easier to calculate 
+the maximum or the minimum
+of a function with a single variable, without constraints,
+and one way to attack this 
+is I can use this constraint
+to write one of the variables 
+in terms of the other.
+In this case I think it's a bit easier to
+write y as 500/x²,
+and then I can use this and plug it in the
+original expression for the surface area
+to get s in terms of x and x only.
+If I do that, I get that s is going to be
+x² + 4x·500/x²,
+or we can simplify that as
+x² + 2000/x.
+And there is my function. My goal is to
+find the minimum of this function,
+and this is in the domain when x is any
+positive number.
+That's the only constraint I have,
+now that I have removed y.
+Now that we have set up the problem,
+the second part is the easier part:
+use calculus to find the minimum
+of the function on the correct domain.
+This function is differentiable on the
+domain, so to find the minimum
+I look at when the derivative is
+zero or positive or negative.
+The derivative of s with respect to x is
+going to be 2x - 2000/x².
+Now, I'm interested in when this is zero
+or positive or negative,
+and I find it easier if I
+reduce to common denominator.
+I can also factor a 2,
+and in the top I get x³ - 1000.
+And once I put it this way it's clear:
+the derivative is zero exactly when x³ is
+1000, or in other words when x is 10.
+That's the only critical point.
+At this point, I know many students like
+to stop and say therefore
+that must be the answer,
+but we cannot do that.
+This is the only critical point, but we're
+looking for the minimum,
+not the critical point.
+Perhaps it is the minimum,
+perhaps it is something else.
+Perhaps the function
+doesn't even have a minimum.
+So we have to do a little bit more
+justification to say
+why the minimum occurs there.
+What I'm going to do is look at how the
+function behaves to the left
+and to the right of 10.
+I know that at 10, the derivative is 0.
+Now when x is greater than 10,
+the derivative is positive,
+and when x is smaller than 10,
+the derivative is negative.
+Therefore, the function s is decreasing
+all the way to 10
+and increasing all the way after 10.
+And now yes, with this information I know
+if the function is all the way decreasing
+and then all the way increasing after,
+then it must look something like that,
+and therefore at 10, definitely, I need to
+have the minimum.
+Not a local minimum only, just the global
+minimum, which is what I was looking for.
+So after doing this little justification
+then I know I have found the answer.
+And therefore my answer is x = 10cm, and
+remember I also need the other dimension,
+y was 500/x² which comes out to be 5cm.
+And these are the dimensions that I need
+to use in my box
+in order to spend
+as little as possible on materials.

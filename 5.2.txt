@@ -1,0 +1,175 @@
+In this video, I will explain the difference
+between LOCAL extremum and EXTREMUM.
+I will also state the Local Extreme Value Theorem.
+This theorem is useful on its own, 
+but it is also the first step
+in our journey towards the Mean Value Theorem.
+Before I define Local Extremum, let's look
+at an example.
+Consider the function f, defined by this graph.
+Its domain is the interval [0, 5], including
+both endpoints.
+This function has a minimum and a maximum.
+The minimum happens at this point P.
+I can say that
+"f has a minimum of 1 at x = 3."
+The maximum happens at this point Q.
+It is an endpoint, but there is nothing
+wrong with that.
+I can say that
+"f has a maximum of 5 at x = 5."
+But what about this third point R?
+The function does not have a maximum at R.
+The value at R is 3, at the function takes
+values greater than 3 somewhere else.
+However, if I stay close to R only...
+...if I only look at the piece of the graph
+near R...
+...then it looks like a maximum.
+I am going to call this point a 
+LOCAL maximum.
+In this example, I say that f has a local
+maximum at x = 1.
+Let's define this concept rigorously.
+Let f be a function with domain I,
+and let c be a point in I.
+I want to define what it means for f to have
+a maximum at c,
+and to have a local maximum at c.
+We already knew the definition of maximum.
+We say that f has a maximum at c when f(x) is
+less than or equal to f(c)
+for all values of x in I.
+Now, for the new concept!
+We say that f has a local maximum at c when...
+For every x close to c, f(x) is less than
+or equal to f(c).
+It is fine to leave the definition as is, but I
+can also take this piece,
+"for every x close to c," and rewrite it
+more formally.
+"For every x close to c" means "for every x
+on some interval centred at c."
+Or, equivalently,
+It means that there exists some
+positive radius δ (delta)
+such that IF the distance between x and c is
+less than δ,
+THEN f(x) is less than or equal to f(c).
+That is an entirely equivalent way of
+writing the definition.
+There are also analogous definitions for
+minimum and local minimum.
+I will not write them explicitly, but I will assume
+you can write them.
+This definition requires some comments,
+mostly about terminology.
+The word "extremum" means 
+"maximum or minimum."
+If I want to talk about both at once, I can
+simply say "extremum."
+Some people prefer to say "global extremum,"
+instead of simply "extremum,"
+to emphasize the difference between
+local and global.
+"Global extremum" means the same thing as
+simply "extremum."
+The plurals of extremum, maximum and minimum are
+extrema, maxima and minima.
+They are irregular plurals.
+And the most important note:
+according to the definition I am using,
+endpoints NEVER count as local extrema,
+because the function needs to be defined to
+the left AND to the right of c.
+This...is controversial.
+Some books prefer to use a different definition, 
+which I am not writing.
+And that other definition includes endpoints.
+There are good reasons to go either way.
+The majority of calculus textbooks use the
+definition in this video,
+(and that is why I will be using it,) which does
+not include endpoints.
+But the majority of analysis textbooks use
+the other one. It is a matter of convention.
+So remember that when you are 
+reading math somewhere else,
+they may be using a different convention.
+There is one specific point where this
+distinction is VERY important,
+and it makes a big difference.
+I will point to it later in this video.
+Now that we have our definitions, let's move 
+towards the local extreme value theorem.
+I want to explore this question:
+What can we say about the derivative of
+a function at a local extremum?
+The function in this graph has a
+local maximum.
+The tangent line at the local maximum is
+horizontal, and the derivative is zero.
+It also has a local minimum,
+and the derivative at the local minimum
+is ALSO zero.
+It looks like this will always happen at
+local extrema.
+Well...not always.
+Here is the graph of a function that has a
+local maximum and a local minimum,
+but which does not have derivative zero
+at those points,
+because it has CORNERS at those points, and
+the derivative does not exist.
+These seem to be the only two options,
+and that is what the Local Extreme
+Value Theorem says.
+Specifically: Let f be a function with domain
+an interval I,
+and let c be a point in I.
+IF f has a local extremum at c, and c is an
+interior point (not an endpoint),
+THEN the derivative f'(c) either is zero
+or does not exist.
+One very important observation:
+Given the definition of local extremum that I
+am using, it was not necessary to say
+explicitly that c must be an interior point.
+I could omit the second hypothesis,
+because it was already included in the
+first hypothesis
+that f had a local extremum at c.
+However, I chose to be redundant and write
+it explicitly anyway to emphasize it.
+If you use the other definition (the one
+that allows for endpoints),
+then you definitely must include the
+second hypothesis.
+In summary: whether you allow endpoints to
+be called local extrema or not,
+(I do not.)
+you MUST exclude endpoints from
+this theorem.
+Having clarified that, one last definition.
+We often give a name to these special
+points:
+We say that c is a CRITICAL POINT of f
+when it is an interior point of the domain,
+and the derivative f'(c) is either zero or does not exist.
+With this notation, the theorem 
+simply says
+that local extrema are always
+critical points.
+Notice that the converse is not true.
+A critical point is not always a local extremum.
+Now that we understand the theorem,
+we need to prove it.
+That will be the next video.
+While the Local Extreme Value Theorem
+was mostly our starting point
+towards the Mean Value Theorem, it is also
+important on its own,
+and it has its own applications.
+In a later video, I will show an application:
+how to find the local and global extrema
+of a function.

@@ -1,0 +1,568 @@
+\chapter{Sequences}
+
+%=============================================================================
+\section{Sequences and Notation}
+\label{sec:11.1}
+%=============================================================================
+
+\textit{Before diving into the theory of sequences, we need a precise definition and a tour of the various notational conventions that appear throughout the subject.  A sequence is simply a special type of function, but by tradition we use different notation for it.}
+
+\begin{definition}[Sequence]
+\label{def:11-1}
+A \emph{sequence} is a function whose domain is the set of all integers greater than or equal to some fixed integer $n_{0}$.  That is, the domain has the form
+\[
+  \{n \in \Z : n \ge n_{0}\}
+\]
+for some fixed $n_{0}\in\Z$.
+\end{definition}
+
+\begin{remark}
+The most common choices are $n_{0}=0$ and $n_{0}=1$, so the domain is $\N$ or $\{1,2,3,\dots\}$.  However, some sequences are naturally defined only for $n\ge 2$ or even $n\ge 7$.  For instance, the sequence $\frac{1}{\ln n}$ is only defined for $n\ge 2$, because $\ln 1 = 0$.
+\end{remark}
+
+\subsection*{Conventions distinguishing sequences from functions}
+
+\textit{Ultimately, sequences are functions.  Nevertheless, we adopt several conventions to distinguish between a function whose domain is an interval (or a union of intervals) and a function whose domain consists only of natural numbers.}
+
+\begin{itemize}
+  \item \textbf{Variable name.}  For a ``function'' (domain an interval) we typically use $x$ as the variable; for a sequence we use $n$.  There is no deep reason for this, but the convention signals that $n$ takes only integer values.
+
+  \item \textbf{Value notation.}  If $f$ is a function, we write $f(x)$.  If $a$ is a sequence, we write $a_{n}$ (a subscript) rather than $a(n)$.
+
+  \item \textbf{Listing terms.}  Because the domain consists of consecutive integers, the values of a sequence can be listed in order:
+  \[
+    a_{0},\; a_{1},\; a_{2},\; a_{3},\; \dots
+  \]
+\end{itemize}
+
+\begin{remark}[Warning]
+Writing the first few terms of a sequence in curly braces, such as $\{1,2,4,8,16,\dots\}$, is common but potentially misleading: a sequence is \textbf{not} a set.  The set is the \emph{range} of the sequence; the sequence itself also specifies the \emph{order} of its terms.
+\end{remark}
+
+\subsection*{Ways to describe a sequence}
+
+There are four common ways to define a sequence.
+
+\begin{enumerate}
+  \item \textbf{By an explicit formula.}  For example, $a_{n} = \dfrac{2^{n}\cdot n!}{n+1}$.  The factorial makes clear that $n$ must be a natural number.
+
+  \item \textbf{By listing the first few terms.}  For example, $1,\;2,\;4,\;8,\;16,\;\dots$  
+
+  \item \textbf{By a verbal description.}  For example, ``let $p_{n}$ be the $n$\textsuperscript{th} prime number.''  This is perfectly valid when no nice closed-form formula exists.
+
+  \item \textbf{By a recurrence relation.}  For example, the \emph{Fibonacci sequence} $\{F_{n}\}$ is defined by
+  \[
+    F_{0}=1,\quad F_{1}=1,\quad F_{n}=F_{n-1}+F_{n-2}\;\text{for }n\ge 2.
+  \]
+\end{enumerate}
+
+\begin{remark}[Warning]
+The first few terms of a sequence \textbf{never fully determine} the sequence.  For instance, the terms $1,2,4,8,16,\dots$ could arise from $a_{n}=2^{n}$, but they could equally arise from $a_{n} = 2^{n} + (n-0)(n-1)(n-2)(n-3)(n-4)$ or from many other formulas.  When there is any ambiguity, always give an explicit formula or recurrence.
+\end{remark}
+
+\subsection*{Notation for sequences}
+
+The most complete notation for a sequence is
+\[
+  \{a_{n}\}_{n=0}^{\infty}.
+\]
+Common abbreviations include $\{a_{n}\}_{n\ge 0}$, $\{a_{n}\}_{n}$, $\{a_{n}\}$, or simply $(a_{n})$.  Any of these is acceptable when unambiguous.
+
+\begin{remark}[Warning]
+When there are multiple variables, be precise.  For example, the sequence $\bigl\{\frac{n}{k}\bigr\}_{k=2}^{\infty}$ has variable $k$ (not $n$), starting at $k=2$.  Here $n$ is a constant.  Omitting the index information would create genuine ambiguity.
+\end{remark}
+
+%=============================================================================
+\section{Limits of Sequences}
+\label{sec:11.2}
+%=============================================================================
+
+\textit{We now define the central concept of this chapter: what it means for a sequence to have a limit.  If you are already familiar with the $\eps$-$\delta$ definition of the limit of a function, the definition below will look very similar --- we simply replace the domain of real numbers with the domain of natural numbers.}
+
+\subsection*{Motivation}
+
+\begin{example}
+\label{ex:11-1}
+Consider the sequence $\left\{\dfrac{n}{n+1}\right\}_{n=0}^{\infty}$.  The first few terms are
+\[
+  0,\;\frac{1}{2},\;\frac{2}{3},\;\frac{3}{4},\;\frac{4}{5},\;\dots
+\]
+Plotting these on the real line, we see that as $n$ increases the terms crowd ever closer to $1$.  We say that the limit of the sequence is $1$.
+\end{example}
+
+\textit{To make this precise, we think geometrically.  Draw a small open interval centred at the candidate limit $L$.  Some initial terms of the sequence may lie outside this interval, but after a certain point every remaining term lies inside.  If this is true for \textbf{every} open interval centred at $L$, no matter how small, then $L$ is the limit.}
+
+\begin{definition}[Limit of a sequence]
+\label{def:11-2}
+Let $\{a_{n}\}$ be a sequence and let $L\in\R$.  We say that the \emph{limit} of $\{a_{n}\}$ is $L$, and write
+\[
+  \lim_{n\to\infty} a_{n} = L,
+\]
+when the following holds:
+\[
+  \forall\,\eps>0,\;\exists\,n_{0}\in\N,\;\forall\,n\in\N,\quad
+  n\ge n_{0}\;\Longrightarrow\;\abs{a_{n}-L}<\eps.
+\]
+Equivalently, $n\ge n_{0}$ implies $L-\eps < a_{n} < L+\eps$.
+\end{definition}
+
+% ── BEGIN VISUAL ──
+\begin{figure}[ht]
+  \centering
+  \input{ch11/figures/fig-sequence-epsilon-neighborhood.tex}
+  \caption{Convergence of a sequence in an $\varepsilon$-neighborhood.}
+  \label{fig:sequence-epsilon-neighborhood}
+\end{figure}
+% ── END VISUAL ──
+
+\textit{In one sentence: a sequence $\{a_{n}\}$ has limit $L$ when every open interval centred at $L$ contains a \textbf{tail} of the sequence --- that is, all terms from some index onward.}
+
+\begin{remark}
+This one-sentence summary encodes all three quantifiers of the formal definition but is easier to remember and gives a clear geometric picture.  It also highlights a fundamental principle: \textbf{to determine whether a sequence has a limit, only the tails of the sequence matter}.  Changing the first $3$, the first $12$, or the first $60$ terms can never affect whether the sequence converges.
+\end{remark}
+
+\subsection*{Notation and terminology}
+
+When $\lim_{n\to\infty}a_{n}=L$, we also write $a_{n}\to L$ and say that the sequence \emph{converges} to $L$.
+
+\begin{definition}[Convergent and divergent sequences]
+\label{def:11-3}
+A sequence is \emph{convergent} if it has a limit (which must be a real number).  Otherwise, the sequence is \emph{divergent}.
+\end{definition}
+
+A divergent sequence may diverge to $\infty$ (e.g.\ $\{n^{2}\}$), to $-\infty$ (e.g.\ $\{-n\}$), or it may oscillate without tending to any value (e.g.\ $\{(-1)^{n}\}$, whose terms alternate between $1$ and $-1$).
+
+\begin{remark}[Pause and Try]
+Write a precise formal definition of ``$\lim_{n\to\infty}a_{n}=\infty$'', modelled on \cref{def:11-2}.
+\end{remark}
+
+%=============================================================================
+\section{Tools for Computing Limits}
+\label{sec:11.3}
+%=============================================================================
+
+\textit{We do not want to appeal to the $\eps$-definition every time we compute a limit.  In this section we survey the main tools available, emphasising what carries over from limits of functions and what does not.}
+
+\subsection*{What works the same}
+
+\begin{theorem}[Limit laws for sequences]
+\label{thm:11-1}
+If $\{a_{n}\}$ and $\{b_{n}\}$ are convergent sequences with $\lim_{n\to\infty}a_{n}=A$ and $\lim_{n\to\infty}b_{n}=B$, then
+\begin{enumerate}[label=(\roman*)]
+  \item $\lim_{n\to\infty}(a_{n}\pm b_{n})=A\pm B$,
+  \item $\lim_{n\to\infty}(a_{n}\cdot b_{n})=A\cdot B$,
+  \item $\lim_{n\to\infty}\dfrac{a_{n}}{b_{n}}=\dfrac{A}{B}$, provided $B\neq 0$.
+\end{enumerate}
+The proofs are identical to the corresponding proofs for limits of functions.
+\end{theorem}
+
+\begin{theorem}[Squeeze Theorem for sequences]
+\label{thm:11-2}
+If $a_{n}\le b_{n}\le c_{n}$ for all $n$ (or at least for all sufficiently large $n$), and
+\[
+  \lim_{n\to\infty}a_{n}=\lim_{n\to\infty}c_{n}=L,
+\]
+then $\lim_{n\to\infty}b_{n}=L$.  Same theorem, same proof as for functions.
+\end{theorem}
+
+\subsection*{L'H\^opital's Rule: a caveat}
+
+\textit{L'H\^opital's Rule does \textbf{not} directly extend to sequences, because we cannot take the derivative of a sequence.  (What is the derivative of $n!$?)  However, there is a useful workaround.}
+
+\begin{theorem}[From functions to sequences]
+\label{thm:11-3}
+Let $f$ be a function defined on $[c,\infty)$ for some integer $c$, and let $a_{n}=f(n)$ for every integer $n\ge c$.
+\begin{enumerate}[label=(\roman*)]
+  \item If $\lim_{x\to\infty}f(x)=L\in\R$, then $\lim_{n\to\infty}a_{n}=L$.
+  \item If $\lim_{x\to\infty}f(x)=\infty$, then $\lim_{n\to\infty}a_{n}=\infty$.
+\end{enumerate}
+\end{theorem}
+
+\begin{remark}[Warning]
+If $\lim_{x\to\infty}f(x)$ does not exist (for instance because $f$ oscillates), we \textbf{cannot} conclude anything about the sequence.  The sequence may or may not converge.  For example, the function $f(x)=\sin(\pi x)$ has no limit at $\infty$, but the sequence $a_{n}=\sin(\pi n)=0$ is convergent.
+\end{remark}
+
+Therefore, when a sequence $\{a_{n}\}$ ``comes from'' a function $f$ (i.e.\ $a_{n}=f(n)$), we may apply L'H\^opital's Rule to $f$ and use \cref{thm:11-3} to transfer the result to the sequence --- provided the limit of $f$ exists.
+
+\subsection*{Composition with a continuous function}
+
+\begin{theorem}[Continuous functions preserve sequential limits]
+\label{thm:11-4}
+Let $\{a_{n}\}$ be a sequence with $\lim_{n\to\infty}a_{n}=L$, and let $f$ be a function that is continuous at $L$.  Then
+\[
+  \lim_{n\to\infty}f(a_{n})=f(L).
+\]
+\end{theorem}
+
+\begin{remark}[Pause and Try]
+Write a proof of \cref{thm:11-4}.  It is a great exercise because you must use \textbf{both} the definition of limit of a sequence and the definition of continuity.
+\end{remark}
+
+\begin{example}
+\label{ex:11-2}
+We compute $\lim_{n\to\infty}e^{1/n!}$.  Since $\lim_{n\to\infty}\frac{1}{n!}=0$ and the exponential function is continuous at $0$, \cref{thm:11-4} gives
+\[
+  \lim_{n\to\infty}e^{1/n!}=e^{0}=1.
+\]
+\end{example}
+
+\textit{In summary, every tool you know for computing limits of functions as the variable approaches $\infty$ carries over to sequences.  The only exception is L'H\^opital's Rule, which requires extending the sequence to a function on the positive reals first.}
+
+%=============================================================================
+\section{Monotonicity and Boundedness}
+\label{sec:11.4}
+%=============================================================================
+
+\textit{In this section we introduce two structural properties of sequences --- monotonicity and boundedness --- and then state three theorems that describe how these properties interact with convergence.}
+
+\subsection*{Monotonic sequences}
+
+\begin{definition}[Increasing and decreasing sequences]
+\label{def:11-4}
+A sequence $\{a_{n}\}$ is
+\begin{itemize}
+  \item \emph{increasing} if $a_{n}<a_{n+1}$ for every $n$,
+  \item \emph{decreasing} if $a_{n}>a_{n+1}$ for every $n$,
+  \item \emph{non-decreasing} if $a_{n}\le a_{n+1}$ for every $n$,
+  \item \emph{non-increasing} if $a_{n}\ge a_{n+1}$ for every $n$.
+\end{itemize}
+A sequence is \emph{monotonic} if it satisfies any one of these four conditions.
+\end{definition}
+
+\begin{remark}
+For a sequence, ``$a_{n}<a_{n+1}$ for every $n$'' is equivalent to the more familiar condition ``$n<m \Rightarrow a_{n}<a_{m}$.''  Both formulations are useful; the first is often simpler to check.
+\end{remark}
+
+\begin{example}
+\label{ex:11-3}
+The sequence $\{n^{2}\}$ is increasing.  The sequence $\left\{\frac{1}{n+1}\right\}$ is decreasing.  The sequence $1,1,2,2,3,3,4,4,\dots$ is non-decreasing but not increasing.
+\end{example}
+
+\begin{definition}[Eventually monotonic]
+\label{def:11-5}
+A sequence $\{a_{n}\}$ is \emph{eventually decreasing} if there exists an index $n_{0}$ such that $a_{n}>a_{n+1}$ for every $n\ge n_{0}$.  The terms \emph{eventually increasing}, \emph{eventually non-decreasing}, and \emph{eventually monotonic} are defined similarly.
+\end{definition}
+
+\begin{example}
+\label{ex:11-4}
+Consider the sequence $\{n^{3}e^{-n}\}_{n=0}^{\infty}$.  Define $f(x)=x^{3}e^{-x}$.  Then
+\[
+  f'(x)=e^{-x}(3x^{2}-x^{3})=x^{2}e^{-x}(3-x).
+\]
+Since $f'(x)<0$ for all $x>3$, the function $f$ is decreasing on $[3,\infty)$.  Therefore the sequence $\{n^{3}e^{-n}\}$ is decreasing for $n\ge 3$; that is, it is \emph{eventually} decreasing.
+\end{example}
+
+\subsection*{Bounded sequences}
+
+\begin{definition}[Bounded sequence]
+\label{def:11-6}
+A sequence $\{a_{n}\}$ is
+\begin{itemize}
+  \item \emph{bounded below} if there exists $A\in\R$ with $A\le a_{n}$ for every $n$,
+  \item \emph{bounded above} if there exists $B\in\R$ with $a_{n}\le B$ for every $n$,
+  \item \emph{bounded} if it is both bounded below and bounded above.
+\end{itemize}
+\end{definition}
+
+\begin{remark}
+It is not worthwhile to define ``eventually bounded.''  Can you see why?  If a sequence is eventually bounded, it is already bounded: the finitely many initial terms that were excluded are themselves a finite set of real numbers, so they cannot make the sequence unbounded.
+\end{remark}
+
+\begin{remark}[Pause and Try]
+Construct eight sequences, one for each combination of bounded/unbounded, monotonic/not monotonic, and convergent/divergent.  Some combinations may be impossible --- discover which ones.
+\end{remark}
+
+\subsection*{Three fundamental theorems}
+
+\textit{The following three results describe the precise relationship between convergence, monotonicity, and boundedness.  Their proofs will occupy the next two sections.}
+
+\begin{theorem}[Convergent sequences are bounded]
+\label{thm:11-5}
+If a sequence is convergent, then it is bounded.
+\end{theorem}
+
+\begin{theorem}[Monotone Convergence Theorem for sequences]
+\label{thm:11-6}
+If a sequence is eventually monotonic and bounded, then it is convergent.
+
+Equivalently:
+\begin{enumerate}[label=(\roman*)]
+  \item If a sequence is eventually non-decreasing and bounded above, then it is convergent.
+  \item If a sequence is eventually non-increasing and bounded below, then it is convergent.
+\end{enumerate}
+\end{theorem}
+
+% ── BEGIN VISUAL ──
+\begin{figure}[ht]
+  \centering
+  \input{ch11/figures/fig-monotone-bounded-convergence.tex}
+  \caption{A monotone increasing sequence bounded above converges.}
+  \label{fig:monotone-bounded-convergence}
+\end{figure}
+% ── END VISUAL ──
+
+\begin{remark}
+The word ``eventually'' is crucial and perfectly natural: since convergence depends only on the tail of a sequence, any hypothesis about convergence should likewise depend only on the tail.  Whether the first $15$ terms are out of order is irrelevant.
+\end{remark}
+
+\begin{theorem}[Increasing unbounded sequences diverge to $\infty$]
+\label{thm:11-7}
+If a sequence is eventually increasing and not bounded above, then it diverges to $\infty$.
+\end{theorem}
+
+\textit{\cref{thm:11-6,thm:11-7} together tell us that the behaviour of an increasing sequence is very restricted: it is either convergent (if bounded above) or divergent to $\infty$ (if not bounded above).  No other outcome is possible.  This will be especially useful when we study series.}
+
+%=============================================================================
+\section{Boundedness of Convergent Sequences}
+\label{sec:11.5}
+%=============================================================================
+
+\textit{We now prove \cref{thm:11-5}: every convergent sequence is bounded.  The key idea is simple --- all but finitely many terms are close to the limit, and a finite collection of numbers is always bounded.}
+
+\begin{proof}
+Let $\{a_{n}\}$ be a convergent sequence and let $L=\lim_{n\to\infty}a_{n}$.
+
+\proofref{Use the definition of limit with a specific $\eps$.}
+
+Choose $\eps=1$ in \cref{def:11-2}.  Then there exists $n_{0}\in\N$ such that for every $n\ge n_{0}$,
+\[
+  L-1<a_{n}<L+1.
+\]
+
+\proofref{Construct explicit bounds $A$ and $B$.}
+
+Define
+\begin{align*}
+  A &= \min\{L-1,\; a_{0},\; a_{1},\;\dots,\; a_{n_{0}-1}\},\\
+  B &= \max\{L+1,\; a_{0},\; a_{1},\;\dots,\; a_{n_{0}-1}\}.
+\end{align*}
+
+\proofref{Verify that $A\le a_{n}\le B$ for every $n$.}
+
+Fix an arbitrary $n\in\N$.  There are two cases.
+\begin{itemize}
+  \item If $n\ge n_{0}$, then $A\le L-1<a_{n}<L+1\le B$.
+  \item If $n<n_{0}$, then $a_{n}$ appears in the lists defining $A$ and $B$, so $A\le a_{n}\le B$ by construction.
+\end{itemize}
+In either case, $A\le a_{n}\le B$.  Therefore the sequence is bounded.
+\end{proof}
+
+\begin{remark}
+The choice $\eps=1$ is arbitrary; any positive number would work.  We choose $1$ for simplicity.  The essential point is that once $\eps$ is fixed, all terms from index $n_{0}$ onward are trapped in the interval $(L-\eps,\,L+\eps)$.  Only the finitely many terms $a_{0},\dots,a_{n_{0}-1}$ remain, and a finite set of real numbers always has a minimum and a maximum.
+\end{remark}
+
+%=============================================================================
+\section{The Monotone Convergence Theorem}
+\label{sec:11.6}
+%=============================================================================
+
+\textit{We now prove \cref{thm:11-6} in the case of an increasing sequence that is bounded above.  The proof for a decreasing, bounded-below sequence is entirely analogous.  The key ingredient is the least-upper-bound axiom for $\R$.}
+
+\subsection*{Proof strategy}
+
+\textit{Since we want to prove convergence, the very first step must be to identify the limit.  The limit is not given to us; we must construct it from the hypotheses.  For an increasing, bounded-above sequence, the natural candidate is the supremum of its range.}
+
+\begin{proof}
+Let $\{a_{n}\}$ be an increasing sequence that is bounded above.
+
+\proofref{Construct the candidate limit using the least upper bound axiom.}
+
+Let $A=\{a_{n}:n\in\N\}$ be the range of the sequence.  The set $A$ is non-empty (it contains $a_{0}$) and bounded above (by hypothesis).  By the least-upper-bound axiom, $A$ has a supremum.  Set
+\[
+  L=\sup A.
+\]
+We claim that $\lim_{n\to\infty}a_{n}=L$.
+
+\proofref{Fix $\eps>0$ and construct $n_{0}$.}
+
+Let $\eps>0$.  Since $L$ is the supremum and $L-\eps<L$, the number $L-\eps$ is \textbf{not} an upper bound of $A$.  Therefore there exists $n_{0}\in\N$ such that
+\[
+  L-\eps<a_{n_{0}}.
+\]
+
+\proofref{Show $\abs{a_{n}-L}<\eps$ for all $n\ge n_{0}$.}
+
+Fix an arbitrary $n\ge n_{0}$.  Because the sequence is increasing and $n\ge n_{0}$,
+\[
+  a_{n_{0}}\le a_{n}.
+\]
+Because every term of the sequence is at most $L$ (by definition of supremum),
+\[
+  a_{n}\le L.
+\]
+Combining these with the inequality $L-\eps<a_{n_{0}}$:
+\[
+  L-\eps<a_{n_{0}}\le a_{n}\le L<L+\eps.
+\]
+Therefore $\abs{a_{n}-L}<\eps$, which completes the proof that $\lim_{n\to\infty}a_{n}=L$.
+\end{proof}
+
+\begin{remark}
+Observe how each hypothesis was used: ``bounded above'' guarantees the existence of $\sup A$; ``increasing'' ensures that once a single term exceeds $L-\eps$, every subsequent term does as well.  Without monotonicity, finding one term in $(L-\eps,L+\eps)$ would say nothing about the terms that follow.
+\end{remark}
+
+\begin{remark}[Pause and Try]
+Write a rigorous proof of \cref{thm:11-7}: if $\{a_{n}\}$ is eventually increasing and not bounded above, then $\lim_{n\to\infty}a_{n}=\infty$.  The ideas are similar to the proof above.
+\end{remark}
+
+%=============================================================================
+\section{The Growth Hierarchy}
+\label{sec:11.7}
+%=============================================================================
+
+\textit{We close the chapter with what is sometimes called the ``Big Theorem'' --- a hierarchy among the most common families of positive sequences.  It tells us, at a glance, which terms dominate in a sum or quotient, letting us compute many limits almost instantly.}
+
+\subsection*{Motivation: rational sequences}
+
+\begin{example}
+\label{ex:11-5}
+Compute $\displaystyle\lim_{n\to\infty}\frac{n^{3}+2n+1}{5n^{3}+3n^{2}}$.
+
+When the numerator and denominator are both polynomials, only the highest-degree terms matter.  The quick answer is $\frac{n^{3}}{5n^{3}}=\frac{1}{5}$.
+
+To justify this rigorously, factor $n^{3}$ from numerator and denominator:
+\[
+  \frac{n^{3}+2n+1}{5n^{3}+3n^{2}}
+  =\frac{n^{3}\!\left(1+\frac{2}{n^{2}}+\frac{1}{n^{3}}\right)}
+        {n^{3}\!\left(5+\frac{3}{n}\right)}
+  =\frac{1+\frac{2}{n^{2}}+\frac{1}{n^{3}}}{5+\frac{3}{n}}.
+\]
+As $n\to\infty$, each correction term $\frac{2}{n^{2}}$, $\frac{1}{n^{3}}$, $\frac{3}{n}$ tends to $0$, so by the limit laws the full limit is $\frac{1}{5}$.
+\end{example}
+
+\textit{The reason the lower-order terms vanish is that, for instance, $\lim_{n\to\infty}\frac{n}{n^{3}}=0$: the term $n$ grows \textbf{much more slowly} than $n^{3}$.  Can we extend this idea beyond polynomials?}
+
+\subsection*{The ``much smaller'' relation}
+
+\begin{definition}
+\label{def:11-7}
+Let $\{a_{n}\}$ and $\{b_{n}\}$ be sequences with $b_{n}>0$ for all $n$.  We write
+\[
+  a_{n}\ll b_{n}
+\]
+and say ``$a_{n}$ is \emph{much smaller} than $b_{n}$'' to mean
+\[
+  \lim_{n\to\infty}\frac{a_{n}}{b_{n}}=0.
+\]
+Equivalently, we say ``$b_{n}$ is \emph{much larger} than $a_{n}$.''
+\end{definition}
+
+\subsection*{Statement of the Big Theorem}
+
+\begin{theorem}[The Big Theorem --- growth hierarchy]
+\label{thm:11-8}
+For any exponent $p>0$ and any base $c>1$,
+\[
+  \ln n \;\ll\; n^{p} \;\ll\; c^{n} \;\ll\; n! \;\ll\; n^{n}.
+\]
+In words: logarithms are much smaller than any positive power, which is much smaller than any exponential (with base $>1$), which is much smaller than factorials, which are much smaller than power-exponentials.
+\end{theorem}
+
+% ── BEGIN VISUAL ──
+\begin{figure}[ht]
+  \centering
+  \input{ch11/figures/fig-growth-hierarchy.tex}
+  \caption{Discrete comparison of common growth rates.}
+  \label{fig:growth-hierarchy}
+\end{figure}
+% ── END VISUAL ──
+
+\subsection*{Using the theorem}
+
+\begin{example}
+\label{ex:11-6}
+Compute $\displaystyle\lim_{n\to\infty}\frac{e^{n}+2n^{100}}{\ln n+5e^{n}}$.
+
+By \cref{thm:11-8}, $n^{100}\ll e^{n}$ and $\ln n\ll e^{n}$.  Therefore $e^{n}$ is the dominant term in both numerator and denominator.  Factor $e^{n}$:
+\[
+  \frac{e^{n}+2n^{100}}{\ln n+5e^{n}}
+  =\frac{1+2\,\frac{n^{100}}{e^{n}}}{\frac{\ln n}{e^{n}}+5}.
+\]
+As $n\to\infty$, $\frac{n^{100}}{e^{n}}\to 0$ and $\frac{\ln n}{e^{n}}\to 0$, so the limit is $\dfrac{1}{5}$.
+\end{example}
+
+%=============================================================================
+\section{Proof of the Growth Hierarchy}
+\label{sec:11.8}
+%=============================================================================
+
+\textit{\cref{thm:11-8} comprises four separate claims.  The first two (logarithms vs.\ powers, and powers vs.\ exponentials) can be proved using L'H\^opital's Rule, because the sequences involved extend to functions on $[1,\infty)$.  The last two involve $n!$, which is defined only for natural numbers, and require different techniques.}
+
+\begin{remark}[Pause and Try]
+Before reading on, try to prove that $\ln n\ll n^{p}$ and $n^{p}\ll c^{n}$ using L'H\^opital's Rule and \cref{thm:11-3}.
+\end{remark}
+
+\subsection*{Claim 1: $\ln n \ll n^{p}$ for every $p>0$}
+
+Fix $p>0$ and define $f(x)=\frac{\ln x}{x^{p}}$ for $x\ge 1$.  Applying L'H\^opital's Rule ($\infty/\infty$ form):
+\[
+  \lim_{x\to\infty}\frac{\ln x}{x^{p}}
+  =\lim_{x\to\infty}\frac{1/x}{p\,x^{p-1}}
+  =\lim_{x\to\infty}\frac{1}{p\,x^{p}}=0.
+\]
+By \cref{thm:11-3}, $\lim_{n\to\infty}\frac{\ln n}{n^{p}}=0$.
+
+\subsection*{Claim 2: $n^{p}\ll c^{n}$ for every $p>0$ and $c>1$}
+
+Fix $p>0$ and $c>1$.  Define $f(x)=\frac{x^{p}}{c^{x}}$ for $x\ge 1$.  Since both numerator and denominator tend to $\infty$, we apply L'H\^opital's Rule repeatedly.  After $k=\lceil p\rceil$ applications, the numerator becomes a constant while the denominator still tends to $\infty$, so the limit is $0$.  By \cref{thm:11-3}, $\lim_{n\to\infty}\frac{n^{p}}{c^{n}}=0$.
+
+\subsection*{Claim 3: $c^{n}\ll n!$ for every $c>1$}
+
+\begin{proof}
+Fix $c>1$ and define $p_{n}=\dfrac{c^{n}}{n!}$ for $n\ge 0$.
+
+\proofref{Derive a recurrence relation.}
+
+Observe that
+\[
+  p_{n+1}=\frac{c^{n+1}}{(n+1)!}=\frac{c}{n+1}\cdot\frac{c^{n}}{n!}=\frac{c}{n+1}\,p_{n}.
+\]
+
+\proofref{Show $\{p_{n}\}$ is eventually decreasing.}
+
+For $n\ge c$ (i.e.\ $n+1>c$), we have $\frac{c}{n+1}<1$, so $p_{n+1}<p_{n}$.  Hence the sequence is eventually decreasing.
+
+\proofref{The sequence is bounded below and therefore convergent.}
+
+Since $p_{n}>0$ for all $n$, the sequence is bounded below by $0$.  By the Monotone Convergence Theorem (\cref{thm:11-6}), the sequence converges.  Let $L=\lim_{n\to\infty}p_{n}$.
+
+\proofref{Determine $L$ from the recurrence.}
+
+Taking limits on both sides of the recurrence $p_{n+1}=\frac{c}{n+1}\,p_{n}$:
+\[
+  L = \lim_{n\to\infty}\frac{c}{n+1}\cdot\lim_{n\to\infty}p_{n}= 0\cdot L=0.
+\]
+Therefore $\lim_{n\to\infty}\frac{c^{n}}{n!}=0$, as required.
+\end{proof}
+
+\begin{remark}[Warning]
+Every step of the proof above was necessary.  The final calculation (showing $L=0$ from the recurrence) is valid \textbf{only because we already know the sequence converges}.  Without first establishing convergence via the Monotone Convergence Theorem, the same algebra would merely show that the limit, \textit{if it exists}, must be $0$ --- it would not rule out divergence.
+\end{remark}
+
+\subsection*{Claim 4: $n!\ll n^{n}$}
+
+\begin{proof}
+Write
+\[
+  \frac{n!}{n^{n}}=\frac{1\cdot 2\cdot 3\cdots n}{n\cdot n\cdot n\cdots n}
+  =\frac{1}{n}\cdot\frac{2}{n}\cdot\frac{3}{n}\cdots\frac{n}{n}.
+\]
+
+\proofref{Bound the product above by $1/n$.}
+
+Separate the first factor:
+\[
+  \frac{n!}{n^{n}}=\frac{1}{n}\cdot\prod_{k=2}^{n}\frac{k}{n}.
+\]
+Each factor $\frac{k}{n}\le 1$ for $k\le n$, so the entire product satisfies
+\[
+  0<\frac{n!}{n^{n}}\le\frac{1}{n}.
+\]
+
+\proofref{Apply the Squeeze Theorem.}
+
+Since $\lim_{n\to\infty}0=0$ and $\lim_{n\to\infty}\frac{1}{n}=0$, the Squeeze Theorem (\cref{thm:11-2}) gives
+\[
+  \lim_{n\to\infty}\frac{n!}{n^{n}}=0. \qedhere
+\]
+\end{proof}

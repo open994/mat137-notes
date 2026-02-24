@@ -1,0 +1,656 @@
+\chapter{Derivatives}
+
+%=============================================================================
+\section{Definition of the Derivative}
+\label{sec:3.1}
+%=============================================================================
+
+\textit{We want to define the ``slope of a curve'' at a point, but we only know how to define the slope of a line.  We might try to define derivative as the slope of the tangent line, but what is a tangent line?  Every na\"ive definition of one of these concepts seems to rely on another equally undefined concept.  The only way to break the circle is to use limits.}
+
+\textit{Consider a curve---the graph of a function $f$---and two points $P$ and $Q$ on the curve with $x$-coordinates $a$ and $b$, respectively.  The slope of the line through $P$ and $Q$ is $\frac{f(b)-f(a)}{b-a}$.  Now keep $P$ fixed and slide $Q$ toward $P$.  As $Q$ approaches $P$, the line through them becomes the tangent line at $P$.  This motivates taking a limit.}
+
+\begin{definition}[Derivative]
+\label{def:3-1}
+Let $f$ be a function defined at least on an open interval containing $a$.  The \emph{derivative of $f$ at $a$} is
+\[
+  f'(a) = \lim_{x \to a} \dfrac{f(x) - f(a)}{x - a},
+\]
+provided this limit exists.  Equivalently, setting $h = x - a$,
+\[
+  f'(a) = \lim_{h \to 0} \dfrac{f(a+h) - f(a)}{h}.
+\]
+These two expressions are entirely the same; it is simply a change of variable.
+\end{definition}
+
+\begin{definition}[Differentiable]
+\label{def:3-2}
+We say that $f$ is \emph{differentiable at $a$} when the limit in \cref{def:3-1} exists.  We say that $f$ is \emph{differentiable} (without qualification) when $f$ is differentiable at every point in its domain.
+\end{definition}
+
+\begin{definition}[Tangent Line]
+\label{def:3-3}
+Let $f$ be differentiable at $a$.  The \emph{tangent line} to the graph of $f$ at the point $(a, f(a))$ is the line through $(a, f(a))$ with slope $f'(a)$.  Its equation is
+\[
+  y = f(a) + f'(a)(x - a).
+\]
+\end{definition}
+
+\begin{remark}
+Notice that this definition of tangent line relies on the derivative, which we defined independently using a limit.  The tangent line is fully determined by a point and a slope, and the derivative supplies that slope.
+\end{remark}
+
+% ── BEGIN VISUAL ──
+\begin{figure}[ht]
+  \centering
+  \input{ch03/figures/fig-secant-to-tangent.tex}
+  \caption{Secant lines converging to the tangent line.}
+  \label{fig:secant-to-tangent}
+\end{figure}
+% ── END VISUAL ──
+
+\begin{example}
+\label{ex:3-1}
+Consider a function $f$ whose graph is given.  To compute $f'(0)$, find the point on the graph with $x$-coordinate $0$ and draw the tangent line there.  If that line has slope $2$, then $f'(0) = 2$.  Similarly, if the tangent line at the point with $x$-coordinate $-1$ is horizontal, then $f'(-1) = 0$.
+\end{example}
+
+%=============================================================================
+\section{Derivatives from the Definition}
+\label{sec:3.2}
+%=============================================================================
+
+\textit{We now illustrate how to compute a derivative directly from the limit definition.  This is the foundational method; later, differentiation rules will spare us the effort of returning to the definition each time.}
+
+\begin{example}
+\label{ex:3-2}
+Let $f(x) = 4x - x^{2}$.  Compute $f'(1)$ from the definition.
+
+Using the $h$-form of the definition:
+\begin{align*}
+  f'(1)
+  &= \lim_{h \to 0} \dfrac{f(1+h) - f(1)}{h} \\
+  &= \lim_{h \to 0} \dfrac{\bigl[4(1+h) - (1+h)^{2}\bigr] - \bigl[4(1) - 1^{2}\bigr]}{h} \\
+  &= \lim_{h \to 0} \dfrac{4 + 4h - 1 - 2h - h^{2} - 3}{h} \\
+  &= \lim_{h \to 0} \dfrac{2h - h^{2}}{h} \\
+  &= \lim_{h \to 0} (2 - h) \\
+  &= 2.
+\end{align*}
+After all cancellations we are left with a continuous function, and evaluating at $h = 0$ gives $f'(1) = 2$.
+\end{example}
+
+\begin{remark}
+Computing derivatives from the definition is tedious for any function more complicated than a simple polynomial.  The \textbf{differentiation rules}, introduced in \cref{sec:3.4}, provide a much faster method.  We still need to prove them from the definition, but once proven, they can be reused indefinitely.
+\end{remark}
+
+%=============================================================================
+\section{Derivative as Rate of Change}
+\label{sec:3.3}
+%=============================================================================
+
+\textit{The derivative has a second fundamental interpretation: rate of change.  To motivate it, consider a familiar example---velocity.}
+
+\textit{Suppose you are driving at $180\,\text{km/h}$.  What does that mean?  It does not literally mean you will drive $180\,\text{km}$ in the next hour; your velocity may change.  A better interpretation: over a very small time interval $\Delta t$, you travel approximately $180\,\text{km/h}\cdot\Delta t$, and this approximation improves as $\Delta t$ shrinks.  There is a limit lurking here.  It is impossible to define velocity---or any instantaneous rate of change---without limits.}
+
+\begin{definition}[Average and Instantaneous Velocity]
+\label{def:3-4}
+Let $x$ denote the position of a particle as a function of time $t$.
+\begin{enumerate}[label=(\roman*)]
+  \item The \emph{average velocity} between times $t_{1}$ and $t_{2}$ is
+  \[
+    \dfrac{\Delta x}{\Delta t} = \dfrac{x(t_{2}) - x(t_{1})}{t_{2} - t_{1}}.
+  \]
+  \item The \emph{instantaneous velocity} at time $t_{1}$ is
+  \[
+    \left.\dfrac{dx}{dt}\right|_{t=t_{1}} = \lim_{t_{2} \to t_{1}} \dfrac{x(t_{2}) - x(t_{1})}{t_{2} - t_{1}} = \lim_{\Delta t \to 0} \dfrac{\Delta x}{\Delta t}.
+  \]
+\end{enumerate}
+\end{definition}
+
+\begin{remark}[Warning]
+The notation $\frac{dx}{dt}$ does \textbf{not} mean a number $dx$ divided by a number $dt$.  The symbols $dx$ and $dt$ are not numbers.  Rather, $\frac{dx}{dt}$ denotes the limit of $\frac{\Delta x}{\Delta t}$ as $\Delta t \to 0$.  We call it the \emph{derivative of $x$ with respect to $t$}.
+\end{remark}
+
+\begin{definition}[Instantaneous Rate of Change]
+\label{def:3-5}
+More generally, if $Q$ is a physical quantity that depends on another quantity $x$, the \emph{instantaneous rate of change of $Q$ with respect to $x$} is
+\[
+  \dfrac{dQ}{dx} = \lim_{\Delta x \to 0} \dfrac{\Delta Q}{\Delta x}.
+\]
+\end{definition}
+
+\begin{remark}
+The two notions of derivative---$f'(a)$ for an abstract function, and $\frac{dx}{dt}$ for a physical quantity---are the \textbf{same concept}.  If position $x$ is given by a function $f(t)$, then
+\[
+  \dfrac{dx}{dt}\bigg|_{t = t_{1}}
+  = \lim_{t_{2} \to t_{1}} \dfrac{f(t_{2}) - f(t_{1})}{t_{2} - t_{1}}
+  = f'(t_{1}).
+\]
+Whether we think of derivative as slope, as instantaneous rate of change, or as instantaneous velocity, we always arrive at the same limit.
+\end{remark}
+
+% ── BEGIN VISUAL ──
+\begin{figure}[ht]
+  \centering
+  \input{ch03/figures/fig-rate-of-change.tex}
+  \caption{Slope of the tangent as instantaneous rate of change.}
+  \label{fig:rate-of-change}
+\end{figure}
+% ── END VISUAL ──
+
+%=============================================================================
+\section{Basic Differentiation Rules}
+\label{sec:3.4}
+%=============================================================================
+
+\textit{Computing every derivative from the definition is slow and often messy.  The differentiation rules let us compute derivatives of common functions quickly.  Each rule must be proved from the definition, but once proved it can be reused without limit.}
+
+\textit{Here are the basic rules, presented first in a ``lazy'' form that suppresses hypotheses.  A precise statement of the product rule follows as an illustration of what the ``proper'' version looks like.}
+
+\begin{theorem}[Basic Differentiation Rules --- Summary]
+\label{thm:3-1}
+Let $f$ and $g$ be differentiable functions, and let $c$ be a real constant.
+\begin{enumerate}[label=(\roman*)]
+  \item \textbf{Constant rule.} $\dfrac{d}{dx}[c] = 0$.
+  \item \textbf{Power rule.} For every $c \in \R$, $\dfrac{d}{dx}\!\left[x^{c}\right] = c\,x^{c-1}$.
+  \item \textbf{Sum rule.} $(f + g)' = f' + g'$.
+  \item \textbf{Constant multiple rule.} $(c \cdot f)' = c \cdot f'$.
+  \item \textbf{Product rule.} $(f \cdot g)' = f'\,g + f\,g'$.
+  \item \textbf{Quotient rule.} $\left(\dfrac{f}{g}\right)' = \dfrac{f'\,g - f\,g'}{g^{2}}$, \quad provided $g \neq 0$.
+\end{enumerate}
+\end{theorem}
+
+\begin{theorem}[Product Rule --- Precise Statement]
+\label{thm:3-2}
+Let $a \in \R$, and let $f$ and $g$ be functions defined on an open interval containing $a$.  Define $h = f \cdot g$.  If $f$ and $g$ are both differentiable at $a$, then $h$ is also differentiable at $a$, and
+\[
+  h'(a) = f'(a)\,g(a) + f(a)\,g'(a).
+\]
+\end{theorem}
+
+\begin{remark}[Warning]
+The \textbf{if--then} structure matters.  The product rule requires both $f$ and $g$ to be differentiable individually.  If one or both are not differentiable, the formula does not apply, although the product may still have a derivative that must be computed by other means (e.g., the definition).
+\end{remark}
+
+\begin{example}
+\label{ex:3-3}
+Compute the derivative of $p(x) = 3x^{4} - 5x^{2} + 7x - 2$.
+
+A polynomial is a sum of terms, each a constant times a power.  By the sum and constant multiple rules,
+\begin{align*}
+  p'(x)
+  &= 3 \cdot 4x^{3} - 5 \cdot 2x + 7 \cdot 1 - 0 \\
+  &= 12x^{3} - 10x + 7.
+\end{align*}
+\end{example}
+
+\begin{example}
+\label{ex:3-4}
+Compute the derivative of $q(x) = \dfrac{x - 1}{x^{2} + x}$.
+
+By the quotient rule:
+\begin{align*}
+  q'(x)
+  &= \dfrac{(1)(x^{2} + x) - (x - 1)(2x + 1)}{(x^{2} + x)^{2}} \\
+  &= \dfrac{x^{2} + x - 2x^{2} - x + 2x + 1}{(x^{2} + x)^{2}} \\
+  &= \dfrac{-x^{2} + 2x + 1}{(x^{2} + x)^{2}}.
+\end{align*}
+\end{example}
+
+\begin{example}
+\label{ex:3-5}
+The power rule works for \textbf{all} real exponents, not only positive integers.
+\begin{enumerate}[label=(\roman*)]
+  \item Writing $\frac{1}{x^{3}} = x^{-3}$, we get $\dfrac{d}{dx}\!\left[x^{-3}\right] = -3x^{-4} = -\dfrac{3}{x^{4}}$.
+  \item Writing $\sqrt{x} = x^{1/2}$, we get $\dfrac{d}{dx}\!\left[x^{1/2}\right] = \dfrac{1}{2}\,x^{-1/2} = \dfrac{1}{2\sqrt{x}}$.
+\end{enumerate}
+\end{example}
+
+%=============================================================================
+\section{Differentiability and Continuity}
+\label{sec:3.5}
+%=============================================================================
+
+\textit{One of the first theoretical results about derivatives is that differentiability is a stronger condition than continuity: every differentiable function is continuous, but not conversely.  We first give an informal argument explaining why, and then a formal proof.}
+
+\begin{theorem}[Differentiability Implies Continuity]
+\label{thm:3-3}
+Let $c \in \R$, and let $f$ be a function defined on an open interval containing $c$.  If $f$ is differentiable at $c$, then $f$ is continuous at $c$.
+\end{theorem}
+
+\begin{remark}
+The converse is \textbf{false}.  There exist functions that are continuous at a point but not differentiable there.  See \cref{sec:3.9} for examples.
+\end{remark}
+
+\textit{Before the formal proof, here is an informal explanation.  Continuity means $\lim_{x \to c} f(x) = f(c)$, or equivalently $\lim_{x \to c}[f(x) - f(c)] = 0$.  When we try to compute $f'(c)$ from continuity alone, the defining limit $\frac{f(x)-f(c)}{x-c}$ gives the indeterminate form $\frac{0}{0}$, which may or may not exist.  But if $f$ is not even continuous at $c$, the numerator does not approach $0$ while the denominator does, and the limit can never exist.  So non-continuity forces non-differentiability.}
+
+\begin{proof}
+We show that $\lim_{x \to c}[f(x) - f(c)] = 0$.
+
+Multiply and divide by $x - c$:
+\begin{align*}
+  \lim_{x \to c}\bigl[f(x) - f(c)\bigr]
+  &= \lim_{x \to c}\left[\dfrac{f(x) - f(c)}{x - c} \cdot (x - c)\right] \\
+  &= \left(\lim_{x \to c} \dfrac{f(x) - f(c)}{x - c}\right) \cdot \left(\lim_{x \to c}(x - c)\right) \\
+  &= f'(c) \cdot 0 \\
+  &= 0.
+\end{align*}
+\proofref{Limit law for products; the first limit exists because $f$ is differentiable at $c$.}
+The product law for limits applies because both individual limits exist: the first is $f'(c)$ (by the hypothesis of differentiability), and the second is $0$.  We are \textbf{not} claiming that $0$ times ``anything'' is $0$; we are using the fact that $0$ times a \textbf{number} is $0$.
+
+Since $\lim_{x \to c}[f(x) - f(c)] = 0$, we conclude $\lim_{x \to c} f(x) = f(c)$, and $f$ is continuous at $c$.
+\end{proof}
+
+%=============================================================================
+\section{Proof of the Product Rule}
+\label{sec:3.6}
+%=============================================================================
+
+\textit{We now prove the product rule formally.  The key trick is to add and subtract a carefully chosen term in order to factor out the derivatives of $f$ and $g$ separately.}
+
+\begin{proof}[Proof of \cref{thm:3-2}]
+We compute $h'(a)$ from the definition.
+
+Write $h(x) = f(x)\,g(x)$, so
+\begin{align*}
+  h'(a)
+  &= \lim_{x \to a} \dfrac{h(x) - h(a)}{x - a} \\
+  &= \lim_{x \to a} \dfrac{f(x)\,g(x) - f(a)\,g(a)}{x - a}.
+\end{align*}
+Add and subtract $f(a)\,g(x)$ in the numerator:
+\begin{align*}
+  &= \lim_{x \to a} \dfrac{f(x)\,g(x) - f(a)\,g(x) + f(a)\,g(x) - f(a)\,g(a)}{x - a} \\
+  &= \lim_{x \to a} \left[\dfrac{f(x) - f(a)}{x - a}\cdot g(x) + f(a) \cdot \dfrac{g(x) - g(a)}{x - a}\right].
+\end{align*}
+Apply the limit laws (sum and product of limits):
+\begin{align*}
+  &= \left(\lim_{x \to a} \dfrac{f(x)-f(a)}{x-a}\right)\!\left(\lim_{x \to a} g(x)\right) + f(a)\!\left(\lim_{x \to a}\dfrac{g(x)-g(a)}{x-a}\right) \\
+  &= f'(a)\,g(a) + f(a)\,g'(a).
+\end{align*}
+\proofref{Limit laws; \ref{thm:3-3} (differentiability implies continuity)}
+Three individual limits were used.  The first is $f'(a)$, which exists by hypothesis.  The third is $g'(a)$, which exists by hypothesis.  The second is $\lim_{x \to a} g(x) = g(a)$; this holds because $g$ is differentiable at $a$, and differentiability implies continuity (\cref{thm:3-3}).
+\end{proof}
+
+%=============================================================================
+\section{Proof of the Power Rule}
+\label{sec:3.7}
+%=============================================================================
+
+\textit{The power rule states that $\frac{d}{dx}[x^{c}] = c\,x^{c-1}$ for every real number $c$.  A proof for all real exponents requires heavy machinery (in particular, logarithmic differentiation).  Here we present a proof for the case when $c$ is a positive integer, using induction.}
+
+\begin{theorem}[Power Rule for Positive Integers]
+\label{thm:3-4}
+For every positive integer $n$,
+\[
+  \dfrac{d}{dx}\!\left[x^{n}\right] = n\,x^{n-1}.
+\]
+\end{theorem}
+
+\begin{proof}
+We proceed by induction on $n$.
+
+\textbf{Base case} ($n = 1$).  Define $f(x) = x$.  By the definition of derivative,
+\begin{align*}
+  f'(x) &= \lim_{h \to 0} \dfrac{(x+h) - x}{h} = \lim_{h \to 0} \dfrac{h}{h} = \lim_{h \to 0} 1 = 1 = 1 \cdot x^{0}.
+\end{align*}
+So the formula holds when $n = 1$.
+
+\textbf{Induction step.}  Fix a positive integer $n$ and assume
+\[
+  \dfrac{d}{dx}\!\left[x^{n}\right] = n\,x^{n-1}.
+\]
+We must show the formula holds for $n + 1$.  Write $x^{n+1} = x^{n} \cdot x$ and apply the product rule:
+\begin{align*}
+  \dfrac{d}{dx}\!\left[x^{n+1}\right]
+  &= \dfrac{d}{dx}\!\left[x^{n}\right] \cdot x + x^{n} \cdot \dfrac{d}{dx}[x] \\
+  &= n\,x^{n-1} \cdot x + x^{n} \cdot 1 \\
+  &= n\,x^{n} + x^{n} \\
+  &= (n+1)\,x^{n}.
+\end{align*}
+\proofref{Product rule (\ref{thm:3-2}); induction hypothesis; base case}
+This is exactly the power-rule formula with exponent $n + 1$.  By induction, the formula holds for every positive integer $n$.
+\end{proof}
+
+%=============================================================================
+\section{Higher-Order Derivatives}
+\label{sec:3.8}
+%=============================================================================
+
+\textit{Since the derivative of a function is itself a function, we can differentiate again, and again, and so on.  There are two standard systems of notation for these repeated derivatives, and it is useful to be comfortable with both.}
+
+\begin{definition}[Higher-Order Derivatives --- Lagrange Notation]
+\label{def:3-6}
+Let $f$ be a function.  Its successive derivatives are denoted:
+\begin{enumerate}[label=(\roman*)]
+  \item $f'$ --- the first derivative (or simply the derivative),
+  \item $f''$ --- the second derivative,
+  \item $f'''$ --- the third derivative,
+  \item $f^{(n)}$ --- the $n$th derivative, for any positive integer $n$.
+\end{enumerate}
+Each is defined whenever the preceding derivative exists and is itself differentiable.
+\end{definition}
+
+\begin{remark}[Warning]
+The parentheses around $n$ in $f^{(n)}$ are essential.  Without them, $f^{n}$ is ambiguous: for trigonometric functions, $\sin^{2} x$ conventionally means $(\sin x)^{2}$; in other contexts, a superscript may denote iterated composition.  With the parentheses, $f^{(n)}$ unambiguously means the $n$th derivative.
+\end{remark}
+
+\begin{definition}[Higher-Order Derivatives --- Leibniz Notation]
+\label{def:3-7}
+If $y$ is a function of $x$, we write
+\[
+  \dfrac{dy}{dx},\quad \dfrac{d^{2}y}{dx^{2}},\quad \dfrac{d^{3}y}{dx^{3}},\quad \ldots,\quad \dfrac{d^{n}y}{dx^{n}}
+\]
+for the first, second, third, \ldots, $n$th derivatives of $y$ with respect to $x$.  Think of $\frac{d}{dx}$ as an \emph{operator}; $\frac{d^{n}y}{dx^{n}}$ means ``apply the operator $\frac{d}{dx}$ to $y$ a total of $n$ times.''
+\end{definition}
+
+\begin{remark}
+The placement of the exponents in $\frac{d^{n}y}{dx^{n}}$ is deliberate.  The $n$ in the numerator records the number of differentiations applied to $y$; the $n$ in the denominator records that all differentiations were with respect to $x$.  This notation also keeps track of physical dimensions.  For example, if $x$ is position measured in metres and $t$ is time in seconds, then velocity $\frac{dx}{dt}$ has units $\text{m}/\text{s}$ and acceleration $\frac{d^{2}x}{dt^{2}}$ has units $\text{m}/\text{s}^{2}$.
+\end{remark}
+
+\begin{example}
+\label{ex:3-6}
+Let $f(x) = x^{7}$.  Then
+\[
+  f'(x) = 7x^{6},\quad f''(x) = 42x^{5},\quad f'''(x) = 210x^{4},\quad \ldots,\quad f^{(7)}(x) = 7!,\quad f^{(8)}(x) = 0.
+\]
+After seven applications of the power rule, all powers of $x$ are exhausted and every subsequent derivative is $0$.
+\end{example}
+
+%=============================================================================
+\section{Non-Differentiable Functions}
+\label{sec:3.9}
+%=============================================================================
+
+\textit{We know from \cref{thm:3-3} that every differentiable function is continuous.  Any discontinuous function is therefore automatically non-differentiable.  More interesting are functions that are continuous yet still fail to be differentiable.  We examine two specific ways this can occur.}
+
+\textit{Recall: $f$ is not differentiable at $a$ when the limit $\lim_{x \to a}\frac{f(x)-f(a)}{x-a}$ does not exist.  Like any limit, it may fail to exist for various reasons.  We focus on two:}
+\begin{enumerate}[label=(\roman*)]
+  \item \textit{the two one-sided limits exist but are different (a \textbf{corner}), or}
+  \item \textit{the limit is $\pm\infty$ (a \textbf{vertical tangent line}).}
+\end{enumerate}
+
+\begin{definition}[Corner]
+\label{def:3-8}
+A function $f$ has a \emph{corner} at $x = a$ if $f$ is continuous at $a$, but the limit
+\[
+  \lim_{x \to a} \dfrac{f(x) - f(a)}{x - a}
+\]
+does not exist because the left-hand and right-hand limits are different (both finite).
+\end{definition}
+
+\begin{example}
+\label{ex:3-7}
+Let $f(x) = \abs{x}$.  We test differentiability at $0$:
+\[
+  \lim_{x \to 0} \dfrac{\abs{x} - 0}{x - 0} = \lim_{x \to 0} \dfrac{\abs{x}}{x}.
+\]
+\begin{align*}
+  \lim_{x \to 0^{+}} \dfrac{\abs{x}}{x} &= \lim_{x \to 0^{+}} \dfrac{x}{x} = 1, \\
+  \lim_{x \to 0^{-}} \dfrac{\abs{x}}{x} &= \lim_{x \to 0^{-}} \dfrac{-x}{x} = -1.
+\end{align*}
+Since the one-sided limits disagree, $f'(0)$ does not exist.  The graph has a corner at the origin: the slope from the right is $1$ and the slope from the left is $-1$.
+\end{example}
+
+% ── BEGIN VISUAL ──
+\begin{figure}[ht]
+  \centering
+  \input{ch03/figures/fig-cusp-abs.tex}
+  \caption{A corner: continuous but not differentiable at the cusp.}
+  \label{fig:cusp-abs}
+\end{figure}
+% ── END VISUAL ──
+
+\begin{definition}[Vertical Tangent Line]
+\label{def:3-9}
+A function $f$ has a \emph{vertical tangent line} at $x = a$ if $f$ is continuous at $a$ and
+\[
+  \lim_{x \to a} \dfrac{f(x) - f(a)}{x - a} = +\infty \quad\text{or}\quad -\infty.
+\]
+\end{definition}
+
+\begin{example}
+\label{ex:3-8}
+Let $g(x) = x^{1/3}$.  We check differentiability at $0$:
+\[
+  \lim_{x \to 0} \dfrac{x^{1/3} - 0}{x - 0} = \lim_{x \to 0} \dfrac{1}{x^{2/3}} = +\infty.
+\]
+The derivative at $0$ does not exist; the graph has a vertical tangent line at the origin.
+\end{example}
+
+\begin{remark}
+For $x \neq 0$, the power rule gives $g'(x) = \frac{1}{3}\,x^{-2/3}$, and one may verify that $\lim_{x \to 0} g'(x) = +\infty$ as well.  It is possible to prove (using L'H\^opital's rule) that if $\lim_{x \to a} f'(x) = \pm\infty$, then $\lim_{x \to a}\frac{f(x)-f(a)}{x-a} = \pm\infty$ also.  In practice, computing $\lim_{x \to a} f'(x)$ is often easier.
+\end{remark}
+
+\begin{remark}[Warning]
+A vertical tangent line is \textbf{not} the same as a vertical asymptote.  A vertical asymptote occurs when the function itself is undefined at a point and $\lim_{x \to a} f(x) = \pm\infty$.  A vertical tangent line occurs when $f$ is continuous at $a$ but the \emph{derivative} tends to $\pm\infty$.  Do not confuse the two.
+\end{remark}
+
+%=============================================================================
+\section{Chain Rule Examples}
+\label{sec:3.10}
+%=============================================================================
+
+\textit{The chain rule is the differentiation rule for compositions of functions.  Before stating it formally, we build intuition through examples.}
+
+\begin{example}
+\label{ex:3-9}
+Compute $\dfrac{d}{dx}\!\left[\sqrt{x^{3}+1}\right]$.
+
+The derivative of $\sqrt{x}$ is $\frac{1}{2\sqrt{x}}$.  By the chain rule, replace the argument $x$ with $x^{3}+1$, then multiply by the derivative of the inner function:
+\[
+  \dfrac{d}{dx}\!\left[\sqrt{x^{3}+1}\right]
+  = \dfrac{1}{2\sqrt{x^{3}+1}} \cdot 3x^{2}
+  = \dfrac{3x^{2}}{2\sqrt{x^{3}+1}}.
+\]
+\end{example}
+
+\begin{example}
+\label{ex:3-10}
+Compute $\dfrac{d}{dx}\!\left[\sin(6x)\right]$.
+
+The derivative of $\sin(x)$ is $\cos(x)$.  By the chain rule:
+\[
+  \dfrac{d}{dx}\!\left[\sin(6x)\right] = \cos(6x) \cdot 6 = 6\cos(6x).
+\]
+\end{example}
+
+\begin{example}
+\label{ex:3-11}
+Compute $\dfrac{d}{dx}\!\left[(x^{2}+1)^{100}\right]$.
+
+Rather than expanding the polynomial, apply the chain rule.  The derivative of $x^{100}$ is $100x^{99}$, so:
+\[
+  \dfrac{d}{dx}\!\left[(x^{2}+1)^{100}\right]
+  = 100(x^{2}+1)^{99} \cdot 2x
+  = 200x\,(x^{2}+1)^{99}.
+\]
+\end{example}
+
+\begin{remark}[Pause and Try]
+In each example, identify the ``outer'' and ``inner'' functions, take the derivative of the outer as if the inner were the variable, and then multiply by the derivative of the inner.  Practice this pattern on several compositions before moving on.
+\end{remark}
+
+%=============================================================================
+\section{Chain Rule Statement and Proof}
+\label{sec:3.11}
+%=============================================================================
+
+\textit{We now state the chain rule precisely, discuss the notation carefully, and attempt a proof.}
+
+\textit{Some students find calculations with specific functions easy but become confused when the chain rule is written for abstract functions $f$ and $g$.  The key is to be strict about distinguishing the \textbf{name} of a function (e.g., $f$) from its \textbf{value} at a point (e.g., $f(x)$).  The name of the composed function is $f \circ g$; its value at $x$ is $f(g(x))$.}
+
+\begin{theorem}[Chain Rule]
+\label{thm:3-5}
+Let $a \in \R$, and let $f$ and $g$ be functions such that $g$ is defined on an open interval containing $a$ and $f$ is defined on an open interval containing $g(a)$.  If $g$ is differentiable at $a$ and $f$ is differentiable at $g(a)$, then $f \circ g$ is differentiable at $a$ and
+\[
+  (f \circ g)'(a) = f'\!\bigl(g(a)\bigr) \cdot g'(a).
+\]
+\end{theorem}
+
+\begin{example}
+\label{ex:3-12}
+Revisiting $\sqrt{x^{3}+1}$: set $g(x) = x^{3}+1$ and $f(u) = \sqrt{u}$.  Then $f(g(x)) = \sqrt{x^{3}+1}$, and
+\[
+  (f \circ g)'(x) = f'\!\bigl(g(x)\bigr) \cdot g'(x) = \dfrac{1}{2\sqrt{x^{3}+1}} \cdot 3x^{2}.
+\]
+Here $f'(u) = \frac{1}{2\sqrt{u}}$, evaluated at $u = g(x) = x^{3}+1$, gives $f'(g(x)) = \frac{1}{2\sqrt{x^{3}+1}}$.
+\end{example}
+
+\textit{It is natural to try to prove the chain rule by writing the derivative from the definition and factoring in a suggestive way.  The following argument is instructive, despite a gap that prevents it from being fully rigorous.}
+
+\begin{proof}[Proof attempt]
+By the definition of derivative,
+\begin{align*}
+  (f \circ g)'(a)
+  &= \lim_{x \to a} \dfrac{f(g(x)) - f(g(a))}{x - a}.
+\end{align*}
+Multiply and divide by $g(x) - g(a)$:
+\begin{align*}
+  &= \lim_{x \to a} \dfrac{f(g(x)) - f(g(a))}{g(x) - g(a)} \cdot \dfrac{g(x) - g(a)}{x - a}.
+\end{align*}
+If both limits exist and the product law applies, the second factor tends to $g'(a)$.  For the first factor, setting $u = g(x)$, as $x \to a$ we have $u \to g(a)$ (since differentiability implies continuity), and the limit becomes $f'(g(a))$.
+\proofref{Limit laws; \ref{thm:3-3}}
+
+\textbf{Gap.}  In the second step we divided by $g(x) - g(a)$.  We know $x \neq a$, but $g(x)$ may equal $g(a)$ for values of $x$ arbitrarily close to $a$, causing division by zero.  For ``most'' functions encountered in practice this does not happen, but pathological examples exist.  A fully rigorous proof avoids this division entirely; such proofs typically use more sophisticated tools and are usually presented in a multivariable-calculus or analysis course.
+\end{proof}
+
+\begin{remark}
+In Leibniz notation, with $u = g(x)$ and $y = f(u)$, the chain rule reads
+\[
+  \dfrac{dy}{dx} = \dfrac{dy}{du} \cdot \dfrac{du}{dx}.
+\]
+This is suggestive---it looks as if we ``cancel the $du$\,''---but remember that $\frac{dy}{du}$ is not a fraction of numbers.  The notation is a convenient mnemonic, not a cancellation.
+\end{remark}
+
+%=============================================================================
+\section{Trigonometric Derivatives}
+\label{sec:3.12}
+%=============================================================================
+
+\textit{We derive the derivatives of the six trigonometric functions.  The strategy is to do the hard work only once---prove the derivative of $\sin$ from the definition---and then obtain the rest using algebraic identities, the chain rule, and the quotient rule.}
+
+\begin{theorem}[Derivatives of Trigonometric Functions]
+\label{thm:3-6}
+\begin{enumerate}[label=(\roman*)]
+  \item $\dfrac{d}{dx}[\sin x] = \cos x$. \qquad
+  \item $\dfrac{d}{dx}[\cos x] = -\sin x$.
+  \item $\dfrac{d}{dx}[\tan x] = \sec^{2} x$. \qquad
+  \item $\dfrac{d}{dx}[\cot x] = -\csc^{2} x$.
+  \item $\dfrac{d}{dx}[\sec x] = \sec x \tan x$. \qquad
+  \item $\dfrac{d}{dx}[\csc x] = -\csc x \cot x$.
+\end{enumerate}
+\end{theorem}
+
+\begin{remark}
+The derivatives of $\cos$, $\cot$, and $\csc$ are obtained from those of $\sin$, $\tan$, and $\sec$ by inserting a minus sign and swapping $\sin \leftrightarrow \cos$, $\tan \leftrightarrow \cot$, $\sec \leftrightarrow \csc$.  Memorise the first three; the other three can be re-derived in seconds.
+\end{remark}
+
+\textit{The proof strategy is as follows.  \textbf{Step 1:} Prove $\frac{d}{dx}[\sin x] = \cos x$ directly from the definition, using two previously established limits.  \textbf{Step 2:} Write $\cos x = \sin\!\left(\frac{\pi}{2} - x\right)$ and apply the chain rule.  \textbf{Step 3:} Express the remaining four functions as quotients of $\sin$ and $\cos$, and use the quotient rule.}
+
+\begin{proof}[Proof of \emph{(i)}]
+We compute $\frac{d}{dx}[\sin x]$ from the definition.
+
+By the angle-addition formula $\sin(x+h) = \sin x \cos h + \cos x \sin h$:
+\begin{align*}
+  \dfrac{d}{dx}[\sin x]
+  &= \lim_{h \to 0} \dfrac{\sin(x+h) - \sin x}{h} \\
+  &= \lim_{h \to 0} \dfrac{\sin x \cos h + \cos x \sin h - \sin x}{h} \\
+  &= \lim_{h \to 0} \left[\sin x \cdot \dfrac{\cos h - 1}{h} + \cos x \cdot \dfrac{\sin h}{h}\right].
+\end{align*}
+For the purpose of this limit, $x$ is fixed, so $\sin x$ and $\cos x$ are constants.  By the limit laws:
+\begin{align*}
+  &= \sin x \cdot \lim_{h \to 0} \dfrac{\cos h - 1}{h} + \cos x \cdot \lim_{h \to 0} \dfrac{\sin h}{h} \\
+  &= \sin x \cdot 0 + \cos x \cdot 1 \\
+  &= \cos x.
+\end{align*}
+\proofref{$\lim_{h \to 0}\frac{\sin h}{h}=1$ and $\lim_{h \to 0}\frac{\cos h - 1}{h}=0$ (proved by elementary geometry)}
+The two key limits, $\lim_{h \to 0}\frac{\sin h}{h} = 1$ and $\lim_{h \to 0}\frac{\cos h - 1}{h} = 0$, were established earlier using only geometry and trigonometry, with no reliance on derivatives.
+\end{proof}
+
+\begin{remark}[Pause and Try]
+Derive the formulas for $\frac{d}{dx}[\cos x]$, $\frac{d}{dx}[\tan x]$, and $\frac{d}{dx}[\sec x]$ using the chain rule and quotient rule.  These are quick exercises and worth doing at least once.
+\end{remark}
+
+\begin{remark}[Warning]
+It is tempting to compute $\lim_{h \to 0}\frac{\sin h}{h}$ using L'H\^opital's rule.  But L'H\^opital's rule requires knowing $\frac{d}{dx}[\sin x] = \cos x$, which in turn requires knowing that $\lim_{h \to 0}\frac{\sin h}{h} = 1$.  Using L'H\^opital's rule here is circular.  This limit must be established by elementary means first.
+\end{remark}
+
+%=============================================================================
+\section{Implicit Differentiation}
+\label{sec:3.13}
+%=============================================================================
+
+\textit{Implicit differentiation is not a new rule; it is a clever application of the chain rule.  When a relation between $x$ and $y$ is given implicitly---that is, not solved for $y$---we can still compute $\frac{dy}{dx}$ by differentiating both sides with respect to $x$, treating $y$ as an unknown function of $x$.}
+
+To build intuition, consider the equation of a circle: $x^2 + y^2 = 25$. We could solve for $y$ explicitly as $y = \pm\sqrt{25 - x^2}$ and differentiate using the chain rule. However, this requires handling the positive and negative cases separately and dealing with messy square roots.
+
+Instead, we can differentiate the original equation directly. The key is to remember that $y$ is a function of $x$. When we differentiate a term with $y$, we must apply the chain rule.
+
+\begin{example}
+\label{ex:3-13-simple}
+Find $\frac{dy}{dx}$ for the circle $x^2 + y^2 = 25$.
+
+Differentiate both sides with respect to $x$:
+\begin{align*}
+  \frac{d}{dx}[x^2 + y^2] &= \frac{d}{dx}[25] \\
+  2x + 2y \frac{dy}{dx} &= 0
+\end{align*}
+Notice the $2y \frac{dy}{dx}$ term: the derivative of the outside function $(\cdot)^2$ is $2y$, and we multiply by the derivative of the inside function $y$, which is $\frac{dy}{dx}$.
+
+Now, isolate $\frac{dy}{dx}$:
+\begin{align*}
+  2y \frac{dy}{dx} &= -2x \\
+  \frac{dy}{dx} &= -\frac{2x}{2y} = -\frac{x}{y}
+\end{align*}
+This gives us a formula for the slope at any point $(x, y)$ on the circle.
+\end{example}
+
+\subsection*{General Technique Outline}
+From this intuition, we can generalize the process of implicit differentiation into four concrete steps:
+\begin{enumerate}
+    \item \textbf{Differentiate both sides} of the equation with respect to $x$. Treat $y$ as a differentiable function of $x$, applying the chain rule whenever differentiating terms involving $y$.
+    \item \textbf{Collect all terms} containing $\frac{dy}{dx}$ on one side of the equation and move all other terms to the opposite side.
+    \item \textbf{Factor out} $\frac{dy}{dx}$ from the terms containing it.
+    \item \textbf{Solve for} $\frac{dy}{dx}$ by dividing both sides by the factored expression.
+\end{enumerate}
+
+Let's apply this to a more complex curve where solving for $y$ explicitly would be nearly impossible.
+
+\begin{example}
+\label{ex:3-13-complex}
+Find the slope of the tangent line to the curve
+\[
+  2x^3 + x^2y - xy^3 = 2
+\]
+at the point $(1, 1)$.
+
+\textbf{Step 1: Differentiate both sides with respect to $x$.}
+We differentiate each term carefully, using the product rule for $x^2y$ and $xy^3$. Writing $y'$ for $\frac{dy}{dx}$:
+\begin{itemize}
+    \item $\frac{d}{dx}[2x^3] = 6x^2$
+    \item $\frac{d}{dx}[x^2y] = 2xy + x^2 y'$ (Product rule: derivative of $x^2$ times $y$, plus $x^2$ times derivative of $y$)
+    \item $\frac{d}{dx}[-xy^3] = -y^3 - 3xy^2 y'$ (Product rule and chain rule)
+    \item $\frac{d}{dx}[2] = 0$
+\end{itemize}
+Putting it all together:
+\begin{align*}
+  6x^2 + 2xy + x^2 y' - y^3 - 3xy^2 y' &= 0
+\end{align*}
+
+\textbf{Step 2: Substitute the point $(1, 1)$ to find the slope.}
+Since we only need the slope at a specific point, we can substitute $x = 1$ and $y = 1$ immediately. This is often much easier than solving for $y'$ algebraically first.
+\begin{align*}
+  6(1)^2 + 2(1)(1) + (1)^2 y' - (1)^3 - 3(1)(1)^2 y' &= 0 \\
+  6 + 2 + y' - 1 - 3y' &= 0
+\end{align*}
+
+\textbf{Step 3 \& 4: Collect terms and solve for $y'$.}
+\begin{align*}
+  7 - 2y' &= 0 \\
+  2y' &= 7 \\
+  y' &= \frac{7}{2}
+\end{align*}
+The slope of the tangent line at $(1, 1)$ is $\frac{7}{2}$.
+\end{example}
+
+\begin{remark}
+Implicit differentiation is useful even when one \emph{could} solve for $y$ explicitly.  Keeping the equation implicit typically leads to simpler calculations.  The technique works because, near the point of interest, $y$ is locally a function of $x$ (by the implicit function theorem), and the chain rule applies to every occurrence of $y$.
+\end{remark}

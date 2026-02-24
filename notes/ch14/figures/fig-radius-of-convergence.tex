@@ -1,0 +1,29 @@
+\begin{tikzpicture}[x=1.2cm,y=1cm]
+  \draw[->] (-0.2,0) -- (8.4,0) node[right] {$x$};
+
+  % Center a and radius R
+  \def\a{4.0}
+  \def\R{2.2}
+  \def\L{1.8}
+  \def\U{6.2}
+
+  % Interval of convergence
+  \draw[very thick, color=thmcolor] (\L,0) -- (\U,0);
+  \fill[color=thmcolor] (\a,0) circle (2pt);
+  \node[above, color=thmcolor] at (\a,0) {$a$};
+
+  % Endpoints
+  \draw[thick, color=defcolor] (\L,0) circle (2pt);
+  \draw[thick, color=defcolor] (\U,0) circle (2pt);
+  \node[below, color=defcolor] at (\L,0) {$a-R$};
+  \node[below, color=defcolor] at (\U,0) {$a+R$};
+
+  % Labels
+  \node[above] at (\a,0.35) {converges for $|x-a|<R$};
+  \node[below] at (\a,-0.6) {endpoints require separate tests};
+
+  % Outside shading
+  \draw[thick, color=excolor] (-0.1,0.12) -- (\L,0.12);
+  \draw[thick, color=excolor] (\U,0.12) -- (8.2,0.12);
+  \node[color=excolor, anchor=west] at (\U+0.15,0.25) {diverges outside};
+\end{tikzpicture}

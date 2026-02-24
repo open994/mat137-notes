@@ -1,0 +1,27 @@
+\begin{tikzpicture}
+  \begin{axis}[
+    width=11cm,
+    height=6.8cm,
+    axis lines=middle,
+    xmin=-0.95, xmax=1.05,
+    ymin=-2.2, ymax=1.2,
+    xlabel={$x$}, ylabel={$y$},
+    ticks=none,
+    clip=true,
+    legend style={draw=none, at={(0.02,0.98)}, anchor=north west}
+  ]
+    % y = ln(1+x)
+    \addplot[thick, color=thmcolor, domain=-0.9:1.0, samples=400] {ln(1+x)};
+    \addlegendentry{$\ln(1+x)$}
+
+    % 3rd degree truncation: x - x^2/2 + x^3/3
+    \addplot[dashed, color=defcolor, domain=-0.9:1.0, samples=250] {x - x^2/2 + x^3/3};
+    \addlegendentry{$x-\frac{x^2}{2}+\frac{x^3}{3}$}
+
+    % 5th degree truncation
+    \addplot[thick, color=excolor, domain=-0.9:1.0, samples=250] {x - x^2/2 + x^3/3 - x^4/4 + x^5/5};
+    \addlegendentry{$\cdots -\frac{x^4}{4}+\frac{x^5}{5}$}
+
+    \node[anchor=west] at (axis cs:-0.9,1.05) {good approximation for $|x|<1$};
+  \end{axis}
+\end{tikzpicture}

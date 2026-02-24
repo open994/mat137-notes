@@ -1,0 +1,217 @@
+In this video, I will explain the
+geometric meaning of asymptotes,
+and the different types of asymptotes
+that the graph of a function may have.
+I'm going to begin with an idea.
+This will be a bit vague, it's just the
+idea of what an asymptote is.
+I have a line I'm calling L,
+and a curve I'm calling C in the plane.
+Perhaps the curve is the graph of a
+function (although this is more general).
+I want to say what it means to say that
+the line is an asymptote for the curve.
+This is going to mean
+that the line and the curve...
+...become arbitrarily close as we move
+away from the origin in one direction.
+To make this a bit more precise,
+arbitrarily close is going to mean...
+...that the distance between the line and
+the curve has limit 0 somehow.
+I could make that rigorous,
+but I want to leave it as is.
+And I notice: "as I move away from the
+origin in one direction."
+This only needs to
+happen in ONE direction.
+I like this idea, even
+though it's a bit vague,
+because it summarizes what
+all asymptotes are,
+and it works for all
+types of asymptotes.
+I don't have to give different
+explanations for horizontal, vertical,
+or slant.
+Let's look at some examples!
+I have the graph of a function
+in blue, and a line in red.
+And here,
+it is the case that when I move away from
+the origin horizontally to the right,
+the two become arbitrarily close.
+The distance between them has limit 0.
+The same thing happens here,
+even though the line is now vertical.
+It's still true that
+when I move upwards,
+the distance between the line
+and the curve has limit 0.
+(they become arbitrarily close)
+And the very same thing
+happens in this case,
+even though the line is now not
+horizontal or vertical, it's a slant.
+Notice that the graph of a function may
+have more than one asymptote.
+For example, this graph here
+has four asymptotes.
+It has one as x approaches to -∞,
+which is horizontal,
+a vertical asymptote
+as x approaches -1,
+another vertical asymptote
+as x approaches 1,
+and finally, a slant asymptote
+as x approaches ∞.
+And finally one more comment:
+if you learned about asymptotes in high
+school, perhaps you were taught,
+that an asymptote is a line that becomes
+closer and closer to the curve,
+but never touches it.
+That's not correct. The
+"never touches it" part is irrelevant.
+For example,
+here is a graph that has a horizontal
+asymptote and the two intersect.
+And here's another one where they not
+only intersect once,
+they intersect many many times.
+But it is still true that as I move
+towards the right,
+the graph and the line
+become arbitrarily close...
+...and the limit of the distance
+between them is 0 as x approaches ∞.
+Alright so we know what asymptotes are.
+Now, let's go through the three
+types one by one,
+to figure out how to calculate them.
+Let's begin with vertical asymptotes.
+Now I have a function f,
+and a vertical asymptote will
+have equation x = a constant,
+so let's call that constant "a".
+(For example, this red line here.)
+And I want to know what it means
+for the vertical line x = a,
+to be an asymptote for f.
+(that would mean for the graph of f)
+Well, according to our intuition that
+means that the limit as x approaches a,
+either on the left or on the right, of
+the function is either plus or minus ∞.
+Notice there are four conditions here,
+and I only need one of them.
+As long as one of them is satisfied,
+I do have a vertical asymptote.
+For example, if lim_(x → a⁺) f(x) is ∞,
+then the curve will look something like
+what this blue piece does,
+it approaches the vertical line
+and they become arbitrarily close.
+If instead the limit is -∞,
+I will get something like this.
+And if instead I have the limits on the
+left of a, the equivalent thing happens.
+And again, I only need ONE
+of those four things.
+For example, all these functions here
+have vertical asymptotes.
+I'm writing them here so you can see the
+variety of types of functions...
+...that will encounter
+vertical asymptotes.
+Sometimes we think of a vertical
+asymptote as the denominator is 0,
+but that's very restrictive.
+What's more general is:
+any point where the limit of the
+function is ±∞, no matter how.
+In the next video,
+I will work out one example in detail,
+on how to find all of
+the vertical asymptotes
+from the equation of the function.
+Now the second type of asymptotes
+are horizontal asymptotes.
+So like before,
+let's begin with a function.
+I'm going to look at it's graph
+and a real number L.
+Now I'm looking for
+a horizontal asymptote,
+so it will be something like this
+red line here: y = L (a constant).
+When will the function have
+an asymptote like this?
+Well, whenever the
+lim_(x → ±∞) f(x) = L.
+And again, I only need one or the other.
+(only ∞ or -∞)
+If I have both: okay, that works too!
+So for example, here is a graph of a
+function that has limit L at ∞,
+and yes, the graph and the line
+become arbitrarily close...
+...as I move towards the right.
+Again the same thing happens here,
+and the same thing happens here,
+and I could have the same types of
+examples as x approaches -∞.
+All of these equations describe functions
+that have horizontal asymptotes,
+sometimes at ∞,
+sometimes at -∞,
+sometimes both, and sometimes
+both but they are different.
+I present them here again to illustrate
+the variety of functions
+that will have horizontal asymptotes.
+In the next video,
+I will work out in detail
+how to find the horizontal asymptotes
+of one function, given the equation.
+And finally, the third type
+of asymptotes: slant asymptotes.
+That just means that they are neither
+horizontal nor vertical.
+So here's my set up:
+I have a function f,
+and a line that I'm going to describe as
+y = mx + b, where m and b are constants.
+Some people like to impose
+the condition that m ≠ 0,
+because otherwise it would be
+a horizontal line.
+I like to think
+that horizontal asymptotes,
+are a particular case
+of slant asymptotes.
+I want to say what it means that this
+line is an asymptote of f,
+(or the graph of f)
+and you've seen the idea that it means
+to become arbitrarily close.
+For the distance, which then goes to 0,
+I'm going to write this condition:
+[f(x) - (mx + b)].
+That's going to be the vertical distance
+between the two graphs,
+(the vertical distance)
+and I want this vertical distance to have
+limit 0 as x approaches ∞ or -∞.
+Like before, it is enough that just one
+of these two things is 0.
+There are,
+like for the other types,
+many different types of functions
+that have slant asymptotes.
+For example, these four functions
+all have a slant asymptote.
+In the next videos,
+I will work out some examples of how to
+compute the asymptotes,
+given the equation.

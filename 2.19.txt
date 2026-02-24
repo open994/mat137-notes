@@ -1,0 +1,169 @@
+In this video, 
+I will review some basic techniques
+for computing
+the limit of a function at a point.
+It will be a very quick summary;
+you won't become an expert
+just from watching it.
+You would need
+to do further practice yourself.
+But at least, if any
+of the things I mention is foreign,
+it suggests what to work on.
+First to try with a new limit:
+check whether the function is defined
+and continuous AT THE POINT.
+If it is, evaluate, and you are done!
+Here is an example:
+I want to compute this limit.
+The function is continuous on its domain.
+2 is in the domain.
+So to compute the limit,
+I evaluate at x = 2. And that's all
+If the function is NOT continuous,
+what do we do?
+Try doing some algebraic manipulations
+to convert the function
+into a continuous one.
+The manipulations
+only need to be valid NEAR the point,
+but NOT AT the point.
+So for example, it is okay
+to multiply and divide
+by something that is 0 AT the point,
+as long as it is not 0 NEAR the point.
+For example, a common
+and useful manipulation is FACTORING.
+I want to compute this limit.
+The function is continuous on its domain,
+but 2 is NOT in the domain.
+If I try to evaluate at 2, I get 0/0
+This tells me that I can factor x - 2
+in both the numerator and denominator.
+And now I can divide both by x - 2.
+The new function IS continuous at 2. 
+So I simply evaluate at x = 2.
+And that’s it!
+Here is a different type
+of algebraic manipulation.
+I want to compute this limit.
+This function is NOT defined at 0;
+if I try to evaluate at x = 0,
+I get 0/0.
+The numerator is giving me trouble
+because of the square root;
+I would like to get rid of it.
+And I can do that, if I can multiply
+the numerator and the denominator
+by the conjugate.
+Now in the numerator
+I have difference times sum,
+which is difference of squares.
+And that will get rid
+of the square root at the top.
+I can now simplify the numerator,
+then I divide both the numerator
+and denominator by x.
+And finally, the new function
+is defined and continuous at 0.
+To calculate the limit,
+I simply evaluate at x = 0.
+And that’s all!
+The third method
+is to try to transform the limit
+into a different one
+that you have already solved.
+I will illustrate what this means
+with an example.
+It is a very specific one,
+but it will clarify what I mean.
+I want to compute the limit
+as x approaches 0 of sin(2x)/x.
+This limit reminds me
+of another one that I know.
+I know that the limit
+as x approaches 0 of sin(x)/x is 1.
+It's almost the same,
+but I have 2x as the argument of sine.
+Well, what about the limit
+as x approaches 0 of sin(2x)/2x?
+If I think of 2x as the new variable,
+as x approaches 0, so does 2x.
+Then this limit is the same
+as the previous one!
+So the limit is also 1.
+Now, back to the original problem.
+Can I transform this limit
+into the one whose value I know?
+Yes, I can! Just multiply it
+and divide by 2.
+And now I notice here inside,
+the function whose limit is 1.
+So that the limit is 2 ⋅ 1, or simply 2.
+The same idea
+can be made more "interesting."
+I want to compute the limit
+as x approaches 0 of sin(2x) ÷ sin(3x).
+With the same argument
+as in the previous example,
+I can conclude that the limit
+as x approaches 0 of sin(ax)/ax is 1,
+for any non-zero constant a.
+So... in this limit,
+it would be quite convenient
+if I have 2x dividing sin(2x),
+and I had 3x dividing sin(3x).
+I can get those there
+if I multiply and divide
+by a bunch of terms.
+Look what happens now.
+The limit of THIS piece is 1.
+The limit of THIS piece is ALSO 1.
+And the limit of this piece is ALSO 1.
+So the full limit becomes 2/3.
+Here is one final example.
+Naturally, the most interesting limits
+may combine multiple methods.
+For example, I want to compute
+lim_(x → 0) (1 - cos(x)) ÷ (x^2).
+I CANNOT evaluate at x = 0.
+I do not see how to simplify
+this function just yet.
+It has a cosine,
+but the only trig limit I know
+has sine instead.
+The trick is to multiply and divide
+by the sort-of the conjugate;
+by 1 + cos(x).
+How does this help?
+Well, the numerator now becomes
+1 - (cos(x))^2,
+which is the same as SINE SQUARED.
+And there it is! 
+I found a SINE to group with the x.
+Here, I have the product
+of two functions.
+The first one I know has limit 1.
+And the second one 1 is well-defined
+and continuous at 0,
+so to compute the limit,
+I simply evaluate.
+And that is all.
+So, those are the main basic methods:
+check if the function is continuous;
+manipulate it algebraically;
+amd reduce to a problem
+we have already solved.
+Of course, there are always more methods.
+For example, the Squeeze Theorem
+is very useful for certain limits.
+And then, there are some advanced methods,
+but they require knowing other concepts.
+There is L'Hôpital's rule,
+which requires derivatives.
+And even better,
+we can use Taylor series',
+which is probably
+the most powerful method for limits,
+but it requires knowing
+about power series'.

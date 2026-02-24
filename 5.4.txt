@@ -1,0 +1,99 @@
+In this video, I will use an example to
+illustrate
+how to calculate the maximum and the
+minimum of a function using derivatives.
+Here is the example.
+I want to find the extrema, and perhaps
+also the local extrema,
+of the function f defined by
+f(x) = x^3 – 3x^2 – 9x + 35,
+on the closed interval from -4 to 4.
+I am going to reason in two steps.
+First: f is continuous on this interval, which
+includes both endpoints.
+I can use the Extreme Value Theorem
+to conclude that
+f must have a maximum and a minimum
+on this interval.
+I know some students like to skip this first
+step, but it is essential.
+Without it, everything else fails.
+Second: now that I know there is a maximum
+and a minimum,
+we know they may be at an ENDPOINT,
+or at an INTERIOR POINT.
+But if they are at interior points, they
+must also be LOCAL EXTREMA.
+Then, the Local Extreme Value Theorem
+tells me they must be critical points.
+So, I know there are extrema,
+and I know where to look for them.
+Here is my plan.
+This could work for any continuous
+function on a closed and bounded interval.
+Find all the endpoints and critical points.
+As a reminder, critical points are interior
+points where the derivative
+is zero or does not exist.
+Compare the function at these points.
+One of these points must be the maximum
+(the one with the largest value of f),
+and one of them must be the minimum
+(the one with the smallest value of f).
+That will be it.
+This bears repeating: the method only
+works for a continuous function
+on an interval including both endpoints.
+Otherwise, the function may not even have
+a maximum or a minimum,
+and if I use this method carelessly,
+I may get the wrong answer.
+Okay then!
+Let's perform the calculations for our
+example.
+Here is the function again.
+Finding the endpoints is easy.
+They are -4 and 4.
+As for the critical points, I need to find out
+when the derivative is zero.
+This is a polynomial, so the derivative
+always exists.
+The derivative:
+f'(x) = 3x^2 – 6x – 9.
+I can factor a 3...
+...and I can further factor this as 
+(x + 1)(x – 3).
+To factor, either guess and check, or 
+use the quadratic formula, as your prefer.
+So, the critical points are x = -1 and x = 3.
+That's it! Those are all the points I need.
+I have four candidate points.
+To figure out which one is the maximum
+and which one is the minimum,
+we evaluate f at them.
+These are the values.
+The largest value of f is 40,
+at x = -1.
+That must be the maximum.
+The smallest value of f is -41,
+at x = -4.
+That must be the minimum.
+We are done!
+But this tells us even more about
+the function.
+We can guess a sketch of f just from this.
+Here are the four interesting points
+in the graph of f.
+I know that between any two of them,
+there are no other critical points.
+So that will suggest what the graph
+with look like.
+Something like this...
+So, I am guessing that at x = -1,
+I also have a local maximum,
+and at x = 3 I have a local minimum.
+Strictly speaking, this final part was not
+very rigorous (yet),
+but geometrically it makes perfect sense.
+We will learn soon how to argue this
+more rigorously.

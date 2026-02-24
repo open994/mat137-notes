@@ -1,0 +1,25 @@
+\begin{tikzpicture}[x=1.2cm,y=1cm]
+  % A minimal number line illustration of interval endpoints
+  \draw[->] (-0.2,0) -- (5.2,0) node[right] {$x$};
+
+  % First interval: [a,b)
+  \def\a{1}
+  \def\b{3.4}
+  \draw[very thick, color=thmcolor] (\a,0.25) -- (\b,0.25);
+  \fill[color=thmcolor] (\a,0.25) circle (2pt);
+  \draw[thick, color=thmcolor] (\b,0.25) circle (2pt);
+  \node[above] at (2.2,0.25) {$[a,b)$};
+
+  % Second interval: (c,d]
+  \def\c{1.8}
+  \def\d{4.6}
+  \draw[very thick, color=defcolor] (\c,-0.25) -- (\d,-0.25);
+  \draw[thick, color=defcolor] (\c,-0.25) circle (2pt);
+  \fill[color=defcolor] (\d,-0.25) circle (2pt);
+  \node[below] at (3.2,-0.25) {$(c,d]$};
+
+  % Tick marks (generic)
+  \foreach \x in {1,2,3,4,5} {
+    \draw (\x,0.06) -- (\x,-0.06);
+  }
+\end{tikzpicture}

@@ -1,0 +1,265 @@
+In this video, I will
+explain the difference
+between absolute and
+conditional convergence,
+and I will present a theorem
+related to absolute convergence.
+As motivation, consider
+the following example.
+Is the sum of sin(n)/n^2
+a convergent series?
+This series is not positive.
+sin takes both positive
+and negative values,
+so I cannot use comparison tests.
+But it is also not
+an alternating series.
+The pattern of positive and
+negative values of sin
+is more complicated
+than purely alternating.
+Then...I'm out of ideas!
+What can I do?
+Would it help to first look
+at the same series
+but with absolute values?
+Maybe there is a relation
+between them.
+This second series is positive,
+so at least I can use
+comparison tests on it.
+But, will it help me answer
+the original question?
+More generally, I want
+to find out
+what the relation is between
+an arbitrary series,
+and the same series with
+absolute values?
+It would be great if we could
+reduce the problem
+of convergence of arbitrary
+series to ONLY positive series.
+There is a theorem that
+helps us with this,
+although only half of the time.
+This is called the
+Absolute Convergence Test.
+Given an arbitrary series,
+IF the same series with
+absolute values is convergent,
+THEN the original series
+is convergent as well.
+I am going to represent this
+in a little table.
+An arbitrary series may be
+convergent or divergent.
+The same series with
+absolute values,
+since it's a positive series,
+can only be convergent
+or infinity.
+A priori, this combines into
+four possible cases.
+The theorem says that one of
+these four cases is impossible.
+We cannot have a
+divergent series
+that becomes convergent
+with absolute values.
+I will postpone the proof
+until the next video.
+For now, I want to explain:
+how is this theorem useful?
+How do we use it in practice?
+Let's say we are studying
+an arbitrary series.
+We want to know
+if it is convergent.
+In general, the series won't be
+positive, negative or alternating,
+so we do not have many tools
+that we can use.
+We can first look at the same
+series with absolute values,
+and try to find out whether
+this one IS convergent.
+If the series with absolute values
+is convergent,
+then so is the original series.
+Problem solved!
+However, if it isn't,
+then we cannot draw
+any conclusions
+about the original series yet.
+We have to try something else.
+Let's illustrate this
+with some examples.
+As example #1, let's go back
+to the motivating question.
+Is the sum of sin(n)/n^2
+a convergent series?
+First, I will look at the same
+series with absolute values.
+It is a positive series, so
+I can use comparison tests.
+|sin(n)|/n^2 is bounded above
+by 1/n^2.
+And we know that the sum
+of 1/n^2 is convergent.
+By the basic comparison test,
+so is |sin(n)|/n^2.
+Great! This is the good case.
+The Absolute Convergence Test
+tells us the original series
+is also convergent.
+Done.
+Notice that I would not have 
+been able
+to use comparison tests directly
+on the original series.
+The comparison tests can only
+be used on positive series.
+For a second example, let's look
+at something a bit more complicated.
+For each positive integer n,
+I define the number p_n as
+1/n, if n is prime,
+and -1/n otherwise.
+I want to know:
+is the sum of p_n
+a convergent series?
+Think about it for a moment.
+This is similar to the
+harmonic series,
+but I have positive and
+negative terms.
+The patterns of which terms
+are positive
+and which terms are negative
+is a bit chaotic.
+To attack this problem, I do not
+have any other ideas,
+so first I can look at the same
+series with absolute values.
+In this case, that's easy.
+It is exactly the sum of 1/n.
+I recognize a harmonic series,
+and I know it is divergent.
+Unfortunately, this means the
+Absolute Convergence Test
+does not apply.
+I do not know YET whether
+the original series
+is convergent or divergent.
+It is definitely one or the other,
+but I will have to do more work
+to figure out which one.
+As I said earlier, I am postponing
+the proof until the next video.
+For the rest of this video,
+I want to introduce
+two new related concepts.
+Let's revisit our little table.
+There are two different cells
+in this table
+that correspond to
+convergent series.
+These two.
+Let's give them names.
+This is just a definition.
+A convergent series is called
+"absolutely convergent"
+when in addition, the same series
+with absolute vales is also convergent,
+and is called
+"conditionally convergent"
+when the same series with
+absolute values is divergent.
+These are just names for
+these two cases.
+Here are the names
+back in our table.
+These is one fourth case, but
+we do not need a new name for it.
+We simply call that case
+"divergent."
+Let's illustrate these
+two concepts
+with some quick examples.
+First, the alternating
+harmonic series:
+the sum of (-1)^{n+1}/n.
+This series is
+conditionally convergent.
+Why? The series itself
+is convergent,
+thanks to the Alternating
+Series Test,
+but if I remove the signs, making
+all terms positive,
+then it becomes the harmonic
+series, which I know to be divergent.
+It is a p-series with p = 1.
+By contrast, if I look at
+the same series
+with denominator n^2
+instead of n,
+then this new series is
+ABSOLUTELY convergent.
+Why?
+The series itself is
+still convergent,
+thanks to the Alternating
+Series Test,
+and the series without signs
+is also convergent.
+In this case it is a p-series
+with p = 2.
+Okay. All I have done so far is
+give a name to these two types
+of convergent series.
+Absolutely convergent,
+and conditionally convergent.
+That's all.
+I have not stated any
+new results.
+You may wonder:
+why do we bother
+distinguishing them?
+Aren't both types just
+"convergent?"
+Aren't they both equally good?
+After all, every convergent
+series represents
+a number, whether it is absolutely
+or conditionally convergent.
+Well...not quite.
+It turns out that absolutely
+convergent series are nice.
+In many ways, they behave
+just like finite sums.
+You can only do to them things that
+you'd like to do to series.
+There are some theorems
+that ONLY apply
+to absolutely convergent series.
+By contrast, conditionally
+convergent series are a TRAP.
+They look nice,
+but they are nasty.
+They have some pathological
+properties. For example...
+Conditionally convergent series
+are NOT commutative.
+This may come as a surprise.
+It goes against everything we
+know about finite sums.
+But that's a topic for
+another video.
+I will put a link in the description.
+For now, simply remember
+that absolutely convergent
+series are nice,
+and conditionally convergent
+series are treacherous.

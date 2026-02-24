@@ -1,0 +1,231 @@
+In this video, I will use examples
+to explain the various pieces of notation
+we use in mathematics
+to talk about conditional statements,
+their precise meaning,
+and what conclusions we can
+or cannot draw
+when we find a conditional.
+A conditional statement
+is something that has the word "if."
+And in mathematics,
+we often write it as "if P, then Q,"
+where P and Q
+are statements themselves.
+Sometimes, we abbreviate it
+with this symbol, this double arrow.
+And this double arrow
+is read, "implies."
+So these three lines,
+they all mean the same thing;
+they are entirely equivalent.
+What does a conditional statement mean?
+When I have "if P, then Q,"
+that means that whenever P is true,
+Q must be true as well.
+And that's it.
+That is ALL it means,
+nothing more.
+So to be very precise I'm going
+to spell out that in particular,
+we're saying NOTHING whenever P is false;
+whenever P is false, we don't care.
+So let me write
+a very basic example to show
+that this is ACTUALLY what this means,
+and nothing more.
+This is a statement about real numbers,
+and I'm saying
+that IF x is greater than 10,
+THEN x must be greater than 6.
+And I hope you agree;
+this is clearly true.
+But let's look
+at a few specific values of x.
+Let's look at x = 12.
+In this case, the "IF" part is true,
+and the "THEN" part is also true.
+When x = 8, x is NOT greater than 10;
+the "IF" part is false,
+but the "THEN" part is still true.
+When x = 3, they're BOTH false.
+Okay. So this example
+illustrates all the possible cases.
+As I said earlier,
+"if P, then Q" means
+that whenever P is true,
+Q must be true as well.
+And whenever P is false,
+we don't care; it can be anything.
+To test that that is clear,
+here is a little exercise for you.
+I have a subset of the real numbers
+which I am calling A,
+and assume we know
+it is true for this set
+that if x is an element of A,
+then x must be positive.
+What can I conclude
+in each one of these 3 cases
+about a real number x?
+Pause the video for just 15 seconds,
+think about it,
+and then continue watching.
+So we know that if x is in A,
+then x must be positive.
+If x is not in A, can I
+conclude something about x?
+Not at all;
+it's exactly what we said before.
+The "IF" part is false,
+so I know nothing else.
+What about if x is positive?
+Can I conclude something about x?
+Not really.
+PERHAPS x is positive because x is in A,
+but perhaps x is not in A and
+then x is still allowed to be positive.
+So in the second case also,
+we have no conclusion.
+But what if x is NOT positive?
+Ah! In this case, I CAN conclude
+that x is NOT an element of A.
+And why is that?
+Because if x were an element of A,
+it would be forced to be positive.
+So in order to be less than
+or equal to 0,
+it must be OUTSIDE of A.
+And this is actually
+a very general result:
+Whenever you have an implication
+like "P implies Q,"
+you get, for free, another implication
+which is "not Q implies not P".
+"P implies Q"
+and "not Q implies not P,"
+this one and this one, 
+mean EXACTLY the same thing.
+Be careful: when you have "P implies Q,"
+you CANNOT conclude
+that not P implies not Q.
+But you can ALWAYS conclude
+that not Q implies not P.
+This comes in handy.
+Great! We now understand
+the basic notation for conditionals.
+I need to introduce
+a second piece of notation
+that is related, but different.
+Let's look at this new example.
+Now I'm looking at integer numbers.
+Let's compare these two statements:
+n is even, and n is a multiple of 4.
+If n is even, can I conclude
+that n is a multiple of 4?
+No, for example n = 6 is even,
+but it's not a multiple of 4.
+On the other hand,
+if n is a multiple of 4,
+THEN I can conclude n is even.
+So IF this, THEN this.
+And I can write it
+with the implication
+arrow going backwards.
+The pointy end towards the conclusion.
+Next, let's compare these two statements:
+n is even and n + 1 is odd.
+If n is even,
+then certainly, n + 1 is odd.
+But now, I can also go backwards;
+if n + 1 is odd,
+then n must be even as well.
+So I can say both implications
+so why not write them together?
+And the standard notation
+is to use the double arrow,
+but make BOTH ends pointy.
+This symbol here
+is called "if and only if,"
+and when written,
+it is often abbreviated
+as if with a double F ("iff").
+But spoken, it's always "if and only if."
+And it matters
+that we are able
+to distinguish between a plain "if,"
+and an "if and only if."
+So, to spell it out,
+when I write "P if and only if Q,"
+what I'm actually saying
+is that two things are true:
+"if P then Q," and "if Q then P."
+Another way to say this
+is that P and Q are EQUIVALENT.
+And finally,
+to spell it out in all possible ways,
+what we are really saying
+is that P and Q must BOTH be true,
+or P and Q must BOTH be false.
+All these lines
+mean exactly the same thing.
+In casual English,
+when we are not doing math,
+we are, well, quite casual
+with the word "if".
+Sometimes when we say "if,"
+we mean "if";
+but other times,
+we actually mean "if and only if."
+We CAN'T have that in math.
+In math, words must have very precise,
+unambiguous meanings,
+and that's why we now have the two terms:
+"if" on the one hand,
+"if and only if" on the other,
+and we have symbols for both of them.
+To conclude this video,
+I have one more little test,
+and this one is going to be a bit
+counterintuitive.
+Here is an exercise:
+is this true or false?
+If 0 is greater than 1,
+then this number is prime.
+Pause the video for 10 seconds,
+decide what you think,
+and then continue watching.
+Let's look at the two parts separately.
+Well this is the easier one, right?
+Zero greater than one?
+Mhmm, we know that's false.
+But what about the one on the right?
+Is this number a prime?
+To be honest, I don't know.
+It's odd, so that's a good start,
+but I can't quite tell at first glance;
+I don't know if it's a prime or not.
+So what about the whole implication?
+Is it true or false?
+It turns out, I don't need to know
+whether that number is a prime
+to conclude
+that the FULL statement must be true.
+And why is that?
+Well, remember 
+that "the implication being true" means:
+if the "IF" part is true,
+then the "THEN" part must be true as well;
+But if the "IF" part is false, 
+the "THEN" part can be anything - we don't care!
+Whether this number is a prime or not,
+the "IF" part is FALSE.
+And, therefore, the WHOLE implication is TRUE.
+I can conclude that without knowing
+whether this number is a prime or not.
+Perhaps this is a bit counterintuitive,
+but if you fully understand these examples,
+and you are comfortable with them,
+then congratulations!
+You now understand how we use
+conditional statements in mathematics.

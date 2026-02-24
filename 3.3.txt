@@ -1,0 +1,161 @@
+In the previous video,
+I defined derivative and I explained how
+to interpret it as slope.
+I assume you have watched that one first.
+It is linked in the description.
+In this video, I will explain how to
+interpret derivative as rate of change.
+I will begin with an example of rate of
+change that appears in our daily life:
+velocity.
+Everybody uses velocity, or speed.
+Let's say I am driving my car on the
+highway.
+Right now, my velocity is 180km/h.
+What does this mean?
+If we asked a random person,
+they would probably claim they understand
+this statement.
+So we should be able to explain it easily,
+right? Let's try.
+A naive explanation could be, in the next
+hour I will drive 180km.
+But this is not true.
+Knowing my velocity right now, by itself,
+does not tell me much about what happens
+one hour from now.
+Instead, perhaps I could say that if I
+continue driving at the same velocity,
+in the next hour I will drive 180km.
+Yes, this could be true.
+But it is cheating!
+I cannot use the word "velocity" to
+explain what velocity means.
+If I already know what "continue driving
+at the same velocity" means,
+then there is little to explain.
+Let's take a different approach.
+I know that in the next hour, my velocity
+is likely to change.
+So instead of an hour, let's take a
+smaller time interval.
+In the next minute, I expect I will drive
+about 180km divided by 60, which is 3km.
+This is still not necessarily true,
+but it is better than my first attempt.
+It is at least more likely to be true.
+And now I see what to do.
+Let's take an even smaller time interval.
+In the next second, I expect I will drive
+3 km divided by 60, which is 50m.
+This is still not exactly true,
+but it is a pretty good approximation.
+It is very close to being true.
+And in the next millisecond,
+I expect I will drive 50mm.
+This is even better.
+While it still only an approximation,
+for all practical purposes,
+I can pretend it is true.
+I think I have a good explanation now.
+If I take a very small time interval,
+call it Δt,
+then in this time interval,
+starting right now,
+I will drive approximately 180km/h · Δt.
+This is an approximation,
+and it is a better approximation
+the smaller the time interval is.
+That is my explanation of what it means
+that my velocity right now is 180km/h.
+Notice that this explanation
+smells of limit.
+Yes, there is a limit hidden behind it.
+I have been making an effort to avoid the
+word limit, but no more.
+It is impossible to properly define
+velocity without using limits.
+Let's define it then.
+There are two concepts: average velocity
+and instantaneous velocity.
+Let's call the time t, and the position x.
+The average velocity between two
+instances, t1 and t2, is easy.
+It requires no limits.
+It is the distance traveled, Δx,
+divided by the time interval, Δt.
+On the other hand, the instantaneous
+velocity at t1
+is the limit, as t2 approaches t1,
+of the average velocity between t1 and t2.
+Taking the limit as t2 approaches t1
+is the same as taking the limit as the
+time interval Δt approaches 0.
+And that's the definition.
+We often denote this as dx/dt.
+But careful - this notation does not mean
+that I am dividing a number dx by
+a number dt.
+dx and dt are not numbers.
+Rather, the notation just means
+what I wrote.
+I divided Δx over Δt
+and then I took a limit.
+When we write it this way, we call it
+the derivative of x with respect to t.
+In this example, I described velocity
+as a rate of change of position
+with respect to time.
+But more generally, I can do the same
+thing with any two phyical quantities
+if one depends on the other.
+If Q and x are physical quantities,
+and Q depends on x,
+I can define the average rate of change
+as the change in Q divided by
+the change in x.
+And I can define the instantaneous rate
+of change as
+the limit of the average rate of change
+as the change in x approaches 0.
+We will also call this the derviative
+of Q with respect to x.
+Okay then. So far, there are two
+different things I have called derivative.
+In this video, I have defined dx/dt,
+which is best understood as the derivative
+of a physical quantity with respect to
+another physical quantity.
+In a previous video I defined f',
+the derivative of an abstract function f.
+These are not seperate ideas.
+These two concepts are entirely the same.
+Let's see why.
+Let's go back to the situation where
+t represents time, x represents position,
+and x is a function of time.
+But now, let's give a name to this
+function and call it f. So x is f(t).
+Then, the derivative of x with respect
+to t, is, as before,
+the limit of distance traveled over time
+interval,
+as the time interval approaches 0.
+I can write the time interval as t2 - t1,
+and then limit as Δt approaches 0
+is the same as limit as t2 approaches t1.
+And the distance traveled is the position
+at t2, f(t2),
+minus the position at t1, f(t1).
+But this is exactly what we called f'(t1)
+in the previous video.
+In conclusion, all these ways of thinking
+of derivative,
+as slope, as instantaneous rate of change,
+as instantaneous velocity,
+with a definition for an abstract
+function f,
+they are the same. And they all require
+using limits.
+There is no way to define derivative
+without a limit.

@@ -1,0 +1,385 @@
+In a previous video,
+I explained the ideas involved
+in the definition of integral.
+It's linked in the
+description.
+Watch it first, if you have
+not done so yet.
+Otherwise, what follows
+won't make much sense.
+In this video, I will
+take those ideas
+and convert them into a
+formal, rigorous definition.
+Throughout the video, I will
+be looking at a function f,
+defined on an interval [a, b].
+I will assume the function
+is bounded.
+ONLY bounded.
+I do not need it to be continuous
+or anything else.
+I want to be able to
+study the integral
+of many different
+types of functions.
+First, I will quickly summarize
+the ideas we learned
+in the previous video.
+Here is the graph of
+the function f.
+For now, I am picturing it
+as positive.
+I want to define its
+integral to represent
+the area of the shaded region.
+To compute the area,
+our plan was:
+first, cut the region
+into slices.
+Then, under-estimate the
+area of each slice
+by a rectangle below,
+pictured in red,
+and over-estimate it by a rectangle
+above, pictured in green.
+This is an approximation, that
+produces an error,
+but if instead of
+just a few slices,
+I take a lot of very thin slices,
+then it gets better and better!
+And I have to take some kind of limit
+or something in the end?
+I will soon be
+much more precise.
+Alright. That's the idea.
+Now, to formalize it.
+STEP ONE:
+Cut the region into slices.
+I will divide the interval
+into sub-intervals,
+and then use those sub-intervals
+to cut the region into slices.
+Here is a new definition.
+A PARTITION of the interval [a, b]
+is a set P that is finite,
+that is contained
+on the interval,
+and that contains
+both endpoints.
+In other words,
+P consists of the endpoints
+of the interval,
+plus a few other points
+from the interval.
+For example, the set
+{0, 0.2, 0.5, 0.9, 1}
+is a partition of the interval [0, 1].
+It is not the only one.
+Here are three other partitions.
+How does this help me?
+Every partition gives me a way
+to split the interval into sub-intervals.
+I can use those sub-intervals
+to cut the region into slices.
+I will use a convention
+to simplify notation.
+Every time I write a partition P
+as a set {x_0, x_1, x_2, ..., x_n},
+I am going to assume that
+the points are already in order.
+This is for simplicity.
+I do not want to have
+to write this every time.
+Great! Now we have the language
+we need to describe how to
+cut the region
+into slices.
+For example, if this is the region
+whose area I want to compute,
+and I take this partition of
+the interval [a, b],
+Then I can cut the region
+into slices.
+Four slices, in this case.
+Let's move onto
+the SECOND STEP:
+I want to under- and over-estimate
+the area of the region with rectangles.
+For example,
+with this partition,
+I have four slices.
+I want to under-estimate the
+area with these four rectangles.
+What is the area of
+the four rectangles?
+Let's start with the first one.
+I will denote the height
+of the first rectangle by m_1.
+m_1 is the infimum
+of the function f
+on the first sub-interval,
+from x_0 to x_1.
+I may be tempted to say m_1 is
+the minimum of the function,
+but remember that not every
+function has a minimum!
+On the other hand,
+the function f
+IS guaranteed to
+have an infimum,
+whether it has a
+minimum or not.
+We are assuming f
+to be bounded,
+so it is bounded
+on every sub-interval,
+so it has a supremum and
+infimum on every sub-interval.
+Great!
+So the area of the
+first rectangle is
+the HEIGHT (m_1) times
+the WIDTH (x_1 – x_0).
+Now, to the second rectangle.
+The height is now different: m_2,
+which is the infimum of f
+on the second sub-interval.
+The area is still
+height times width.
+In the same manner, I
+can add the area
+of the third rectangle,
+and the fourth...
+It is convenient to rewrite
+this sum more compactly,
+using sigma notation.
+The area of the
+red rectangles
+is the sum from i = 1 to 4
+(In this case it is 4, in general
+the number of rectangles will vary.)
+of m_i (x_i – x_{i–1}).
+That was the area of
+the four red rectangles,
+as an under-estimation.
+We can do the same thing
+with the four green rectangles,
+as an over-estimation.
+The only difference is that the
+height of each rectangle
+will be the SUPREMUM,
+rather than the infimum,
+of the function f on the
+corresponding sub-interval.
+This leads us to
+a new definition.
+Given a bounded function f
+on an interval,
+and a partition P
+of the interval...
+Let's introduce some notation.
+On each sub-interval,
+I am calling m_i
+the infimum of the function,
+and M_i the supremum
+of the function.
+Finally, it is customary to
+write delta x_i
+for the width of
+the sub-interval.
+With this notation, I define
+the P-lower sum of f
+as THIS sum in red,
+and the P-upper sum of f
+as THIS sum in green.
+These are just numbers, but
+it is important to remember
+their geometric meaning.
+They represent the under-
+and over-estimates
+for the area that comes from
+the red and green rectangles.
+Great! We are ready
+for the final step.
+STEP 3:
+This is the hard one.
+How do I define integral
+out of all of this?
+What I know so far is that
+the integral must be a number,
+and it must be between
+all the lower sums
+and all the upper sums.
+Let's draw a picture.
+This is the real line.
+I choose one partition and
+compute its lower sum;
+it is a number.
+Then I choose another partition
+and I get another lower sum.
+And another, and another,
+and so on, until I get
+all possible lower sums.
+Similarly, I could compute
+all possible upper sums.
+The way I drew this picture, I am
+making an implicit assumption:
+that EVERY lower lower sum
+is smaller than or equal to
+EVERY upper sum.
+This makes sense geometrically,
+and it turns out to be true.
+But it is a bit subtle,
+and it needs to be proven.
+I am calling it a lemma.
+I will postpone the proof
+to the next video.
+For now, let's see what I can
+do with this assumption.
+Let's focus on the lower sums.
+Out of all of them, how do
+I define the integral?
+Notice that every lower sum
+is an under-estimate.
+But, if I take better partitions,
+the lower sums get bigger.
+Similarly, better partitions will
+give me smaller upper sums.
+...then what?
+Better partitions give me
+larger lower sums,
+and the larger lower sums
+get closer and closer
+to the area I want
+to calculate.
+Or, so it seems
+from the picture.
+This suggests I should
+take some kind of limit.
+But what limit exactly?
+The limit as the partitions
+approach something?
+Partitions are not numbers,
+so this is not a limit
+in the sense we are used to.
+There IS a way to
+interpret this as a limit,
+and I will explain it
+in a later video.
+But there is also a
+simpler, more elegant solution.
+I am going to define
+two integrals.
+One from the lower sums,
+and one from the upper sums.
+I define the lower integral
+of f from a to b,
+and I denote it with
+these symbols:
+I^b_a-with-a-line-under-it of f,
+as the supremum of
+the lower sums of f.
+Each lower sum
+is a number.
+All the lower sums together
+form a set of numbers,
+and I take the supremum
+of that set.
+It may be tempting to
+think it is the maximum,
+the largest of all
+the lower sums,
+but beware! Most of the time
+there ISN'T a maximum.
+There is a supremum, however.
+The set of lower sums is
+non-empty and bounded above.
+(Can you justify why
+as an exercise?)
+Therefore, it must
+have a supremum.
+Alternatively, I can use
+the upper sums.
+I define the upper integral
+of f from a to b,
+and I will write it using
+the same symbols,
+but with a line over
+instead of under it,
+as the INFIMUM of all
+the upper sums of f.
+Now I have two
+definitions of integral.
+Which one do I choose?
+Since every lower sum is
+less than or equal to
+every upper sum,
+I can conclude that the
+lower integral is
+less than or equal to
+the upper integral.
+And now, I have
+two cases.
+The good case is when
+they are equal.
+In that case, I say that
+f is "integrable" on [a, b],
+and I define the integral
+to be the common value.
+The bad case is when
+they are different.
+Then, I say that f is
+"non-integrable" on [a, b],
+and the integral
+is undefined.
+You may wonder how
+these two numbers
+could possibly be different.
+I will given an example
+in a later video.
+Finally, there is one
+very important theorem.
+Every continuous function
+on the closed interval [a, b]
+is integrable.
+In other words, this process
+is GUARANTEED to work
+for all continuous functions,
+and it always produces one
+single value for the integral.
+If the function is not continuous,
+then it may or may not
+be integrable.
+I'm not going to write
+a proof for this theorem.
+It is quite technical.
+You will likely learn the proof
+of it if you take an analysis course.
+Okay! I got to the definition.
+That was the goal.
+There is much more I would
+like to comment on,
+but this video is already
+long enough as it is,
+so I will stop here.
+Before finishing, here is
+my plan for the next videos.
+I need to prove the
+lemma I skipped.
+Doing that proof, I will make
+the meaning of
+"better partitions" more precise.
+I want to present
+examples of both
+integrable and non-integrable
+functions, from the definition,
+I will explain an alternative way
+to understand integrals as limits.
+And finally, for some functions,
+there is just a different way
+to interpret integrals,
+using so-called "Riemann sums."
+That is a lot!
+See you in the next video.

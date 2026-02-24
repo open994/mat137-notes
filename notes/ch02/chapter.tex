@@ -1,0 +1,1047 @@
+\chapter{Limits and Continuity}
+
+%=============================================================================
+\section{Intuitive Idea of Limits}
+\label{sec:2.1}
+%=============================================================================
+
+\textit{We begin not with a rigorous definition, but with examples---hand-wavy, heuristic---just to gain some intuition about what the concept of ``limit'' means.  Once we are comfortable with the idea, we will introduce the formal, rigorous definition in a later section.}
+
+\begin{example}
+\label{ex:2-1}
+Consider the function $f$ defined by
+\[
+  f(x) = \dfrac{x^{2} - 1}{x - 1}.
+\]
+The domain is all of $\R$ except $1$; the value $f(1)$ is undefined.  We may factor the numerator and cancel:
+\[
+  \dfrac{x^{2} - 1}{x - 1} = \dfrac{(x-1)(x+1)}{x-1} = x + 1, \qquad x \neq 1.
+\]
+Call $g(x) = x + 1$.  Then $f$ and $g$ agree everywhere except at $1$: $g(1) = 2$, while $f(1)$ is undefined.  The graph of $f$ is the line $y = x + 1$ with a \textbf{hole} at the point $(1, 2)$.
+
+Looking at the graph, all the values of $f(x)$ for $x$ close to $1$ suggest that $f(1)$ ``should be'' $2$.  We say that the \emph{limit} of $f(x)$ as $x$ approaches $1$ is $2$, and write
+\[
+  \lim_{x \to 1} f(x) = 2.
+\]
+\end{example}
+
+\begin{example}
+\label{ex:2-2}
+Consider the function
+\[
+  f(x) = \dfrac{1 - \sqrt{1 + x}}{x},
+\]
+defined for $x \geq -1$, $x \neq 0$.  A table of values suggests that as $x$ approaches $0$, $f(x)$ approaches $-\frac{1}{2}$.  We can verify this algebraically by multiplying numerator and denominator by the conjugate $1 + \sqrt{1+x}$:
+\[
+  \dfrac{1 - \sqrt{1+x}}{x} \cdot \dfrac{1 + \sqrt{1+x}}{1 + \sqrt{1+x}}
+  = \dfrac{1 - (1+x)}{x\!\left(1 + \sqrt{1+x}\right)}
+  = \dfrac{-1}{1 + \sqrt{1+x}}, \qquad x \neq 0.
+\]
+The simplified function equals $-\frac{1}{2}$ at $x = 0$, confirming $\lim_{x \to 0} f(x) = -\frac{1}{2}$.
+\end{example}
+
+\textit{In both examples, the rough idea is the same.  We summarise it informally as follows.}
+
+\begin{remark}
+The statement ``$\lim_{x \to a} f(x) = L$'' means, roughly, that if $x$ is very close to $a$ but \textbf{not} equal to $a$, then $f(x)$ is very close to $L$.  This is \textbf{not} a definition; the formal definition will come in \cref{sec:2.5}.
+\end{remark}
+
+%=============================================================================
+\section{Limits That Do Not Exist}
+\label{sec:2.2}
+%=============================================================================
+
+\textit{Not every function has a limit at every point.  In this section we examine two ways a limit can fail to exist, and introduce the notation $\lim_{x \to a} f(x) = \infty$.}
+
+\begin{example}
+\label{ex:2-3}
+Let $h(x) = \sin\!\left(\dfrac{\pi}{2x}\right)$.  The value $h(0)$ is undefined.  Evaluating at $x = 1, \frac{1}{2}, \frac{1}{3}, \frac{1}{4}, \ldots$ gives
+\[
+  h(1) = 1,\quad h\!\left(\tfrac{1}{2}\right) = 0,\quad h\!\left(\tfrac{1}{3}\right) = -1,\quad h\!\left(\tfrac{1}{4}\right) = 0,\quad h\!\left(\tfrac{1}{5}\right) = 1,\quad \ldots
+\]
+As $x$ approaches $0$, the function oscillates between $-1$ and $1$ without settling near any single number.  Therefore $\lim_{x \to 0} h(x)$ \textbf{does not exist} (DNE).
+\end{example}
+
+\begin{remark}
+For a limit to exist, the function must approach \textbf{one single number}.  Oscillation between two or more values prevents this.
+\end{remark}
+
+\begin{example}
+\label{ex:2-4}
+Let $F(x) = \dfrac{1}{(x-1)^{2}}$.  Then $F(1)$ is undefined.  When $x$ is close to $1$, $(x-1)^{2}$ is close to $0$ but positive, so $F(x)$ grows arbitrarily large.  We write
+\[
+  \lim_{x \to 1} F(x) = \infty.
+\]
+\end{example}
+
+\begin{remark}[Warning]
+The notation $\lim_{x \to a} f(x) = \infty$ does \textbf{not} mean the limit exists.  It means the limit does not exist \textbf{in a specific way}: $f(x)$ fails to approach any single real number because it grows without bound.  Infinity is \textbf{not} a real number.
+\end{remark}
+
+%=============================================================================
+\section{One-Sided Limits}
+\label{sec:2.3}
+%=============================================================================
+
+\textit{Sometimes a function approaches different values depending on the direction from which we approach a point.  This leads to the notion of side limits.}
+
+\begin{example}
+\label{ex:2-5}
+Let $G(x) = \dfrac{x^{2} + x}{\abs{x}}$.  Then $G(0)$ is undefined.  Breaking into cases:
+\[
+  G(x) =
+  \begin{cases}
+    x + 1 & \text{if } x > 0, \\
+    -x - 1 & \text{if } x < 0.
+  \end{cases}
+\]
+When $x$ is close to $0$ and positive, $G(x)$ is close to $1$.  When $x$ is close to $0$ and negative, $G(x)$ is close to $-1$.  Since the two values disagree, $\lim_{x \to 0} G(x)$ does not exist.  However, the \emph{one-sided limits} do exist:
+\[
+  \lim_{x \to 0^{+}} G(x) = 1, \qquad
+  \lim_{x \to 0^{-}} G(x) = -1.
+\]
+\end{example}
+
+\begin{remark}
+The notation $\lim_{x \to a^{+}} f(x)$ means the limit as $x$ approaches $a$ \textbf{from the right} (i.e.\ through values greater than $a$).  Similarly, $\lim_{x \to a^{-}} f(x)$ means the limit \textbf{from the left}.  Together, these are called the \emph{side limits} or \emph{one-sided limits}.
+\end{remark}
+
+\textit{Let us summarise the different behaviours we have seen.}
+
+\begin{remark}
+The limit of a function at a point may or may not exist.
+\begin{enumerate}[label=(\roman*)]
+  \item The limit \textbf{exists} and equals $L$ when $f(x)$ approaches $L$ as $x \to a$.  It does not matter whether $f(a)$ is defined, undefined, or equal to $L$.
+  \item The limit \textbf{does not exist}, and this can happen in several ways:
+  \begin{itemize}
+    \item the limit is $\infty$ or $-\infty$ (vertical asymptote),
+    \item the two one-sided limits exist but differ (jump),
+    \item the function oscillates without settling (wild oscillation).
+  \end{itemize}
+\end{enumerate}
+\end{remark}
+
+% ── BEGIN VISUAL ──
+\begin{figure}[ht]
+  \centering
+  \input{ch02/figures/fig-one-sided-jump.tex}
+  \caption{A jump discontinuity with distinct one-sided limits.}
+  \label{fig:one-sided-jump}
+\end{figure}
+% ── END VISUAL ──
+
+%=============================================================================
+\section{Absolute Values and Distance}
+\label{sec:2.4}
+%=============================================================================
+
+\textit{This section is a short but essential preparation for the formal definition of limit.  We explain how to use absolute values and inequalities to talk about distances, both geometrically and algebraically.}
+
+\begin{definition}[Absolute Value]
+\label{def:2-1}
+For any $x \in \R$,
+\[
+  \abs{x} =
+  \begin{cases}
+    x & \text{if } x \geq 0, \\
+    -x & \text{if } x < 0.
+  \end{cases}
+\]
+Geometrically, $\abs{x}$ is the \emph{distance} between $x$ and $0$ on the real line.  More generally, $\abs{x - a}$ is the distance between $x$ and $a$.
+\end{definition}
+
+\begin{theorem}[Properties of Absolute Value]
+\label{thm:2-1}
+For all $x, y \in \R$:
+\begin{enumerate}[label=(\roman*)]
+  \item $\abs{xy} = \abs{x}\,\abs{y}$ \quad (multiplicativity).
+  \item $\abs{x + y} \leq \abs{x} + \abs{y}$ \quad (triangle inequality).
+\end{enumerate}
+\end{theorem}
+
+\begin{remark}[Warning]
+The equality $\abs{xy} = \abs{x}\,\abs{y}$ holds for products, but the analogous statement for \textbf{sums} is \textbf{false}: $\abs{x+y}$ need not equal $\abs{x}+\abs{y}$.  Instead, we only have the triangle inequality.
+\end{remark}
+
+\textit{The key idea we need going forward is how to express ``$x$ is close to $a$'' using inequalities.  The following equivalences should become second nature.}
+
+\begin{proposition}[Equivalent Forms of Closeness]
+\label{thm:2-2}
+Let $a \in \R$ and $\delta > 0$.  The following statements are equivalent:
+\begin{enumerate}[label=(\roman*)]
+  \item $\abs{x - a} < \delta$.
+  \item The distance between $x$ and $a$ is less than $\delta$.
+  \item $-\delta < x - a < \delta$.
+  \item $a - \delta < x < a + \delta$.
+  \item $x \in (a - \delta,\, a + \delta)$.
+\end{enumerate}
+\end{proposition}
+
+\begin{remark}
+Every time you encounter one of these inequalities, you should be able to convert it instantly to any of the other equivalent forms, and to the geometric picture of $x$ lying in an open interval of radius $\delta$ centred at $a$.  If you can do that, you are ready for the formal definition of limit.
+\end{remark}
+
+%=============================================================================
+\section{Formal Definition of Limit}
+\label{sec:2.5}
+%=============================================================================
+
+\textit{We now transform the rough idea ``if $x$ is close to $a$ but not $a$, then $f(x)$ is close to $L$'' into a rigorous statement.  Every piece of the definition is necessary; omitting or modifying any part would change the meaning.}
+
+\begin{definition}[Limit of a Function at a Point]
+\label{def:2-2}
+Let $a, L \in \R$, and let $f$ be a function defined at least on an open interval containing $a$, except possibly at $a$ itself.  We say
+\[
+  \lim_{x \to a} f(x) = L
+\]
+if for every $\eps > 0$ there exists a $\delta > 0$ such that for all $x \in \R$,
+\[
+  0 < \abs{x - a} < \delta \implies \abs{f(x) - L} < \eps.
+\]
+\end{definition}
+
+\begin{remark}
+The second line is an implication with a \textbf{hidden universal quantifier}: it means ``for every real number $x$, if $0 < \abs{x - a} < \delta$, then $\abs{f(x) - L} < \eps$.''  It is a standard convention to leave the ``for all $x$'' implicit.  Write it explicitly if it helps you avoid confusion.
+\end{remark}
+
+\textit{Let us unpack the roles of $\eps$ and $\delta$ by considering functions that do and do not have limits.}
+
+\begin{remark}
+Think of $\eps$ as a challenge and $\delta$ as a response.  We require that for \textbf{every} $\eps > 0$ (no matter how small), we can \textbf{find} a $\delta > 0$ (depending on $\eps$) that makes the implication true.  Making $\eps$ smaller forces the graph into a narrower horizontal band around $L$; if we can always respond with a $\delta$ that keeps the graph inside this band, the limit is $L$.
+
+For a function that does \textbf{not} have limit $L$, there will be some small $\eps$ for which \textbf{no} $\delta$ works: no matter how close we restrict $x$ to $a$, the graph escapes the band.
+\end{remark}
+
+% ── BEGIN VISUAL ──
+\begin{figure}[ht]
+  \centering
+  \input{ch02/figures/fig-eps-delta-band.tex}
+  \caption{An $\varepsilon$-band around $L$ and a $\delta$-window around $a$.}
+  \label{fig:eps-delta-band}
+\end{figure}
+% ── END VISUAL ──
+
+\begin{remark}[Pause and Try]
+As an exercise, try to write rigorous $(\eps, \delta)$-definitions for the one-sided limits $\lim_{x \to a^{+}} f(x) = L$ and $\lim_{x \to a^{-}} f(x) = L$, and for $\lim_{x \to a} f(x) = \infty$.  If you succeed, it means you truly understand the formal definition.
+\end{remark}
+
+%=============================================================================
+\section{Limits at Infinity}
+\label{sec:2.6}
+%=============================================================================
+
+\textit{We now ask: when $x$ is very large, what happens to $f(x)$?  This leads to the notion of limit at infinity.}
+
+\begin{definition}[Limit at Infinity]
+\label{def:2-3}
+Let $L \in \R$, and let $f$ be a function defined at least on an interval $(p, \infty)$ for some $p \in \R$.  We say
+\[
+  \lim_{x \to \infty} f(x) = L
+\]
+if for every $\eps > 0$ there exists a real number $M$ such that for all $x$,
+\[
+  x > M \implies \abs{f(x) - L} < \eps.
+\]
+\end{definition}
+
+\begin{example}
+\label{ex:2-6}
+Consider $f(x) = \dfrac{x+1}{x} = 1 + \dfrac{1}{x}$.  When $x$ is large, $\frac{1}{x}$ is close to $0$, so $f(x)$ is close to $1$.  Therefore $\lim_{x \to \infty} f(x) = 1$.
+\end{example}
+
+\begin{remark}
+When $\lim_{x \to \infty} f(x) = L$, the line $y = L$ is called a \emph{horizontal asymptote} of $f$ at $\infty$.  A horizontal asymptote is \textbf{not} a line that the graph ``never touches.''  The graph may cross the asymptote; it may even intersect it infinitely many times.  What matters is that eventually, as $x \to \infty$, $f(x)$ stays arbitrarily close to $L$.
+\end{remark}
+
+\begin{remark}
+In the definition, the quantifier structure is: for every $\eps > 0$, there exists $M$ such that \ldots   The important quantifier is $\eps$: we need the implication to hold for \textbf{all} positive $\eps$, but for each $\eps$ we only need to find \textbf{one} value of $M$.  As $\eps$ shrinks, $M$ may need to grow.
+\end{remark}
+
+%=============================================================================
+\section{Proving Limits from the Definition}
+\label{sec:2.7}
+%=============================================================================
+
+\textit{We now illustrate, with a simple example, how to prove that a function has a specific limit directly from the $(\eps,\delta)$-definition.  The emphasis is on the \textbf{structure} of the proof: fix $\eps$, choose $\delta$, assume the hypothesis, derive the conclusion.}
+
+\begin{theorem}
+\label{thm:2-3}
+$\lim_{x \to 3} (2x + 1) = 7$.
+\end{theorem}
+
+\textit{Before writing the proof, we do rough work to discover the right choice of $\delta$.  We want to show that $\abs{(2x+1) - 7} < \eps$ whenever $0 < \abs{x - 3} < \delta$.  Observe:}
+\[
+  \abs{(2x+1) - 7} = \abs{2x - 6} = 2\abs{x - 3}.
+\]
+\textit{If $\abs{x - 3} < \delta$, then $2\abs{x-3} < 2\delta$.  Setting $2\delta = \eps$, i.e.\ $\delta = \eps/2$, will work.}
+
+\begin{proof}
+Strategy: choose $\delta = \eps/2$ and verify the implication.
+
+Let $\eps > 0$.  Take $\delta = \eps / 2 > 0$.  Fix any $x \in \R$ with $0 < \abs{x - 3} < \delta$.  Then
+\begin{align*}
+  \abs{(2x + 1) - 7}
+    &= \abs{2x - 6} \\
+    &= 2\abs{x - 3} \\
+    &< 2\delta \\
+    &= \eps.
+\end{align*}
+Therefore $\abs{(2x+1)-7} < \eps$, as required.
+\end{proof}
+
+%=============================================================================
+\section{A Harder Epsilon-Delta Proof}
+\label{sec:2.8}
+%=============================================================================
+
+\textit{The structure of the proof is the same as in \cref{sec:2.7}, but the algebra is harder.  The key new difficulty is that $\delta$ cannot simply be $\eps$ divided by something; we need to \textbf{bound} a factor that depends on $x$.}
+
+\begin{theorem}
+\label{thm:2-4}
+$\lim_{x \to 4} (x^{2} + 1) = 17$.
+\end{theorem}
+
+\textit{Rough work.  We want $\abs{(x^{2}+1) - 17} < \eps$ whenever $0 < \abs{x-4} < \delta$.  Observe:}
+\[
+  \abs{x^{2} - 16} = \abs{x-4}\,\abs{x+4}.
+\]
+\textit{The factor $\abs{x+4}$ depends on $x$, so we cannot simply set $\delta = \eps / \abs{x+4}$---that would make $\delta$ depend on $x$, which is not permitted.  Instead, we impose $\delta \leq 1$, which forces $x \in (3, 5)$ and hence $\abs{x+4} < 9$.  Then $\abs{x^{2}-16} < 9\delta$, and choosing $\delta \leq \eps/9$ finishes the job.}
+
+\begin{remark}[Warning]
+In the structure of an $(\eps, \delta)$-proof, $\delta$ is chosen \textbf{before} $x$ is fixed, so $\delta$ may depend on $\eps$ but \textbf{never} on $x$.  Allowing $\delta$ to depend on $x$ would change the meaning of the statement entirely and would not establish anything about limits.
+\end{remark}
+
+\begin{proof}
+Strategy: choose $\delta = \min\{1,\, \eps/9\}$ and verify.
+
+Let $\eps > 0$.  Take $\delta = \min\!\left\{1,\, \dfrac{\eps}{9}\right\} > 0$.  Fix any $x \in \R$ with $0 < \abs{x - 4} < \delta$.
+
+Since $\delta \leq 1$, we have $\abs{x - 4} < 1$, so $3 < x < 5$ and therefore $7 < x + 4 < 9$.  In particular, $\abs{x + 4} < 9$.
+
+Since $\delta \leq \eps/9$, we have $\abs{x - 4} < \eps/9$.  Therefore:
+\begin{align*}
+  \abs{(x^{2} + 1) - 17}
+    &= \abs{x^{2} - 16} \\
+    &= \abs{x - 4}\,\abs{x + 4} \\
+    &< \dfrac{\eps}{9} \cdot 9 \\
+    &= \eps.
+\end{align*}
+Thus $\abs{(x^{2}+1)-17} < \eps$, as required.
+\end{proof}
+
+\begin{remark}
+The choice $\delta \leq 1$ is arbitrary; any positive constant would work (producing a different but equally valid proof).  The essential idea is to first restrict $x$ to a bounded neighbourhood of $4$ so that $\abs{x+4}$ can be bounded by a constant.
+\end{remark}
+
+%=============================================================================
+\section{Proving a Limit Does Not Exist}
+\label{sec:2.9}
+%=============================================================================
+
+\textit{To show that a limit does \textbf{not} exist, we negate the formal definition.  This requires four quantifiers and careful handling of each.}
+
+\begin{definition}[Non-existence of a Limit at Infinity]
+\label{def:2-4}
+We say $\lim_{x \to \infty} h(x)$ does not exist if for every $L \in \R$ there exists $\eps > 0$ such that for every $M \in \R$ there exists $x \in \R$ satisfying
+\[
+  x > M \quad\text{and}\quad \abs{h(x) - L} \geq \eps.
+\]
+\end{definition}
+
+\begin{remark}
+This definition is obtained by negating the definition of $\lim_{x \to \infty} h(x) = L$ for every possible value of $L$.  If you find the four quantifiers intimidating, revisit the negation one quantifier at a time:
+\begin{itemize}
+  \item ``for every $\eps$'' becomes ``there exists $\eps$,''
+  \item ``there exists $M$'' becomes ``for every $M$,''
+  \item the hidden ``for all $x$'' becomes ``there exists $x$,''
+  \item the implication $P \Rightarrow Q$ becomes $P \wedge \neg Q$.
+\end{itemize}
+\end{remark}
+
+\begin{theorem}
+\label{thm:2-5}
+$\lim_{x \to \infty} \cos(\pi x)$ does not exist.
+\end{theorem}
+
+\textit{Key observations: when $x$ is an even integer, $\cos(\pi x) = 1$; when $x$ is an odd integer, $\cos(\pi x) = -1$.  So $h(x) = \cos(\pi x)$ keeps oscillating between $1$ and $-1$ for arbitrarily large $x$.}
+
+\begin{proof}
+Strategy: fix an arbitrary $L$, choose $\eps = \frac{1}{2}$, and for any $M$ exhibit an integer $x > M$ with $\abs{\cos(\pi x) - L} \geq \frac{1}{2}$.
+
+Let $L \in \R$.  Take $\eps = \frac{1}{2}$.  Let $M \in \R$ be arbitrary.
+
+Since $\eps = \frac{1}{2}$, the open interval $(L - \eps,\, L + \eps)$ has length $1$.  Therefore it cannot contain \textbf{both} $1$ and $-1$ (which are distance $2$ apart).  At least one of $1$ and $-1$ lies outside $(L - \frac{1}{2},\, L + \frac{1}{2})$.
+
+\textbf{Case 1:} $1 \notin (L - \frac{1}{2},\, L + \frac{1}{2})$.  Choose any even integer $x > M$.  Then $\cos(\pi x) = 1$, so $\abs{\cos(\pi x) - L} = \abs{1 - L} \geq \frac{1}{2}$.
+
+\textbf{Case 2:} $-1 \notin (L - \frac{1}{2},\, L + \frac{1}{2})$.  Choose any odd integer $x > M$.  Then $\cos(\pi x) = -1$, so $\abs{\cos(\pi x) - L} = \abs{-1 - L} \geq \frac{1}{2}$.
+
+In either case, we have found $x > M$ with $\abs{\cos(\pi x) - L} \geq \eps$.  Since $L$ was arbitrary, the limit does not exist.
+\end{proof}
+
+%=============================================================================
+\section{The Limit Laws}
+\label{sec:2.10}
+%=============================================================================
+
+\textit{Computing every limit from the $(\eps, \delta)$-definition would be tedious.  The limit laws let us reduce complicated limits to simple building blocks.  Their importance cannot be overstated: once proven, they free us from epsilon-delta arguments for a huge class of functions.}
+
+\begin{theorem}[Basic Limits]
+\label{thm:2-6}
+Let $a, c \in \R$.
+\begin{enumerate}[label=(\roman*)]
+  \item $\lim_{x \to a} x = a$.
+  \item $\lim_{x \to a} c = c$.
+\end{enumerate}
+\end{theorem}
+
+\begin{remark}[Pause and Try]
+These are the two simplest $(\eps, \delta)$-proofs one can write.  Try them as an exercise before proceeding.
+\end{remark}
+
+\begin{theorem}[Limit Laws]
+\label{thm:2-7}
+Let $a, L, M \in \R$ and let $f, g$ be functions defined on an open interval containing $a$, except possibly at $a$.  Suppose $\lim_{x \to a} f(x) = L$ and $\lim_{x \to a} g(x) = M$.  Then:
+\begin{enumerate}[label=(\roman*)]
+  \item \textbf{Sum law:} $\lim_{x \to a} \bigl[f(x) + g(x)\bigr] = L + M$.
+  \item \textbf{Product law:} $\lim_{x \to a} \bigl[f(x) \cdot g(x)\bigr] = L \cdot M$.
+  \item \textbf{Quotient law:} If $M \neq 0$, then $\lim_{x \to a} \dfrac{f(x)}{g(x)} = \dfrac{L}{M}$.
+\end{enumerate}
+\end{theorem}
+
+\begin{remark}[Warning]
+The limit laws \textbf{only} apply when the individual limits \textbf{exist} as real numbers.  If even one of the limits does not exist, we cannot draw any conclusion---positive or negative---about the sum, product, or quotient.  For example, $\lim_{x \to 0} x = 0$ and $\lim_{x \to 0} \frac{3}{x}$ does not exist, yet $\lim_{x \to 0} x \cdot \frac{3}{x} = 3$.  Likewise, $\frac{1}{x}$ and $\frac{2x-1}{x}$ both lack limits at $0$, yet their sum $\frac{1}{x} + \frac{2x-1}{x} = \frac{2x}{x}$ has limit $2$.
+\end{remark}
+
+\begin{example}
+\label{ex:2-7}
+To compute $\lim_{x \to 2} (x^{4} - 3x)$, note that this polynomial is built from sums and products of $x$ and constants.  By \cref{thm:2-6} and iterated application of the sum and product laws:
+\[
+  \lim_{x \to 2} (x^{4} - 3x) = 2^{4} - 3 \cdot 2 = 10.
+\]
+The same argument shows that for \textbf{any} polynomial $p$ and any $a \in \R$, $\lim_{x \to a} p(x) = p(a)$.
+\end{example}
+
+%=============================================================================
+\section{Proof of the Sum Law}
+\label{sec:2.11}
+%=============================================================================
+
+\textit{We prove the sum law from \cref{thm:2-7} as a model for how the limit laws are established.  The key idea is the triangle inequality: split the error of the sum into the errors of the two summands, and make each one less than $\eps/2$.}
+
+\begin{proof}
+Strategy: use the hypotheses on $f$ and $g$ with $\eps/2$ to obtain $\delta_{1}$ and $\delta_{2}$, then set $\delta = \min\{\delta_{1}, \delta_{2}\}$.
+
+Let $h = f + g$.  We wish to show $\lim_{x \to a} h(x) = L + M$.
+
+Let $\eps > 0$.  Since $\lim_{x \to a} f(x) = L$, applying the definition with $\eps/2 > 0$ yields a $\delta_{1} > 0$ such that
+\[
+  0 < \abs{x - a} < \delta_{1} \implies \abs{f(x) - L} < \frac{\eps}{2}.
+\]
+\proofref{Definition of $\lim_{x\to a} f(x) = L$}
+
+Similarly, since $\lim_{x \to a} g(x) = M$, there exists $\delta_{2} > 0$ such that
+\[
+  0 < \abs{x - a} < \delta_{2} \implies \abs{g(x) - M} < \frac{\eps}{2}.
+\]
+\proofref{Definition of $\lim_{x\to a} g(x) = M$}
+
+Take $\delta = \min\{\delta_{1}, \delta_{2}\} > 0$.  Fix any $x \in \R$ with $0 < \abs{x - a} < \delta$.  Then $\abs{x - a} < \delta_{1}$ and $\abs{x - a} < \delta_{2}$, so both conclusions above hold.  Therefore:
+\begin{align*}
+  \abs{h(x) - (L + M)}
+    &= \abs{\bigl(f(x) - L\bigr) + \bigl(g(x) - M\bigr)} \\
+    &\leq \abs{f(x) - L} + \abs{g(x) - M} \\
+    &< \frac{\eps}{2} + \frac{\eps}{2} \\
+    &= \eps.
+\end{align*}
+\proofref{Triangle inequality (\cref{thm:2-1})}
+
+Thus $\abs{h(x) - (L+M)} < \eps$, completing the proof.
+\end{proof}
+
+\begin{remark}
+Notice the different ways the definition of limit is used.  For $h$, we are \textbf{proving} the limit exists, so we must fix an arbitrary $\eps$ and produce $\delta$.  For $f$ and $g$, we \textbf{assume} the limits exist, so we may \textbf{choose} any $\eps$ we like (here $\eps/2$) and are \textbf{guaranteed} the existence of a suitable $\delta$.
+\end{remark}
+
+%=============================================================================
+\section{The Squeeze Theorem}
+\label{sec:2.12}
+%=============================================================================
+
+\textit{The squeeze theorem (also called the sandwich theorem) is a powerful tool for computing limits of functions that are hard to handle directly but can be trapped between two simpler functions with the same limit.  We motivate it with an example that also illustrates a common pitfall.}
+
+\begin{example}
+\label{ex:2-8}
+Compute $\lim_{x \to 0} \bigl(x^{2} \sin(1/x)\bigr)$.
+
+\textit{A tempting but \textbf{incorrect} argument:} write the limit as a product and apply the product law:
+\[
+  \lim_{x \to 0} x^{2} \cdot \lim_{x \to 0} \sin(1/x) = 0 \cdot (\cdots) = 0. \quad \textbf{WRONG!}
+\]
+This fails because $\lim_{x \to 0} \sin(1/x)$ \textbf{does not exist} (the function oscillates wildly), so the product law does not apply.
+\end{example}
+
+\begin{remark}[Warning]
+One cannot conclude anything by writing ``$0$ times anything is $0$'' in the context of limits.  The product law requires \textbf{both} individual limits to exist.  As a cautionary example: $\lim_{x \to 0} x = 0$ and $\lim_{x \to 0} \frac{3}{x}$ does not exist, yet $\lim_{x \to 0} x \cdot \frac{3}{x} = 3 \neq 0$.
+\end{remark}
+
+\textit{The correct approach uses the fact that $\abs{\sin(1/x)} \leq 1$, so $-x^{2} \leq x^{2}\sin(1/x) \leq x^{2}$ for all $x \neq 0$.  Both $-x^{2}$ and $x^{2}$ have limit $0$ at $x = 0$.  The function $x^{2}\sin(1/x)$ is ``squeezed'' between them and must also have limit $0$.}
+
+\begin{theorem}[Squeeze Theorem]
+\label{thm:2-8}
+Let $a, L \in \R$, and let $f, g, h$ be functions defined on an open interval containing $a$, except possibly at $a$.  Suppose:
+\begin{enumerate}[label=(\roman*)]
+  \item $h(x) \leq g(x) \leq f(x)$ for all $x$ sufficiently close to $a$ (but $x \neq a$),
+  \item $\lim_{x \to a} h(x) = L$ and $\lim_{x \to a} f(x) = L$.
+\end{enumerate}
+Then $\lim_{x \to a} g(x) = L$.
+\end{theorem}
+
+% ── BEGIN VISUAL ──
+\begin{figure}[ht]
+  \centering
+  \input{ch02/figures/fig-squeeze-theorem.tex}
+  \caption{A function trapped between two functions with the same limit.}
+  \label{fig:squeeze-theorem}
+\end{figure}
+% ── END VISUAL ──
+
+\begin{example}[Continuation of \cref{ex:2-8}]
+\label{ex:2-9}
+Since $-1 \leq \sin(1/x) \leq 1$ for all $x \neq 0$,
+\[
+  -x^{2} \leq x^{2}\sin(1/x) \leq x^{2}.
+\]
+Both $\lim_{x \to 0}(-x^{2}) = 0$ and $\lim_{x \to 0} x^{2} = 0$.  By the squeeze theorem (\cref{thm:2-8}), $\lim_{x \to 0} x^{2}\sin(1/x) = 0$.
+\end{example}
+
+%=============================================================================
+\section{Proof of the Squeeze Theorem}
+\label{sec:2.13}
+%=============================================================================
+
+\textit{We now prove \cref{thm:2-8}.  The proof follows the same pattern as the proof of the sum law: use the hypotheses on $f$ and $h$ to find $\delta_{1}$ and $\delta_{2}$, then combine them.}
+
+\begin{proof}
+Strategy: for a given $\eps$, use the limits of $f$ and $h$ to obtain $\delta_{1}$ and $\delta_{2}$, then set $\delta = \min\{\delta_{1}, \delta_{2}, p\}$, where $p$ controls the region where the inequalities hold.
+
+By hypothesis~(i), there exists $p > 0$ such that for all $x$ with $0 < \abs{x - a} < p$,
+\[
+  h(x) \leq g(x) \leq f(x).
+\]
+
+Let $\eps > 0$.  Since $\lim_{x \to a} f(x) = L$, there exists $\delta_{1} > 0$ such that
+\[
+  0 < \abs{x - a} < \delta_{1} \implies \abs{f(x) - L} < \eps.
+\]
+In particular, $f(x) < L + \eps$.
+\proofref{Definition of $\lim_{x\to a}f(x) = L$}
+
+Since $\lim_{x \to a} h(x) = L$, there exists $\delta_{2} > 0$ such that
+\[
+  0 < \abs{x - a} < \delta_{2} \implies \abs{h(x) - L} < \eps.
+\]
+In particular, $h(x) > L - \eps$.
+\proofref{Definition of $\lim_{x\to a}h(x) = L$}
+
+Take $\delta = \min\{\delta_{1}, \delta_{2}, p\} > 0$.  Fix any $x$ with $0 < \abs{x - a} < \delta$.  Then $\abs{x-a} < \delta_{2}$ gives $h(x) > L - \eps$; $\abs{x-a} < p$ gives $g(x) \geq h(x)$; $\abs{x-a} < p$ also gives $g(x) \leq f(x)$; and $\abs{x-a} < \delta_{1}$ gives $f(x) < L + \eps$.  Combining:
+\[
+  L - \eps < h(x) \leq g(x) \leq f(x) < L + \eps.
+\]
+Therefore $\abs{g(x) - L} < \eps$, as required.
+\end{proof}
+
+%=============================================================================
+\section{Definition of Continuity}
+\label{sec:2.14}
+%=============================================================================
+
+\textit{When we say a function is ``continuous,'' we mean, informally, that its graph can be sketched without lifting the pen from the paper.  We now make this precise.}
+
+\begin{definition}[Continuity at a Point]
+\label{def:2-5}
+Let $a \in \R$, and let $f$ be a function defined at least on an open interval containing $a$.  We say $f$ is \emph{continuous at $a$} if
+\[
+  \lim_{x \to a} f(x) = f(a).
+\]
+Equivalently, this means three things:
+\begin{enumerate}[label=(\roman*)]
+  \item $\lim_{x \to a} f(x)$ exists (and is a real number),
+  \item $f(a)$ is defined,
+  \item the limit equals the value.
+\end{enumerate}
+If $f$ is not continuous at $a$, we say it is \emph{discontinuous} at $a$.
+\end{definition}
+
+\begin{definition}[$(\eps, \delta)$-Definition of Continuity]
+\label{def:2-6}
+Under the same hypotheses, $f$ is continuous at $a$ if and only if for every $\eps > 0$ there exists $\delta > 0$ such that for all $x$,
+\[
+  \abs{x - a} < \delta \implies \abs{f(x) - f(a)} < \eps.
+\]
+\end{definition}
+
+\begin{remark}
+Comparing \cref{def:2-6} with \cref{def:2-2}, the key difference is that we \textbf{no longer exclude} the case $x = a$.  For the definition of limit, the value at $a$ is irrelevant, so we write $0 < \abs{x - a}$ to exclude it.  For continuity, we \textbf{need} $f(a)$ to be the right value, so we allow $x = a$.
+\end{remark}
+
+\begin{remark}
+Roughly speaking:
+\begin{itemize}
+  \item Limit: if $x$ is close to $a$ \textbf{but not} $a$, then $f(x)$ is close to $L$.
+  \item Continuity: if $x$ is close to $a$, \textbf{including} $a$, then $f(x)$ is close to $f(a)$.
+\end{itemize}
+This distinction is the source of all subtleties when composing limits versus composing continuous functions (see \cref{sec:2.16}).
+\end{remark}
+
+\begin{definition}[Continuity on an Interval]
+\label{def:2-7}
+\begin{enumerate}[label=(\roman*)]
+  \item $f$ is \emph{continuous on the open interval $(a, b)$} if $f$ is continuous at every point of $(a, b)$.
+  \item $f$ is \emph{continuous on the closed interval $[a, b]$} if $f$ is continuous on $(a, b)$, and in addition
+  \[
+    \lim_{x \to a^{+}} f(x) = f(a) \qquad\text{and}\qquad \lim_{x \to b^{-}} f(x) = f(b).
+  \]
+  \item If we say ``$f$ is continuous'' without specifying where, we mean \emph{continuous on its domain}.
+\end{enumerate}
+\end{definition}
+
+\begin{remark}[Warning]
+A function may be ``continuous'' (meaning continuous on its domain) and yet fail to be continuous at a point not in its domain.  For instance, $f(x) = 1/x$ is continuous (on $\R \setminus \{0\}$), but it is \textbf{not} continuous at $0$ (which is not in its domain).  This is not a contradiction; it is a consequence of the precise definitions.
+\end{remark}
+
+%=============================================================================
+\section{Continuity of Elementary Functions}
+\label{sec:2.15}
+%=============================================================================
+
+\textit{The following theorem is extremely useful: it tells us that almost every function we encounter in practice is continuous on its domain, so computing limits at points in the domain reduces to simple evaluation.}
+
+\begin{theorem}[Continuity of Elementary Functions]
+\label{thm:2-9}
+Any function built from polynomials, roots, trigonometric functions, exponentials, logarithms, and absolute values by means of addition, subtraction, multiplication, division, and composition is continuous on its domain.
+\end{theorem}
+
+\begin{remark}
+These functions are sometimes called \emph{elementary functions}.  The word ``elementary'' does not mean ``simple''; it is just the name for this class.
+\end{remark}
+
+\begin{example}
+\label{ex:2-10}
+To compute $\lim_{x \to 1} \dfrac{\sqrt{x^{3} + \sin x}}{e^{x} + 2}$, note that this function is elementary and $x = 1$ is in its domain.  Therefore
+\[
+  \lim_{x \to 1} \dfrac{\sqrt{x^{3} + \sin x}}{e^{x} + 2} = \dfrac{\sqrt{1 + \sin 1}}{e + 2}.
+\]
+\end{example}
+
+\begin{remark}[Warning]
+\cref{thm:2-9} only applies \textbf{on the domain}.  If the point in question is \textbf{not} in the domain, one cannot simply ``plug in.''  For example, $\sin(x)/x$ is not defined at $0$, so the theorem does not tell us the limit there; a separate argument is needed (see \cref{sec:2.18}).
+\end{remark}
+
+\textit{How is \cref{thm:2-9} proved?  The strategy proceeds in two steps.}
+
+\textbf{Step 1.}  Prove that the ``basic'' building blocks---constant functions, $f(x) = x$, $e^{x}$, $\ln x$, $\sin x$, and $\abs{x}$---are each continuous on their domains.
+
+\textbf{Step 2.}  Prove that sums, products, quotients, and compositions of continuous functions are continuous.
+
+For Step~2, sums, products, and quotients follow immediately from the limit laws (\cref{thm:2-7}).  For instance:
+
+\begin{proof}[Proof that the sum of continuous functions is continuous]
+Strategy: apply the sum law.
+
+Let $f$ and $g$ be continuous at $a$.  By definition, $\lim_{x \to a} f(x) = f(a)$ and $\lim_{x \to a} g(x) = g(a)$.  By the sum law (\cref{thm:2-7}):
+\[
+  \lim_{x \to a}\bigl[f(x) + g(x)\bigr] = f(a) + g(a) = (f + g)(a).
+\]
+\proofref{Sum law (\ref{thm:2-7})}
+Hence $f + g$ is continuous at $a$.
+\end{proof}
+
+\textit{Composition requires a separate argument, which is the subject of the next section.}
+
+%=============================================================================
+\section{Limits and Composition of Functions}
+\label{sec:2.16}
+%=============================================================================
+
+\textit{One might expect that ``the limit of a composition is the composition of the limits,'' just as for sums and products.  Surprisingly, this is \textbf{false} in general.  Understanding why it fails---and when it can be salvaged---illuminates the crucial difference between limits and continuity.}
+
+\begin{remark}
+Recall the key distinction:
+\begin{itemize}
+  \item $\lim_{x \to a} f(x) = L$: if $x$ is close to $a$ \textbf{but not} $a$, then $f(x)$ is close to $L$.
+  \item $f$ continuous at $a$: if $x$ is close to $a$ \textbf{including} $a$, then $f(x)$ is close to $f(a)$.
+\end{itemize}
+Continuity has a symmetry between input and output that the limit definition lacks.  In a composition, the \textbf{output} of one function becomes the \textbf{input} of the next, and this asymmetry causes trouble.
+\end{remark}
+
+\begin{remark}[Pause and Try]
+Before reading further, try to construct a function $f$ such that $\lim_{x \to 0} f(x) = 0$ but $\lim_{x \to 0} f(f(x)) = 1$.  This feels counterintuitive, but it can be done with a simple piecewise function.
+\end{remark}
+
+\textit{Here is the false statement, stated explicitly so that you know to avoid it.}
+
+\begin{remark}[Warning --- False ``Theorem'']
+The following is \textbf{not} a theorem.  Assuming $\lim_{x \to a} f(x) = L$ and $\lim_{y \to L} g(y) = M$, one \textbf{cannot} conclude that $\lim_{x \to a} g(f(x)) = M$.
+\end{remark}
+
+\textit{We now state the results that \textbf{are} true.}
+
+\begin{theorem}[Composition of Continuous Functions]
+\label{thm:2-10}
+If $f$ is continuous at $a$ and $g$ is continuous at $f(a)$, then $g \circ f$ is continuous at $a$.
+\end{theorem}
+
+\begin{proof}
+Strategy: concatenate the two continuity implications.
+
+Since $f$ is continuous at $a$: if $x$ is close to $a$, then $f(x)$ is close to $f(a)$.  Since $g$ is continuous at $f(a)$: if $y$ is close to $f(a)$, then $g(y)$ is close to $g(f(a))$.  Setting $y = f(x)$, we obtain: if $x$ is close to $a$, then $g(f(x))$ is close to $g(f(a))$.  This says exactly that $g \circ f$ is continuous at $a$.
+
+More formally: let $\eps > 0$.  Since $g$ is continuous at $f(a)$, there exists $\eta > 0$ such that $\abs{y - f(a)} < \eta \implies \abs{g(y) - g(f(a))} < \eps$.  Since $f$ is continuous at $a$, for this $\eta > 0$ there exists $\delta > 0$ such that $\abs{x - a} < \delta \implies \abs{f(x) - f(a)} < \eta$.  Combining: $\abs{x - a} < \delta \implies \abs{g(f(x)) - g(f(a))} < \eps$.
+\end{proof}
+
+\begin{theorem}[Limit of a Composition --- Version 1]
+\label{thm:2-11}
+Suppose $\lim_{x \to a} f(x) = L$, $\lim_{y \to L} g(y) = M$, and in addition $f(x) \neq L$ for all $x$ in some open interval about $a$ (except possibly $x = a$).  Then $\lim_{x \to a} g(f(x)) = M$.
+\end{theorem}
+
+\begin{theorem}[Limit of a Composition --- Version 2]
+\label{thm:2-12}
+Suppose $\lim_{x \to a} f(x) = L$ and $g$ is \textbf{continuous} at $L$.  Then $\lim_{x \to a} g(f(x)) = g(L)$.
+\end{theorem}
+
+\begin{remark}
+Both \cref{thm:2-11,thm:2-12} add an extra hypothesis to the false ``theorem'' in order to make it true.  \cref{thm:2-11} strengthens the condition on $f$ (requiring $f(x) \neq L$ near $a$), while \cref{thm:2-12} strengthens the condition on $g$ (upgrading from ``having a limit'' to ``being continuous'').  Either fix suffices because each repairs the mismatch between the ``then'' clause of one hypothesis and the ``if'' clause of the other.
+\end{remark}
+
+%=============================================================================
+\section{Types of Discontinuity}
+\label{sec:2.17}
+%=============================================================================
+
+\textit{When a function is discontinuous at a point, it is traditional to classify the discontinuity as removable or non-removable.  The classification tells us whether the function can be ``fixed'' by redefining it at a single point.}
+
+\begin{definition}[Removable Discontinuity]
+\label{def:2-8}
+A function $f$ has a \emph{removable discontinuity} at $a$ if $\lim_{x \to a} f(x)$ exists but $f$ is not continuous at $a$ (either because $f(a)$ is undefined or because $f(a)$ differs from the limit).
+\end{definition}
+
+\begin{definition}[Non-Removable Discontinuity]
+\label{def:2-9}
+A function $f$ has a \emph{non-removable discontinuity} at $a$ if $\lim_{x \to a} f(x)$ does not exist.
+\end{definition}
+
+\begin{example}
+\label{ex:2-11}
+The function $h(x) = \dfrac{\sin x}{x}$ is undefined at $0$, but $\lim_{x \to 0} h(x) = 1$ (see \cref{sec:2.18}).  Define a new function
+\[
+  H(x) =
+  \begin{cases}
+    \dfrac{\sin x}{x} & \text{if } x \neq 0, \\[6pt]
+    1 & \text{if } x = 0.
+  \end{cases}
+\]
+Then $H$ is continuous at $0$.  We have ``removed'' the discontinuity by filling the hole in the graph.
+\end{example}
+
+\begin{remark}
+A removable discontinuity can always be fixed: define (or redefine) the function at the point to equal the limit, and the result is continuous.  A non-removable discontinuity \textbf{cannot} be fixed by redefining the function at a single point.  Examples of non-removable discontinuities include jumps (the two one-sided limits exist but differ), vertical asymptotes, and wild oscillations.
+\end{remark}
+
+\begin{remark}
+In physics and applied mathematics, removable discontinuities are often silently removed.  When a physicist writes $\sin(x)/x$, they usually mean the function $H$ above, with the hole filled in.  In a pure-mathematics course, we are more careful about the distinction.
+\end{remark}
+
+%=============================================================================
+\section{The Limit of $\sin(x)/x$}
+\label{sec:2.18}
+%=============================================================================
+
+\textit{This is a classic proof using nothing but high-school geometry and the squeeze theorem.  It is a beautiful argument that relies on comparing the areas of two triangles and a circular sector.}
+
+\begin{theorem}
+\label{thm:2-13}
+$\displaystyle\lim_{x \to 0} \dfrac{\sin x}{x} = 1$.
+\end{theorem}
+
+% ── BEGIN VISUAL ──
+\begin{figure}[ht]
+  \centering
+  \input{ch02/figures/fig-sinx-over-x.tex}
+  \caption{The graph of $\sin(x)/x$ near $0$.}
+  \label{fig:sinx-over-x}
+\end{figure}
+% ── END VISUAL ──
+
+\textit{We begin by establishing a geometric inequality.  Consider the unit circle with a central angle $x \in (0, \frac{\pi}{2})$, and compare three regions:}
+\begin{enumerate}[label=(\roman*)]
+  \item The triangle with vertices at the origin, the point $(\cos x, \sin x)$, and $(\cos x, 0)$ has area $\frac{1}{2}\cos x \sin x$.
+  \item The circular sector of radius $1$ and angle $x$ has area $\frac{1}{2}x$.
+  \item The triangle with vertices at the origin, $(1, 0)$, and $(1, \tan x)$ has area $\frac{1}{2}\tan x$.
+\end{enumerate}
+
+\begin{lemma}
+\label{lem:2-1}
+For $0 < x < \frac{\pi}{2}$,
+\[
+  \cos x \leq \dfrac{\sin x}{x} \leq \dfrac{1}{\cos x}.
+\]
+\end{lemma}
+
+\begin{proof}
+Strategy: use the area comparison, then divide through by $\sin x$ and take reciprocals.
+
+Since the triangle~(i) is contained in the sector~(ii), which is contained in triangle~(iii):
+\[
+  \frac{1}{2}\cos x \sin x \;\leq\; \frac{1}{2}x \;\leq\; \frac{1}{2}\tan x = \frac{1}{2}\,\dfrac{\sin x}{\cos x}.
+\]
+Multiplying through by $\dfrac{2}{\sin x} > 0$ gives
+\[
+  \cos x \;\leq\; \dfrac{x}{\sin x} \;\leq\; \dfrac{1}{\cos x}.
+\]
+Taking reciprocals (and reversing the inequalities) yields
+\[
+  \cos x \;\leq\; \dfrac{\sin x}{x} \;\leq\; \dfrac{1}{\cos x}.
+\]
+The derivation assumes $0 < x < \frac{\pi}{2}$.  Since all three functions $\cos x$, $\frac{\sin x}{x}$, and $\frac{1}{\cos x}$ are \textbf{even}, the same inequalities hold for $-\frac{\pi}{2} < x < 0$.
+\end{proof}
+
+\begin{proof}[Proof of \cref{thm:2-13}]
+Strategy: apply the squeeze theorem.
+
+By \cref{lem:2-1}, for $0 < \abs{x} < \frac{\pi}{2}$,
+\[
+  \cos x \;\leq\; \dfrac{\sin x}{x} \;\leq\; \dfrac{1}{\cos x}.
+\]
+Since $\cos$ is continuous at $0$ with $\cos 0 = 1$,
+\[
+  \lim_{x \to 0} \cos x = 1 \qquad\text{and}\qquad \lim_{x \to 0} \dfrac{1}{\cos x} = 1.
+\]
+By the squeeze theorem (\cref{thm:2-8}), $\displaystyle\lim_{x \to 0} \dfrac{\sin x}{x} = 1$.
+\proofref{Squeeze Theorem (\ref{thm:2-8})}
+\end{proof}
+
+%=============================================================================
+\section{Techniques for Computing Limits}
+\label{sec:2.19}
+%=============================================================================
+
+\textit{We review the basic toolkit for computing limits at a point.  Mastering these techniques requires practice beyond what a single section can provide, but this summary identifies what to try first.}
+
+\textbf{Method 1: Direct evaluation.}  If the function is continuous at the point, evaluate.
+
+\begin{example}
+\label{ex:2-12}
+$\displaystyle\lim_{x \to 2} \dfrac{x^{2} + 1}{\sqrt{x + 2}} = \dfrac{4 + 1}{\sqrt{4}} = \dfrac{5}{2}.$
+\end{example}
+
+\textbf{Method 2: Algebraic manipulation.}  If the function is not defined at the point (often revealed by the indeterminate form $0/0$), try to simplify.  Common techniques include factoring, multiplying by conjugates, and cancellation.  The manipulations need only be valid \textbf{near} the point, not \textbf{at} it.
+
+\begin{example}
+\label{ex:2-13}
+Compute $\displaystyle\lim_{x \to 2} \dfrac{x^{2} - 4}{x - 2}$.
+
+Attempting to evaluate gives $0/0$.  Factor:
+\[
+  \dfrac{x^{2} - 4}{x - 2} = \dfrac{(x-2)(x+2)}{x-2} = x + 2, \qquad x \neq 2.
+\]
+The simplified function is continuous at $2$, so the limit is $4$.
+\end{example}
+
+\begin{example}
+\label{ex:2-14}
+Compute $\displaystyle\lim_{x \to 0} \dfrac{\sqrt{1 + x} - 1}{x}$.
+
+Multiply numerator and denominator by the conjugate $\sqrt{1+x} + 1$:
+\[
+  \dfrac{\sqrt{1+x} - 1}{x} \cdot \dfrac{\sqrt{1+x}+1}{\sqrt{1+x}+1}
+  = \dfrac{(1+x) - 1}{x(\sqrt{1+x}+1)}
+  = \dfrac{1}{\sqrt{1+x} + 1}.
+\]
+This is continuous at $0$, so the limit is $\frac{1}{2}$.
+\end{example}
+
+\textbf{Method 3: Reduction to a known limit.}  Transform the expression into one whose limit is already known, such as $\lim_{x \to 0} \frac{\sin x}{x} = 1$.
+
+\begin{example}
+\label{ex:2-15}
+Compute $\displaystyle\lim_{x \to 0} \dfrac{\sin(2x)}{x}$.
+
+Write $\dfrac{\sin(2x)}{x} = 2 \cdot \dfrac{\sin(2x)}{2x}$.  As $x \to 0$, $2x \to 0$, so $\dfrac{\sin(2x)}{2x} \to 1$.  Therefore the limit is $2$.
+\end{example}
+
+\begin{example}
+\label{ex:2-16}
+Compute $\displaystyle\lim_{x \to 0} \dfrac{\sin(2x)}{\sin(3x)}$.
+
+Multiply and divide to create the standard form:
+\[
+  \dfrac{\sin(2x)}{\sin(3x)}
+  = \dfrac{\sin(2x)}{2x} \cdot \dfrac{3x}{\sin(3x)} \cdot \dfrac{2}{3}.
+\]
+Each ratio has limit $1$ as $x \to 0$, so the limit is $\dfrac{2}{3}$.
+\end{example}
+
+\begin{example}
+\label{ex:2-17}
+Compute $\displaystyle\lim_{x \to 0} \dfrac{1 - \cos x}{x^{2}}$.
+
+Multiply and divide by $1 + \cos x$:
+\[
+  \dfrac{1 - \cos x}{x^{2}} \cdot \dfrac{1 + \cos x}{1 + \cos x}
+  = \dfrac{1 - \cos^{2} x}{x^{2}(1 + \cos x)}
+  = \dfrac{\sin^{2} x}{x^{2}} \cdot \dfrac{1}{1 + \cos x}
+  = \left(\dfrac{\sin x}{x}\right)^{\!2} \cdot \dfrac{1}{1 + \cos x}.
+\]
+As $x \to 0$, $\left(\dfrac{\sin x}{x}\right)^{2} \to 1$ and $\dfrac{1}{1 + \cos x} \to \dfrac{1}{2}$.  Therefore the limit is $\dfrac{1}{2}$.
+\end{example}
+
+\begin{remark}
+These methods can be combined.  More advanced methods exist---notably L'H\^opital's rule (which requires derivatives) and Taylor series (which requires power series)---but they belong to later chapters.
+\end{remark}
+
+%=============================================================================
+\section{Limits at Infinity of Rational Functions}
+\label{sec:2.20}
+%=============================================================================
+
+\textit{For rational functions and related expressions, limits at infinity are computed by factoring out the highest power of $x$ and using the fact that $\lim_{x \to \infty} 1/x = 0$.}
+
+\begin{theorem}[Limit of a Polynomial at Infinity]
+\label{thm:2-14}
+The limit of a polynomial as $x \to \infty$ is determined by its leading term.  Specifically, if $p(x) = a_{n}x^{n} + \cdots + a_{0}$ with $a_{n} \neq 0$, then
+\[
+  \lim_{x \to \infty} p(x) = \lim_{x \to \infty} a_{n}x^{n}.
+\]
+\end{theorem}
+
+\begin{proof}
+Strategy: factor out $x^{n}$ and use $\lim_{x \to \infty} 1/x = 0$.
+
+Write
+\[
+  p(x) = x^{n}\!\left(a_{n} + \dfrac{a_{n-1}}{x} + \cdots + \dfrac{a_{0}}{x^{n}}\right).
+\]
+As $x \to \infty$, each term $a_{k}/x^{n-k} \to 0$ for $k < n$, so the factor in parentheses approaches $a_{n}$.  Therefore $p(x)$ behaves like $a_{n} x^{n}$.
+\end{proof}
+
+\begin{example}
+\label{ex:2-18}
+$\displaystyle\lim_{x \to \infty} (2x^{3} - x^{2} + 5)$.  The leading term is $2x^{3} \to \infty$.  So the limit is $\infty$.
+\end{example}
+
+\begin{example}
+\label{ex:2-19}
+Compute $\displaystyle\lim_{x \to \infty} \dfrac{2x^{2} + 3}{3x^{2} - x + 1}$.
+
+Factor out $x^{2}$ from both numerator and denominator:
+\[
+  \dfrac{2x^{2} + 3}{3x^{2} - x + 1}
+  = \dfrac{x^{2}(2 + 3/x^{2})}{x^{2}(3 - 1/x + 1/x^{2})}
+  = \dfrac{2 + 3/x^{2}}{3 - 1/x + 1/x^{2}}
+  \;\xrightarrow{x \to \infty}\; \dfrac{2}{3}.
+\]
+\end{example}
+
+\begin{example}
+\label{ex:2-20}
+Compute $\displaystyle\lim_{x \to \infty} \dfrac{x^{2} + \sqrt{x^{4} + 1}}{\sqrt{x^{4} + x^{2}} + x}$.
+
+Factor $x^{4}$ inside each square root:
+\begin{align*}
+  \dfrac{x^{2} + \sqrt{x^{4}(1 + 1/x^{4})}}{\sqrt{x^{4}(1 + 1/x^{2})} + x}
+  &= \dfrac{x^{2} + x^{2}\sqrt{1 + 1/x^{4}}}{x^{2}\sqrt{1 + 1/x^{2}} + x} \\
+  &= \dfrac{x^{2}\!\left(1 + \sqrt{1 + 1/x^{4}}\right)}{x^{2}\!\left(\sqrt{1 + 1/x^{2}} + 1/x\right)} \\
+  &\xrightarrow{x \to \infty}\; \dfrac{1 + 1}{\sqrt{1} + 0} = 2.
+\end{align*}
+Alternatively, $\dfrac{1+1}{\sqrt{1}} = 2$ can also be written as $\sqrt{2} \cdot \sqrt{2} = 2$.  In either case the limit is $2$.
+\end{example}
+
+\begin{remark}
+The rule of thumb is: identify the dominant term (highest power of $x$) in the numerator and denominator, factor it out, and simplify.  This method extends naturally to expressions involving roots: a term $\sqrt{x^{2k}}$ behaves like $x^{k}$ for large positive $x$.
+\end{remark}
+
+%=============================================================================
+\section{The Extreme Value Theorem}
+\label{sec:2.21}
+%=============================================================================
+
+\textit{We now state a deep theorem guaranteeing that continuous functions on closed intervals attain their maximum and minimum.  The theorem does \textbf{not} tell us how to find these extreme values---only that they exist.}
+
+\begin{definition}[Maximum of a Function]
+\label{def:2-10}
+Let $f$ be a function and $I \subseteq \R$.  We say $f$ has a \emph{maximum on $I$} if there exists $c \in I$ such that $f(x) \leq f(c)$ for all $x \in I$.  The value $f(c)$ is the maximum, attained \emph{at} $c$.  The definition of \emph{minimum} is analogous, with the inequality reversed.
+\end{definition}
+
+\begin{remark}
+The maximum is a value (the output $f(c)$); it occurs \textbf{at} a point $c$ in the domain.  If we say ``the maximum of $f$'' without specifying the set $I$, we mean the maximum on the entire domain of $f$.
+\end{remark}
+
+\textit{Let us build intuition for when a maximum is guaranteed to exist by examining some examples of functions that lack one.}
+
+\begin{example}
+\label{ex:2-21}
+The function $f(x) = x$ on the open interval $(0, 1)$ has no maximum: $f$ gets arbitrarily close to $1$ but never attains it, because $1 \notin (0,1)$.
+\end{example}
+
+\begin{example}
+\label{ex:2-22}
+A function with a vertical asymptote on a half-open interval may fail to have a maximum because it is unbounded.
+\end{example}
+
+\begin{remark}
+These examples suggest two necessary ingredients: the domain should include its endpoints (a \textbf{closed} interval), and the function should not blow up (it should be \textbf{continuous}).
+\end{remark}
+
+\begin{theorem}[Extreme Value Theorem]
+\label{thm:2-15}
+If $f$ is continuous on the closed and bounded interval $[a, b]$, then $f$ has a maximum and a minimum on $[a, b]$.
+\end{theorem}
+
+\begin{remark}
+This theorem is easy to state and use but \textbf{difficult to prove}.  A rigorous proof requires a careful treatment of the completeness of $\R$ and is typically presented in a real analysis course.  For our purposes, the extensive examples above should make the statement plausible.
+\end{remark}
+
+\begin{remark}[Warning]
+Both hypotheses---continuity of $f$ and closedness/boundedness of the interval---are essential.  Removing either one can produce a function without a maximum or minimum.
+\end{remark}
+
+\begin{remark}[Pause and Try]
+Can you construct a function that is \textbf{continuous} on the half-open interval $(0, 1]$ and has \textbf{neither} a maximum \textbf{nor} a minimum?  Hint: sketch the graph first, then find an equation.
+\end{remark}
+
+%=============================================================================
+\section{The Intermediate Value Theorem}
+\label{sec:2.22}
+%=============================================================================
+
+\textit{The intermediate value theorem formalises something you already believe: if a continuous function is negative at one point and positive at another, it must be zero somewhere in between.}
+
+\begin{example}
+\label{ex:2-23}
+Consider the equation $x^{5} + 9x - 6 = 0$.  Let $f(x) = x^{5} + 9x - 6$.  Then $f(0) = -6 < 0$ and $f(1) = 4 > 0$.  Since $f$ is a polynomial and hence continuous, the function must cross zero somewhere in $(0, 1)$.  By evaluating $f(0.5) < 0$, we can narrow the root to $(0.5, 1)$, and so on.
+\end{example}
+
+\begin{remark}
+This equation cannot be solved exactly using radicals (a fact provable via Galois theory).  Nevertheless, the intermediate value theorem guarantees the existence of a solution, and successive bisection can approximate it to any desired accuracy.
+\end{remark}
+
+\begin{theorem}[Intermediate Value Theorem]
+\label{thm:2-16}
+Let $f$ be continuous on the closed interval $[a, b]$.  If $M$ is any real number between $f(a)$ and $f(b)$, then there exists $c \in (a, b)$ such that $f(c) = M$.
+\end{theorem}
+
+\textit{In the special case $M = 0$: if $f(a)$ and $f(b)$ have opposite signs and $f$ is continuous on $[a, b]$, then $f$ has a root in $(a, b)$.}
+
+\begin{remark}
+Like the extreme value theorem, the intermediate value theorem is easy to understand and believe but \textbf{hard to prove} rigorously.  A formal proof relies on the completeness of $\R$ and belongs to a course in real analysis.  For us, what matters is:
+\begin{enumerate}[label=(\roman*)]
+  \item understanding the statement,
+  \item recognising that it is a property of \textbf{continuous} functions (it can fail for discontinuous ones),
+  \item knowing when we are using it.
+\end{enumerate}
+\end{remark}
+
+\begin{remark}[Warning]
+Continuity is essential.  A step function, for instance, can jump from a negative value to a positive value without ever equalling zero.
+\end{remark}

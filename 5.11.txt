@@ -1,0 +1,169 @@
+This video is about monotonicity
+of functions.
+When is a function 
+increasing or decreasing,
+and what does this have to do
+with derivatives?
+This will be our third application
+of the Mean Value Theorem.
+Before I begin,
+an important clarification.
+Saying that a function is increasing is
+NOT the same thing
+as saying it has positive derivative.
+These two concepts are related,
+but they are NOT THE SAME.
+Positive derivative is NOT the definition
+of a function increasing.
+Here is why.
+This is an example of a function
+that is increasing everywhere,
+but it has derivative zero at a POINT.
+This graph represents another function
+that is also increasing everywhere,
+but it has a corner at a point, so it is
+not differentiable at one point.
+It doesn't have a derivative there.
+This is a function that is
+increasing everywhere,
+and yet, at infinitely many points, it is not
+even continuous, let alone differentiable.
+So, a function can be increasing
+without having positive derivative.
+We should then define
+"increasing function" formally.
+Here is the definition.
+I begin with a function defined
+on an interval I.
+I want to say what it means
+to be increasing on I.
+It is always "a function is increasing
+ON A DOMAIN."
+That means this condition.
+That, for every two points
+x_1 and x_2 in I,
+if x_1 is less than x_2,
+THEN f(x_1) is less than f(x_2).
+So that means, if I take a bigger input,
+then it produces a bigger output.
+That is going to mean that
+the graph is always going up.
+I am using this definition, where I say
+that f(x_1) is LESS than f(x_2),
+but there is a related concept, which
+I am going to call NON-DECREASING,
+in which case I say that x_1 < x_2 implies
+that f(x_1) is less than or equal to f(x_2).
+So, increasing just means the graph
+always "goes up."
+And non-decreasing means that the
+graph always goes up or stays constant.
+Of course, there are also the notions
+of decreasing, and non-increasing,
+which will be similar.
+I assume you can write the definitions.
+Just reverse the second inequality.
+Unfortunately, this notation
+is not universal.
+While some books use this convention
+and call these two things
+"increasing" and "non-decreasing,"
+other books use "strictly increasing"
+and "increasing" instead,
+which is unfortunate, because
+it means "increasing"
+could mean either one of the two,
+depending on which math book
+or math paper you are reading.
+There is no way around it.
+Both are used.
+So, if you are reading a paper
+or a book, make sure you know
+which definition it is using. And if you
+are doing math with somebody else,
+agree on a definition before starting.
+So, that is the definition.
+The three graphs of functions
+I looked at before satisfy this property.
+They are increasing.
+This is an increasing function.
+This is an increasing function.
+And this also satisfies the definition,
+so it is an increasing function.
+Okay! Now that we know
+what increasing means,
+what is the relation between
+increasing and positive derivative?
+Here is the theorem.
+Let's say I begin with a function f,
+defined on an open interval (a, b).
+IF I know that the derivative
+of the function is positive,
+THEN I can conclude that the function
+is increasing on that interval.
+That is the theorem. Positive derivative
+implies increasing function.
+But, a function could be increasing
+without having positive derivative.
+That is the theorem for
+an open interval.
+There is a companion to this one.
+If instead, I am looking at
+a function defined
+on a closed and bounded
+interval [a, b],
+if I want to conclude that the function
+is increasing on [a, b],
+then I only need to require that the
+derivative is positive
+on the OPEN interval – on the interior.
+But, on the endpoints,
+I must require continuity.
+So, positive derivative on the interior
+and continuity everywhere,
+implies that the function is increasing
+on that whole interval.
+These two theorems need proofs.
+I invite you to write them.
+A couple of videos ago, a wrote a proof
+for a similar result,
+that if the derivative of a function is zero,
+then the function must be constant.
+That was a direct application of the
+Mean Value Theorem.
+This works in exactly the same way.
+So I invite you to rewatch that video –
+– I will add a link in the description –
+– and try to imitate the proof.
+You only have to modify it slightly
+to prove these two theorems.
+That is a good exercise to make sure
+you understand the Mean Value Theorem,
+and how to write these kinds of proofs.
+So, after seeing the theorems
+and their proofs,
+here is a summary of
+what we know so far.
+On an open interval, IF
+the derivative is zero,
+THEN the function must be constant.
+IF the derivative is positive,
+THEN the function must be increasing.
+IF the derivative is negative,
+THEN the function must be decreasing.
+I have not written the theorem
+for this last case,
+but it works exactly the
+same as the others.
+But, if I just have a point, where the
+derivative is zero or does not exist,
+then in principle, if could be anything.
+It could be part of a bigger interval where
+the function is increasing,
+or we may have a local extremum
+at that point, or something else.
+In the next video, I will show with an
+example how to use these theorems
+to determine the intervals where
+a certain function
+is increasing or decreasing.

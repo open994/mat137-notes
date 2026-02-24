@@ -1,0 +1,23 @@
+\begin{tikzpicture}
+  \begin{axis}[
+    width=11cm,
+    height=6.8cm,
+    axis lines=middle,
+    xmin=0, xmax=10.5,
+    ymin=0, ymax=1.25,
+    xlabel={$n$}, ylabel={$a_n$},
+    ticks=none,
+    clip=false
+  ]
+    % a_n = 1 - 1/n
+    \addplot[only marks, mark=*, mark size=2pt, color=thmcolor]
+      coordinates {(1,0) (2,0.5) (3,0.6667) (4,0.75) (5,0.8) (6,0.8333) (7,0.8571) (8,0.875) (9,0.8889) (10,0.9)};
+    \addplot[thick, color=thmcolor] coordinates {(1,0) (10,0.9)};
+
+    % Upper bound line L=1
+    \addplot[dashed, color=defcolor, domain=0:10.5, samples=2] {1};
+    \node[color=defcolor, anchor=west] at (axis cs:10.6,1) {$L$ (upper bound)};
+
+    \node[anchor=west] at (axis cs:2.2,1.14) {monotone increasing + bounded above};
+  \end{axis}
+\end{tikzpicture}

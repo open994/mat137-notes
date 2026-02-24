@@ -1,0 +1,202 @@
+What is a function?
+There are a few concepts related
+to the notion of function...
+...that can get confusing.
+Strictly speaking,
+they all have a very precise definition.
+But in some contexts,
+we relax those definitions,
+we abuse notation,
+and we use the terms
+to mean something slightly different.
+Sometimes students may learn
+the same theorem...
+...in two apparently contradictory ways,
+depending on whether it is in a calculus
+class, or in a linear algebra class.
+But there is no contradiction if
+we understand the conventions.
+In this sequence of videos,
+I will do two things:
+first, I will explain the proper use of
+these terms when we WANT to be strict.
+Second,
+I will explain the conventions used
+in calculus to relax those definitions.
+If you have taken a logic course,
+perhaps you have learned
+the definiton of function as:
+"a subset of a cartesian product."
+What I will write here is EQUIVALENT,
+but in plainer English.
+A function consists of three pieces:
+first, a set of INPUTS called the DOMAIN.
+In this example, the DOMAIN is the set A,
+with elements 1, 2, and 3.
+Second, a set of POTENTIAL OUTPUTS
+called the CODOMAIN.
+In this example, the CODOMAIN is the
+set B, with elements 4, 5, and 6.
+And third, a RULE that matches
+each INPUT in the DOMAIN,
+to exactly one OUTPUT in the CODOMAIN.
+In the picture below, I am representing
+the matches with arrows.
+Notice the notation that I am using:
+I am giving a NAME to the function,
+in this case: "f".
+Then, for each element "x" in the DOMAIN,
+I am calling f of x (f(x)) the
+corresponding element in the CODOMAIN.
+So, the NAME of the function is "f",
+NOT "f(x)".
+f(x) is an element in the CODOMAIN,
+NOT the NAME of the function.
+Back to the example, there are only
+three elements in this domain,
+so I can just list all of the matches:
+f(1) is 4, f(2) is 4, and f(3) is 6.
+That is the RULE.
+In most examples; however,
+I will have an infinite domain,
+and I will not be able to
+list all of the matches.
+Instead, I will probably describe the
+RULE with an equation.
+Why did I describe the elements in B
+as POTENTIAL outputs?
+I want to distinguish between
+CODOMAIN, and RANGE.
+The CODOMAIN is the set
+of POTENTIAL outputs.
+In this example, it is the set {4,5,6}.
+The RANGE is the set of ACTUAL ouputs.
+In this example,
+it only has two elements: 4 and 6.
+The CODOMAIN is a set
+we determine beforehand,
+from which we are allowed
+to choose outputs.
+And then, once we define the RULE,
+we find out that we are only using
+some of the outputs,
+and those form the RANGE.
+Notice that to define a function,
+I only need to give the DOMAIN,
+the CODOMAIN, and the RULE.
+I do not need to explain
+what the RANGE is.
+The RANGE can be calculated
+from the rest of the information.
+Finally, one piece of notation.
+If you read an expression like this:
+f, colon, A, arrow, B (f: A → B),
+it means that "f" is the NAME of a
+function, A is the DOMAIN,
+and B is the CODOMAIN.
+It is just shorthand for all of that.
+For example, 
+I could define a function f,
+with a DOMAIN of all the reals,
+and a CODOMAIN of all the reals.
+With the RULE given by the equation:
+f(x) = 3 + x² + sin(x).
+So far, I have explained the STRICT way
+to define a function,
+and to refer to its components.
+Next, I will explain some conventions.
+You may be thinking:
+in calculus, or in pre-calculus,
+I am used to defining functions in a much
+easier way: just by giving the equation.
+For example,
+I may say the function g is defined by
+g(x) = 1/(x^2), and say nothing else.
+We do this all of the time.
+Is it okay?
+There is a convention that we use
+in single-variable calculus.
+We agree that it is okay to define
+a function by just giving the RULE.
+(normally as an equation)
+And then, by default,
+we assume that the domain is the
+LARGEST SUBSET of the reals,
+on which the RULE makes sense.
+And we assume that the
+codomain is all of the reals.
+For example, when I define the function g
+by the equation g(x) = 1/(x^2),
+if I do not say anything else;
+implicitly, I mean:
+for which values of x does
+this equation make sense?
+I can divide by any non-zero number, so
+x can be any real number EXCEPT for zero.
+So that's what I mean.
+The domain is all of the real numbers
+EXCEPT for zero;
+and I also imply that the codomain is ℝ.
+This convention is useful,
+because we are only talking about
+this SPECIFIC type of function,
+it saves a lot of time.
+But once you move to other fields
+of math, like abstract algebra,
+where the domain and codomain may not
+even be sets of numbers,
+then you will have to be careful,
+and specify domains and codomains
+in order to define a function.
+There is a second convention
+worth mentioning.
+Look at these two functions.
+Are they the SAME function?
+STRICTLY speaking,
+they are NOT the same.
+They have the same domain, and
+the same rule, even the same range,
+but they have DIFFERENT codomains.
+They differ by the element "5".
+In practice, particularly in calculus,
+we often abuse notation and PRETEND that
+these two functions ARE the same function,
+and we use the same name for both.
+Effectively,
+we treat the codomain as irrelevant,
+and we only pay attention to the range.
+If you had never heard the word
+“codomain” before, this may be why.
+I will talk more about this
+abuse of notation in a later video...
+...about SURJECTIVE functions.
+But remember that
+in other areas of mathematics,
+this distinction may be important,
+and in that case,
+we will stick to saying
+that these two functions are DIFFERENT.
+To make matters worse,
+this notation is not universal!
+The names I have introduced here are
+the most commonly used names in math.
+But sometimes people use different names,
+at least in some areas
+of computer science.
+They still use the word DOMAIN
+in the same way that I have.
+But what I have called the CODOMAIN,
+they call the RANGE,
+and what I have called the RANGE,
+they call the IMAGE.
+This makes it confusing,
+because now RANGE may mean
+two different things,
+depending on who you ask;
+but don’t blame me!
+The moral is,
+that if you are working
+on math with somebody else,
+you should make sure that
+you agree on notation...
+...so that you can understand each other.

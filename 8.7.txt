@@ -1,0 +1,214 @@
+Through the past two playlists,
+I have introduced various notions
+related to integrals
+that are related to each other,
+but distinct.
+They use similar notation,
+but they mean different things.
+We have definitions, geometric
+interpretation, notation,
+and various theorems that allow us to
+compute things quickly in practice.
+I have introduced these concepts
+one by one,
+but sometimes we may
+confuse them with each other.
+So, in this video I will present
+a summary of all these concepts,
+I will compare them side by side,
+and I will summarize
+the definitions and the results.
+We have learned three concepts.
+First, the definite integral;
+second, the indefinite integral;
+and third, how to define a function
+by an integral.
+And these are different.
+The definite integral, the integral
+from a to b of a function f, is a number.
+But the indefinite integral,
+we say just the integral of f,
+that is a collection of functions,
+a set of functions.
+And finally, when we define
+a function by an integral,
+like F(x) is the integral from a to x of
+f(t)dt, then that is a single function.
+So a number, a set of functions,
+and one function: they are different.
+Let's go through them one by one.
+First, the definite integral.
+The integral from a to b of f(x)dx.
+We had a formal definition
+and a geometric interpretation.
+The formal definition
+is the only rigorous one,
+but the geometric interpretation
+is much easier and cleaner to understand.
+I remind you the formal definition,
+which was complicated;
+we first need to compute
+the upper integral
+as the infimum of all the upper sums,
+and the lower integral as
+the supremum of all the lower sums,
+and if those two quantities are the same,
+then that's what we call the integral.
+As a formal definition,
+that's quite complex.
+The geometric interpretation is simpler.
+The definite integral represents
+simply area under the curve.
+As shown by this picture.
+If the function is positive, otherwise
+I need to take care of the signs,
+then the definite integral
+is the green area,
+the area under the graph of f
+above the x-axis from x = a to x = b.
+So we have a formal definition
+and a geometric interpretation.
+But in practice,
+how do we compute a definite integral?
+We want to avoid having to use the formal
+definition for computations at all costs.
+This is where we have a theorem, the
+fundamental theorem of calculus part two,
+that comes to save the day.
+This theorem says that if
+I want to compute a definite integral,
+first find one antiderivative G of f by
+any means necessary, normally by guessing,
+and then the integral from a to b of f is
+simply going to be G(b) - G(a). That's it.
+For example, I want to calculate
+the integral from 1 to 2 of x²dx.
+First, I need to find one antiderivative
+of x², and 1/3 x³ works.
+And then I need to evaluate it
+at 1 and at 2.
+So that comes out to be 8/3 - 1/3
+which is 7/3.
+It is a number, as it should be.
+And this is certainly much easier
+than using the formal definition.
+Moving on to the second concept:
+the indefinite integral,
+the integral of f(x)dx.
+The definition is: this is the collection
+of all antiderivatives of f,
+and that is why the indefinite integral
+is a set of functions.
+But again,
+how do we compute it in practice?
+Here we also have a theorem
+that tells us what to do.
+In this case the theorem is a consequence
+of the mean value theorem.
+And it says first find one antiderivative
+G of f, by any means necessary,
+and then we can simply write that
+the integral of f(x)dx
+is G(x) plus an arbitrary constant C,
+as long as we are in an interval.
+We only take integrals over an interval.
+For example, if I want to calculate
+the integral of x²dx,
+first I find an antiderivative,
+1/3x³ works,
+and then plus an arbitrary constant C.
+The third concept is
+a function defined by an integral.
+For example, F(x)
+is the integral from a to x of f(t)dt.
+In a certain way,
+this is a definite integral,
+because it's the integral from a to x.
+Except that the second
+end of integration,
+x, now I'm not thinking of it
+as a fixed constant,
+but as the variable of a new function F.
+So for each value of x,
+I get a different number,
+and that's why this is a function of x.
+As long as the function f is integrable,
+then this is a perfectly valid way
+to define a new function.
+This is just a new function.
+But what do we know about it?
+Here, we also have a theorem, it's the
+fundamental theorem of calculus part one,
+that tells us that if, in addition,
+we assume that f is continuous,
+then this new function F
+is an antiderivative of f.
+So this gives us a way
+to construct an antiderivative.
+For example, I define a function F(x) as
+the integral from 3 to x of e^-t²dt.
+This is a valid way to define a function,
+and this function satisfies
+that its derivative is e^-x²,
+and also it satisfies that F(3) is 0.
+And in fact it's the only function
+satisfying these two properties;
+they completely determine it.
+And we don't write this function
+in any simpler way
+because there is actually
+no simpler way to write it.
+It often happens that this is the only
+way to construct an antiderivative,
+but that's okay, because it's a valid way
+to define a function.
+To conclude this video: why do we
+sometimes write dx, and sometimes dt?
+Can we change between x and t arbitrarily?
+Well, it depends on which one
+of the three things we are doing.
+If we're computing a definite integral,
+the result is a number,
+and there is no intrinsic meaning
+carried by the variable x.
+You can call it x,
+or you can call it anything else.
+So if I change the x's into t's,
+the answer is the same.
+Or into any other letter,
+it doesn't matter.
+However, if I'm calculating
+an indefinite integral,
+then there is assigned meaning
+to the variable x,
+because the outcome is a collection
+of functions whose variable is x.
+So if I change all the x's into t's,
+the result is not equal
+because now I will get a collection
+of functions whose variable is t.
+So it matters which variable we are using
+in this case.
+Finally, if I'm defining a function
+by an integral, then what happens?
+For example,
+if I consider the function F(x) as
+the integral from 3 to x of e^-t²dt.
+Well in this case, I can use any letter
+I want as a variable of integration.
+Instead of t I could perhaps write u,
+or perhaps write something else.
+However, the one thing I am NOT
+allowed to do is call it x
+because x already means something else
+in this problem.
+So never write something like the
+integral from 3 to x of e^-x²dx
+because in this case, x has two different
+meanings in the same equation.
+It's a variable of the function f
+and the variable for integration,
+and that is not allowed.
+That is meaningless,
+that will be ambiguous,
+so never write something like that.

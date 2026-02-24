@@ -1,0 +1,159 @@
+In this video, I will introduce the
+differentiation rules.
+They are the quick way to compute
+derivatives.
+My goal is to compute derivatives of
+common functions
+without having to use the definition as a
+limit each time.
+In principle, I can always use the
+definition,
+but unless the function is simple, it
+gets messy. And also, it is slow.
+What's the better way?
+Without further ado, here are the basic
+differentiation rules.
+I am calling this way of presenting them
+the "lazy" version,
+for reasons that I will explain later.
+The derivative of a constant is 0.
+The derivative of a power, xᶜ
+(c is a constant), is cxᶜ⁻¹,
+and this works for all real numbers c.
+The derivative of a sum, f + g,
+is the sum of derivatives, f' + g'.
+The derivative of a constant c, times a
+function f,
+is the constant times the derivative of
+the function.
+The derivative of a product, f·g, is a
+bit more complicated. It is f'g + fg'.
+And the derivative of a quotient, f ÷ g,
+is (f'g - fg') ÷ g².
+This last one requires that we do not
+divide by 0.
+Just these six rules allow us to compute
+the derivatives of quite a few functions
+quickly.
+I will explain where the rules come from
+and how to prove them,
+and I will also explain what I mean by
+the "lazy" version.
+But first, let's see a few examples
+of these rules in action.
+For my first example, I'll compute the
+derivative of this polynomial.
+A polynomial is a sum of terms, and every
+term is a constant times a power.
+According to this rule, the derivative of
+a sum is just the sum of individual
+derivatives.
+And to take the derivative of a function
+times a constant, I simply take out the
+constant.
+Now, each of the individual functions is
+either a constant or a power.
+The derivative of a constant is 0, and I
+have a formula for the derivative of a
+power.
+Let's use them.
+And now I can simplify for good measure.
+That's it!
+It was faster than using the definition
+of derivative as a limit, wasn't it?
+To be fair, I wrote many steps here.
+Once you have computed a couple of these,
+you will probably be able to skip the
+steps and go directly to the final answer.
+For my second example, I want to compute
+the derivative of this function.
+It's a rational function,
+a quotient of polynomials.
+I can use the quotient rule directly.
+The derivative of the quotient is:
+derivative of numerator,
+times denominator...
+minus numerator times derivative of
+denominator.
+All of that, over the denominator squared.
+Next, I have to take the derivatives of
+these two polynomials.
+Each one of them is exactly like the
+previous example.
+And that's it!
+We can simplify it. I will omit the
+intermediate steps,
+and the final answer is
+(x² - 2x - 1) ÷ (x² + x)².
+These are my last two examples.
+I want to compute these two derivatives,
+and even if they look a bit different,
+I can still do it with the basic
+differentiation rules.
+Look at the power rule.
+The exponent can be any real number.
+It doesn't have to be a positive integer.
+I can rewrite these two functions as
+powers.
+I can write 1÷x³ as x⁻³.
+And I can write √x as x¹ᐟ².
+And now I can compute these two
+derivatives with the power rule.
+And if necessary,
+I can rewrite them a bit.
+Back to the differentiation rules.
+We now know they are useful,
+but we still need to prove them,
+and we have to prove them from the
+definition of derivative as a limit.
+It is worth it to spend the effort to
+prove them.
+We only have to do it once, and then
+we can get so much profit out of them.
+Imagine how many times you can avoid
+having to use the definition of
+derivative.
+As an example, in the next videos, which
+I will link the description,
+I will write proofs for the product rule,
+and for the power rule.
+The rest of the proofs are either very
+similar, or much easier,
+and I invite you to try them as an
+exercise.
+Finally, why did I call this the lazy
+version?
+Strictly speaking, we have to be a bit
+more careful when we write the statement
+of these rules.
+As an example, here is the proper
+statement of the product rule.
+I begin with a real number a, and two
+functions, f and g, defined at and near a.
+This is the same as asking them to be
+defined at least on an interval centered
+at a.
+For simplicity, I will refer to their
+product, f·g, as the function h.
+The theorem says that IF f and g are
+differentiable at a,
+THEN h is also differentiable at a.
+And in that case, we get the formula for
+the product rule.
+Why does it matter to have it written
+this way?
+Apart from introducing the notation
+properly,
+this theorem is an IF-THEN statement,
+and that's very important.
+For the product rule to work, we need to
+assume that f and g have a derivative
+individually.
+If one or both of them is not
+differentiable,
+then the product rule does not apply,
+and the product function may still have a
+derivative
+that we will have to compute in a
+different way,
+perhaps using the definition.

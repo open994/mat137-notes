@@ -1,0 +1,115 @@
+In this video,
+I want to explore the relation between
+the derivative of a function,
+and the derivative of its inverse.
+I want to answer this question:
+if a function is differentiable,
+and it has an inverse,
+must the inverse function
+also be differentiable?
+In other words, if f has a derivative,
+must f⁻¹ have a derivative as well?
+Moreover,
+Can I write (f⁻¹)' in terms of f'?
+To the first question the answer is:
+not necessarily,
+unless we add an extra condition.
+I can explain it geometrically.
+Consider as an example the function f
+described by this graph, in blue.
+This function is differentiable:
+it has a derivative everywhere.
+It is also one-to-one
+and it has an inverse.
+As you know, we can obtain the graph of
+its inverse by reflecting the graph of f
+with respect to the diagonal
+of the first and third quadrants.
+Here is the graph of the inverse, in red.
+Now, if the graph in blue has a
+well-defined tangent line at every point,
+then the graph in red,
+which is a reflection,
+will also have a well-defined
+tangent line at every point?
+So, f⁻¹ should be differentiable
+everywhere, right?
+Not quite.
+Consider the point I am labelling P
+in the graph of f.
+At that point, the tangent line is
+horizontal, and the derivative is 0.
+I am labelling Q the corresponding
+point for the inverse.
+Think about what happens when we reflect
+a horizontal tangent line:
+f⁻¹ must have a vertical tangent line
+at Q, with infinite slope.
+And thus, f⁻¹ is not differentiable at
+Q.
+Therefore, it is possible for f to have
+a derivative while f⁻¹ does NOT.
+But this is the only thing
+that may go wrong.
+We get a nice theorem.
+Consider a function f that is
+defined on an interval I:
+IF:
+f has an inverse,
+f is differentiable,
+and the derivative f’ is never 0.
+THEN:
+we can conclude that f⁻¹
+is also differentiable.
+Side note:
+this little result should not be confused
+with its “big brother” so-to-speak.
+There is another theorem called the
+Inverse Function Theorem.
+The Inverse Function Theorem
+is much more complicated,
+and much more important as well.
+It belongs in a
+multivariable calculus course,
+so it is beyond the scope of
+this sequence of videos.
+But just in case you have heard of the
+Inverse function Theorem:
+that is not what I am talking about.
+The little result I am presenting
+here is much less ambitious.
+Back to what I was doing:
+once we know that both f and f⁻¹
+are differentiable,
+how can I write the derivative of f⁻¹
+in terms of the derivative of f?
+We already know
+a relation between f and f⁻¹:
+f(f⁻¹(y)) = y,
+FOR ALL y in some interval.
+(I am being careless with domains.)
+Then, if I take the
+derivative of both sides,
+I will get a relation between the
+derivative of f
+and the derivative of f⁻¹.
+Let’s do that!
+The derivative of the left equals
+the derivative of the right.
+On the left I need to use the chain rule:
+I get f'(f⁻¹(y))⋅(f⁻¹)'(y).
+And on the right, I simply get "1".
+This is promising,
+but this equation looks more complicated
+than it actually is.
+I can make it look nicer:
+if I call f⁻¹(y): "x",
+or equivalently, I set y = f(x),
+then the equation says that
+f'(x)⋅(f⁻¹)'(y) is 1.
+And from here I can solve:
+(f⁻¹)'(y) is 1/(f'(x)).
+I just have to remember that f and f⁻¹
+are evaluated at DIFFERENT points!
+And that’s the equation
+I was looking for!

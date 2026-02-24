@@ -1,0 +1,150 @@
+This is the second of three videos
+on the idea of limit.
+I am NOT presenting
+the formal definition yet;
+I am trying to explain
+the INTUITION behind what it means
+for a function to have a limit,
+using geometry and algebra.
+In the first video,
+I presented two examples
+of functions that had a limit.
+In this one,
+I will present two more examples
+of limits that do not exist.
+As a reminder, when I say that
+the limit as x approaches a of f(x) 
+equals L,
+what I roughly mean is that
+if x is close to a but NOT a,
+then f(x) is close to L.
+And again, this is NOT
+a formal definition;
+we'll make this rigorous later.
+This is what I concluded
+in the first video
+-- that you should watch before this one.
+I've put a link in the description.
+Let's try to use the same ideas
+in a couple of new cases.
+First, my Example #3
+is going to be this function h,
+defined by the equation
+h(x) = sin(π /(2x))
+h(x) is undefined;
+I cannot plug x = 0.
+Perhaps it is undefined
+like my first two examples,
+in that the graph of the function
+has simply a hole in it,
+and the function has a limit?
+Let's find out!
+This function is harder
+to manipulate algebraically
+than the first two.
+So instead, 
+I'm going to look at a table of values;
+I'm going to try
+to evaluate this function when x = 1,
+when 1/2, when 1/3, and so on.
+I've prepared these numbers
+so they will be easy to evaluate,
+because the argument of sine
+is going to come out to be
+a multiple of π/2
+-- remember that sine is in radians.
+At this moment, I invite you
+to pause the video,
+compute these values
+-- you should see a pattern --
+and then continue watching.
+This is what I got:
+h(1) = 1,  h(1/2) = 0 , h(1/3) = -1,
+and then it goes back to 0
+and to 1, to 0, to -1, and so on.
+And in fact, as I make x
+closer and closer to 0,
+this function keeps oscillating
+between -1 and 1.
+And before x reaches 0,
+it will go up to 1 and down to -1
+infinitely many times,
+because it keeps oscillating
+faster and faster.
+This happens both for positive numbers
+and for negative numbers.
+So in this case,
+if x is close to 0,
+then h(x) is NOT close
+to one single number,
+because it's ALL OVER the place
+between -1 and 1.
+And we are going to say
+that the limit as x approaches 0
+of h(x) does not exist
+-- often abbreviated DNE.
+Because for a limit to exist,
+the function must be approaching
+ONE single number.
+There are many other examples
+of limits that do not exist.
+And there are some examples
+of limits that do not exist
+in a VERY SPECIFIC way
+that deserves a name of its own.
+This is going to be Example 4.
+I'm going to look at the function F,
+defined by the equation
+F(x) = 1 ÷ (x - 1)^2.
+In this case, F(1) is undefined.
+And I assume you know
+what the graph of this function
+looks like:
+it has a vertical asymptote, like this.
+Because when x is very close to 1
+but NOT 1,
+(x - 1)^2 is going to be very CLOSE to 0,
+but positive.
+And 1 divided by a number
+that is very close to 0 but positive
+is going to be very large.
+In fact, arbitrarily large;
+this function gets as large as we want.
+When this happens, we're going to say
+that the limit as x approaches 1 of F(x)
+is infinity (∞).
+But we are ALSO going to say
+that the limit does not exist (DNE).
+And I know: this seems contradictory.
+This seems like bad notation;
+perhaps it is.
+But it IS standard, and is a notation
+that ALL calculus textbooks use,
+so I'm going to use it as well.
+The limit does not exist,
+because in order for the limit to exist,
+when x is close to 1 but not 1,
+F(x) should be approaching
+one single number.
+That's not happening;
+F(x) is not approaching
+any ONE single number
+-- infinity doesn't count;
+infinity is not a number --
+because it's getting arbitrarily large.
+So, when we say "the limit is infinity,"
+we are saying two things:
+first, that the limit does not exist;
+F(x) is not approaching
+any ONE single number,
+and two, that the limit does not exist
+IN THIS VERY SPECIFIC way:
+F(x) is not approaching
+any one single number,
+because it's getting arbitrarily large.
+There is a second family of examples
+where the limit does not exist also,
+for a different very specific reason.
+That's going to be Example 5
+in the next video,
+where I will also talk about side limits.

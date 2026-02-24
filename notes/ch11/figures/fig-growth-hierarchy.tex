@@ -1,0 +1,27 @@
+\begin{tikzpicture}
+  \begin{axis}[
+    width=11cm,
+    height=6.8cm,
+    axis lines=middle,
+    xmin=-0.2, xmax=6.4,
+    ymin=-1, ymax=70,
+    xlabel={$n$}, ylabel={value},
+    ticks=none,
+    clip=false,
+    legend style={draw=none, at={(0.02,0.98)}, anchor=north west}
+  ]
+    % n
+    \addplot[thick, color=thmcolor, mark=*] coordinates {(0,0) (1,1) (2,2) (3,3) (4,4) (5,5) (6,6)};
+    \addlegendentry{$n$}
+
+    % n^2
+    \addplot[thick, color=defcolor, mark=*] coordinates {(0,0) (1,1) (2,4) (3,9) (4,16) (5,25) (6,36)};
+    \addlegendentry{$n^2$}
+
+    % 2^n
+    \addplot[thick, color=excolor, mark=*] coordinates {(0,1) (1,2) (2,4) (3,8) (4,16) (5,32) (6,64)};
+    \addlegendentry{$2^n$}
+
+    \node[anchor=west] at (axis cs:3.7,62) {eventually exponentials dominate};
+  \end{axis}
+\end{tikzpicture}

@@ -1,0 +1,237 @@
+In the previous video,
+I introduced the statement
+of the first part of the
+fundamental theorem of calculus,
+and I showed some examples
+of how to use it.
+In this video, I will write down
+the proof for the theorem.
+As a reminder,
+here's what the theorem says:
+we begin with an interval I,
+a fixed real number a in I,
+and a function little f defined on I.
+We define a new function, big F,
+which is an integral of f.
+F(x) is the integral
+from a to x of f(t)dt.
+And the theorem says that
+if f is continuous,
+then F is differentiable,
+and the derivative of F is f,
+or in other words, a function defined
+as an integral is an antiderivative.
+The proof of this theorem is perhaps
+a bit long, but it is not too abstract.
+Let's begin.
+First I am going to fix a real number x
+on the interval I.
+So for the purpose of the proof,
+both a and x are fixed constants.
+a was already fixed in the statement
+of the theorem. I'm fixing x now.
+And I am trying to prove that
+the derivative of F, F'(x), is f(x).
+Let's use the definition of derivative
+as a limit.
+We know that the derivative of F at x is
+lim_(h → 0) [F(x+h) - F(x)]/x.
+This is just the definition of derivative.
+And then let's use the definition of F
+as an integral.
+So I'm separating the 1/h,
+and what I get is lim_(h → 0) 1/h of
+the integral between a and x + h,
+minus the integral between a and x.
+That was just using the definition of F.
+And an expression like this is primed
+to use a common property of integrals.
+The integral from a to x + h, minus
+the integral from a to x,
+is the integral from x to x + h.
+The only thing I've done so far
+is use definitions,
+and I have concluded that this is
+an expression for the derivative of F(x).
+So what I am trying to prove, what I want
+to show to conclude this proof,
+is that the lim_(h → 0) of 1/h
+times the integral from x to x + h of f,
+is f(x).
+That's my objective.
+It is going to help
+to look at this geometrically,
+so let's draw a picture with all of this.
+Here I have some axes,
+I'm using y and t
+as the coordinates for the function f,
+and here is its graph. I have a fixed
+value of a, and a second fixed value of x.
+And then x + h will be another number,
+for example this one.
+In this picture, the integral from a to x
+of f is this green area.
+And the integral from a to x + h
+is this green area.
+And yes, we know that the difference
+between both of them,
+this smaller green area,
+is the integral from x to x + h.
+Okay, so now we have a geometric
+interpretation of this,
+and let's recall what we're trying to do.
+We want to show that if I take
+this green area as a function of h,
+I divide it by h, and then I take
+the limit as h approaches 0,
+that that is equal to f(x).
+Well I'm going to take a limit
+as h approaches 0.
+So let's see what happens
+when I take smaller values of h.
+If I take a smaller value of h,
+and a smaller one like that,
+and even smaller,
+this is what happens to the green area.
+And I'm observing that
+for small values of h,
+the slice of green area
+can be approximated by a rectangle.
+This is not precise. 
+I'm going to make it precise in a moment.
+But for now it's more or less a rectangle.
+And it's a rectangle whose width is h
+and whose height is about f(x).
+It's ABOUT f(x), this is not precise.
+But what I'm saying is that
+if h is small,
+the green area is about
+f(x), the height, times h, the width.
+And therefore
+the green area divided by h is about f(x).
+This is an approximation when h is small,
+and it will be a better approximation
+the smaller h is.
+So this looks good.
+Therefore, probably,
+when I take the limit as h goes to 0,
+this won't be an approximation,
+but exact.
+And that's exactly the limit
+I was trying to compute.
+But this is not rigorous,
+so let's make it rigorous.
+Going back to the picture.
+Instead of saying
+I approximate it by a rectangle,
+what I can say precisely is that
+the green area can be bounded
+above and below by rectangles.
+It can be bounded above
+by a rectangle whose height is
+the supremum of the function,
+and it can be bounded below
+by a rectangle whose height is
+the infimum of the function.
+This is similar to what we did
+when we defined definite integral.
+So, algebraically:
+I'm going to assume for a moment
+that h is positive.
+We should be looking at h
+positive and negative, nonzero,
+and I could try to use notation
+that works for both,
+but it is simpler to use a notation
+only for positive.
+So maybe we should do a proof for
+positive h, the limit on the right,
+and then a separate proof for negative h,
+the limit on the left,
+but the two are very very similar,
+so I'm just going to focus on positive h,
+and do only that.
+So I'm going to give names
+to the supremum and infimum.
+I'm going to call M_h the supremum
+of the function, between x and x + h,
+and m_h the infimum.
+And then I can say that the green area,
+the integral from x to x + h,
+is at most M_h times h,
+and at least m_h times h.
+Or, if I divide by h,
+the function whose limit I'm trying to
+compute is sandwiched between m_h and M_h.
+And now we're getting close. Look at the
+top, at the thing we're trying to prove.
+We're trying to prove
+the limit of this function of h is f(x).
+And at the bottom,
+I see that this function is sandwiched
+between two other simpler functions.
+So this makes me want to use
+the squeeze theorem.
+If I'm able to prove that the limit
+as h → 0 of M_h and m_h is the same thing,
+then the limit of the thing in the middle
+will also be the same thing.
+And that will conclude the proof.
+That will be everything I need to do.
+So can we do that? Can we prove that
+those two limits are f(x)?
+Yes it's going to work,
+and here is why.
+First, notice that f is continuous.
+So by the extreme value theorem,
+it has a maximum and a minimum
+on this interval.
+So we're not talking about
+suprema and infema,
+we're talking about
+maximum and infimum only.
+So since it has a maximum,
+I can say that M_h is just the maximum,
+not the supremum,
+and therefore M_h is f of something.
+I'm calling that something c_h
+because it's going to depend on h.
+As I change h, the point
+where the maximum is reached changes.
+So more precisely,
+I should say that there is a value of c_h,
+a real number between x and x + h,
+such that the maximum, M_h, is f of that.
+And to be precise, this happens
+for every h, and c_h depends on h.
+Okay.
+So now c_h is between x and x + h.
+As I make h approach 0,
+c_h is going to have limit x, necessarily.
+And therefore f(c_h)
+is going to have limit f(x),
+because f is continuous,
+that's fundamental.
+If f were not continuous,
+the theorem would be entirely false.
+So that's exactly what I wanted.
+And now if I put together what we have,
+we are pretty much done.
+So let's finish the proof.
+We had gotten to this expression:
+this function of h, 1/h times
+the integral from x to x + h of f,
+is sandwiched between m_h and M_h.
+And m_h and M_h have the same limit
+as h approaches 0, which is f(x).
+Therefore, by the squeeze theorem,
+the function in the middle
+also has limit f(x).
+But that is exactly
+what we wanted to prove.
+And this completes the full proof
+of the first part
+of the fundamental theorem of calculus.
+The second part will be easier.
+Well that was long;
+I think I need some chocolate.

@@ -1,0 +1,199 @@
+In this video, I will
+write a proof
+of the Absolute Convergence
+Test for series.
+I already wrote the statement
+in the previous video,
+and I explained how to use it
+and why it's useful.
+This time, I want to know
+why the theorem is true.
+As a reminder, here is
+the statement again.
+I am looking at a series.
+IF the same series
+with absolute values,
+making all the terms positive,
+is convergent,
+THEN the original series
+must be convergent as well.
+Before doing anything else,
+I will introduce a new
+piece of notation.
+Given a series,
+I will write "P.T."
+to represent the positive terms,
+and "N.T." to represent
+the negative terms.
+I'll acknowledge that this
+notation is a bit lazy.
+To make sense of it,
+I need to assume
+that we are talking about one
+single series at a time,
+and that we have
+a good idea in advance
+of which series
+we are talking about.
+But for the purpose of this video
+it will be enough,
+and it is simple, so I am
+going to use it anyway.
+Let's look at it with an example.
+Let's say we are starting
+the alternating harmonic series.
+1 – 1/2 + 1/3 – 1/4 and so on.
+Then, when I write
+"sum of P.T.,"
+I mean 1 + 1/3 + 1/5 + 1/7
+and so on.
+I am keeping only
+the positive terms,
+in the same positions they were
+– in the same order –
+and I have removed the rest.
+Basically I'm replacing the
+negative terms with zeros.
+Similarly, when I write
+"sum of N.T.,"
+I mean -1/2 – 1/4 – 1/6
+and so on,
+just the negative terms.
+Okay. Now that I have
+this notation,
+I want to ask a question that
+will be the key to the proof.
+When is it okay to
+rewrite a series
+as first adding
+all the positive terms,
+and then adding all
+the negative terms?
+That's a way to re-order the terms.
+Is it okay?
+It is certainly okay for finite sums.
+Finite sums are commutative
+and associative.
+If I am adding finitely
+many numbers,
+I can choose to first add
+the positive ones
+and then add the negative ones.
+But a series is an infinite sum.
+An infinite sum can we written
+as a LIMIT of finite sums.
+So, what happens when I take
+the limit of both sides?
+On the left, I have the very
+definition of the series a_n,
+and on the right, I have
+a limit of a sum,
+which I can rewrite as
+a sum of two limits.
+Look at that!
+Those two limits are,
+by definition,
+the series of the
+positive terms only
+plus the series of the
+negative terms only.
+It looks like I have proven
+what I was looking for.
+But, there is a BIG gap
+in the argument.
+Can you spot the error?
+In order to split the limit
+of a sum
+into the sum of two limits,
+I need to use a limit law.
+As you know,
+this requires assuming
+in advance that each one
+of the two individual limits
+exists separately.
+In this case, this means
+I need to require, in advance,
+that the series of only
+positive terms be convergent,
+and that the series of only
+negative terms be convergent.
+With that assumption,
+I can draw the conclusion
+I was looking for.
+But without it,
+I can say nothing about
+the original series.
+The original series may still be
+convergent or not, I cannot tell.
+Okay then!
+The key observation I was
+aiming for is this:
+IF the series of positive terms
+AND the series of negative terms
+are both convergent,
+THEN the original series can
+can written as a sum of the two.
+Great!
+This is the best case.
+The worst case
+is the opposite.
+When the sum of the positive
+terms is infinity,
+and the sum of the negative
+terms is minus infinity,
+then the original series
+may be anything.
+It may end up being
+divergent or convergent.
+It can still be convergent
+if I am adding
+the positive and negative terms
+in a very specific, balanced order
+in which most of the terms
+cancel out or something.
+That is what happens in
+conditionally convergent series,
+and is the reason why
+conditionally convergent series
+are NOT COMMUTATIVE.
+But that's a tangent.
+If this intrigues you, I invite you
+to watch the next video,
+where I will elaborate on it.
+For now, let's go back to the
+actual goal of the video.
+I wanted to prove the
+Absolute Convergence Test.
+Now that we have made
+the previous observation,
+the proof will be very short.
+Here it is.
+Let's assume that the series
+of the absolute values of a_n
+is convergent.
+Notice that the sum of
+the absolute values
+of the positive terms, and the
+sum of the absolute values
+of the negative terms
+are both BOUNDED
+by the sum of all
+the absolute values.
+Therefore, by the Basic
+Comparison Test,
+they are both also convergent.
+That means that the sum
+of the positive terms
+and the sum of the negative terms
+are themselves convergent,
+because they are equal to
+plus (in the first case)
+and minus (in the second case)
+the previous two sums.
+Then, by the key observation
+we made earlier,
+The original series is equal
+to the sum of these two
+and it is convergent!
+That is what I wanted to prove.
+We are done.

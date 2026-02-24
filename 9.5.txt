@@ -1,0 +1,234 @@
+In this video,
+I will work out various examples of
+how to use integration by parts.
+As a reminder, integration by parts
+is summarized by this formula.
+Here are the examples I will work with,
+roughly in increasing
+order of difficulty.
+These are just purely
+computational examples.
+If instead, you are interested in
+the theory behind the formula,
+(why the method works)
+watch the previous video,
+which is linked in the description.
+All of these examples are well-suited
+for integration by parts.
+I invite you to pause the video,
+try to compute these antiderivatives,
+and once you are ready,
+keep watching for the solution.
+For my first example, I want to
+integrate x⋅cos(x), with respect to x.
+As a reminder, here is the formula
+for integration by parts.
+My function is a product, so that's
+a good way to start.
+When I use integration by parts,
+I have a choice to make:
+what do I take as u,
+and what do I take as dv?
+x⋅cos(x)dx must be u⋅dv, but that can
+be arranged in a couple of ways.
+Let's keep an eye on our goal.
+I want the transformed integral to be
+easier than the original integral.
+Whatever I choose as u, I will need to
+take the derivative of it.
+Whatever I choose for dv, I will
+need to take the antiderivative.
+So let's examine the derivatives and
+antiderivatives of x and cos(x).
+For cos x, both the derivative
+and antiderivative are the same,
+except for the + or - sign,
+so it doesn't matter.
+But for x, it matters. The
+derivative is 1, which is simpler.
+The antiderivative is x² times a
+constant, which is harder.
+If I want the second integral
+to be easier,
+it's a good idea to take the derivative
+of x and the antiderivative of cos(x).
+In other words, I want to take u to be x,
+and dv to be cos(x)dx.
+If u = x, the derivative of x is 1
+so du = dx,
+and an antiderivative
+of cos(x) is sin(x).
+Let's see what I get then...
+I get u⋅v -- which is x⋅sin(x),
+- the integral of v⋅du 
+-- which is sin(x)dx.
+Success! The transformed integral is
+indeed easier than the original integral.
+Actually, I know how to
+solve this new integral!
+An antiderivative of -sin(x)
+is simply cos(x),
+don't forget the integration constant,
+and that's my final answer.
+As usual, we can verify the final
+answer by taking this derivative,
+and checking that it is indeed x⋅cos(x).
+It's a good exercise.
+If we take the derivative
+of this function,
+we will see all the steps in
+integration by parts being undone.
+For my second example, I want to
+integrate x²⋅e⁻ˣdx.
+I will use integration by parts,
+so I need to think of this function
+as a product of two pieces;
+and for the transformed integral,
+I will use the derivative of one of them
+and the antiderivative of the other.
+Let's choose what is what.
+The exponential...
+I'm not concerned about it.
+The derivative and the antiderivative
+are the same up to a minus sign.
+But for x² the choice matters!
+The derivative is simpler.
+(it's 2x)
+The antiderivative is x³ times
+a constant. (it's harder)
+So if I want the transformed
+integral to be simpler,
+I should take the derivative of x²,
+and the antiderivative of e⁻ˣ.
+In other words, I will use integration by
+parts with u = x² and the rest as dv.
+Then, the derivative of x² is 2x,
+and an antiderivative of e⁻ˣ is -e⁻ˣ.
+With these choices my integral becomes:
+u⋅v -- that is -x²⋅e⁻ˣ
+- the integral of v⋅du 
+-- that is -2x⋅e⁻ˣdx.
+I call this progress.
+I'm not done yet,
+but at least the new integral is simpler
+than the original. So we are improving!
+Now what do we do with the new integral?
+Notice that using integration by parts
+once took me from x² to x,
+while keeping the exponential the same.
+So how about we use
+integration by parts one more time?
+This time I will take u as 2x,
+and dv as the rest.
+Then, du will be 2⋅dx and
+v will again be -e⁻ˣ.
+And let's see what I get!
+First, I keep the term
+that was already there,
+and with integration
+by parts I should get:
+u⋅v -- which is -2x⋅e⁻ˣ,
+- the integral of v⋅du 
+-- which is -2e⁻ˣdx.
+Excellent! I finally got it down to an
+integral that I know how to calculate.
+So, I copy all the pieces
+that I already have,
+and an antiderivative of e⁻ˣ
+is simply -e⁻ˣ,
+don't forget the integration constant,
+and this is the final answer.
+We could re-write a little bit,
+(perhaps factor the exponential)
+but I'm not going to bother.
+For my last example, I want to integrate
+arctan(x), with respect to x.
+It may surprise you to see this example
+in a video about integration by parts,
+because this doesn't
+look like a product.
+Well, every function is a product.
+I can just think of it as 1⋅arctan(x).
+But still, why use integration by parts?
+arctan(x) makes the integral complicated.
+I don't have any good guesses.
+I cannot think of any function whose
+derivative is arctan(x),
+or even includes arctan(x) in any way,
+so my top priority is to get rid
+of arctan(x) at any price.
+I want to transform this into another
+integral that may be complicated,
+but doesn't include arctan(x), and
+integration by parts can help with that.
+What happens if I try integration by
+parts and I take u to be arctan(x)?
+In that case, du should be the
+derivative (1/(1 + x²)) times dx,
+and that's the point!
+The derivative of arctan(x)
+is simpler than arctan(x).
+I'd much rather work with an integral
+that involves this function,
+than one that involves arctan(x).
+There is a price to pay however...
+If this is u, then dv must be the rest,
+and therefore v = x.
+I introduce an extra x.
+I said that my first goal was
+to transform this integral
+into one that didn't involve arctan(x).
+I can do it using
+integration by parts this way.
+I don't know if this is going to work,
+but it's worth a shot,
+so I will try it, and if it doesn't help,
+I'll come back and try something else.
+Okay then, my integral becomes,
+using integration by parts:
+u⋅v
+-- that's x⋅arctan(x))
+- the integral of v⋅du,
+-- that is (x/(1 + x²))dx.
+Excellent! arctan(x) is gone!
+I think this was a good tradeoff,
+but I'm not done.
+I still need to compute this integral.
+Now in this case,
+I notice that the derivative of the
+denominator, is exactly the numerator,
+except for a 2.
+(a multiplying constant)
+This suggests that I try a substitution,
+and I make the denominator
+the new variable.
+So I will do a substitution,
+and I will call t = 1 + x².
+I am using t as the variable
+rather than u,
+so as not to confuse it
+with integration by parts,
+but you can use any name you want.
+And if that is t, I also have
+to change the differentials:
+dt will be the derivative of 1 + x²,
+which is 2x⋅dx.
+I need a 2 in the numerator, so let me
+multiply and divide by 2... and perfect!
+Now the term I need for
+the differential is right there,
+so I can do this substitution,
+and I get x⋅arctan(x) - (1/2)⋅∫dt/t.
+And at this point I am happy,
+because I know I can finish this
+and now I see a path
+to complete the integral.
+An antiderivative of 1/t is ln|t| (and
+don't forget the integration constant).
+I now simply have to undo the
+substitution t = 1 + x²,
+(notice that I got rid
+of the absolute values
+because I know that this
+expression is always positive)
+and that is my final answer.

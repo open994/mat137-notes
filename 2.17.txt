@@ -1,0 +1,129 @@
+In this video,
+I will explain the types of discontinuity
+a function may have,
+and how some of them can be “removed”.
+How may a function fail to be continuous?
+Let’s remember the definition.
+We say that a function f
+is continuous at a point a
+when the limit at a
+is the same as the value f(a).
+Otherwise, we say
+that the function is discontinuous.
+It is traditional
+to classify discontinuities
+as removable, and non-removable.
+We have a removable discontinuity
+when the limit EXISTS
+but the limit is NOT equal
+to the value of the function f at a.
+And we have a non-removable discontinuity
+when the limit of the function
+does NOT exist.
+I will explain
+why this classification is useful,
+and the reason for the name.
+Here is an example
+of a removable discontinuity.
+The limit as x approaches a EXISTS,
+but it is NOT equal to f(a).
+In this case, the graph has a HOLE.
+It does not matter
+if the function is UNdefined at a,
+or if it is defined
+but with a different value.
+In both cases, the graph HAS a hole,
+and both cases count
+as a removable discontinuity.
+Why is it called removable?
+Because it can be “fixed.” 
+I will explain with an example.
+Consider the function h,
+defined by the equation h(x) = sin(x)/x.
+As x approaches 0,
+this function HAS limit 1,
+but h(0) IS UNdefined.
+This is what the graph looks like.
+If this is the first time
+you are encountering this function,
+you may be surprised; 
+it is not obvious that this limit is 1.
+For now, just accept
+that this is the case from the graph;
+I will prove it in another video.
+So the graph has a hole,
+and the function has a discontinuity.
+But I can remove it
+by “filling" the hole!
+What does this mean?
+I am going to define a new function,
+called H ("big H").
+H is exactly the same 
+as the original function when x is not 0.
+But in addition, 
+I am going to define H(0) to be 1.
+When I do this,
+H becomes CONTINUOUS at 0.
+Think about the graph!
+THIS is the graph
+of the original function, h ("small h"),
+with the hole at 0.
+The new function H is exactly the same,
+except it is also defined to be 1 at 0.
+So the new function "fills the hole,"
+so to speak, and THIS is the graph.
+I am exaggerating a bit
+how I fill the whole to make it clear;
+I probably could simply draw the graph
+like this.
+What I did here,
+“removing” the discontinuity,
+is something we can ALWAYS do
+as long as the limit exists.
+And that is why we call it
+a “removable” discontinuity.
+In a way, it is as though
+we had a continuous function,
+but we forgot to define it at the point,
+or we defined it with the "wrong" value.
+In science,
+and more particularly in physics,
+it is common to remove discontinuities
+automatically whenever possible.
+Physicists normally
+DON'T make any distinction
+between a function
+with a removable discontinuity,
+and the same function
+with the discontinuity removed.
+For example,
+if a physicist talks about sin(x)/x,
+they are probably thinking about H;
+about the "fixed" function.
+By contrast, let’s look at some examples
+of NON-removable discontinuities.
+This function does NOT have a limit at 0,
+because it has a JUMP.
+It is a non-removable discontinuity;
+try as we may,
+we cannot “fix” this function;
+we cannot make it continuous
+by redefining it at 0.
+This other function
+does NOT have a limit at 1,
+because it has a VERTICAL ASYMPTOTE at 1.
+It CANNOT be "fixed," either;
+it CANNOT be made continuous
+by defining it at 1.
+It ALSO has
+a non-removable discontinuity.
+And this final example
+does not have a limit at 0, either.
+It ALSO has
+a non-removable discontinuity;
+there is no way to fix it.
+In short,
+removable discontinuities can be...
+well, removed!
+Non-removable discontinuities CANNOT. 
+THAT is the reason for the name.

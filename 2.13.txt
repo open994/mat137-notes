@@ -1,0 +1,280 @@
+In this video,
+I will write a proof
+for the squeeze theorem.
+I have already explained 
+the statement of the theorem
+and how to use it 
+in a previous video,
+which I will link in the description.
+As a reminder,
+this picture summarizes Squeeze Theorem;
+if I have two functions
+-- in red and green here --
+that have the same limit
+at the same point,
+and have a third function
+-- in blue here --
+that they sandwich
+or squeeze between them,
+then it must also have the same limit.
+Or, this is how we wrote it
+as a formal statement:
+IF lim_(x → a) f(x) = L
+AND the same is true
+for the function h,
+AND in addition
+the function g is between h and f,
+THEN the function g
+must also have the same limit.
+This is how I ended the previous video,
+and I will take as a starting point now.
+But I want to make a small modification
+to the first of the hypotheses.
+I am requesting 
+the inequalities to be true
+when x is close to a, but not a.
+I want to write this a bit more formally.
+Saying that x is close to a
+is the same as saying
+that x is in an interval centered at a,
+so I'll require exactly that;
+I will say
+that there exists a positive radius p
+such that when the distance
+between x and a is between 0 and p,
+THEN the inequalities are true.
+And this is entirely equivalent
+but a bit more formal,
+which will be useful for the proof.
+To begin with,
+like I normally do for proofs like this:
+I will focus on the conclusion;
+what I want to show,
+and I will write down the definition
+of the statement in THAT conclusion,
+because that will show me
+what the proof should look like.
+I want to show that lim_(x → a) g(x) = L. 
+Or equivalently,
+that for every positive number
+epsilon (ε),
+there exists a positive number delta (δ)
+such that IF the distance
+between x and a is between 0 and δ,
+THEN the distance between g(x) and L
+is less than ε.
+That's just the definition
+of this limit being L.
+And this tells me
+what the structure of the proof is;
+I need to begin my proof 
+by fixing an arbitrary positive ε,
+then after some work,
+saying what I take as δ
+as a function of ε,
+and then I will fix a real number x,
+I will assume the "IF" part,
+and after some math,
+I will conclude the "THEN" part.
+This should be very familiar by now,
+because it is the same structure
+as in other (ε, δ)-proofs
+I have written before.
+If this confuses you,
+I suggest you rewatch
+one of the easier (ε, δ)-proofs,
+which I will link in the description.
+Before going any further,
+one more reminder: during the proof,
+we are going to use the definition
+of the limit for g on the one hand,
+and for f and h on the other hand.
+But we'll use them
+in a very different way,
+because we are trying to PROVE
+that the limit of g is L,
+but we are ASSUMING
+that the limit of f is L
+and also the limit of h.
+Why does this matter?
+In the case of g,
+we want to SHOW that the limit is L.
+Think about the definition:
+for every ε, there exists a δ, et cetera.
+In the proof,
+I'm going to have to FIX
+an arbitrary value of ε,
+and then I will have to say
+how I FIND a value of δ
+that works for this ε.
+By contrast, when we ASSUME
+the limit of f is L,
+there is nothing to prove.
+So in the definition of limit
+-- for every ε, there exist a δ, etc. --
+I don't need to fix
+an arbitrary value of ε.
+Instead, if I need it,
+I get to CHOOSE
+any value of ε that I want,
+and then for THAT value,
+we know it is GUARANTEED
+that there exists a value of δ 
+that works.
+That's the difference.
+The same idea appeared
+in the proof of the limit law for sums.
+So if this is confusing to you,
+I suggest you rewatch THAT video,
+which I will link in the description.
+Enough preparation.
+It's time to do some rough work
+to come up with the details of the proof.
+Specifically, what do I take as δ?
+I want to end up concluding
+that the distance between g(x) and L
+is smaller than ε.
+That is equivalent to saying
+that g(x) is between L - ε and L + ε.
+Now, I am assuming
+-- this is one of the hypotheses
+of the theorem --
+that g(x) is between f(x) and h(x)
+So I will focus
+on trying to bound f(x) and h(x).
+We are assuming the limit of f(x) is L.
+What I can do
+is take the same value of ε
+that I am using for g
+in the definition
+of "the limit of f(x) is L."
+And for THAT value of ε, we know 
+that there must exist a positive number,
+which I will call δ_1,
+such that if the distance
+between x and a is between 0 and δ_1,
+then f(x) must be
+between L - ε and L + ε.
+And now look what I have!
+If I put together
+these inequalities in red,
+I get this inequality in blue,
+which is half of what I wanted.
+So this is promising.
+I will do the same thing for h.
+We know that the limit of h is also L,
+so by using the same value of ε again,
+we know:
+there must exist another positive number, 
+which I will call δ_2,
+such that when the distance
+between x and a is between 0 and δ_2,
+then h(x) is between L - ε and L + ε.
+And now, 
+I can obtain what I was looking for
+-- these two inequalities 
+that I boxed in blue --
+by concatenating together
+all these inequalities
+that I have boxed in red.
+So this is going to work.
+But there is still one question pending:
+what do I take as δ?
+Well, in order to get
+all the inequalities I need to use,
+I need the distance between x and a
+to be smaller than p, smaller than δ_1,
+and smaller than δ_2.
+I can guarantee that if I take δ
+to be the minimum of δ_1, δ_2, and p.
+Because then,
+if the distance between x and a
+is smaller than δ,
+then it must ALSO
+be less than δ_1, δ_2, and p.
+And I get all the conclusions.
+And that's it.
+I think I have figured it out;
+I now have the details of the proof!
+I will now write the proper proof.
+I remind you that what I have done so far
+DOES NOT COUNT;
+the proof only begins NOW.
+But I had to do the previous work
+to figure out HOW to begin the proof.
+Nevertheless,
+I still need to write the proof carefully
+and in the logical order,
+making sure it actually works
+and that I have not confused myself
+with circular reasoning
+doing the rough work.
+So here it goes. 
+I fix an arbitrary positive value of ε.
+Then, I use that SAME value
+in the definition
+of "lim_(x → a) f(x) = L."
+I KNOW that there MUST exist 
+a positive number,
+which I call δ_1,
+such that if the distance between x and a
+is between 0 and δ_1,
+then the distance between f(x) and L
+must be smaller than ε.
+This, in turn, implies that f(x)
+is less than L + ε.
+It implies more things,
+but this is the only piece that I need.
+Similarly, I use the same value of ε
+in the definition 
+of "lim_(x → a) h(x) = L."
+There MUST exist a
+positive number, which I call δ_2,
+such that if the distance between x and a
+is between 0 and δ_2,
+then the distance between h(x) and L
+is less than ε.
+In particular, this implies
+that h(x) is greater than L - ε.
+It implies more things,
+but this is the only piece I need.
+Then, I take as my value of δ
+the minimum of δ_1, δ_2, and p.
+The smallest among three positive numbers
+is still a positive number.
+Next, I fix an arbitrary real number x,
+and I assume the distance between x and a
+is between 0 and δ.
+This implies
+that it is also smaller than δ_2,
+smaller than p,
+and smaller than δ_1.
+Since it is smaller than δ_2,
+I get that h(x) is greater than L - ε.
+Since it is smaller than p,
+I get that g(x) is between h(x) and f(x).
+Since it is smaller than δ_1,
+I get that f(x) is smaller than L + ε.
+From putting together all these
+inequalities in this order,
+I conclude that L - ε is less than g(x)
+is less than L + ε.
+Or equivalently,
+that the distance between g(x) and L
+is less than ε.
+Which is exactly what I needed!
+And this completes the proof.
+I will finish with the usual commentary.
+First, look at the pieces in red.
+Notice that the structure of the proof
+is exactly what I said at the beginning
+that it should be.
+And second,
+notice that all the variables
+have been introduced in the right order,
+that every step follows logically
+from the previous ones,
+so that every step,
+I am only using things
+that HAD already been established
+to be true.

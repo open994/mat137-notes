@@ -1,0 +1,22 @@
+\begin{tikzpicture}
+  \begin{axis}[
+    width=11cm,
+    height=6.8cm,
+    axis lines=middle,
+    xmin=-2.4, xmax=2.4,
+    ymin=-3.6, ymax=3.6,
+    xlabel={$x$}, ylabel={$y$},
+    ticks=none,
+    clip=false
+  ]
+    % f(x)=x^3-3x has critical points at x=±1
+    \addplot[thick, color=thmcolor, domain=-2.2:2.2, samples=300] {x^3 - 3*x};
+
+    % Mark critical points
+    \addplot[only marks, mark=*, mark size=2pt, color=black] coordinates {(-1,2) (1,-2)};
+    \node[anchor=south east] at (axis cs:-1,2) {$f'(-1)=0$};
+    \node[anchor=north west] at (axis cs:1,-2) {$f'(1)=0$};
+
+    \node[anchor=west] at (axis cs:1.4,2.7) {local max / min occur at critical points};
+  \end{axis}
+\end{tikzpicture}

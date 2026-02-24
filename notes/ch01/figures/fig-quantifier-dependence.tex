@@ -1,0 +1,8 @@
+\begin{tikzpicture}[node distance=12mm, >=Latex]
+  % Visual intuition: dependence vs independence of choices
+  \node[draw, rounded corners, thick] (forall) {$\forall\,x\in\Z$};
+  \node[draw, rounded corners, thick, right=of forall] (exists) {$\exists\,y\in\Z$};
+  \node[below=of exists, align=left] (rule) {$y$ may depend on $x$\\e.g. choose $y=x+1$};
+  \draw[->, thick, color=thmcolor] (forall) -- node[above] {choose after seeing $x$} (exists);
+  \draw[->, thick, color=defcolor] (exists) -- (rule);
+\end{tikzpicture}

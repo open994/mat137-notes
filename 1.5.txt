@@ -1,0 +1,231 @@
+In this video, I will write the proofs
+of some simple statements
+with quantifiers "for all"
+and "there exists."
+The statements I've chosen
+are very simple.
+They are things that normally,
+we would not bother writing a proof for.
+Nevertheless, I want to use them
+so that we can fully understand
+the building blocks
+of a more complex proof,
+and later we can put them together
+and write those more complex proofs.
+Here's my first theorem.
+I'm going to call A
+the set with elements 2, 3, and 4.
+I claim that for every x in A,
+x is positive.
+Okay. As I've said earlier,
+this is obviously true;
+this is not something we would 
+normally bother to write a proof of.
+But I want to, nevertheless,
+write a proof in something
+as basic as this,
+so that we can observe the structure
+of the proof and then use it later
+in a more complex proof
+that has "for all"
+So how would I prove this?
+-- If I insisted that I need a proof? --
+Well I need to verify
+that x is greater than 0
+for all the elements of A,
+and there are 3 elements in A.
+So I need to check them all, one by one.
+Well, I need to check
+that 2 is greater than 0. Check!
+3 is greater than 0. Check!
+4 is greater than 0. Check!
+I think that's it!
+This filled square
+means "end of the proof."
+Okay, let's look at another statement.
+This says something similar,
+but for a different set;
+instead of for A, it's for integers.
+"For every integer x, x is positive."
+And well, can I prove this?
+No, I can't, because this is false;
+not every integer is positive.
+Okay, so instead of showing
+that it is true,
+I am going to show that it is false.
+What do I need to do
+to show that it is false?
+I need to prove that the opposite
+of the original statement is true.
+What's the opposite of saying
+that for every integer x, x is positive?
+What does it mean to negate that?
+Well to say that it is false
+that every integer is positive
+is the same as saying
+that there exists AT LEAST ONE 
+that ISN'T.
+So "there exists at least one integer x
+such that x is less than or equal to 0."
+And I want to give a name
+to the relationship
+between these two statements.
+We are going to say
+that the second statement
+is the NEGATION of the first.
+What that means
+is that it is the opposite.
+The negation of a statement
+is something that will be true EXACTLY
+when the original statement is false.
+Now, in this case,
+this was quite simple.
+We didn't need to be so formal,
+but in other cases
+it may be more complicated.
+In general, to prove
+that a statement is false,
+we can simply prove
+that its NEGATION is true.
+How do I prove THIS? Now,
+this is NOT a statement with "for all";
+this is a statement with "there exists."
+How do I show that
+there exists an integer with a property?
+I only need one.
+Well, an easy way to do that
+is by saying what THAT integer is.
+I only need to take one.
+I get to choose it
+as long as it satisfies that.
+So I'm going to say
+"just take x to be -6," for example.
+And now what I need to verify
+is that -6 is an integer? Yes!
+And that -6 is less than or equal to 0?
+True!
+And that completes the proof.
+Okay, so next, let's look
+at another theorem
+where the proof is going to
+take more than one line.
+I want to prove this theorem that says
+that for every integer x,
+there exists an integer y
+such that x is less than y.
+And I've already talked
+in a previous video
+about why this is true,
+but now I want to write a proof.
+Let's see. The theorem begins 
+with "for all"; "for all integers x."
+There are infinitely many integers,
+so unfortunately, in this case,
+I'm not going to be able
+to check them all one by one;
+I could never finish.
+So I'm going to need to try
+to prove it for all values of x at once.
+The standard way
+we begin proofs like this
+is by writing "let x be an integer."
+But the important thing
+is not what we write,
+but really what it means.
+The convention is that
+when I write this in a proof,
+this means 
+that I am fixing an arbitrary value of x.
+And there are two important words here:
+"fix," and "arbitrary."
+"Arbitrary," because
+this must work for ALL integers.
+I don't get to choose x;
+x should be ANY here.
+Otherwise my proof doesn't work;
+I want it to work for all integers.
+And "fix," I'll come back to that
+and why that is important.
+So once we have fixed x,
+now I need to prove
+that there exists a y
+with a certain property.
+And we already saw
+in the previous example that to prove
+that there is a y with a property,
+the easiest way is to say what y is;
+to just choose y.
+So I'm going to say 
+that I'm going to take y to be something,
+then I'll verify
+that it has the property.
+So after that, what I'll need to do
+is verify 
+that this y I've chosen is an integer,
+and verify that it's greater than x.
+What do I choose as y?
+Well, what is greater than 8?
+Take example 9.
+What is greater than 20?
+Take example 21.
+So the easy way is,
+if I fix x and I ask you
+for a greater integer,
+just take x + 1.
+It's not the only choice,
+but it is one that works.
+And then if x is an integer,
+y is also an integer.
+And whatever x is,
+x + 1 is greater than x.
+And that's it;
+that would complete the proof.
+Don't get intimidated
+by the formality of the proof.
+All I've done here is say
+that if I fix x,
+I can always take y to be x + 1,
+and that will be an integer
+that is greater.
+That's all. And that agrees
+with our intuition of why this is true.
+But I want to come back
+to this word, "fix."
+Why was it so important
+that I fixed the value of x
+at the beginning of the proof?
+In the second line,
+when I say that am taking
+or choosing y to be x + 1,
+x must mean something specific.
+If I don't fix x at the beginning,
+then it wouldn't make sense
+to choose y to be x + 1,
+because x doesn't carry any meaning.
+In the statement of the THEOREM,
+x is a QUANTIFIED variable.
+So x doesn't have an intrinsic meaning.
+In the process of the PROOF,
+before we OPERATE with a variable,
+we must have FIXED its value.
+You may think I'm being nitpicky here,
+but if we are not careful with this
+and if we don't pay attention
+to doing it this way,
+then when we come up
+with more complex claims,
+it's easy to write bad proofs,
+or even to write pseudo proofs 
+of false claims, which is worse.
+So, the structure is very important:
+I must FIRST FIX x -- arbitrary,
+then I CHOOSE what y is 
+-- in terms of x,
+and THEN I verify the extra conditions.
+We can take this as a template
+of how to write
+a simple proof with two quantifiers,
+and we will use the same idea
+with much more complex such claims
+when we try to write proofs of theorems
+involving the definition of limit.

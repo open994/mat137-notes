@@ -1,0 +1,168 @@
+Power series are, to a certain extent,
+like polynomials,
+and there are many computations
+in mathematics
+that are easier with power series
+than with other functions.
+For instance, integrals.
+In this video,
+I will illustrate with an example
+how to use Taylor series
+to compute integrals.
+I want to compute the integral from
+0 to 3 of e⁻ˣ^² dx.
+e⁻ˣ^², that's a simple enough function,
+but finding an antiderivative for it
+is pretty hard.
+In fact, it is impossible to find an
+antiderivative for it
+in terms of the useful common functions.
+That's something that can be proven with
+differential Galois theory.
+The point is, good luck trying!
+You won't succeed at finding
+an easy antiderivative for it.
+So instead, I'm going to
+replace this function
+with a power series and integrate that.
+I'm going to begin by writing the
+exponential as a Maclaurin series
+because that's one I already know.
+And we know this is valid
+for all real numbers x.
+Now since it's valid for all real numbers
+x, there is no problem with the domain,
+and now I want the exponential of -x².
+So instead of using x as the variable,
+I will use -x² as the variable everywhere.
+And let's separate
+that numerical coefficient
+so it really looks like a power series.
+There. So now I go back to
+my original calculation,
+the integral I'm trying to compute,
+and what I'm going to do
+is instead of integrating
+the function looking like this,
+I'm going to integrate
+the function looking like this,
+And now think of this expression simply
+like a polynomial of infinite degree.
+We know that for power series,
+for power series only,
+in the interior of the interval
+of convergence, we can do that.
+So I can simply integrate it,
+term by term,
+the same way you would
+integrate a finite polynomial.
+The numerical coefficients
+are simply multiplied.
+This is not something I can do with
+arbitrary series,
+but I can do it with power series.
+And now I'm left with integrating a power,
+but powers are the easiest to integrate.
+An antiderivative of x²ⁿ
+will be x²ⁿ⁺¹/(2n + 1),
+and then I simply have to evaluate at 3,
+minus evaluate at 0.
+So I'll do that.
+That is my final answer.
+Perhaps you think that it is a bit
+disappointing to leave it as a series,
+but this expression is as useful as
+writing something like sine of 3,
+or logarithm of 5.
+It is a series that converges,
+and it converges really quickly,
+because there is an n! in the denominator.
+Let's say, for example, that I need the
+first five digits of this number.
+This is what it is, a number.
+Then I can simply estimate the series
+with a partial sum.
+Truncate it, take the first few terms,
+and that gives me a nice approximation.
+And I can even bound the error.
+In fact, if you ask your calculator or
+your computer to calculate this value,
+then this is exactly what it does.
+It replaces the function
+with a power series,
+then it integrates it term by term,
+gives the result as a series,
+and then approximates the infinite sum
+with a finite sum, with a partial sum.
+Sometimes, even when it is possible
+to compute an antiderivative,
+it is preferable not to bother
+and to use power series instead.
+Here is a second example to illustrate it.
+I just want to find the antiderivatives
+of this function, 1/(1-x⁸).
+This is a rational function,
+it's a quotient of polynomials,
+and it is possible
+to find an antiderivative.
+You just have to factor the denominator,
+and then decompose into partial fractions.
+But in this case,
+that process is long and painful.
+How long and painful?
+Well after much work, this is what
+the final answer will look like
+I don't recommend that you try to
+reproduce this calculation
+and do all the process
+getting all the way to here.
+You would have to be pretty kinky
+to enjoy this kind of stuff.
+So yes, this is an exact answer.
+It's written in terms of so called
+elementary functions,
+but it's extremely complicated
+and I don't find it helpful at all.
+I look at this equation,
+and I have no idea what this function
+does or what the graph looks like.
+I don't know how to estimate it
+or anything else.
+So in this case, while it is possible
+to find an antiderivative, there it is,
+let's ignore it entirely.
+Why don't we use power series instead?
+This function is asking us to rewrite it
+as a power series,
+because this is exactly
+the geometric series
+but using x⁸ instead of x
+as the variable.
+So look what happens
+when I simply do that.
+I can rewrite this as the sum from
+n = 0 to infinity of x⁸ⁿ,
+and then I know exactly
+how to integrate that.
+There is nothing easier to integrate
+than a power.
+That would be x⁸ⁿ⁺¹/(8n + 1),
+of course, plus an integration constant.
+And yes there is a constraint.
+This is only valid when |x| < 1.
+But there, that's my final answer.
+And consider two things:
+first, getting all the way here would
+have taken us a really long time,
+whereas this process was
+really short and simple.
+And second if you compare
+the two final answers,
+I find the expression as a series
+much nicer
+and hopefully much more useful
+and usable than this long equation.
+The moral is using power series
+to compute integrals is useful,
+sometimes even when
+there are other ways to do it.

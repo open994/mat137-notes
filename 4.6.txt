@@ -1,0 +1,248 @@
+In this video,
+I will review the definition of
+exponentials and logarithms,
+and I will explain why they are
+difficult to define rigorously.
+It may surprise you
+to learn that this is...
+...MUCH harder than they
+told you in high school.
+To be fair, for most practical purposes,
+this is not something you
+have to worry about too much.
+But I find it interesting to at least
+KNOW that this IS a difficult problem.
+First,
+let’s recall the definition of logarithms
+that you learned in high school.
+When I say that logₐ(x) is a number "y",
+it means that: aʸ = x.
+For example,
+if I want to compute log₂(8),
+I am asking: which power of 2 = 8?
+I can just guess: it is 3.
+So log₂(8) = 3.
+That’s it.
+This definition is simply saying that
+the logarithm in base "a",
+is the INVERSE function of
+the exponential with base "a".
+Nothing more.
+We can use this to
+define logarithm functions,
+AS LONG AS the exponential
+functions are well-defined.
+So let’s review how we
+define exponentials, or "powers".
+I want to define "aᶜ", where the
+exponent, "c", is any real number.
+But the base, "a",
+will only be a positive number.
+With a negative base, some exponents
+still make sense, but not all of them.
+For example, (-1)¹ᐟ³ is ³√(-1),
+which is -1.
+But (-1)¹ᐟ² is √(-1),
+which is undefined.
+So, we will stick with
+positive bases only.
+Let’s start with rational exponents.
+We can break this into cases.
+First, the easiest case:
+the exponent is a positive integer.
+I am denoting the
+positive integers as: ℤ⁺.
+When n is a positive integer, aⁿ is
+defined as iterated multiplication.
+You learned this in grade 1 or 2.
+Second, we define a¹ᐟⁿ,
+(for example: a¹ᐟ², a¹ᐟ³, and so on...)
+as an "n-th root". (ⁿ√a)
+And ⁿ√a is defined implicitly
+by saying that its n-th power is a.
+Since we had already defined
+"n-th power" in Step 1,
+this is a valid way
+to define "n-th root".
+Third,
+for an arbitrary positive rational n/m,
+we can define aⁿᐟᵐ,
+as first "aⁿ",
+and then the result of that to the 1/m.
+Notice that we are using
+Steps 1 and 2 in Step 3.
+So far, this has defined a raised to
+any POSITIVE rational exponent.
+We define a⁰ as 1.
+And finally, we know how to define
+a power with a negative exponent,
+in terms of a power
+with a positive exponent.
+That's it! So far there are no problems.
+We have defined any power with
+a positive base and a rational exponent.
+But how do we define a power
+when the exponent is NOT rational?
+For example, what is 2 ⷧ?
+If you have never thought about it,
+this may come as a surprise.
+I cannot define it in terms of iterated
+multiplication, or roots, or quotients.
+It seems there is no easy way 
+to define 2 ⷧ.
+There is no way around it.
+We need to get into serious analysis
+territory to even say what 2 ⷧ means.
+Here is one possible solution.
+We know π has a decimal expansion,
+which is infinite and is not periodic.
+That is why π is irrational.
+I do not know how to compute 2 ⷧ,
+but I can compute 2 to the 3,
+I can compute 2 to the 3.1,
+because 3.1 is rational,
+I can compute 2 to the 3.14,
+because 3.14 is rational,
+I can compute 2 to the 3.141,
+and so on...
+This way I can construct
+a sequence of numbers,
+and I can declare 2 ⷧ to be
+the limit of this sequence.
+This is probably the most natural way
+to explain what 2 ⷧ means.
+It is also probably what early
+mathematicians were implicitly assuming
+before they started giving
+this problem some serious thought.
+But this solution is messy.
+How do I know that
+this sequence has a limit?
+And even if I do,
+there is a bigger problem.
+Effectively, I am approximating π
+with a sequence of rational numbers.
+But what if I use a DIFFERENT sequence
+of rational numbers to approximate π,
+will I get the same result?
+The answer turns out to be yes,
+but it is VERY HARD to prove.
+This solution may look simple,
+but it isn’t.
+There are better ways.
+The key is to use this identity:
+I can write aᶜ as eᶜˡⁿ⁽ᵃ⁾.
+How can this be helpful?
+I am writing an exponential
+with an arbitrary base a,
+in terms of an exponential with base e,
+so I have simplified
+the problem a little bit.
+I only need to worry about defining
+exponentials with base "e" rigorously,
+and other bases will follow.
+This leads to what I call
+the Modern Analysis Solution.
+It goes in three steps.
+Step 1:
+define one single function from scratch,
+either the exponential with base e
+or the natural logarithm.
+Of course, this is the difficult step.
+I will come back to it.
+Step 2:
+define the other function as its inverse.
+So, if we have managed to define the
+exponential with base e from scratch,
+define the natural logarithm
+as its inverse,
+and if we have managed to define
+the natural logarithm from scratch,
+define the exponential with base e
+as its inverse.
+And Step 3: define other
+exponentials with this equation.
+Ok, then. How do we do Step 1?
+I have seen at least
+three different options,
+used in different areas of analysis.
+The first option is
+to use differential equations.
+The function eˣ is the only function that
+is its own derivative,
+and that has value 1 at 0.
+This is called an “Initial Value Problem”,
+which appears often in the field
+of differential equations.
+There is a result,
+the Picard-Lindelöf theorem,
+that says that a problem like this
+has exactly one solution.
+In other words, that it is okay
+to define a function this way.
+The advantage of this option
+is that it is very natural.
+It is easy to understand.
+We recognize this as the most important
+property of the number e.
+The disadvantage,
+is that the Picard-Lindelöf theorem
+is very expensive.
+It is a very sophisticated theorem,
+and it is hard to prove.
+You would learn it in a course
+in ordinary differential equations.
+This counts as advanced math.
+Another option is to define eˣ
+as a power series.
+Specifically,
+to define eˣ with this equation.
+You would need the full theory of
+power series, not just a single theorem.
+You normally learn it when you study
+Taylor series...
+...at the end of a calculus course.
+A disadvantage of this option,
+is that proving the properties of the
+exponential from this definition,
+is harder.
+An advantage of this option,
+is that it generalizes very easily if
+we want to use complex numbers,
+rather than only real numbers.
+And finally, my favourite option:
+using integrals.
+Instead of defining the
+exponential from scratch,
+we can define the natural logarithm
+from scratch.
+It may feel perverse
+to define ln(x) before eˣ,
+but there is nothing wrong with it.
+We can define ln(x),
+as the integral from 1 to x of (1/t)⋅dt.
+( ∫₁ˣ((1/t)⋅dt) )
+To show that this is well-defined,
+and to prove all of its properties,
+we only need the
+Fundamental Theorem of Calculus,
+which you will normally learn
+in any calculus course.
+Of all the options, this is
+by far the most accessible.
+A good calculus student
+COULD fill in the details.
+To wrap things up.
+My goal in this video was not to present
+the full rigorous construction,
+proving all the details.
+Rather, as I said at the beginning,
+my goal was to explain why defining
+exponentials rigorously is difficult.
+I think every calculus student should
+understand why this is not trivial.
+But if you are curious for more,
+if you would like to learn the details
+and to complete the construction,
+then I invite you to consider
+taking an analysis class.

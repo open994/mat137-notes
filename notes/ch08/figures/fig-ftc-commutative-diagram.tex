@@ -1,0 +1,14 @@
+\begin{tikzpicture}[node distance=18mm, >=Latex]
+  \node[draw, rounded corners, thick, align=center] (f) {$f$\\(continuous)};
+  \node[draw, rounded corners, thick, right=of f, align=center] (A) {$A(x)=\int_a^x f(t)\,dt$};
+  \node[draw, rounded corners, thick, below=of f, align=center] (F) {$F$\\(antiderivative of $f$)};
+
+  % FTC Part 1
+  \draw[->, thick, color=thmcolor] (f) -- node[above] {accumulate} (A);
+  \draw[->, thick, color=defcolor] (A) -- node[below] {differentiate} (f);
+  \node[above=2mm of A, color=defcolor] {$A'(x)=f(x)$};
+
+  % FTC Part 2 relationship
+  \draw[->, thick, color=excolor] (F) -- node[left] {differentiate} (f);
+  \node[below=2mm of F, align=center] {$F'(x)=f(x)$\quad and\quad $\int_a^b f(t)\,dt = F(b)-F(a)$};
+\end{tikzpicture}

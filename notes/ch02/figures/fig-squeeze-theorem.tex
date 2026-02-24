@@ -1,0 +1,23 @@
+\begin{tikzpicture}
+  \begin{axis}[
+    width=11cm,
+    height=6.2cm,
+    axis lines=middle,
+    xmin=-1.2, xmax=1.2,
+    ymin=-0.3, ymax=1.7,
+    xlabel={$x$}, ylabel={$y$},
+    ticks=none,
+    legend style={draw=none, at={(0.02,0.98)}, anchor=north west},
+    clip=false
+  ]
+    % Example: g(x)=1-x^2, f(x)=1-0.5x^2, h(x)=1
+    \addplot[thick, color=thmcolor, domain=-1.1:1.1, samples=200] {1-x^2};
+    \addlegendentry{$g(x)$}
+    \addplot[thick, color=excolor, domain=-1.1:1.1, samples=200] {1-0.5*x^2};
+    \addlegendentry{$f(x)$}
+    \addplot[thick, color=defcolor, domain=-1.1:1.1, samples=2] {1};
+    \addlegendentry{$h(x)$}
+
+    \node[anchor=west] at (axis cs:0.6,1.05) {$g\le f\le h$ near $0$};
+  \end{axis}
+\end{tikzpicture}

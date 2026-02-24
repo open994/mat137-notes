@@ -1,0 +1,18 @@
+\begin{tikzpicture}
+  \begin{axis}[
+    width=11cm,
+    height=6.2cm,
+    axis lines=middle,
+    xmin=0, xmax=14.5,
+    ymin=-0.1, ymax=1.2,
+    xlabel={$n$}, ylabel={$a_n$},
+    ticks=none,
+    clip=false
+  ]
+    % Example terms that do not go to 0: a_n = 1 + 0.2*sin(n)
+    \addplot[only marks, mark=*, mark size=2pt, color=thmcolor]
+      coordinates {(1,1.168) (2,1.182) (3,1.028) (4,0.849) (5,0.808) (6,0.944) (7,1.131) (8,1.198) (9,1.082) (10,0.891) (11,0.800) (12,0.893) (13,1.084) (14,1.198)};
+    \addplot[dashed, color=defcolor, domain=0:14.5, samples=2] {0};
+    \node[anchor=west] at (axis cs:5.2,1.08) {$a_n$ does not approach $0$};
+  \end{axis}
+\end{tikzpicture}

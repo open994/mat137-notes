@@ -1,0 +1,182 @@
+In this video, I will present some
+examples of functions that are continuous,
+but not differentiable.
+How may a function fail
+to be differentiable?
+We know that if a function is
+differentiable,
+then it must be continuous.
+I proved this in an earlier video which
+I will link in the description.
+So any non-continuous function will also
+be non-differentiable.
+However, it is more interesting to look
+for examples of functions that
+ARE continuous,
+but are NOT differentiable.
+As a reminder, saying that a function f
+is continuous at a number a means that
+lim_(x → a) f(x) = f(a).
+Saying that f is differentiable at a
+means that a different limit exists:
+lim_(x → a) [f(x) - f(a)] ÷ (x - a).
+This is the limit we use to define the
+derivative f'(a).
+So, saying that f is NOT
+differentiable at a
+means that the second limit
+does not exist.
+This second limit, like any other limit,
+may not exist for a variety of reasons.
+I am going to focus on two specific ways
+in which this limit may not exist.
+Because the two side limits are
+different (we will call this a corner),
+or because the limit is +/- infinity (we
+will call this a vertical tangent line).
+But of course, there could be other
+reasons why this limit does not exist,
+and any way in which this limit
+fails to exist
+still gives us a non-differentiable
+function.
+To understand these two special cases,
+I will look at one example of each.
+For my first example, consider the
+function f defined by f(x) = |x|.
+I want to know whether f is
+differentiable at 0.
+Let's try to compute the derivative at 0,
+as lim_(x → 0) [f(x) - f(0)] ÷ (x - 0).
+Using the definition of f, 
+this is the limit of |x| over x.
+Since we have |x|,
+it is easiest to break it into two cases.
+When x is positive,
+as x approaches 0 on the right,
+|x| is simply x, and the limit is 1.
+On the other hand, when x is negative, as
+x is approaching 0 on the left,
+|x| is -x, and the limit is -1.
+In conclusion, the derivative at 0 does
+not exist,
+because the two side limits in the limit
+definition of derivative are different.
+Remember that derivative represents slope.
+I can interpret this by saying that at 0,
+there is a slope on right and a different
+slope on the left, so to speak.
+And yes, that is what
+the graph looks like.
+The slope at 0 seems to be 1 if I look at
+0 from the right,
+and -1 if I look at 0 from the left.
+The graph has a sharp edge: a corner.
+And in general, a function f will have a
+corner at x = a when f is continuous at a,
+but the limit in the definition of
+derivative f'(a) does not exist
+because the side limits are different.
+For the second example, I will look at
+the function g, defined as g(x) = x¹ᐟ³.
+I want to know whether g is
+differentiable at 0.
+Again, I try to compute the derivative
+g'(0) from its definition as a limit.
+Using the expression I have for g, this
+is lim_(x → 0) x¹ᐟ³ ÷ x,
+which is the limit of 1 ÷ x²ᐟ³.
+This limit is infinity,
+because the denominator has limit 0
+and is always positive.
+Now, remember that derivative means slope.
+What does infinite slope mean?
+A line with infinite slope is a vertical
+line,
+so this suggests the graph has a
+vertical tangent line.
+And indeed, this is what
+the graph looks like.
+More generally, I will say that a function
+has a vertical tangent line at a point a
+when the function is continuous at a,
+and the derivative at a,
+computed from its definition as a limit,
+is plus or minus infinity.
+In the example it was plus infinity,
+but minus infinity would also produce a
+vertical tangent line.
+We are not done yet.
+There is a little bit more to add to the
+concept of vertical tangent line.
+Let's go back to the example.
+I can look at it in a different way.
+Whenever x is not 0,
+I have a formula for the derivative g'(x).
+Using the power rule, it is 1 ÷ 3x²ᐟ³.
+And then I can calculate
+lim_(x → 0) g'(x),
+and this limit is also infinity.
+Perhaps you find that this second
+calculation
+is easier than the earlier one.
+However, a priori, these two quantities -
+the derivative at 0 and the limit as x
+approaches 0 of the derivative at x -
+could have been different.
+They turn out to give the same result for
+this example.
+What's the relation between these two
+conditions in general?
+It is possible to prove that the second
+condition
+always implies the first condition.
+I won't write a proof right now; it is
+an application of L'Hôpital's rule.
+To be fair, in practice, for almost all
+the functions we commonly work with,
+these two conditions are the same.
+But if we really insist,
+we can construct some unusual functions
+that satisfy one but not the other.
+So what do we do with the situation?
+The correct definition of vertical
+tangent line
+requires the DERIVATIVE to be plus or
+minus infinity.
+Requiring instead the LIMIT of the
+derivative to be plus or minus infinity
+is slightly stronger.
+But that is helpful -
+if you're working with an example and you
+prove it satisfies the second condition,
+then you have also proven it satisfies
+the first condition,
+so you have a vertical
+tangent line anyway.
+And that's what we do in calculations
+most of the time in practice,
+because it tends to be easier.
+All right - that was probably a longer
+explanation than you care for,
+so I will just finish
+with a quick word of caution.
+A vertical tangent line is not
+the same as a vertical asymptote.
+I do not know where this error comes from,
+but I have seen it often in
+students' papers.
+In this graph, the function h has the
+vertical asymptote x = 0.
+Notice that the function itself is not
+defined at 0;
+the limit of the function h itself, as x
+approaches 0, is infinity.
+By contrast, in this graph the function g
+has a vertical tangent line at x = 0.
+The function itself is perfectly well
+defined and continuous at 0.
+It is the derivative, g', which has limit
+infinity as x approaches 0.
+So don't confuse vertical asymptote
+and vertical tangent line.

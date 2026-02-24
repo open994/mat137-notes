@@ -1,0 +1,147 @@
+The Big Theorem establishes a hierarchy
+among the most common
+families of sequences.
+It tells us which sequences grow
+faster than which ones.
+I assume you have already
+watched the previous video,
+where I introduced the theorem,
+I explained the notation,
+and I showed how to use it.
+(There is a link in the description.)
+In this video,
+I will present a proof.
+As a reminder, the Big Theorem says that
+logarithms are much smaller than powers,
+which are much smaller
+than exponentials,
+which are much smaller
+than factorials,
+which are much smaller
+than power-exponentials.
+This is actually
+four different claims.
+In order to prove the theorem,
+I will need to prove all four claims.
+For example, I need to prove that the
+lim_(n → ∞) (a logarithm)/(a power) is 0,
+and so on...
+The first two claims are easier to prove.
+The sequences involved
+(logarithms, powers, and exponentials),
+can be extended to functions defined with
+domain of all the positive reals,
+not only the naturals.
+Therefore, we can use L’Hôpital’s Rule.
+I will leave this as an exercise.
+I invite you to try to
+write down the proof,
+it's just a standard use
+of L'Hôpital's Rule.
+The last two claims
+are more interesting.
+They involve n!, which is only defined
+when n is a natural number.
+Therefore, we cannot prove
+them using L’Hôpital’s Rule.
+We will have to use other tricks.
+Let’s do that.
+I will begin with the third claim.
+I want to prove that an exponential
+is much smaller than a factorial.
+Let’s fix a real number c > 1,
+and let’s define pₙ = cⁿ/n!.
+I want to prove that the
+sequence {pₙ} has limit 0.
+Here is the key observation.
+If I write the (n+1)st term of the
+sequence, pₙ₊₁, it is (cⁿ⁺¹)/(n+1)!.
+I can factor out a c from the numerator,
+and (n+1) from the denominator,
+and I am left with cⁿ/n!, which is pₙ.
+So, this sequence satisfies a recurrence
+relation: pₙ₊₁ = (c/(n+1))⋅pₙ.
+And the whole proof is
+based on this identity.
+I will proceed in 3 steps.
+First, notice that the sequence
+is eventually decreasing.
+For large values of n,
+pₙ₊₁ is smaller than pₙ,
+because pₙ₊₁ is
+a number less than 1 times pₙ.
+This is true whenever
+n is large enough (n ≥ c),
+so the sequence is indeed,
+eventually decreasing.
+Second, notice that the sequence
+is bounded below, by 0.
+And now, since the sequence is eventually
+decreasing and bounded below,
+it must also be convergent.
+This is due to the Monotone
+Convergence Theorem for sequences.
+Great! Now that I know 
+the sequence is convergent,
+let’s give a name to the limit.  
+Let’s call the limit L.
+And once we know this limit exists,
+it is going to be easy to prove it is 0.
+Let’s look back at
+the recurrence relation.
+I can use the limit
+laws and say that:
+lim_(n → ∞) pₙ₊₁
+= lim_(n → ∞) c/(n+1) ⋅ lim_(n → ∞) pₙ.
+I can only do this because I know
+all three limits exists.
+The first limit is L,
+the second limit is 0,
+and the third limit is L,
+so L = 0⋅L, and L = 0,
+which is what I wanted to prove.
+Great!
+I want to repeat
+an important observation.
+All the steps were necessary.
+The last part of the argument, (proving
+that L is 0 from the recurrence relation)
+only works if I already know that
+the sequence has a limit.
+Otherwise, if I only
+wrote the last part,
+I would not be proving that
+the sequence is convergent to 0;
+I would only be proving that the sequence
+is either convergent to 0, OR divergent.
+We have one more claim to prove
+before finishing the video.
+I want to prove that a factorial is
+much smaller than a power-exponential,
+or in other words,
+that lim_(n → ∞) n!/nⁿ = 0.
+This will be short.
+I am going to write n!, as 1⋅2⋅3⋅...⋅n,
+and nⁿ as the product of n copies of n.
+Then, I group each term in the numerator,
+with one term in the denominator.
+And now, I'm just going to
+separate the first term,
+so I have 1/n, times a bunch of factors.
+Notice that every factor
+inside the bracket is ≤ 1,
+and therefore,
+the whole product is ≤ 1/n.
+I have concluded that n!/nⁿ
+is sandwiched between 0 and 1/n.
+Do you see where this is going?
+We know that the
+constant sequence {0},
+and the sequence {1/n},
+both have limit 0;
+therefore,
+by the Squeeze Theorem,
+the sequence sandwiched between
+them ALSO has limit 0.
+That is what I wanted,
+and this completes the proof.

@@ -1,0 +1,144 @@
+In this video,
+I will illustrate with
+an example
+how to use the definition
+of integral
+to prove that a function
+is non-integrable.
+In the previous video,
+I presented an example
+of an integrable function.
+I will work with
+a function g,
+defined as g(x) = 1
+if x is rational,
+and g(x) = 0
+if x is irrational.
+This is sometimes called
+the "Dirichlet function".
+I want to study the
+integrability of g
+on the interval
+from 0 to 1.
+I will use the
+definition of integral.
+This means I will calculate
+the lower integral,
+as the supremum of
+all the lower sums,
+and the upper integral,
+as the infimum of
+all the upper sums.
+These upper and lower sums
+will be taken
+with respect to partitions
+of the interval [0, 1].
+The function g is
+integrable on [0, 1]
+if and only if these
+two quantities are equal.
+I assume you already
+knew this definition.
+If you didn't, or if
+you need a refresher,
+watch the video where
+I first introduced it.
+It's linked in the description.
+The whole analysis is
+based on one key observation.
+For any real numbers
+a and b, with a < b,
+the interval
+from a to b
+contains both rational numbers
+and irrational numbers.
+If necessary, pause the video
+and convince yourself
+that this is true,
+because everything else
+is going to depend
+on this observation.
+Okay. How does
+this help us?
+Consider ANY partition P,
+and then look at any
+sub-interval from P.
+On every sub-interval, the
+infimum of g is 0,
+and the supremum of g is 1.
+Why?
+Because every sub-interval
+contains a rational number,
+where g takes the value 1,
+and also an irrational number,
+where g takes the value 0.
+Then what?
+The lower sum for
+this partition
+is the sum of the areas
+of the lower rectangles,
+but all the lower rectangles
+have height 0.
+So, the lower sum is 0.
+On the other hand,
+the upper sum
+is the sum of the areas
+of the upper rectangles,
+all of which
+have height 1.
+So, their joint area is 1.
+This is true for
+ALL partitions.
+All partitions have
+lower sum 0
+and upper sum 1.
+Once more,
+if necessary,
+pause the video to convince
+yourself that this is true.
+Now that we know this,
+the rest of the calculation
+is simple.
+The lower integral is the
+supremum of the set
+of all lower sums of g.
+But, that is a set with
+a single element: 0.
+So the lower integral is 0.
+The upper integral is the
+infimum of the set
+of all upper sums of g.
+But that is a set with
+a single element: 1.
+So, the upper integral is 1.
+The lower and upper
+integrals are not equal,
+so by definition g is
+NOT integrable on [0, 1].
+Hence, the integral
+is undefined.
+We are done!
+As a side-note, for those
+interested in analysis,
+there are alternate ways
+to define integral.
+In some of those
+alternatives,
+the function g from this
+video IS integrable.
+The definition I have been
+using is the Darboux integral.
+There is a second definition,
+Riemann integral,
+which looks different
+but is equivalent.
+There is a third definition,
+Lebesgue integral,
+which is much more complex,
+but also more powerful.
+The Dirichlet function,
+the function g in this video,
+IS Lebesgue-integrable.
+But that is beyond
+the scope of this course,
+so I will stop here.

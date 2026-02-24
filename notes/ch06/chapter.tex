@@ -1,0 +1,821 @@
+\chapter{Further Applications of Derivatives and Limits}
+
+%=============================================================================
+\section{A Related Rates Problem}
+\label{sec:6.1}
+%=============================================================================
+
+\textit{A related rates problem is an application of calculus to a real-life situation where there are multiple quantities that depend on each other, and we need to find a relation between their derivatives.  Here is our first example.}
+
+\begin{example}[Plane and Radar Station]
+\label{ex:6-1}
+A plane flying horizontally at an altitude of $10\,\text{km}$ passes directly above a radar station.  A bit later, the radar station measures that the distance between the plane and the station is $20\,\text{km}$ and is increasing at a rate of $1000\,\text{km/h}$.  What is the speed of the plane?
+\end{example}
+
+\begin{remark}[Pause and Try]
+Pause and try to solve the problem.  Even if you cannot fully solve it, spending time understanding the question, getting started, and sketching a picture will make the following explanation much more useful.
+\end{remark}
+
+\textbf{Step 1: Modelling.}  We transform the word problem into a calculus question.  Begin by drawing a picture.  The radar station is on the ground, and the plane flies horizontally above it.
+
+Introduce variables:
+\begin{itemize}
+  \item Let $h = 10\,\text{km}$ be the altitude of the plane (a \textbf{constant}).
+  \item Let $z$ be the distance between the radar station and the plane (this is what the radar measures).
+  \item Let $x$ be the horizontal position of the plane.
+\end{itemize}
+Both $x$ and $z$ depend on time $t$.  We \textbf{want} $\dfrac{dx}{dt}$ at the instant when $z = 20\,\text{km}$ and $\dfrac{dz}{dt} = 1000\,\text{km/h}$.
+
+Since the radar station, the point directly below the plane, and the plane itself form a right triangle, the Pythagorean theorem gives the relation
+\[
+  z^{2} = x^{2} + h^{2}.
+\]
+
+\textbf{Step 2: Solving.}  We need a relation between $\dfrac{dx}{dt}$ and $\dfrac{dz}{dt}$.  Differentiate both sides of the relation with respect to $t$ (using the chain rule):
+\[
+  2z\,\frac{dz}{dt} = 2x\,\frac{dx}{dt}.
+\]
+Solving for the desired quantity:
+\[
+  \frac{dx}{dt} = \frac{z}{x}\,\frac{dz}{dt}.
+\]
+We know $z = 20$ and $\dfrac{dz}{dt} = 1000$, and we can solve for $x$ from the original equation:
+\[
+  x = \sqrt{z^{2} - h^{2}} = \sqrt{20^{2} - 10^{2}} = \sqrt{300} = 10\sqrt{3}\,\text{km}.
+\]
+Substituting:
+\[
+  \frac{dx}{dt} = \frac{20}{10\sqrt{3}}\cdot 1000 = \frac{2000}{\sqrt{3}}\,\text{km/h}.
+\]
+The speed of the plane is $\dfrac{2000}{\sqrt{3}}\,\text{km/h}$.
+
+%=============================================================================
+\section{Related Rates: Shadow Problem}
+\label{sec:6.2}
+%=============================================================================
+
+\textit{Here is a second example of a related rates problem.  The modelling step is the key: we must identify what is constant, what depends on time, find an equation relating the quantities, and then differentiate implicitly.}
+
+\begin{example}[Prisoner's Shadow]
+\label{ex:6-2}
+A prisoner runs in a straight line towards the wall of a prison.  A spotlight on the ground, $30\,\text{m}$ from the wall, points at the prisoner.  The prisoner is $1.8\,\text{m}$ tall.  How fast is the height of the shadow on the wall changing when the prisoner is $20\,\text{m}$ from the wall and running at $8\,\text{m/s}$?
+\end{example}
+
+\begin{remark}[Pause and Try]
+Pause and try to solve this problem.  Even if you cannot fully solve it, drawing a picture and understanding the statement will make the explanation much more useful.
+\end{remark}
+
+\textbf{Step 1: Modelling.}  Draw a picture with the spotlight on the ground, the wall, and the prisoner between them.  Introduce variables:
+\begin{itemize}
+  \item $a = 30\,\text{m}$: the distance from the spotlight to the wall (\textbf{constant}).
+  \item $h = 1.8\,\text{m}$: the height of the prisoner (\textbf{constant}).
+  \item $x$: the distance from the prisoner to the spotlight (depends on time).
+  \item $y$: the height of the shadow on the wall (depends on time).
+\end{itemize}
+We \textbf{want} $\dfrac{dy}{dt}$ at the instant when $x = 10\,\text{m}$ (since the prisoner is $20\,\text{m}$ from the wall and $a = 30$) and $\dfrac{dx}{dt} = 8\,\text{m/s}$.
+
+By similar triangles (the triangle with height $h$ and base $x$, and the triangle with height $y$ and base $a$):
+\[
+  \frac{h}{x} = \frac{y}{a}.
+\]
+
+\textbf{Step 2: Solving.}  Differentiate both sides implicitly with respect to $t$.  Since $h$ and $a$ are constants:
+\[
+  h\cdot\biggl(-\frac{1}{x^{2}}\biggr)\frac{dx}{dt} = \frac{1}{a}\,\frac{dy}{dt}.
+\]
+Solving:
+\[
+  \frac{dy}{dt} = -\frac{ah}{x^{2}}\,\frac{dx}{dt}.
+\]
+Substituting:
+\[
+  \frac{dy}{dt} = -\frac{(30)(1.8)}{10^{2}}\cdot 8 = -4.32\,\text{m/s}.
+\]
+
+The rate of change is negative, confirming that the shadow height is \emph{decreasing} as the prisoner approaches the wall.
+
+% ── BEGIN VISUAL ──
+\begin{figure}[ht]
+  \centering
+  \input{ch06/figures/fig-related-rates-shadow.tex}
+  \caption{Shadow geometry for a classic related-rates setup.}
+  \label{fig:related-rates-shadow}
+\end{figure}
+% ── END VISUAL ──
+
+%=============================================================================
+\section{Optimization: Minimizing Surface Area}
+\label{sec:6.3}
+%=============================================================================
+
+\textit{An optimization problem is an application of calculus to a physical situation where we want to make a certain quantity as large or as small as possible.}
+
+\begin{example}[Open Box with Fixed Volume]
+\label{ex:6-3}
+We want to build an open box (four side walls and a bottom, no top) with a square base.  The volume must be $500\,\text{cm}^{3}$.  What dimensions minimize the total surface area (and hence the material cost)?
+\end{example}
+
+\begin{remark}[Pause and Try]
+Pause and try to solve the problem before continuing.  Even a partial attempt will make the explanation much more useful.
+\end{remark}
+
+\textbf{Step 1: Modelling.}  Let $x$ be the side length of the square base and $y$ the height.  The total surface area (bottom plus four sides) is
+\[
+  S = x^{2} + 4xy.
+\]
+The volume constraint is $x^{2}y = 500$, so $y = \dfrac{500}{x^{2}}$.  Substituting:
+\[
+  S(x) = x^{2} + \frac{2000}{x}, \qquad x > 0.
+\]
+
+\textbf{Step 2: Solving.}  The function $S$ is differentiable on $(0,\infty)$.  Compute the derivative:
+\[
+  S'(x) = 2x - \frac{2000}{x^{2}} = \frac{2(x^{3} - 1000)}{x^{2}}.
+\]
+Setting $S'(x) = 0$ gives $x^{3} = 1000$, i.e.\@ $x = 10$.  This is the only critical point.
+
+\begin{remark}[Warning]
+Many students stop here and declare the answer, but we are looking for the \textbf{minimum}, not just a critical point.  We must justify that the minimum actually occurs at $x = 10$.
+\end{remark}
+
+When $x < 10$, we have $S'(x) < 0$ (decreasing), and when $x > 10$, we have $S'(x) > 0$ (increasing).  Therefore $S$ decreases all the way to $x = 10$ and increases afterwards, so the global minimum occurs at $x = 10$.
+
+The optimal dimensions are $x = 10\,\text{cm}$ and $y = \dfrac{500}{100} = 5\,\text{cm}$.
+
+% ── BEGIN VISUAL ──
+\begin{figure}[ht]
+  \centering
+  \input{ch06/figures/fig-optimization-cylinder.tex}
+  \caption{A cylinder labeled with radius $r$ and height $h$.}
+  \label{fig:optimization-cylinder}
+\end{figure}
+% ── END VISUAL ──
+
+%=============================================================================
+\section{Optimization with Endpoints}
+\label{sec:6.4}
+%=============================================================================
+
+\textit{In this example, the domain is a closed and bounded interval, so we can appeal to the Extreme Value Theorem.}
+
+\begin{example}[Rowing and Running]
+\label{ex:6-4}
+A woman at point $A$ on one side of a straight river, $3\,\text{km}$ wide, wants to reach point $B$, $8\,\text{km}$ downstream on the opposite side.  She can row at $6\,\text{km/h}$ and run at $8\,\text{km/h}$.  Where should she land to reach $B$ as soon as possible?
+\end{example}
+
+\begin{remark}[Pause and Try]
+Pause and try to set up the problem: draw a picture, introduce a variable for the landing point, and write a formula for the total travel time.
+\end{remark}
+
+\textbf{Step 1: Modelling.}  Let $C$ be the point where she lands, and let $x$ be the distance from the point directly across from $A$ to $C$.  Then the rowing distance is $\sqrt{x^{2} + 9}$ and the running distance is $8 - x$.  The total time is
+\[
+  T(x) = \frac{\sqrt{x^{2} + 9}}{6} + \frac{8 - x}{8}, \qquad x \in [0, 8].
+\]
+
+\textbf{Step 2: Solving.}  The function $T$ is continuous on the closed, bounded interval $[0,8]$.  By the Extreme Value Theorem, $T$ has a minimum, and this minimum occurs either at a critical point or at an endpoint.
+
+\begin{remark}
+We \textbf{must} include endpoints.  If she could row much faster than she could run, the optimal path would be directly from $A$ to $B$ ($x = 8$).  If she could run much faster, going straight across ($x = 0$) would be optimal.  So the minimum \emph{could} be an endpoint, and we cannot dismiss them.
+\end{remark}
+
+Computing the derivative and setting it to zero, after some algebra we find one critical point inside the domain:
+\[
+  x = \frac{9}{\sqrt{7}}\,\text{km}.
+\]
+Compare the three candidate values:
+\[
+\begin{array}{c|ccc}
+  x & 0 & \dfrac{9}{\sqrt{7}} & 8 \\[6pt] \hline \\[-6pt]
+  T(x) & 1.5\,\text{h} & 1 + \dfrac{\sqrt{7}}{8} \approx 1.33\,\text{h} & \dfrac{\sqrt{73}}{6} \approx 1.42\,\text{h}
+\end{array}
+\]
+The smallest value is at the critical point.  She should land $\dfrac{9}{\sqrt{7}}\,\text{km}$ downstream.
+
+%=============================================================================
+\section{Indeterminate Forms}
+\label{sec:6.5}
+%=============================================================================
+
+\textit{Before introducing L'H\^opital's Rule, we must understand what an indeterminate form is---and, just as importantly, what it is \textbf{not}.}
+
+Consider the limit $\displaystyle\lim_{x \to 0}\frac{f(x)}{g(x)}$ where both $f$ and $g$ are continuous and $f(0) = g(0) = 0$.  Substituting gives $\frac{0}{0}$, which is not a number.  We have an \emph{indeterminate form}.
+
+\begin{definition}[Indeterminate Form]
+\label{def:6-1}
+We say that a limit $\displaystyle\lim_{x \to a}\frac{f(x)}{g(x)}$ has the indeterminate form $\frac{0}{0}$ when $\lim_{x \to a}f(x) = 0$ and $\lim_{x \to a}g(x) = 0$.  This means that, \textbf{based on this information alone}, we cannot determine the value of the limit.
+\end{definition}
+
+To see why, consider these three examples, all of type $\frac{0}{0}$ as $x \to 0$:
+\[
+  \lim_{x \to 0}\frac{2x}{x} = 2, \qquad
+  \lim_{x \to 0}\frac{x^{2}}{x} = 0, \qquad
+  \lim_{x \to 0}\frac{x}{x^{3}} = \infty.
+\]
+The same hypotheses yield different answers each time.
+
+\begin{remark}[Warning]
+Three important clarifications:
+\begin{enumerate}[label=(\roman*)]
+  \item We are talking about \textbf{limits}.  We are never actually dividing zero by zero.  For each value of $x$, we have something \emph{close to} zero divided by something \emph{close to} zero.
+  \item Indeterminate form does \textbf{not} mean the limit is undefined or does not exist.  It only means we do not yet know the answer and must do more work.
+  \item Indeterminate forms arise because of a \textbf{tension} between two parts of the function.  In $\frac{0}{0}$, the numerator ``thinks'' the quotient should be zero, while the denominator ``thinks'' it should be $\pm\infty$.  The outcome depends on which approaches zero faster.
+\end{enumerate}
+\end{remark}
+
+The most common indeterminate forms are:
+\[
+  \frac{0}{0},\quad \frac{\pm\infty}{\pm\infty},\quad 0\cdot\infty,\quad \infty - \infty,\quad 0^{0},\quad \infty^{0},\quad 1^{\pm\infty}.
+\]
+
+\begin{remark}
+Why is $\dfrac{1}{0}$ not on the list?  Because we \emph{can} draw a conclusion: if $\lim f(x) = 1$ and $\lim g(x) = 0$, then $\lim\abs{\frac{f(x)}{g(x)}} = \infty$.  The exact answer ($+\infty$ or $-\infty$) depends on the \textbf{sign} of the denominator near the point, but we are not stuck---we can say something.
+\end{remark}
+
+\begin{example}
+\label{ex:6-5}
+Compute $\displaystyle\lim_{x \to 3^{+}}\frac{1}{(x - 3)(2 - x)}$.
+
+This is of the form $\frac{1}{0}$.  As $x \to 3^{+}$: $(x-3) > 0$ and $(2-x) < 0$, so the denominator is negative.  Therefore the limit is $-\infty$.
+\end{example}
+
+%=============================================================================
+\section{L'H\^opital's Rule}
+\label{sec:6.6}
+%=============================================================================
+
+\textit{L'H\^opital's Rule is a powerful tool for computing limits that produce indeterminate forms of type $\frac{0}{0}$ or $\frac{\pm\infty}{\pm\infty}$.  It tells us that, under certain conditions, we may replace the numerator and denominator by their derivatives.}
+
+\begin{theorem}[L'H\^opital's Rule]
+\label{thm:6-1}
+Let $f$ and $g$ be functions, and let $a$ be a real number (or $\pm\infty$).  Suppose:
+\begin{enumerate}[label=(\roman*)]
+  \item The limit $\displaystyle\lim_{x \to a}\frac{f(x)}{g(x)}$ is an indeterminate form of type $\dfrac{0}{0}$ or $\dfrac{\pm\infty}{\pm\infty}$.
+  \item $f$ and $g$ are differentiable for $x$ near $a$ (but not necessarily at $a$).
+  \item $g(x) \neq 0$ and $g'(x) \neq 0$ for $x$ near $a$ (but not necessarily at $a$).
+  \item $\displaystyle\lim_{x \to a}\frac{f'(x)}{g'(x)}$ exists, or equals $+\infty$, or equals $-\infty$.
+\end{enumerate}
+Then
+\[
+  \lim_{x \to a}\frac{f(x)}{g(x)} = \lim_{x \to a}\frac{f'(x)}{g'(x)}.
+\]
+The theorem also holds for one-sided limits.
+\end{theorem}
+
+\begin{remark}
+Condition~(iv) is the one we often forget, but it is essential.  If $\lim \dfrac{f'}{g'}$ does not exist (and is not $\pm\infty$), then L'H\^opital's Rule gives \textbf{no information} about $\lim\dfrac{f}{g}$.  The original limit may still exist.
+\end{remark}
+
+\begin{remark}
+The proof relies on a variant of the Mean Value Theorem and is quite long (there are separate cases for $\frac{0}{0}$ and $\frac{\infty}{\infty}$, and for each type of limit).  It appears in every standard calculus textbook.
+\end{remark}
+
+%=============================================================================
+\section{L'H\^opital's Rule Examples}
+\label{sec:6.7}
+%=============================================================================
+
+\textit{Let us work through several examples, from beginning to end, to see how L'H\^opital's Rule is used in practice.}
+
+\begin{example}
+\label{ex:6-6}
+Compute $\displaystyle\lim_{x \to \infty}\frac{x}{\ln x}$.
+
+As $x \to \infty$: numerator $\to \infty$, denominator $\to \infty$.  This is $\dfrac{\infty}{\infty}$, so L'H\^opital's Rule applies.  Differentiating:
+\[
+  \lim_{x \to \infty}\frac{x}{\ln x} \stackrel{\text{L'H}}{=} \lim_{x \to \infty}\frac{1}{1/x} = \lim_{x \to \infty} x = \infty.
+\]
+The second limit is $\infty$, so the use of L'H\^opital was legal, and the original limit is $\infty$.
+\end{example}
+
+\begin{example}
+\label{ex:6-7}
+Compute $\displaystyle\lim_{x \to 0}\frac{\cos x - \cos(2x)}{xe^{x} - x}$.
+
+As $x \to 0$: numerator $\to 1 - 1 = 0$, denominator $\to 0 - 0 = 0$.  This is $\dfrac{0}{0}$.  Apply L'H\^opital:
+\[
+  \stackrel{\text{L'H}}{=} \lim_{x \to 0}\frac{-\sin x + 2\sin(2x)}{e^{x} + xe^{x} - 1}.
+\]
+As $x \to 0$: numerator $\to 0$, denominator $\to 1 + 0 - 1 = 0$.  Still $\dfrac{0}{0}$.  Apply L'H\^opital again:
+\[
+  \stackrel{\text{L'H}}{=} \lim_{x \to 0}\frac{-\cos x + 4\cos(2x)}{2e^{x} + xe^{x}}.
+\]
+Now as $x \to 0$: numerator $\to -1 + 4 = 3$, denominator $\to 2 + 0 = 2$.  The limit is $\dfrac{3}{2}$, which is a number; therefore both applications of L'H\^opital were legal, and the original limit is $\dfrac{3}{2}$.
+\end{example}
+
+\begin{example}
+\label{ex:6-8}
+Compute $\displaystyle\lim_{x \to 1}\frac{x^{3} - 2x + 1}{x^{2} + 3x + 2}$.
+
+As $x \to 1$: numerator $\to 1 - 2 + 1 = 0$, denominator $\to 1 + 3 + 2 = 6$.  This is $\dfrac{0}{6}$, which is \textbf{not} an indeterminate form.  We simply evaluate:
+\[
+  \lim_{x \to 1}\frac{x^{3} - 2x + 1}{x^{2} + 3x + 2} = \frac{0}{6} = 0.
+\]
+\end{example}
+
+\begin{remark}[Warning]
+In \cref{ex:6-8} we are \textbf{not allowed} to use L'H\^opital's Rule because there is no indeterminate form.  If you try to use it anyway, you will get a wrong answer.
+\end{remark}
+
+%=============================================================================
+\section{Failure of L'H\^opital's Rule}
+\label{sec:6.8}
+%=============================================================================
+
+\textit{L'H\^opital's Rule is very powerful, but it cannot always be used.  Here is an example where it fails silently---if we do not notice, we get a wrong answer.}
+
+\begin{example}
+\label{ex:6-9}
+Compute $\displaystyle\lim_{x \to \infty}\frac{x + \sin x}{2x + \cos x}$.
+
+\textbf{Checking the form.}  As $x \to \infty$, $\sin x$ oscillates between $-1$ and $1$, but $x + \sin x \geq x - 1 \to \infty$, so the numerator has limit $\infty$.  By the same reasoning, the denominator has limit $\infty$.  We have $\dfrac{\infty}{\infty}$.
+
+\textbf{Attempting L'H\^opital.}  Differentiating:
+\[
+  \lim_{x \to \infty}\frac{1 + \cos x}{2 - \sin x}.
+\]
+The function $\dfrac{1 + \cos x}{2 - \sin x}$ is \emph{periodic} with period $2\pi$.  A periodic, non-constant function never has a limit at infinity.  Therefore this limit \textbf{does not exist} (and is not $\pm\infty$).
+
+By Condition~(iv) of \cref{thm:6-1}, L'H\^opital's Rule does not apply.  It gives no information.
+\end{example}
+
+\textit{So how do we compute the original limit?  Without L'H\^opital, we can use a direct argument.}
+
+Divide numerator and denominator by $x$:
+\[
+  \frac{x + \sin x}{2x + \cos x} = \frac{1 + \frac{\sin x}{x}}{2 + \frac{\cos x}{x}}.
+\]
+By the Squeeze Theorem, $\dfrac{\sin x}{x} \to 0$ and $\dfrac{\cos x}{x} \to 0$ as $x \to \infty$ (since $\sin x$ and $\cos x$ are bounded).  Therefore
+\[
+  \lim_{x \to \infty}\frac{x + \sin x}{2x + \cos x} = \frac{1 + 0}{2 + 0} = \frac{1}{2}.
+\]
+
+\begin{remark}[Warning]
+The limit \emph{does} exist and equals $\frac{1}{2}$, even though L'H\^opital's Rule could not detect it.  This situation is uncommon, but it is important to know that it can happen.
+\end{remark}
+
+%=============================================================================
+\section{The Zero-Times-Infinity Form}
+\label{sec:6.9}
+%=============================================================================
+
+\textit{L'H\^opital's Rule applies only to quotients.  When we encounter $0\cdot\infty$, we must first rewrite the product as a quotient.}
+
+\begin{example}
+\label{ex:6-10}
+Compute $\displaystyle\lim_{x \to \infty} x\bigl(1 - e^{2/x}\bigr)$.
+
+\begin{remark}[Pause and Try]
+Pause and try to compute this limit.  At least, try to understand what the difficulty is.
+\end{remark}
+
+As $x \to \infty$: the first factor has limit $\infty$, and $e^{2/x} \to e^{0} = 1$, so the second factor has limit $0$.  We have $\infty \cdot 0$, an indeterminate form.
+
+\textbf{Do not} be tempted to say this is $0$.
+
+Rewrite $x$ as $\dfrac{1}{1/x}$:
+\[
+  x\bigl(1 - e^{2/x}\bigr) = \frac{1 - e^{2/x}}{1/x}.
+\]
+Now as $x \to \infty$: numerator $\to 0$ and denominator $\to 0$.  This is $\dfrac{0}{0}$, and we may apply L'H\^opital:
+\[
+  \stackrel{\text{L'H}}{=} \lim_{x \to \infty}\frac{-e^{2/x}\cdot(-2/x^{2})}{-1/x^{2}} = \lim_{x \to \infty}\frac{2e^{2/x}\cdot(1/x^{2})}{1/x^{2}} = \lim_{x \to \infty} 2e^{2/x}\cdot(-1) = -2.
+\]
+Wait---let us be more careful.  Differentiating the numerator:
+\[
+  \frac{d}{dx}\bigl(1 - e^{2/x}\bigr) = -e^{2/x}\cdot\Bigl(-\frac{2}{x^{2}}\Bigr) = \frac{2e^{2/x}}{x^{2}}.
+\]
+Differentiating the denominator:
+\[
+  \frac{d}{dx}\Bigl(\frac{1}{x}\Bigr) = -\frac{1}{x^{2}}.
+\]
+Therefore:
+\[
+  \lim_{x \to \infty}\frac{2e^{2/x}/x^{2}}{-1/x^{2}} = \lim_{x \to \infty}(-2e^{2/x}) = -2.
+\]
+Since $-2$ is a number, the use of L'H\^opital was legal, and the original limit is $-2$.
+\end{example}
+
+\begin{remark}
+This trick always works for $0 \cdot \infty$: if $\lim f = 0$ and $\lim g = \infty$, rewrite $f\cdot g$ as $\dfrac{f}{1/g}$ (giving $\frac{0}{0}$) or as $\dfrac{g}{1/f}$ (giving $\frac{\infty}{\infty}$).
+\end{remark}
+
+%=============================================================================
+\section{The Infinity-Minus-Infinity Form}
+\label{sec:6.10}
+%=============================================================================
+
+\textit{There is no single trick that works for all limits of the form $\infty - \infty$.  The strategy is to manipulate the expression algebraically until it becomes a product or quotient to which we can apply other tools.}
+
+\begin{example}
+\label{ex:6-11}
+Compute $\displaystyle\lim_{x \to \infty}\bigl(\sqrt{x^{2} - x} - x\bigr)$.
+
+As $x \to \infty$, the square root behaves like $x$ (since the leading term inside is $x^{2}$), so both $\sqrt{x^{2}-x}$ and $x$ go to $\infty$.  We have $\infty - \infty$.
+
+\textbf{Do not} be tempted to say this is $0$.
+
+\textbf{Method 1 (factoring, then L'H\^opital).}  Factor $x^{2}$ inside the square root:
+\[
+  \sqrt{x^{2}-x} - x = x\sqrt{1-\frac{1}{x}} - x = x\Bigl(\sqrt{1-\frac{1}{x}} - 1\Bigr).
+\]
+Now $\lim x = \infty$ and $\lim\bigl(\sqrt{1-1/x}-1\bigr) = 0$, so we have $\infty\cdot 0$.  Convert to a quotient:
+\[
+  \frac{\sqrt{1 - 1/x} - 1}{1/x}.
+\]
+As $x \to \infty$, both numerator and denominator approach $0$.  Apply L'H\^opital:
+\[
+  \stackrel{\text{L'H}}{=} \lim_{x \to \infty}\frac{\dfrac{1}{2\sqrt{1 - 1/x}}\cdot\dfrac{1}{x^{2}}}{-\dfrac{1}{x^{2}}} = \lim_{x \to \infty}\frac{-1}{2\sqrt{1 - 1/x}} = -\frac{1}{2}.
+\]
+
+\textbf{Method 2 (conjugate).}  Multiply and divide by the conjugate $\sqrt{x^{2}-x}+x$:
+\[
+  \sqrt{x^{2}-x} - x = \frac{(\sqrt{x^{2}-x})^{2} - x^{2}}{\sqrt{x^{2}-x}+x} = \frac{x^{2}-x-x^{2}}{\sqrt{x^{2}-x}+x} = \frac{-x}{\sqrt{x^{2}-x}+x}.
+\]
+Factor $x$ from the denominator:
+\[
+  \frac{-x}{x\bigl(\sqrt{1-1/x}+1\bigr)} = \frac{-1}{\sqrt{1-1/x}+1} \to \frac{-1}{1+1} = -\frac{1}{2}.
+\]
+Both methods give $-\dfrac{1}{2}$.
+\end{example}
+
+%=============================================================================
+\section{The One-to-Infinity Form}
+\label{sec:6.11}
+%=============================================================================
+
+\textit{Of all indeterminate forms, $1^{\infty}$ is probably the most controversial---the one students argue about the most.  Let us explain why it really is indeterminate, and why our intuition may be off.}
+
+When we write $1^{\infty}$, we do \textbf{not} mean ``the number $1$ raised to the power infinity.''  We mean numbers \emph{close to} $1$ raised to very large exponents.
+
+\begin{proposition}
+\label{thm:6-2}
+$1^{\infty}$ is an indeterminate form: limits of the type $\lim f(x)^{g(x)}$ with $\lim f = 1$ and $\lim g = \infty$ can take any positive value.
+\end{proposition}
+
+\begin{proof}
+Let $c$ be any nonzero real number, and consider
+\[
+  \lim_{x \to 0^{+}} (e^{x})^{c/x}.
+\]
+Here $\lim_{x \to 0^{+}} e^{x} = 1$ and $\lim_{x \to 0^{+}} c/x = \pm\infty$ (depending on the sign of $c$).  So this is of type $1^{\pm\infty}$.  But
+\[
+  (e^{x})^{c/x} = e^{xc/x} = e^{c},
+\]
+which is constant, so the limit is $e^{c}$.  By choosing different values of $c$, we obtain any positive number.
+\end{proof}
+
+\textit{Why is it hard to accept that $1^{\infty}$ is indeterminate?  If the base were the \textbf{constant} $1$, then $1^{x} = 1$ for all $x$, and the limit would certainly be $1$.  But the base is not constant---it is a function approaching $1$.  If the base is slightly greater than $1$, the exponent pushes the result towards $\infty$; if slightly less, towards $0$.  The base wants the answer to be $1$; the exponent wants it to be $\infty$ or $0$.  That tension is what makes it indeterminate.}
+
+%=============================================================================
+\section{Exponential Indeterminate Forms}
+\label{sec:6.12}
+%=============================================================================
+
+\textit{The exponential indeterminate forms ($0^{0}$, $\infty^{0}$, $1^{\infty}$, $1^{-\infty}$) all require the same trick: take a logarithm to convert the power into a product or quotient, compute the limit of the logarithm, then exponentiate.}
+
+\begin{example}
+\label{ex:6-12}
+Compute $\displaystyle\lim_{x \to 0^{+}} (1 - x)^{1/x}$.
+
+As $x \to 0$: the base $(1-x) \to 1$ and the exponent $1/x \to \infty$.  This is $1^{\infty}$.
+
+\textbf{Do not} say the answer is $1$.
+
+\textbf{Step 1: Compute the limit of the logarithm.}  Let $F(x) = (1-x)^{1/x}$.  Then
+\[
+  \ln F(x) = \frac{1}{x}\ln(1-x) = \frac{\ln(1-x)}{x}.
+\]
+As $x \to 0$: numerator $\to \ln 1 = 0$ and denominator $\to 0$.  This is $\dfrac{0}{0}$.  Apply L'H\^opital:
+\[
+  \lim_{x \to 0^{+}}\frac{\ln(1-x)}{x} \stackrel{\text{L'H}}{=} \lim_{x \to 0^{+}}\frac{-1/(1-x)}{1} = \lim_{x \to 0^{+}}\frac{-1}{1-x} = -1.
+\]
+
+\textbf{Step 2: Recover the original limit.}  Since $\ln F(x) \to -1$ and the exponential function is continuous:
+\[
+  \lim_{x \to 0^{+}} F(x) = \lim_{x \to 0^{+}} e^{\ln F(x)} = e^{-1} = \frac{1}{e}.
+\]
+\end{example}
+
+\begin{remark}
+The same strategy works for all exponential indeterminate forms:
+\begin{enumerate}[label=(\roman*)]
+  \item Set $F(x) = f(x)^{g(x)}$ and compute $\ln F(x) = g(x)\ln f(x)$.
+  \item Compute $\lim \ln F(x)$ (this will be a product or quotient, to which L'H\^opital may apply).
+  \item Conclude $\lim F(x) = e^{\lim \ln F(x)}$.
+\end{enumerate}
+\end{remark}
+
+%=============================================================================
+\section{Concavity and Inflection Points}
+\label{sec:6.13}
+%=============================================================================
+
+\textit{The concavity of a function refers to the shape of its graph.  There are several equivalent ways to define it for nice (differentiable) functions.  We will discuss three approaches, all of which agree when the function is differentiable.}
+
+\textit{As motivation, consider the family of graphs $y = x^{a}$ for various values of $a$.  When $a > 1$ the curves look like deformed parabolas, all with the same ``shape.'' When $a < 1$ (and $a > 0$) they have a different shape.  We say these two families have different \emph{concavity}.}
+
+We call curves of the first type \emph{concave up} and curves of the second type \emph{concave down}.
+
+\begin{remark}[Warning]
+Some older textbooks (and the French mathematical tradition) use \emph{concave} and \emph{convex} instead of \emph{concave up} and \emph{concave down}, but which is which may depend on the author.  We prefer \emph{concave up} and \emph{concave down}.
+\end{remark}
+
+Three candidate definitions for concave up:
+\begin{enumerate}[label=(\arabic*)]
+  \item \textbf{Secant segments above the graph.}  For any two points on the graph, the segment of the secant line between them lies above the graph.
+  \item \textbf{Tangent lines below the graph.}  At every point, the tangent line lies below the graph.
+  \item \textbf{Slopes increasing.}  The derivative $f'$ is an increasing function.
+\end{enumerate}
+(For concave down, reverse ``above'' and ``below,'' and replace ``increasing'' by ``decreasing.'')
+
+For differentiable functions, all three are \textbf{equivalent}.  The proof relies on the Mean Value Theorem.  Definition~(3) is the simplest and is the one used by most calculus textbooks.
+
+\begin{definition}[Concavity]
+\label{def:6-2}
+Let $f$ be differentiable on an interval $I$.
+\begin{enumerate}[label=(\roman*)]
+  \item $f$ is \emph{concave up} on $I$ when $f'$ is increasing on $I$.
+  \item $f$ is \emph{concave down} on $I$ when $f'$ is decreasing on $I$.
+\end{enumerate}
+\end{definition}
+
+\begin{definition}[Inflection Point]
+\label{def:6-3}
+An interior point $c$ of the domain of $f$ is called an \emph{inflection point} if $f$ changes concavity at $c$: there exists an interval centred at $c$ such that $f$ is concave up on one side and concave down on the other.
+\end{definition}
+
+\textit{Inflection points are to concavity what local extrema are to monotonicity.  A local extremum is where the function changes from increasing to decreasing (or vice versa); an inflection point is where it changes from concave up to concave down (or vice versa).}
+
+At an inflection point, the tangent line \emph{crosses} the graph---it lies above the graph on one side and below on the other.
+
+\begin{theorem}[Second-Derivative Test for Concavity]
+\label{thm:6-3}
+Let $f$ be twice differentiable on an open interval $I$.
+\begin{enumerate}[label=(\roman*)]
+  \item If $f''(x) > 0$ for all $x \in I$, then $f$ is concave up on $I$.
+  \item If $f''(x) < 0$ for all $x \in I$, then $f$ is concave down on $I$.
+\end{enumerate}
+\end{theorem}
+
+\begin{theorem}[Necessary Condition for Inflection Points]
+\label{thm:6-4}
+If $f$ is twice differentiable on an interval and has an inflection point at an interior point $c$, then $f''(c) = 0$.
+\end{theorem}
+
+\begin{remark}[Warning]
+The converse of \cref{thm:6-4} is \textbf{not} true.  $f''(c) = 0$ does \textbf{not} imply that $c$ is an inflection point.  These are merely \textbf{candidate} points, just as $f'(c)=0$ gives candidates for local extrema.  More generally, $f''(c) = 0$ or $f''(c)$ does not exist gives the candidates for inflection points.
+\end{remark}
+
+%=============================================================================
+\section{Curve Sketching with Derivatives}
+\label{sec:6.14}
+%=============================================================================
+
+\textit{We now illustrate, with a detailed example, how to use the first and second derivatives to study the monotonicity, concavity, and shape of a function.}
+
+Before we begin, recall the tools at our disposal.  On an open interval:
+\begin{itemize}
+  \item $f' > 0 \implies f$ is increasing;\quad $f' < 0 \implies f$ is decreasing.
+  \item $f'' > 0 \implies f$ is concave up;\quad $f'' < 0 \implies f$ is concave down.
+\end{itemize}
+On a closed interval, we require the derivative condition only on the interior, plus continuity at the endpoints.  Candidates for local extrema satisfy $f' = 0$ or $f'$ DNE; candidates for inflection points satisfy $f'' = 0$ or $f''$ DNE.
+
+\begin{example}[Full Curve Sketch]
+\label{ex:6-13}
+Let $f(x) = x^{6}(x+3)^{3}$.  Find the intervals of increase/decrease, local extrema, intervals of concavity, inflection points, and sketch the graph.
+
+\textbf{First derivative.}  After computation and factoring:
+\[
+  f'(x) = 3x^{5}(x+3)^{2}(3x+6) = 9x^{5}(x+3)^{2}(x+2).
+\]
+The zeros of $f'$ are $x = 0$, $x = -3$, and $x = -2$.  We determine the sign of $f'$ on each subinterval by tracking which factors change sign:
+
+\begin{itemize}
+  \item For $x > 0$: $f'(x) > 0$.
+  \item At $x = 0$: the factor $x^{5}$ changes sign, so $f'$ changes sign.
+  \item At $x = -2$: the factor $(x+2)$ changes sign.
+  \item At $x = -3$: the factor $(x+3)^{2}$ does \textbf{not} change sign (even exponent).
+\end{itemize}
+
+\textbf{Sign chart for $f'$:}
+\[
+\begin{array}{c|ccccccc}
+              & (-\infty,-3) & -3 & (-3,-2) & -2 & (-2,0) & 0 & (0,\infty) \\ \hline
+  f'          & +            & 0  & +       & 0  & -      & 0 & +
+\end{array}
+\]
+
+Therefore $f$ is increasing on $(-\infty, -2]$ (the sign at $-3$ does not change, so we join the intervals), decreasing on $[-2, 0]$, and increasing on $[0, \infty)$.
+
+At $x = -2$ (increasing $\to$ decreasing): \textbf{local maximum}.\\
+At $x = 0$ (decreasing $\to$ increasing): \textbf{local minimum}.
+
+\textbf{Second derivative.}  After computation and factoring:
+\[
+  f''(x) = \cdots = 9x^{4}(x+3)(2x+3)(2x+5) \cdot (\text{positive constant}).
+\]
+The zeros of $f''$ are at $x = 0$, $x = -3$, $x = -\frac{3}{2}$, and $x = -\frac{5}{2}$.  Tracking which factors change sign:
+
+\begin{itemize}
+  \item $x^{4}$: even power, no sign change at $0$.
+  \item $(x+3)$: changes sign at $-3$.
+  \item $(2x+3)$: changes sign at $-\frac{3}{2}$.
+  \item $(2x+5)$: changes sign at $-\frac{5}{2}$.
+\end{itemize}
+
+\textbf{Concavity:}
+\begin{itemize}
+  \item $(-\infty, -3)$: concave down.
+  \item $(-3, -\frac{5}{2})$: concave up.
+  \item $(-\frac{5}{2}, -\frac{3}{2})$: concave down.
+  \item $(-\frac{3}{2}, \infty)$: concave up.
+\end{itemize}
+
+\textbf{Inflection points} occur at $x = -3$, $x = -\frac{5}{2}$, and $x = -\frac{3}{2}$ (where concavity changes).
+
+\textbf{Special points:}
+\begin{itemize}
+  \item $x = -3$: inflection point with horizontal tangent ($f'(-3) = 0$), function increasing on both sides.
+  \item $x = -\frac{5}{2}$: inflection point, function increasing with positive slope.
+  \item $x = -2$: local maximum.
+  \item $x = -\frac{3}{2}$: inflection point, function decreasing with negative slope.
+  \item $x = 0$: local minimum.
+\end{itemize}
+
+Using the monotonicity and concavity information together on each subinterval, we sketch the graph, paying attention to the shape near each special point.
+\end{example}
+
+%=============================================================================
+\section{Asymptotes}
+\label{sec:6.15}
+%=============================================================================
+
+\textit{An asymptote is a line that becomes arbitrarily close to a curve as we move away from the origin in some direction.  This single idea unifies vertical, horizontal, and slant asymptotes.}
+
+\begin{definition}[Asymptote --- Informal]
+\label{def:6-4}
+A line $L$ is an \emph{asymptote} of a curve $C$ if the distance between $L$ and $C$ approaches $0$ as we move along $C$ in some direction away from the origin.
+\end{definition}
+
+\begin{remark}[Warning]
+If you learned in high school that ``an asymptote is a line the curve approaches but never touches,'' the ``never touches'' part is \textbf{incorrect}.  A graph may cross its asymptote, even infinitely many times, and the line is still an asymptote as long as the distance tends to $0$.
+\end{remark}
+
+A function may have multiple asymptotes.  For instance, a single graph can have one horizontal asymptote as $x \to -\infty$, two vertical asymptotes, and a slant asymptote as $x \to +\infty$.
+
+\subsubsection*{Vertical Asymptotes}
+
+\begin{definition}[Vertical Asymptote]
+\label{def:6-5}
+The line $x = a$ is a \emph{vertical asymptote} of $f$ if at least one of the following holds:
+\[
+  \lim_{x \to a^{+}}f(x) = \pm\infty, \qquad \lim_{x \to a^{-}}f(x) = \pm\infty.
+\]
+\end{definition}
+
+\subsubsection*{Horizontal Asymptotes}
+
+\begin{definition}[Horizontal Asymptote]
+\label{def:6-6}
+The line $y = L$ is a \emph{horizontal asymptote} of $f$ if
+\[
+  \lim_{x \to +\infty}f(x) = L \qquad\text{or}\qquad \lim_{x \to -\infty}f(x) = L.
+\]
+\end{definition}
+
+\subsubsection*{Slant (Oblique) Asymptotes}
+
+\begin{definition}[Slant Asymptote]
+\label{def:6-7}
+The line $y = mx + b$ is a \emph{slant asymptote} of $f$ if
+\[
+  \lim_{x \to +\infty}\bigl[f(x) - (mx + b)\bigr] = 0 \qquad\text{or}\qquad \lim_{x \to -\infty}\bigl[f(x) - (mx + b)\bigr] = 0.
+\]
+\end{definition}
+
+\begin{remark}
+One may view a horizontal asymptote as a special case of a slant asymptote (with $m = 0$).
+\end{remark}
+
+% ── BEGIN VISUAL ──
+\begin{figure}[ht]
+  \centering
+  \input{ch06/figures/fig-vertical-and-slant-asymptotes.tex}
+  \caption{A rational function with a vertical asymptote and a slant asymptote.}
+  \label{fig:vertical-and-slant-asymptotes}
+\end{figure}
+% ── END VISUAL ──
+
+%=============================================================================
+\section{Asymptotes of Rational Functions}
+\label{sec:6.16}
+%=============================================================================
+
+\textit{We illustrate, with a detailed example, how to find all asymptotes of a rational function.}
+
+\begin{example}
+\label{ex:6-14}
+Find all asymptotes of
+\[
+  f(x) = \frac{x^{3} + 1}{x^{3} - 2x^{2}} = \frac{x^{3}+1}{x^{2}(x-2)}.
+\]
+
+\textbf{Vertical asymptotes.}  The function is rational, continuous wherever the denominator is nonzero.  The denominator vanishes at $x = 0$ and $x = 2$.
+
+\textbf{At $x = 0$:} As $x \to 0$, the numerator approaches $1$ (positive) and the factor $(x-2)$ approaches $-2$ (negative).  The factor $x^{2}$ is positive on both sides and vanishes.  So the full function is negative near $0$:
+\[
+  \lim_{x \to 0^{+}}f(x) = -\infty, \qquad \lim_{x \to 0^{-}}f(x) = -\infty.
+\]
+Vertical asymptote: $x = 0$.
+
+\textbf{At $x = 2$:} The numerator approaches $9$ (positive), $x^{2}$ approaches $4$ (positive), and $(x-2)$ changes sign:
+\[
+  \lim_{x \to 2^{+}}f(x) = +\infty, \qquad \lim_{x \to 2^{-}}f(x) = -\infty.
+\]
+Vertical asymptote: $x = 2$.
+
+\textbf{Horizontal asymptotes.}  Compute limits at $\pm\infty$ by factoring the leading term:
+\[
+  \frac{x^{3}+1}{x^{3}-2x^{2}} = \frac{x^{3}(1+1/x^{3})}{x^{3}(1-2/x)} = \frac{1+1/x^{3}}{1-2/x} \to \frac{1}{1} = 1.
+\]
+The same holds for $x \to -\infty$.  Horizontal asymptote: $y = 1$ (on both sides).
+
+This function has \textbf{no} slant asymptotes (since horizontal asymptotes exist on both sides).
+\end{example}
+
+\begin{remark}
+The asymptotes alone are not enough to sketch the graph precisely.  For a complete sketch, we should also compute the first derivative (for monotonicity) and find intercepts.  But whatever the graph looks like, it must respect the asymptotic behaviour found above.
+\end{remark}
+
+%=============================================================================
+\section{Slant Asymptote Computation}
+\label{sec:6.17}
+%=============================================================================
+
+\textit{Not every function with asymptotes has horizontal ones.  Here is an example with a slant asymptote that is neither vertical nor horizontal.}
+
+\begin{example}
+\label{ex:6-15}
+Find all asymptotes of
+\[
+  g(x) = x + 2 + \frac{1}{e^{x^{2}} + 1}.
+\]
+
+\textbf{Vertical asymptotes.}  The domain is all of $\R$: the denominator $e^{x^{2}}+1$ is always positive.  Since $g$ is continuous on $\R$, there are \textbf{no} vertical asymptotes.
+
+\textbf{Horizontal asymptotes.}  As $x \to \pm\infty$, $x^{2} \to \infty$, so $e^{x^{2}} \to \infty$ and $\dfrac{1}{e^{x^{2}}+1} \to 0$.  Therefore
+\[
+  \lim_{x \to \pm\infty}g(x) = \lim_{x \to \pm\infty}\bigl(x+2\bigr) = \pm\infty.
+\]
+There are \textbf{no} horizontal asymptotes.
+
+\textbf{Slant asymptote.}  We observed that $g(x) \approx x+2$ for large $\abs{x}$.  Check:
+\[
+  g(x) - (x+2) = \frac{1}{e^{x^{2}}+1} \to 0 \quad \text{as } x \to +\infty \text{ (and as } x \to -\infty\text{)}.
+\]
+Since this difference tends to $0$, the line $y = x + 2$ is a \textbf{slant asymptote} on both sides.
+
+Moreover, $\dfrac{1}{e^{x^{2}}+1} > 0$ always, so the graph lies \emph{slightly above} the line $y = x+2$.
+\end{example}
+
+%=============================================================================
+\section{Slant Asymptotes via L'H\^opital}
+\label{sec:6.18}
+%=============================================================================
+
+\textit{This example is significantly harder than the previous ones.  The function has \textbf{two different} slant asymptotes, one as $x \to +\infty$ and one as $x \to -\infty$.  The computation requires L'H\^opital's Rule.}
+
+\begin{example}
+\label{ex:6-16}
+Find the slant asymptote of $h(x) = x\arctan(x)$ as $x \to +\infty$.
+
+\textbf{Conjecture.}  Since $\displaystyle\lim_{x \to \infty}\arctan(x) = \frac{\pi}{2}$, the function $h(x) \approx \frac{\pi}{2}\,x$ for large $x$.  Perhaps $y = \frac{\pi}{2}\,x$ is the asymptote?
+
+\textbf{Testing the conjecture.}  Compute:
+\[
+  h(x) - \frac{\pi}{2}\,x = x\biggl(\arctan(x) - \frac{\pi}{2}\biggr).
+\]
+As $x \to \infty$: the first factor $\to \infty$ and the second $\to 0$.  This is $\infty \cdot 0$.  Convert to a quotient:
+\[
+  \frac{\arctan(x) - \frac{\pi}{2}}{1/x}.
+\]
+Numerator $\to 0$, denominator $\to 0$: we have $\dfrac{0}{0}$.  Apply L'H\^opital:
+\[
+  \stackrel{\text{L'H}}{=} \lim_{x \to \infty}\frac{\dfrac{1}{1+x^{2}}}{-\dfrac{1}{x^{2}}} = \lim_{x \to \infty}\frac{-x^{2}}{1+x^{2}} = -1.
+\]
+So $\displaystyle\lim_{x \to \infty}\bigl[h(x) - \tfrac{\pi}{2}\,x\bigr] = -1 \neq 0$.  The line $y = \frac{\pi}{2}\,x$ is \textbf{not} an asymptote.
+
+\textbf{Correcting the conjecture.}  Since the difference approaches $-1$, we can write:
+\[
+  h(x) - \biggl(\frac{\pi}{2}\,x - 1\biggr) \to 0 \quad\text{as } x \to \infty.
+\]
+Therefore the slant asymptote as $x \to +\infty$ is $y = \dfrac{\pi}{2}\,x - 1$.
+\end{example}
+
+\begin{remark}[Pause and Try]
+The function $h(x) = x\arctan(x)$ has a \textbf{second}, different slant asymptote as $x \to -\infty$.  The process is similar.  Try to find it: consider $\displaystyle\lim_{x \to -\infty}\arctan(x) = -\frac{\pi}{2}$ and repeat the argument.  You will obtain a different line.
+\end{remark}
+
+\begin{remark}
+Even if nobody has taught you a systematic algorithm for finding slant asymptotes, you can still find them as long as you understand the definition: the line $y = mx+b$ is a slant asymptote precisely when $\lim\bigl[f(x) - (mx+b)\bigr] = 0$.  Be willing to try a conjecture, test it, and adjust if necessary.
+\end{remark}

@@ -1,0 +1,24 @@
+\begin{tikzpicture}[>=Latex]
+  % Two number lines and a mapping arrow
+  \draw[->] (0,0) -- (8,0) node[right] {$x$};
+  \draw[->] (0,-2) -- (8,-2) node[right] {$u$};
+
+  % x-interval [a,b]
+  \draw[very thick, color=thmcolor] (2,0) -- (6,0);
+  \fill[color=thmcolor] (2,0) circle (2pt);
+  \fill[color=thmcolor] (6,0) circle (2pt);
+  \node[above, color=thmcolor] at (2,0) {$a$};
+  \node[above, color=thmcolor] at (6,0) {$b$};
+  \node[above, color=thmcolor] at (4,0) {$[a,b]$};
+
+  % u-interval [g(a),g(b)]
+  \draw[very thick, color=defcolor] (2.8,-2) -- (5.2,-2);
+  \fill[color=defcolor] (2.8,-2) circle (2pt);
+  \fill[color=defcolor] (5.2,-2) circle (2pt);
+  \node[below, color=defcolor] at (2.8,-2) {$g(a)$};
+  \node[below, color=defcolor] at (5.2,-2) {$g(b)$};
+  \node[below, color=defcolor] at (4,-2) {$[g(a),g(b)]$};
+
+  % Mapping arrow
+  \draw[->, thick] (4,-0.3) -- node[right] {$u=g(x)$} (4,-1.7);
+\end{tikzpicture}

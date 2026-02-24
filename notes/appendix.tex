@@ -1,0 +1,311 @@
+\chapter{Precalculus Reference}
+
+\textit{This appendix collects the precalculus facts and identities
+used throughout the course. Results are stated without proof.
+Familiarity with this material is assumed from the first chapter onward.}
+
+%% ─── SECTION A.1 ─────────────────────────────────────────────────────────────
+\section{Trigonometric Identities}
+\label{sec:A.1}
+
+Trigonometric identities pervade every part of calculus. When you
+differentiate $\sin x$ or $\cos x$, when you integrate powers of
+trigonometric functions, and when you simplify expressions after a
+trigonometric substitution, you rely on the identities collected here.
+Knowing them cold---not just recognising them, but being able to
+reproduce them quickly---will save you enormous time throughout the
+course.
+
+Many of the identities below are consequences of just one fact: the
+Pythagorean identity $\sin^2\theta + \cos^2\theta = 1$.  We organise
+them into groups so that you can see the logical relationships.
+
+\begin{proposition}[Pythagorean Identities]\label{prop:A-1}
+\begin{align*}
+  \sin^2\theta + \cos^2\theta &= 1 \\
+  1 + \tan^2\theta            &= \sec^2\theta \\
+  1 + \cot^2\theta            &= \csc^2\theta
+\end{align*}
+\end{proposition}
+
+\begin{proposition}[Reciprocal and Quotient Identities]\label{prop:A-2}
+\begin{align*}
+  \csc\theta &= \dfrac{1}{\sin\theta} \\
+  \sec\theta &= \dfrac{1}{\cos\theta} \\
+  \cot\theta &= \dfrac{1}{\tan\theta} \\
+  \tan\theta &= \dfrac{\sin\theta}{\cos\theta} \\
+  \cot\theta &= \dfrac{\cos\theta}{\sin\theta}
+\end{align*}
+\end{proposition}
+
+\begin{proposition}[Angle Addition and Subtraction Formulas]\label{prop:A-3}
+\begin{align*}
+  \sin(\alpha \pm \beta) &= \sin\alpha\cos\beta \pm \cos\alpha\sin\beta \\
+  \cos(\alpha \pm \beta) &= \cos\alpha\cos\beta \mp \sin\alpha\sin\beta \\
+  \tan(\alpha \pm \beta) &= \dfrac{\tan\alpha \pm \tan\beta}
+                                  {1 \mp \tan\alpha\tan\beta}
+\end{align*}
+\end{proposition}
+
+\begin{proposition}[Double Angle Formulas]\label{prop:A-4}
+\begin{align*}
+  \sin(2\theta) &= 2\sin\theta\cos\theta \\
+  \cos(2\theta) &= \cos^2\theta - \sin^2\theta \\
+                &= 2\cos^2\theta - 1 \\
+                &= 1 - 2\sin^2\theta \\
+  \tan(2\theta) &= \dfrac{2\tan\theta}{1 - \tan^2\theta}
+\end{align*}
+\end{proposition}
+
+\begin{proposition}[Half Angle Formulas]\label{prop:A-5}
+\begin{align*}
+  \sin^2\theta &= \dfrac{1 - \cos(2\theta)}{2} \\
+  \cos^2\theta &= \dfrac{1 + \cos(2\theta)}{2} \\
+  \tan^2\theta &= \dfrac{1 - \cos(2\theta)}{1 + \cos(2\theta)}
+\end{align*}
+\end{proposition}
+
+\begin{proposition}[Product-to-Sum Formulas]\label{prop:A-6}
+\begin{align*}
+  \sin\alpha\cos\beta &= \tfrac{1}{2}[\sin(\alpha+\beta)+\sin(\alpha-\beta)] \\
+  \cos\alpha\sin\beta &= \tfrac{1}{2}[\sin(\alpha+\beta)-\sin(\alpha-\beta)] \\
+  \cos\alpha\cos\beta &= \tfrac{1}{2}[\cos(\alpha-\beta)+\cos(\alpha+\beta)] \\
+  \sin\alpha\sin\beta &= \tfrac{1}{2}[\cos(\alpha-\beta)-\cos(\alpha+\beta)]
+\end{align*}
+\end{proposition}
+
+\begin{proposition}[Sum-to-Product Formulas]\label{prop:A-7}
+\begin{align*}
+  \sin\alpha + \sin\beta
+    &= 2\sin\!\left(\dfrac{\alpha+\beta}{2}\right)
+        \cos\!\left(\dfrac{\alpha-\beta}{2}\right) \\
+  \sin\alpha - \sin\beta
+    &= 2\cos\!\left(\dfrac{\alpha+\beta}{2}\right)
+        \sin\!\left(\dfrac{\alpha-\beta}{2}\right) \\
+  \cos\alpha + \cos\beta
+    &= 2\cos\!\left(\dfrac{\alpha+\beta}{2}\right)
+        \cos\!\left(\dfrac{\alpha-\beta}{2}\right) \\
+  \cos\alpha - \cos\beta
+    &= -2\sin\!\left(\dfrac{\alpha+\beta}{2}\right)
+         \sin\!\left(\dfrac{\alpha-\beta}{2}\right)
+\end{align*}
+\end{proposition}
+
+\begin{table}[h]
+\centering
+\caption{Values of Trigonometric Functions at Standard Angles}
+\begin{tabular}{@{}ccccccc@{}}
+\toprule
+$\theta$
+  & $\sin\theta$ & $\cos\theta$ & $\tan\theta$
+  & $\csc\theta$ & $\sec\theta$ & $\cot\theta$ \\
+\midrule
+$0$
+  & $0$ & $1$ & $0$
+  & $\text{undef}$ & $1$ & $\text{undef}$ \\
+$\pi/6$
+  & $1/2$ & $\sqrt{3}/2$ & $1/\sqrt{3}$
+  & $2$ & $2/\sqrt{3}$ & $\sqrt{3}$ \\
+$\pi/4$
+  & $\sqrt{2}/2$ & $\sqrt{2}/2$ & $1$
+  & $\sqrt{2}$ & $\sqrt{2}$ & $1$ \\
+$\pi/3$
+  & $\sqrt{3}/2$ & $1/2$ & $\sqrt{3}$
+  & $2/\sqrt{3}$ & $2$ & $1/\sqrt{3}$ \\
+$\pi/2$
+  & $1$ & $0$ & $\text{undef}$
+  & $1$ & $\text{undef}$ & $0$ \\
+$\pi$
+  & $0$ & $-1$ & $0$
+  & $\text{undef}$ & $-1$ & $\text{undef}$ \\
+$3\pi/2$
+  & $-1$ & $0$ & $\text{undef}$
+  & $-1$ & $\text{undef}$ & $0$ \\
+$2\pi$
+  & $0$ & $1$ & $0$
+  & $\text{undef}$ & $1$ & $\text{undef}$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{remark}
+All angles in the table above are measured in radians. The notation
+$\text{undef}$ indicates that the function is undefined at that angle
+because its denominator is zero; geometrically, the function has a
+vertical asymptote there.
+\end{remark}
+
+%% ─── SECTION A.2 ─────────────────────────────────────────────────────────────
+\section{Exponential and Logarithmic Laws}
+\label{sec:A.2}
+
+The exponential function $e^x$ and the natural logarithm $\ln x$ are
+everywhere in calculus: they appear in differentiation rules, integration
+formulas, growth and decay models, and the definitions of many other
+functions. The algebraic laws listed here are the foundation on which all
+of that rests.
+
+In particular, the change-of-base formula lets us reduce any exponential
+$a^x$ to $e^{x \ln a}$, which is essential when differentiating or
+integrating exponentials with arbitrary bases in Chapters~3 and~4.
+
+\begin{proposition}[Laws of Exponents]\label{prop:A-8}
+For $a > 0$ and all $x, y \in \R$:
+\begin{align*}
+  a^x \cdot a^y    &= a^{x+y} \\
+  \dfrac{a^x}{a^y} &= a^{x-y} \\
+  (a^x)^y          &= a^{xy} \\
+  (ab)^x           &= a^x b^x \\
+  a^0              &= 1 \\
+  a^{-x}           &= \dfrac{1}{a^x}
+\end{align*}
+\end{proposition}
+
+\begin{remark}
+The law $(a^x)^y = a^{xy}$ is used constantly when simplifying
+expressions before differentiating---for instance, rewriting
+$\sqrt[3]{x^2}$ as $x^{2/3}$ so that the power rule applies directly.
+\end{remark}
+
+\begin{proposition}[Laws of Logarithms]\label{prop:A-9}
+For $a > 0$, $a \neq 1$, and $x, y > 0$:
+\begin{align*}
+  \log_a(xy)  &= \log_a x + \log_a y \\
+  \log_a(x/y) &= \log_a x - \log_a y \\
+  \log_a(x^r) &= r\log_a x \\
+  \log_a x    &= \dfrac{\ln x}{\ln a}
+                 \quad \text{(change of base)} \\
+  \ln(e^x)    &= x \quad \text{for all } x \in \R \\
+  e^{\ln x}   &= x \quad \text{for all } x > 0
+\end{align*}
+\end{proposition}
+
+\begin{remark}
+The change-of-base formula $\log_a x = \dfrac{\ln x}{\ln a}$ is the key
+to differentiating $a^x$ for $a \neq e$: we write $a^x = e^{x \ln a}$
+and apply the chain rule. It also converts any logarithmic integral into
+one involving $\ln$.
+\end{remark}
+
+%% ─── SECTION A.3 ─────────────────────────────────────────────────────────────
+\section{Algebraic Techniques}
+\label{sec:A.3}
+
+The algebraic manipulations below appear throughout the course: completing
+the square is essential for certain integrals and limit calculations,
+factoring identities simplify rational expressions, and the binomial
+theorem underpins Taylor expansions and series analysis.
+
+\begin{proposition}[Completing the Square]\label{prop:A-10}
+\[
+  x^2 + bx = \left(x + \dfrac{b}{2}\right)^2 - \dfrac{b^2}{4}
+\]
+\end{proposition}
+
+\begin{example}\label{ex:A-1}
+Write $x^2 + 6x + 5$ in completed square form.
+
+We isolate the quadratic and linear terms and apply the formula:
+\begin{align*}
+  x^2 + 6x + 5
+    &= (x^2 + 6x) + 5 \\
+    &= \left(x^2 + 6x + 9\right) - 9 + 5 \\
+    &= (x + 3)^2 - 4
+\end{align*}
+Hence $x^2 + 6x + 5 = (x+3)^2 - 4$, so the minimum value of the
+expression is $-4$, attained at $x = -3$.
+\end{example}
+
+\begin{proposition}[Factoring Identities]\label{prop:A-11}
+\begin{align*}
+  a^2 - b^2 &= (a-b)(a+b) \\
+  a^3 - b^3 &= (a-b)(a^2+ab+b^2) \\
+  a^3 + b^3 &= (a+b)(a^2-ab+b^2)
+\end{align*}
+\end{proposition}
+
+\begin{proposition}[Binomial Theorem]\label{prop:A-12}
+For $n \in \N$ and $a, b \in \R$:
+\[
+  (a+b)^n = \sum_{k=0}^{n} \binom{n}{k} a^{n-k} b^k
+\]
+The first three cases explicitly:
+\begin{align*}
+  (a+b)^2 &= a^2 + 2ab + b^2 \\
+  (a+b)^3 &= a^3 + 3a^2 b + 3ab^2 + b^3
+\end{align*}
+\end{proposition}
+
+\begin{remark}[Polynomial Long Division]
+When integrating a rational function $p(x)/q(x)$ where
+$\deg p \geq \deg q$, perform polynomial long division first to write
+the integrand as a polynomial plus a proper rational function.
+
+For example, divide $x^3 + 2x$ by $x^2 + 1$:
+\begin{align*}
+  x^3 + 2x &= (x^2 + 1) \cdot x + (2x - x) \\
+            &= (x^2 + 1) \cdot x + x
+\end{align*}
+
+We verify this step by step. We seek $q(x)$ and $r(x)$ with
+$\deg r < \deg(x^2 + 1) = 2$ such that $x^3 + 2x = (x^2+1)\,q(x) + r(x)$.
+
+First, divide the leading term: $x^3 \div x^2 = x$.
+
+Multiply and subtract:
+\begin{align*}
+  x^3 + 2x - x \cdot (x^2 + 1)
+    &= x^3 + 2x - x^3 - x \\
+    &= x
+\end{align*}
+
+Since $\deg(x) = 1 < 2 = \deg(x^2+1)$, we stop. Therefore:
+\[
+  \dfrac{x^3 + 2x}{x^2 + 1} = x + \dfrac{x}{x^2 + 1}
+\]
+\end{remark}
+
+%% ─── SECTION A.4 ─────────────────────────────────────────────────────────────
+\section{Inverse Functions}
+\label{sec:A.4}
+
+Inverse functions are central to Chapter~4, where we study inverse
+trigonometric functions ($\arcsin$, $\arccos$, $\arctan$) and where we
+treat the natural logarithm as the inverse of the exponential. The
+derivative rule for inverse functions, stated below, appears in Chapter~3
+and is used repeatedly whenever we differentiate an inverse function.
+
+Understanding when a function \textit{has} an inverse---and the role of
+restricting the domain to guarantee invertibility---is essential before
+any of those later results make sense.
+
+\begin{definition}[Inverse Function]\label{def:A-1}
+Let $f \colon A \to B$ be a function. A function $g \colon B \to A$
+is called the \emph{inverse} of $f$ if
+\[
+  g(f(x)) = x \quad \text{for all } x \in A
+  \qquad \text{and} \qquad
+  f(g(y)) = y \quad \text{for all } y \in B.
+\]
+When such a $g$ exists, $f$ is called \emph{invertible}, and we write
+$g = f^{-1}$.
+\end{definition}
+
+\begin{remark}
+A function $f$ is invertible if and only if it is \textit{bijective}:
+injective (one-to-one) and surjective (onto).
+Geometrically, $f$ passes the horizontal line test.
+\end{remark}
+
+\begin{proposition}[Inverse Function Derivative Rule]\label{prop:A-13}
+Let $f$ be differentiable and invertible on an interval,
+with $f'(x) \neq 0$. Then $f^{-1}$ is differentiable and
+\[
+  \bigl(f^{-1}\bigr)'(y) = \dfrac{1}{f'\!\left(f^{-1}(y)\right)}.
+\]
+\end{proposition}
+
+\begin{remark}
+The proof of \cref{prop:A-13} uses the chain rule and appears in
+\cref{sec:4.4}.
+\end{remark}

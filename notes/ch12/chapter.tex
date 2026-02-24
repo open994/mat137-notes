@@ -1,0 +1,567 @@
+\chapter{Improper Integrals}
+
+%=============================================================================
+\section{Unbounded Domains}
+\label{sec:12.1}
+%=============================================================================
+
+\textit{Before we can try to compute an integral from $a$ to $\infty$, we need to decide what it even means to integrate a function all the way to infinity.  We motivate the definition with a concrete example and then state the general definition.}
+
+\subsection*{Motivating example}
+
+\begin{example}
+\label{ex:12-1}
+Compute $\displaystyle\int_{0}^{\infty}\frac{1}{1+x^{2}}\dx$.
+
+Geometrically, this represents the area between the $x$-axis and the graph of $\frac{1}{1+x^{2}}$ starting at $x=0$ and extending to infinity.  We cannot compute this directly --- we only know how to integrate a function between two real numbers $a$ and $b$.
+
+However, for any real number $b>0$ we \emph{can} compute $\int_{0}^{b}\frac{1}{1+x^{2}}\dx$, and then let $b$ grow without bound:
+\[
+  \int_{0}^{\infty}\frac{1}{1+x^{2}}\dx
+  \;=\; \lim_{b\to\infty}\int_{0}^{b}\frac{1}{1+x^{2}}\dx.
+\]
+An antiderivative of $\frac{1}{1+x^{2}}$ is $\arctan x$, so
+\begin{align*}
+  \lim_{b\to\infty}\int_{0}^{b}\frac{1}{1+x^{2}}\dx
+  &= \lim_{b\to\infty}\Bigl[\arctan x\Bigr]_{0}^{b} \\
+  &= \lim_{b\to\infty}\bigl(\arctan b - \arctan 0\bigr) \\
+  &= \frac{\pi}{2} - 0 \;=\; \frac{\pi}{2}.
+\end{align*}
+The area under this curve, extending all the way to infinity, is $\dfrac{\pi}{2}$.
+\end{example}
+
+\subsection*{The general definition}
+
+\begin{definition}[Improper integral --- unbounded domain]
+\label{def:12-1}
+Let $a\in\R$ and let $f$ be continuous on $[a,\infty)$.  We define
+\[
+  \int_{a}^{\infty}f(x)\dx \;=\; \lim_{b\to\infty}\int_{a}^{b}f(x)\dx,
+\]
+provided the limit exists.
+\begin{itemize}
+  \item Since $f$ is continuous on $[a,b]$, the integral $\int_{a}^{b}f(x)\dx$ exists for every $b>a$.
+  \item If the limit exists (is a finite number), we say the improper integral is \emph{convergent}.
+  \item If the limit does not exist, we say the improper integral is \emph{divergent}.
+\end{itemize}
+\end{definition}
+
+\begin{remark}
+Divergence can occur in different ways: the limit may be $+\infty$, $-\infty$, or fail to exist for other reasons (e.g.\ oscillation).
+\end{remark}
+
+\begin{remark}[Pause and Try]
+Try to compute each of the following before watching the solutions in the next few sections:
+\[
+  \int_{0}^{\infty}\frac{x}{x^{2}+1}\dx, \qquad
+  \int_{0}^{\infty}\sin x\dx, \qquad
+  \int_{1}^{\infty}\frac{1}{x^{p}}\dx, \qquad
+  \int_{0}^{1}\ln x\dx.
+\]
+The last integral is improper in a different way --- try to figure out what is different and how to define it.
+\end{remark}
+
+%=============================================================================
+\section{A Divergent Integral}
+\label{sec:12.2}
+%=============================================================================
+
+\textit{This second example looks deceptively similar to the first, yet the outcome is completely different.}
+
+\begin{example}
+\label{ex:12-2}
+Determine whether $\displaystyle\int_{0}^{\infty}\frac{x}{x^{2}+1}\dx$ converges or diverges.
+
+By \cref{def:12-1},
+\[
+  \int_{0}^{\infty}\frac{x}{x^{2}+1}\dx
+  \;=\; \lim_{b\to\infty}\int_{0}^{b}\frac{x}{x^{2}+1}\dx.
+\]
+To find an antiderivative, note that $\frac{x}{x^{2}+1} = \frac{1}{2}\cdot\frac{2x}{x^{2}+1}$, and $2x$ is the derivative of $x^{2}+1$.  Hence
+\[
+  \int_{0}^{b}\frac{x}{x^{2}+1}\dx
+  \;=\; \frac{1}{2}\Bigl[\ln(x^{2}+1)\Bigr]_{0}^{b}
+  \;=\; \frac{1}{2}\ln(b^{2}+1) - \frac{1}{2}\ln 1
+  \;=\; \frac{1}{2}\ln(b^{2}+1).
+\]
+As $b\to\infty$, $b^{2}+1\to\infty$, and therefore $\ln(b^{2}+1)\to\infty$.  The limit does not exist, so
+\[
+  \int_{0}^{\infty}\frac{x}{x^{2}+1}\dx \quad\text{is \textbf{divergent}.}
+\]
+\end{example}
+
+\begin{remark}
+The integrands $\frac{1}{x^{2}+1}$ and $\frac{x}{x^{2}+1}$ look very similar, yet the first gives a convergent integral equal to $\frac{\pi}{2}$ while the second diverges.  Whether the area under a curve extending to infinity is finite or infinite depends delicately on how fast the function decays.
+\end{remark}
+
+%=============================================================================
+\section{Oscillating Divergence}
+\label{sec:12.3}
+%=============================================================================
+
+\textit{Not every divergent integral diverges to $\pm\infty$.  Divergence can also result from oscillation.}
+
+\begin{example}
+\label{ex:12-3}
+Determine whether $\displaystyle\int_{0}^{\infty}\sin x\dx$ converges or diverges.
+
+By \cref{def:12-1},
+\[
+  \int_{0}^{\infty}\sin x\dx
+  \;=\; \lim_{b\to\infty}\int_{0}^{b}\sin x\dx
+  \;=\; \lim_{b\to\infty}\Bigl[-\cos x\Bigr]_{0}^{b}
+  \;=\; \lim_{b\to\infty}\bigl(1 - \cos b\bigr).
+\]
+As $b\to\infty$, $\cos b$ oscillates between $-1$ and $1$ without settling down, so $1-\cos b$ oscillates between $0$ and $2$.  The limit does not exist, and the integral is \textbf{divergent}.
+\end{example}
+
+\begin{remark}
+It is tempting to argue by symmetry that the positive and negative regions of $\sin x$ cancel, giving $0$.  This reasoning is flawed.  Each positive arch from $[2k\pi,(2k+1)\pi]$ has area $2$, and each negative arch has area $-2$.  As $b$ grows, the partial integrals oscillate between $0$ and $2$ rather than settling to any single value.  The integral is not $0$ --- it is simply \textbf{not a number}.
+\end{remark}
+
+%=============================================================================
+\section{The $p$-Integral}
+\label{sec:12.4}
+%=============================================================================
+
+\textit{The family of integrals $\int_{1}^{\infty}\frac{1}{x^{p}}\dx$ is arguably the most important family of improper integrals.  Its convergence behaviour is simple to state and appears repeatedly when we study comparison tests and, later, series.}
+
+\begin{theorem}[The $p$-integral]
+\label{thm:12-1}
+For every $p\in\R$,
+\[
+  \int_{1}^{\infty}\frac{1}{x^{p}}\dx
+  \quad\text{is}\quad
+  \begin{cases}
+    \text{convergent} & \text{if } p>1, \\[4pt]
+    \text{divergent } (+\infty) & \text{if } p\le 1.
+  \end{cases}
+\]
+When $p>1$, the value of the integral is $\dfrac{1}{p-1}$.
+\end{theorem}
+
+\begin{proof}
+By \cref{def:12-1},
+\[
+  \int_{1}^{\infty}\frac{1}{x^{p}}\dx
+  \;=\; \lim_{b\to\infty}\int_{1}^{b}x^{-p}\dx.
+\]
+
+\textbf{Case 1: $p\neq 1$.}  An antiderivative of $x^{-p}$ is $\dfrac{x^{-p+1}}{-p+1}$, so
+\[
+  \int_{1}^{b}x^{-p}\dx
+  \;=\; \frac{b^{1-p}}{1-p} - \frac{1}{1-p}.
+\]
+\begin{itemize}
+  \item If $p<1$, then $1-p>0$, so $b^{1-p}\to\infty$ as $b\to\infty$, and the limit is $+\infty$.
+  \item If $p>1$, then $1-p<0$, so $b^{1-p}\to 0$ as $b\to\infty$, giving
+  \[
+    \lim_{b\to\infty}\left(\frac{b^{1-p}}{1-p}-\frac{1}{1-p}\right)
+    \;=\; 0 - \frac{1}{1-p}
+    \;=\; \frac{1}{p-1}.
+  \]
+\end{itemize}
+
+\textbf{Case 2: $p=1$.}  An antiderivative of $\frac{1}{x}$ is $\ln x$, so
+\[
+  \int_{1}^{b}\frac{1}{x}\dx \;=\; \ln b - \ln 1 \;=\; \ln b \;\to\; +\infty
+  \quad\text{as }b\to\infty.
+\]
+Combining the cases: the integral converges if and only if $p>1$.
+\end{proof}
+
+\begin{remark}
+This result is worth memorising.  Once we introduce comparison tests, the $p$-integral becomes the standard family against which we compare other integrals.  It plays exactly the same role for series later.
+\end{remark}
+
+% ── BEGIN VISUAL ──
+\begin{figure}[ht]
+  \centering
+  \input{ch12/figures/fig-p-integral-comparison.tex}
+  \caption{The $p$-integral threshold at $p=1$.}
+  \label{fig:p-integral-comparison}
+\end{figure}
+% ── END VISUAL ──
+
+%=============================================================================
+\section{Unbounded Integrands}
+\label{sec:12.5}
+%=============================================================================
+
+\textit{So far, every improper integral has been improper because the domain extended to $\pm\infty$.  There is a second, equally important type: the integrand may be unbounded on the interval of integration, typically due to a vertical asymptote at one of the endpoints.}
+
+\subsection*{Motivating example}
+
+\begin{example}
+\label{ex:12-4}
+Compute $\displaystyle\int_{0}^{1}\ln x\dx$.
+
+The function $\ln x$ is unbounded near $x=0$ (it has a vertical asymptote there), so the integral is improper.  We cannot integrate a function that is unbounded on its domain in the usual Riemann sense.
+
+For any $c$ with $0<c<1$, the function $\ln x$ is continuous on $[c,1]$, so $\int_{c}^{1}\ln x\dx$ exists.  We define
+\[
+  \int_{0}^{1}\ln x\dx
+  \;=\; \lim_{c\to 0^{+}}\int_{c}^{1}\ln x\dx.
+\]
+By integration by parts, an antiderivative of $\ln x$ is $x\ln x - x$.  Therefore
+\begin{align*}
+  \int_{c}^{1}\ln x\dx
+  &= \Bigl[x\ln x - x\Bigr]_{c}^{1} \\
+  &= (1\cdot\ln 1 - 1) - (c\ln c - c) \\
+  &= -1 - c\ln c + c.
+\end{align*}
+We need to evaluate $\lim_{c\to 0^{+}}c\ln c$.  This is an indeterminate form of type $0\cdot(-\infty)$.  Rewriting as a quotient and applying L'H\^opital's rule:
+\[
+  \lim_{c\to 0^{+}}c\ln c
+  \;=\; \lim_{c\to 0^{+}}\frac{\ln c}{1/c}
+  \;=\; \lim_{c\to 0^{+}}\frac{1/c}{-1/c^{2}}
+  \;=\; \lim_{c\to 0^{+}}(-c)
+  \;=\; 0.
+\]
+Therefore
+\[
+  \int_{0}^{1}\ln x\dx
+  \;=\; \lim_{c\to 0^{+}}(-1 - c\ln c + c)
+  \;=\; -1 - 0 + 0
+  \;=\; -1.
+\]
+The negative sign is expected: the graph of $\ln x$ lies below the $x$-axis on $(0,1)$.
+\end{example}
+
+\subsection*{The general definition}
+
+\begin{definition}[Improper integral --- unbounded integrand at the left endpoint]
+\label{def:12-2}
+Let $a<b$ be real numbers and let $f$ be continuous on $(a,b]$.  We define
+\[
+  \int_{a}^{b}f(x)\dx \;=\; \lim_{c\to a^{+}}\int_{c}^{b}f(x)\dx,
+\]
+provided the limit exists.  Since $f$ is continuous on $[c,b]$ for every $c\in(a,b)$, the integral $\int_{c}^{b}f(x)\dx$ always makes sense.  As before, we say the improper integral is \emph{convergent} when the limit exists and \emph{divergent} otherwise.
+\end{definition}
+
+\begin{remark}
+There is, of course, a symmetric definition when the integrand is unbounded at the \emph{right} endpoint: if $f$ is continuous on $[a,b)$, then
+\[
+  \int_{a}^{b}f(x)\dx \;=\; \lim_{c\to b^{-}}\int_{a}^{c}f(x)\dx.
+\]
+\end{remark}
+
+% ── BEGIN VISUAL ──
+\begin{figure}[ht]
+  \centering
+  \input{ch12/figures/fig-unbounded-integrand-integrable.tex}
+  \caption{An improper integral converging despite an endpoint blow-up.}
+  \label{fig:unbounded-integrand-integrable}
+\end{figure}
+% ── END VISUAL ──
+
+%=============================================================================
+\section{Doubly Improper Integrals}
+\label{sec:12.6}
+%=============================================================================
+
+\textit{Some integrals are improper in more than one way --- for instance, both endpoints may be problematic, or there may be a singularity in the interior.  Such integrals require extra care to avoid fallacious cancellations.}
+
+\subsection*{A cautionary example}
+
+\begin{example}
+\label{ex:12-5}
+Consider $\displaystyle\int_{-\infty}^{\infty}x\dx$.
+
+One might argue that $f(x)=x$ is odd, so the positive and negative regions cancel by symmetry, giving $0$.  This reasoning is \textbf{wrong}.
+\end{example}
+
+\textit{To see why, suppose we try to evaluate the integral by centring the domain at $0$:}
+\[
+  \lim_{R\to\infty}\int_{-R}^{R}x\dx
+  \;=\; \lim_{R\to\infty}\left[\frac{x^{2}}{2}\right]_{-R}^{R}
+  \;=\; \lim_{R\to\infty}\left(\frac{R^{2}}{2}-\frac{R^{2}}{2}\right)
+  \;=\; 0.
+\]
+But if we instead centre at $1$, integrating from $1-R$ to $1+R$, a similar computation gives $\infty$.  The two choices of ``symmetric'' limits yield different answers.
+
+\textit{Moreover, the substitution $u=x-1$ transforms $\int_{-\infty}^{\infty} x\dx$ into $\int_{-\infty}^{\infty}(u+1)\du = \int_{-\infty}^{\infty}u\du + \int_{-\infty}^{\infty}1\du$.  If $I = \int_{-\infty}^{\infty}x\dx$ were a number, we would conclude $I = I + \infty$, a contradiction.}
+
+\begin{remark}[Warning]
+If we ever try to cancel $+\infty$ with $-\infty$, fundamental properties such as linearity and substitution break down.  The only safe course is to declare such integrals divergent.
+\end{remark}
+
+\subsection*{The correct strategy}
+
+\begin{definition}[Doubly improper integral]
+\label{def:12-3}
+Suppose an integral $\int_{a}^{b}f(x)\dx$ is improper at more than one point (e.g.\ at both endpoints, or at an interior point).  The procedure is:
+\begin{enumerate}
+  \item \textbf{Split} the domain into finitely many subintervals so that each piece is improper at \textbf{exactly one} endpoint.
+  \item \textbf{Evaluate} each piece independently as a separate limit.
+  \item The original integral is \emph{convergent} if and only if \textbf{every} piece is convergent.  If even one piece diverges, the whole integral is \emph{divergent}.
+\end{enumerate}
+The final value, when convergent, does not depend on how the domain is split.
+\end{definition}
+
+\begin{example}
+\label{ex:12-6}
+For $\displaystyle\int_{-\infty}^{\infty}x\dx$, split at $0$:
+\[
+  \int_{-\infty}^{\infty}x\dx
+  \;=\; \int_{-\infty}^{0}x\dx + \int_{0}^{\infty}x\dx
+  \;=\; \lim_{a\to-\infty}\int_{a}^{0}x\dx + \lim_{b\to\infty}\int_{0}^{b}x\dx.
+\]
+The first limit equals $-\infty$ and the second equals $+\infty$.  Since both pieces must converge independently and neither does, the integral is \textbf{divergent}.
+\end{example}
+
+\begin{example}
+\label{ex:12-7}
+The integral $\displaystyle\int_{0}^{\infty}\frac{1}{\sqrt{x}\,(1+x^{2})}\dx$ is improper at $x=0$ (vertical asymptote) and at $x=\infty$.  Split at $x=1$:
+\[
+  \int_{0}^{\infty}\frac{1}{\sqrt{x}\,(1+x^{2})}\dx
+  \;=\;
+  \underbrace{\int_{0}^{1}\frac{1}{\sqrt{x}\,(1+x^{2})}\dx}_{\text{improper at }0}
+  \;+\;
+  \underbrace{\int_{1}^{\infty}\frac{1}{\sqrt{x}\,(1+x^{2})}\dx}_{\text{improper at }\infty}.
+\]
+Each piece is improper at one endpoint only and can be studied with the definitions in \cref{sec:12.1,sec:12.5}.  The original integral converges if and only if both pieces converge.
+\end{example}
+
+\begin{example}
+\label{ex:12-8}
+The integral $\displaystyle\int_{-1}^{1}\frac{1}{x^{2}}\dx$ is improper at $x=0$ (vertical asymptote inside the domain).  Split at $0$:
+\[
+  \int_{-1}^{1}\frac{1}{x^{2}}\dx
+  \;=\; \int_{-1}^{0}\frac{1}{x^{2}}\dx + \int_{0}^{1}\frac{1}{x^{2}}\dx.
+\]
+Each piece diverges (both equal $+\infty$), so the original integral is \textbf{divergent}.
+\end{example}
+
+\begin{remark}[Warning]
+A common error is to fail to notice that the integrand is undefined or unbounded at an interior point and to blindly apply the Fundamental Theorem of Calculus across the singularity.  Always check for vertical asymptotes inside the interval of integration before computing.
+\end{remark}
+
+%=============================================================================
+\section{The Basic Comparison Test}
+\label{sec:12.7}
+%=============================================================================
+
+\textit{In many cases, computing the exact value of an improper integral is difficult or impossible.  Often, all we need to know is whether the integral converges or diverges.  For non-negative functions, comparison provides a powerful tool.}
+
+\subsection*{Positive functions: only two outcomes}
+
+\begin{proposition}
+\label{thm:12-2}
+Let $f$ be continuous and non-negative on $[a,\infty)$.  Then $\int_{a}^{\infty}f(x)\dx$ is either convergent (a finite number) or divergent to $+\infty$.  No other behaviour is possible.
+\end{proposition}
+
+\begin{proof}
+Define $F(b)=\int_{a}^{b}f(x)\dx$.  By the Fundamental Theorem of Calculus, $F'(b)=f(b)\ge 0$, so $F$ is increasing.  An increasing function has a limit at infinity that is either finite (when $F$ is bounded above, by the Monotone Convergence Theorem) or $+\infty$ (when $F$ is unbounded above).  These are the only two possibilities.
+\end{proof}
+
+\begin{remark}
+Because there are only two outcomes for non-negative functions, we adopt a convenient shorthand:
+\[
+  \int_{a}^{\infty}f(x)\dx < \infty
+  \quad\text{means ``convergent'',}
+  \qquad
+  \int_{a}^{\infty}f(x)\dx = \infty
+  \quad\text{means ``divergent''.}
+\]
+This notation is \textbf{only valid for non-negative integrands}.  For functions that change sign, ``not $\infty$'' does not guarantee convergence (the integral could oscillate).
+\end{remark}
+
+\subsection*{The theorem}
+
+\begin{theorem}[Basic Comparison Test]
+\label{thm:12-3}
+Let $a\in\R$ and let $f,g$ be continuous on $[a,\infty)$ with $0\le f(x)\le g(x)$ for all $x\ge a$.  Then:
+\begin{enumerate}
+  \item If $\displaystyle\int_{a}^{\infty}g(x)\dx$ converges, then $\displaystyle\int_{a}^{\infty}f(x)\dx$ converges.
+  \item If $\displaystyle\int_{a}^{\infty}f(x)\dx$ diverges, then $\displaystyle\int_{a}^{\infty}g(x)\dx$ diverges.
+\end{enumerate}
+\end{theorem}
+
+\begin{remark}
+Equivalently, using the shorthand for non-negative integrands:
+\begin{itemize}
+  \item If the integral of the \textbf{bigger} function is $<\infty$, then the integral of the \textbf{smaller} function is also $<\infty$.
+  \item If the integral of the \textbf{smaller} function is $=\infty$, then the integral of the \textbf{bigger} function is also $=\infty$.
+\end{itemize}
+The remaining two combinations (bigger diverges, or smaller converges) give \textbf{no information}.
+\end{remark}
+
+% ── BEGIN VISUAL ──
+\begin{figure}[ht]
+  \centering
+  \input{ch12/figures/fig-comparison-test-area.tex}
+  \caption{Area comparison intuition for improper integrals.}
+  \label{fig:comparison-test-area}
+\end{figure}
+% ── END VISUAL ──
+
+%=============================================================================
+\section{Basic Comparison Test Examples}
+\label{sec:12.8}
+%=============================================================================
+
+\textit{We now illustrate the Basic Comparison Test by comparing new integrals against the $p$-integral family from \cref{thm:12-1}.}
+
+\begin{example}
+\label{ex:12-9}
+Determine whether $\displaystyle\int_{1}^{\infty}\frac{\sin^{2}x}{x^{2}}\dx$ converges or diverges.
+
+For all $x\ge 1$,
+\[
+  0 \;\le\; \frac{\sin^{2}x}{x^{2}} \;\le\; \frac{1}{x^{2}}.
+\]
+We know $\int_{1}^{\infty}\frac{1}{x^{2}}\dx$ converges because $p=2>1$ (\cref{thm:12-1}).  By the Basic Comparison Test (\cref{thm:12-3}), $\displaystyle\int_{1}^{\infty}\frac{\sin^{2}x}{x^{2}}\dx$ is \textbf{convergent}.
+\end{example}
+
+\begin{example}
+\label{ex:12-10}
+Determine whether $\displaystyle\int_{1}^{\infty}\frac{\sin^{2}x}{x}\dx$ converges or diverges.
+
+We can bound $0\le\frac{\sin^{2}x}{x}\le\frac{1}{x}$, and $\int_{1}^{\infty}\frac{1}{x}\dx$ diverges ($p=1$).  But the Basic Comparison Test says: if the \emph{bigger} function's integral diverges, we learn \textbf{nothing} about the smaller.
+
+As it turns out, this integral \emph{is} divergent, but the Basic Comparison Test alone does not establish this with the bound above.
+\end{example}
+
+\begin{remark}
+\cref{ex:12-10} illustrates an important lesson: the Basic Comparison Test is inconclusive when the \emph{bigger} function's integral diverges.  In such cases, one must try a different bound or a different method entirely.
+\end{remark}
+
+\begin{example}
+\label{ex:12-11}
+Determine whether $\displaystyle\int_{1}^{\infty}\frac{\ln x}{x^{2}}\dx$ converges or diverges.
+
+We would like to bound $\ln x$ by a power of $x$.  From the ``Big Theorem'' on the growth of logarithms,
+\[
+  \lim_{x\to\infty}\frac{\ln x}{x^{1/2}} = 0,
+\]
+which means that for all sufficiently large $x$, $\ln x < x^{1/2}$.
+
+A first attempt to compare $\ln x$ with $x$ gives:
+\[
+  \frac{\ln x}{x^{2}} < \frac{x}{x^{2}} = \frac{1}{x},
+\]
+but $\int_{1}^{\infty}\frac{1}{x}\dx = \infty$, so this comparison is \textbf{inconclusive}.
+
+Instead, use the tighter bound $\ln x < x^{1/2}$:
+\[
+  0 \;\le\; \frac{\ln x}{x^{2}} \;<\; \frac{x^{1/2}}{x^{2}} \;=\; \frac{1}{x^{3/2}}
+\]
+for all sufficiently large $x$.  Since $\int_{1}^{\infty}\frac{1}{x^{3/2}}\dx$ converges ($p=\frac{3}{2}>1$), the Basic Comparison Test gives that $\displaystyle\int_{1}^{\infty}\frac{\ln x}{x^{2}}\dx$ is \textbf{convergent}.
+\end{example}
+
+\begin{remark}
+The comparison need only hold for all sufficiently large $x$ (say $x\ge M$ for some $M$).  The integral from $1$ to $M$ is a finite number and does not affect convergence or divergence.  This principle applies to both the Basic and Limit-Comparison Tests.
+\end{remark}
+
+%=============================================================================
+\section{The Limit-Comparison Test}
+\label{sec:12.9}
+%=============================================================================
+
+\textit{The Limit-Comparison Test provides a more flexible method of comparison.  Rather than requiring a pointwise inequality $f(x)\le g(x)$, we only need the two functions to be \emph{asymptotically proportional}: their ratio must tend to a positive constant.}
+
+\begin{theorem}[Limit-Comparison Test]
+\label{thm:12-4}
+Let $a\in\R$ and let $f,g$ be positive and continuous on $[a,\infty)$.  Suppose
+\[
+  \lim_{x\to\infty}\frac{f(x)}{g(x)} = L,
+\]
+where $0<L<\infty$ (a positive, finite number).  Then
+\[
+  \int_{a}^{\infty}f(x)\dx \;\text{ converges}
+  \quad\Longleftrightarrow\quad
+  \int_{a}^{\infty}g(x)\dx \;\text{ converges.}
+\]
+That is, the two integrals are either both convergent or both divergent.
+\end{theorem}
+
+\subsection*{How to use the test}
+
+\textit{The strategy is: given a complicated integrand $f$, identify the ``dominant'' behaviour of $f(x)$ for large $x$ and let $g$ be that simpler function.  Then verify that $\lim_{x\to\infty}f(x)/g(x)$ is a positive finite number.}
+
+\begin{example}
+\label{ex:12-12}
+Determine whether $\displaystyle\int_{1}^{\infty}\frac{x^{2}+3x}{\sqrt{x^{5}+1}}\dx$ converges or diverges.
+
+Let $f(x)=\dfrac{x^{2}+3x}{\sqrt{x^{5}+1}}$.  For large $x$, the dominant terms are $x^{2}$ in the numerator and $\sqrt{x^{5}}=x^{5/2}$ in the denominator.  So we expect $f(x)\approx \frac{x^{2}}{x^{5/2}}=\frac{1}{x^{1/2}}$.  Set $g(x)=\dfrac{1}{x^{1/2}}$.
+
+Compute the limit:
+\[
+  \lim_{x\to\infty}\frac{f(x)}{g(x)}
+  = \lim_{x\to\infty}\frac{x^{2}+3x}{\sqrt{x^{5}+1}}\cdot x^{1/2}
+  = \lim_{x\to\infty}\frac{x^{5/2}+3x^{3/2}}{\sqrt{x^{5}+1}}
+  = 1.
+\]
+Since $L=1>0$, the Limit-Comparison Test applies.  We know $\int_{1}^{\infty}\frac{1}{x^{1/2}}\dx$ diverges ($p=\frac{1}{2}\le 1$).  Therefore $\displaystyle\int_{1}^{\infty}\frac{x^{2}+3x}{\sqrt{x^{5}+1}}\dx$ is \textbf{divergent}.
+\end{example}
+
+\begin{example}
+\label{ex:12-13}
+Determine whether $\displaystyle\int_{1}^{\infty}\sin\!\left(\frac{1}{x^{2}}\right)\dx$ converges or diverges.
+
+For $x\ge 1$, the argument $\frac{1}{x^{2}}\in(0,1]$, so $\sin\!\left(\frac{1}{x^{2}}\right)>0$.  As $x\to\infty$, $\frac{1}{x^{2}}\to 0$, and we recall $\lim_{t\to 0}\frac{\sin t}{t}=1$.  Set $f(x)=\sin\!\left(\frac{1}{x^{2}}\right)$ and $g(x)=\frac{1}{x^{2}}$.  Then
+\[
+  \lim_{x\to\infty}\frac{f(x)}{g(x)}
+  = \lim_{x\to\infty}\frac{\sin(1/x^{2})}{1/x^{2}}
+  = 1.
+\]
+Since $L=1>0$ and $\int_{1}^{\infty}\frac{1}{x^{2}}\dx$ converges ($p=2>1$), the Limit-Comparison Test gives that $\displaystyle\int_{1}^{\infty}\sin\!\left(\frac{1}{x^{2}}\right)\dx$ is \textbf{convergent}.
+\end{example}
+
+\begin{remark}[Pause and Try]
+What can we conclude if $L=0$ in the Limit-Comparison Test?  What if $L=\infty$?  In each case, only \emph{half} of the conclusion survives.  Try to determine which half by examining the proof in the next section.
+\end{remark}
+
+%=============================================================================
+\section{Proof of the Limit-Comparison Test}
+\label{sec:12.10}
+%=============================================================================
+
+\textit{The proof reduces the Limit-Comparison Test to the Basic Comparison Test by extracting a two-sided inequality from the definition of a limit.}
+
+\subsection*{Rough work}
+
+\textit{The hypothesis $\lim_{x\to\infty}\frac{f(x)}{g(x)}=L$ means that for large $x$, $f(x)\approx L\cdot g(x)$.  If $f$ is approximately a positive constant times $g$, it is plausible that their integrals converge or diverge together.  To make this rigorous, we use the formal definition of a limit to sandwich $f$ between two constant multiples of $g$.}
+
+\begin{proof}
+Since $f$ and $g$ are positive and continuous on $[a,\infty)$, \cref{thm:12-2} implies each of $\int_{a}^{\infty}f(x)\dx$ and $\int_{a}^{\infty}g(x)\dx$ is either convergent or $+\infty$.  We show these two integrals have the same status.
+
+Take $\eps=\dfrac{L}{2}>0$.  By the definition of the limit, there exists $M\ge a$ such that for all $x\ge M$,
+\[
+  \left\lvert\frac{f(x)}{g(x)}-L\right\rvert < \frac{L}{2}.
+\]
+\proofref{Definition of limit with $\eps = L/2$.}
+Equivalently, for all $x\ge M$,
+\[
+  \frac{L}{2}\,g(x) \;\le\; f(x) \;\le\; \frac{3L}{2}\,g(x).
+\]
+Both $\frac{L}{2}$ and $\frac{3L}{2}$ are positive constants.
+
+\textit{The inequality only holds for $x\ge M$, but this is sufficient: for any continuous function $h$,}
+\[
+  \int_{a}^{\infty}h(x)\dx = \underbrace{\int_{a}^{M}h(x)\dx}_{\text{finite number}} + \int_{M}^{\infty}h(x)\dx,
+\]
+\textit{so the integral from $a$ to $\infty$ converges if and only if the integral from $M$ to $\infty$ converges.}
+
+\textbf{Step 1.}  Assume $\int_{M}^{\infty}g(x)\dx$ converges.  Then $\int_{M}^{\infty}\frac{3L}{2}\,g(x)\dx$ converges (a constant multiple of a convergent integral).  Since $f(x)\le\frac{3L}{2}\,g(x)$ for $x\ge M$, the Basic Comparison Test (\cref{thm:12-3}) gives $\int_{M}^{\infty}f(x)\dx<\infty$.
+\proofref{Basic Comparison Test (\ref{thm:12-3}) with $f\le\frac{3L}{2}g$.}
+
+\textbf{Step 2.}  Assume $\int_{M}^{\infty}f(x)\dx$ converges.  Since $\frac{L}{2}\,g(x)\le f(x)$ for $x\ge M$, the Basic Comparison Test gives $\int_{M}^{\infty}\frac{L}{2}\,g(x)\dx<\infty$, and hence $\int_{M}^{\infty}g(x)\dx<\infty$.
+\proofref{Basic Comparison Test (\ref{thm:12-3}) with $\frac{L}{2}g\le f$.}
+
+Since convergence from $M$ to $\infty$ is equivalent to convergence from $a$ to $\infty$, we conclude:
+\[
+  \int_{a}^{\infty}f(x)\dx \text{ converges}
+  \quad\Longleftrightarrow\quad
+  \int_{a}^{\infty}g(x)\dx \text{ converges.} \qedhere
+\]
+\end{proof}
+
+\begin{remark}
+Examining the proof reveals two extended versions of the theorem:
+\begin{itemize}
+  \item If $L=0$: only the inequality $f(x)\le\frac{3L}{2}\,g(x)$ survives in a useful form (with $L$ replaced by a small $\eps$).  We can conclude: if $\int_{a}^{\infty}g(x)\dx$ converges, then $\int_{a}^{\infty}f(x)\dx$ converges.  But the converse need not hold.
+  \item If $L=\infty$: by symmetry (swap $f$ and $g$, the reciprocal limit is $0$), we can conclude: if $\int_{a}^{\infty}g(x)\dx$ diverges, then $\int_{a}^{\infty}f(x)\dx$ diverges.  But the converse need not hold.
+\end{itemize}
+\end{remark}

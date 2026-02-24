@@ -1,0 +1,21 @@
+\begin{tikzpicture}
+  \begin{axis}[
+    width=11cm,
+    height=6.8cm,
+    axis lines=middle,
+    xmin=-0.05, xmax=1.2,
+    ymin=-0.1, ymax=3.6,
+    xlabel={$x$}, ylabel={$y$},
+    ticks=none,
+    clip=true
+  ]
+    % f(x)=1/sqrt(x) on (0,1]
+    \addplot[thick, color=thmcolor, domain=0.01:1.2, samples=400] {1/sqrt(x)};
+    \addplot[draw=none, fill=excolor, fill opacity=0.12, domain=0.01:1] {1/sqrt(x)} \closedcycle;
+
+    % Indicate the singularity at 0
+    \draw[dotted, color=defcolor] (axis cs:0, -0.1) -- (axis cs:0, 3.6);
+    \node[color=defcolor, anchor=west] at (axis cs:0.02,3.4) {blows up at $0$};
+    \node[anchor=west] at (axis cs:0.55,3.2) {$\int_0^1 x^{-1/2}\,dx$ converges};
+  \end{axis}
+\end{tikzpicture}

@@ -1,0 +1,109 @@
+In the previous video,
+I introduced the statement
+of the second part
+of the fundamental theorem of calculus,
+and I gave an example of how to use it.
+In this video, I will write down
+a proof for this theorem.
+As a reminder,
+here's what the theorem says:
+I begin with a function little f that
+must be continuous on an interval [a,b],
+and I want to compute
+its definite integral.
+The theorem says that
+if I take any antiderivative G of f,
+then the definite integral of f
+from a to b is
+the antiderivative at b
+minus the antiderivative at a.
+That's what we want to prove.
+Here's how the proof goes.
+The only thing I know about G is that
+this is an antiderivative of f,
+or in other words,
+the derivative of G is f.
+So that's what I'm going to use about G.
+I can't use anything else.
+And as a reminder, what I want to show
+is that the integral from a to b of f(x)dx
+is G(b) - G(a).
+In this proof,
+I am going to use the first part
+of the fundamental theorem of calculus,
+because we have already proven
+that one separately.
+So imitating that part,
+I'm going to introduce a new function.
+I'm going to define
+the function big F as an integral of f.
+So F(x) is equal to
+the integral from a to x of f(t)dt.
+So this is a function that wasn't
+part of the statement of the theorem;
+I'm introducing it as part of the proof.
+And in terms of this function,
+what I am trying to prove
+can be rewritten this way:
+I want to show that F(b)
+is equal to G(b) - G(a).
+So I'm trying to show that there is
+this relation between F and G.
+What we know about F
+comes from the first part
+of the fundamental theorem of calculus.
+Since F is defined as an integral of f,
+it must be an antiderivative.
+Or specifically,
+since f is continuous,
+by the fundamental theorem of calculus
+part one,
+the derivative of F must be equal to f.
+And so, at this moment,
+I have two different antiderivatives of f:
+one that I constructed, the other one
+that was part of the statement.
+And therefore I have two functions
+with the same derivative.
+And we know that when we have two
+functions with the same derivative,
+F and G, they must differ by a constant.
+So F - G is constant.
+This is due to a consequence
+of the mean value theorem.
+In other words, there exists a real
+constant C such that F(x) = G(x) + C.
+This must be true for all values of x
+on the domain, on the interval.
+So this gives me, partially,
+the relation between F and G.
+Now I want to figure out
+what this constant is,
+and to do that I'm going to evaluate both
+sides of the equation at the same point.
+And I'm going to choose to evaluate at a
+to figure out the value of the constant,
+because at a,
+one of them is easy to compute.
+Specifically, F(a) is 0.
+That is by its definition.
+F(a) will be the integral from a to a
+of something, so that is 0.
+So 0 must be equal to G(a) + C,
+plus the constant.
+And from here, I can solve and conclude
+that the constant must be equal to -G(a).
+So to summarize,
+what I have concluded
+is that for every real number x
+on the interval from a to b,
+F(x) is equal to G(x) - G(a).
+That's the value of the constant.
+In particular,
+when I take x to be equal to b,
+this means that F(b)
+is equal to G(b) - G(a).
+But look at the top - that is exactly
+what we needed to prove.
+That's what we wanted,
+and therefore this concludes the proof.

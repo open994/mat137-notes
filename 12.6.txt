@@ -1,0 +1,296 @@
+In this video, I will explain how to
+work with doubly improper integrals.
+These are integrals that are
+improper in more than one way,
+most of the time at both ends
+of the interval of integration.
+I will begin with an example.
+I want to calculate the integral from
+minus infinity to infinity
+of the function x
+with respect to x.
+Here is what the graph
+of the function looks like.
+This integral is improper
+for two reasons:
+the domain goes all the way to minus
+infinity, and all the way to infinity.
+Which means we first have to figure out
+how to define this.
+It may make sense
+or maybe it's not even well-defined.
+Geometrically,
+what I'm doing is looking at this area
+between the graph of the function
+and the x-axis,
+but the area above the x-axis
+counts as positive
+and the area below the x-axis
+counts as negative.
+So is it tempting to say that by symmetry
+the answer will be 0?
+This function is odd, so this region
+is exactly equal to this region.
+So they'll cancel
+and we'll come up with 0.
+I want to argue that that is
+an incorrect explanation,
+and that is because
+the area above the x-axis is infinity,
+the area below the x-axis is
+going to give us minus infinity,
+and I cannot cancel
+plus with minus infinity.
+But let me do this in a bit more detail.
+We know that we can't integrate between
+minus infinity and infinity directly,
+we can only integrate a
+function that's continuous,
+for example, on an interval
+that includes both endpoints.
+So perhaps we can set this up by
+integrating between -R and R,
+where R is a positive real number,
+the same function.
+So integrating between here and here
+and then taking the limit
+as R goes to infinity.
+This seems like
+a reasonable interpretation.
+I integrate between here and here and
+then I make R grow bigger and bigger.
+So what happens if I
+calculate this limit?
+An antiderivative of x is x²/2,
+and then I evaluate at the endpoints,
+so I get R²/2 - (-R²)/2,
+and this quantity here is identically 0.
+So the limit is 0.
+Okay, so, this calculation argues for 0.
+It is true
+that the value of this limit is 0,
+but the question is whether it is okay
+to choose the value of this limit
+and assign it
+as the value of the integral.
+Here is an argument why
+I shouldn't do this.
+In this first calculation,
+I've chosen to center my domain at 0,
+but my domain is all the real numbers,
+and there's nothing special about 0.
+I could have chosen to
+center it at 1 instead.
+So instead of integrating
+between -R and R,
+why not integrate
+between 1 - R and 1 + R?
+It should be equally good.
+Then integrate the function,
+and then take the limit.
+That seems like as much a valid
+interpretation as the previous one.
+So I won't do the details,
+it's an easy computation.
+I invite you to do it,
+and you'll see that in this case 
+the answer comes out to be infinity.
+So which one is it?
+The answer is none of them.
+Any good interpretation,
+any good definition for this quantity,
+should be one that agrees
+in this calculation and in this one.
+And the fact that both of them give me
+different answers is an indication
+that I should not define this
+to be a number at all,
+that this is not well defined,
+that this is divergent.
+And once again, that is because I cannot
+cancel plus infinity with minus infinity.
+If you ever allow infinity and minus
+infinity to cancel with each other,
+then bad things happen.
+So perhaps this argument
+doesn't convince you.
+Here's another way
+to look at the same problem.
+Before I try to compute this integral,
+I'm going to perform a substitution.
+I'm going to change x into u + 1
+with a new variable u,
+and so dx will be du.
+So what happens when I do that?
+I get ∫(u + 1)du.
+And now as X approaches minus infinity,
+so does u,
+and as x approaches infinity,
+so does u.
+And now I can break this into the
+sum of two integrals using linearity.
+And look what happens now:
+this piece here is exactly the same
+as the piece I started with,
+so this is again I.
+Whereas this integral here,
+this one is unambiguous.
+This one is definitely infinity.
+It's the integral of the
+constant function 1
+from minus infinity to infinity.
+Just picture the graph.
+So I end up with the conclusion that
+I must be equal to I plus infinity.
+Now this again is an argument for why
+it's better to say that I is not a number.
+If I try to make this integral convergent
+and assign it the value of a number,
+in particular 0,
+I get a contradiction here.
+If we ever try to cancel infinity
+with minus infinity,
+which is what I was doing
+at the beginning,
+we have to give up all the things we take
+for granted and that are very useful,
+like linearity of the integral
+or the substitution rule.
+It is better just to say that this
+integral is divergent
+and it is not a number.
+Okay, but how do we come up to that
+conclusion in a rigorous systematic way?
+Here is the original integral again.
+As we said, it is improper at minus
+infinity, and it is improper at infinity.
+What I'm going to do
+is break it into two pieces,
+each one of them improper
+at only one end.
+For example, I can break this at 0,
+and I have the sum
+of these two integrals.
+And now each one of these two pieces
+is an improper integral.
+It may still be a number or not.
+But each one of them,
+I know exactly how to study.
+There are no cancellations possible.
+So I'm going to write each one of them
+separately as a limit.
+The first one can be written
+as this limit,
+whereas the second one can be written
+as this limit.
+and now for the integral
+(the original one) to be convergent,
+I need both limits to exist separately.
+If they exist separately
+(don't mix them yet),
+then everything will be alright.
+Then I can try to do cancellations
+and use properties,
+and I won't draw any contradictions.
+Unfortunately,
+in this case that doesn't happen,
+because the first limit is going to be
+minus infinity,
+and the second limit is going to be
+plus infinity.
+Which means in this case, the original
+integral is simply divergent.
+And we stop there.
+Any attempt to define this integral
+to be any particular number
+will end up in nice properties
+being broken and contradictions.
+Here is the general strategy.
+Let's say I want to calculate an integral,
+I'm going to call it A,
+which is multiply improper.
+This means that it is improper,
+it has problems, in more than one way,
+perhaps both ends of integration
+like the previous one,
+or perhaps there's a problem at an
+intermediate point
+in the middle of the domain.
+What we are always going to do is
+first break the domain into pieces,
+so that the integral over each piece is
+improper at one point and one point only,
+because then each one of those pieces
+I know how to study it independently,
+how to set it up as a limit,
+and determine whether it is
+convergent or divergent.
+Those are all of the same kind.
+Then if all the pieces are
+convergent separately,
+then the original improper integral
+is also convergent,
+and then you can use all the properties
+you expect to be able to use
+for integrals,
+and you never get contradictions,
+and everything is fine.
+But if at least one of the pieces
+is divergent,
+then we say the original integral
+is also divergent,
+and then it is NOT a number.
+Any attempt to define it as a number
+will probably lead to trouble.
+You may wonder how we choose
+how to break the domain,
+and the answer is that it doesn't matter.
+This is a little exercise:
+the outcome won't depend on how you
+break the original domain
+as long as you break it into pieces
+such that
+each piece is only improper
+at one endpoint.
+For example, let's say I want to
+integrate from 0 to infinity
+this function, 1/√x(1+x²)dx.
+This is improper at infinity,
+because they always are,
+but also at 0, because the function is
+undefined at 0
+and I have a vertical aymptote.
+The way to deal with that is
+to separate it into two parts:
+the integral from 0 to 1
+and the integral from 1 to infinity.
+Now each one of them is improper
+in a simple way,
+they're like previous examples,
+and I can study them separately.
+If they're both convergent,
+then the full integral is convergent.
+If at least one of them is divergent,
+then the full integral is divergent.
+Or here is an example
+that looks different:
+the integral from -1 to 1
+of 1/x² dx.
+This one is improper,
+but it's a bit hidden.
+It's improper at 0
+because the function is not defined at 0
+and has a vertical asymptote at 0.
+The way to deal with it
+is to split this integral into two pieces,
+the integral from -1 to 0
+and integral from 0 to 1,
+because now each one of them
+is improper in a familiar way,
+I know how to deal with it,
+I know how to set it up as a limit
+and how to study it.
+If both of them are convergent separately,
+the full thing is convergent.
+But if at least one of them is divergent,
+then the full thing is also divergent.
