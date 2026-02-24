@@ -2,5 +2,10 @@
 *.out
 *.fdb_latexmk
 *.gz
+*.toc
+*.fls
+*.log
+*.dvi
 txt/
 notes/%OUTDIR%/
+*/.DS_Store
